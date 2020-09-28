@@ -19,7 +19,6 @@ class FeedPageViewController:
     
     fileprivate var presenter: FeedPagePresenterProtocol!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -27,24 +26,19 @@ class FeedPageViewController:
         presenter = FeedPagePresenter(view: self)
         presenter.viewDidLoad()
     }
-
 }
 
 extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        // what is the presenter
         guard let indexedFeed = presenter.fetchPreviousFeed() else {
             return nil
         }
-        
         /// return a feed screen which realisies the information in the next item in the feed.
         return FeedViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
         
         guard let indexedFeed = presenter.fetchNextFeed() else {
             return nil

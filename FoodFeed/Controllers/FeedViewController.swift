@@ -39,6 +39,8 @@ class FeedViewController:
         if let image = feed.image {
             mainImage.image = UIImage(named: image)
         }
+        
+        let myGif = UIImage()
         layoutSubviews()
     }
     

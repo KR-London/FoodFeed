@@ -31,7 +31,6 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         self.fetcher = fetcher
     }
     
-    
     func viewDidLoad() {
         fetcher.delegate = self
        // configureAudioSession()
@@ -76,6 +75,8 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
 }
 
 extension FeedPagePresenter: FeedFetchDelegate{
+    
+    // This makes the feed sequence repeat
     func updateFeed( index : Int, increasing : Bool) -> [Feed]{
         
         var itemToAddToEndOfLoop = feeds[index]
