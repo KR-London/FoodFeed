@@ -10,4 +10,6 @@ import Foundation
 
 struct Feed: Decodable{
     var id: Int
+    let text: String?
+    let image: String?
 }

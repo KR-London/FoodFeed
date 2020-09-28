@@ -19,16 +19,17 @@ class FeedFetcher: FeedFetchProtocol {
     }
     
     func fetchFeeds() {
-        var feeds = [Feed(id: 1)]
+      //  var feeds = [Feed(id: 1, text: "One")]
         
-        self.delegate?.feedFetchService(self, didFetchFeeds: feeds, withError: nil)
+     //   self.delegate?.feedFetchService(self, didFetchFeeds: feeds, withError: nil)
     }
     
     //fileprivate func fetchFeedSuccess(withData data: Data) {
     fileprivate func fetchFeedSuccess(withData data: Data) {
-        var feeds = [Feed(id: 1)]
+      //  var feeds = [Feed(id: 1, text: nil )]
     
-        self.delegate?.feedFetchService(self, didFetchFeeds: feeds, withError: nil)
+       // self.delegate?.feedFetchService(self, didFetchFeeds: feeds, withError: nil)
     
     }
 }
+
