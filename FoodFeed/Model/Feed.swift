@@ -10,6 +10,20 @@ import Foundation
 
 struct Feed: Decodable{
     var id: Int
+    
+    // Content types
     let text: String?
     let image: String?
+    let gifName: String?
+    
+    let originalFilename: String
+    var liked = false
+    
+    func toAnyObject() -> Any {
+        return [
+            "name": originalFilename,
+            "liked": liked,
+        ]
+    }
+    
 }

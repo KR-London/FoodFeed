@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Feed Item View Controller-->
         <scene sceneID="dd4-D0-dAi">
             <objects>
-                <viewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3nP-Ma-oiP" customClass="FeedViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedItemViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3nP-Ma-oiP" customClass="FeedItemViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P41-wU-IBi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtx-lX-7eE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="-304"/>
+            <point key="canvasLocation" x="1432" y="-320"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="rG6-Fc-WsI">
+            <objects>
+                <viewController id="1IE-9a-yk2" customClass="testViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="leO-br-pj4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZXd-MK-R7V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DiB-Ug-DNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.36231884057972" y="666.96428571428567"/>
         </scene>
         <!--Make Gif-->
         <scene sceneID="wg7-f3-ORb">
@@ -110,7 +125,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-135" y="-1"/>
         </scene>
     </scenes>
     <resources>

@@ -13,7 +13,7 @@ class FeedPageViewController:
         FeedPageView
 {
     func presentInitialFeed(_ feed: Feed) {
-        let viewController = FeedViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedViewController
+        let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
         setViewControllers([viewController], direction: .forward, animated: false, completion: nil)
     }
     
@@ -23,7 +23,8 @@ class FeedPageViewController:
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        presenter = FeedPagePresenter(view: self)
+        let mock = MockFeedFetcher()
+        presenter = FeedPagePresenter(view: self, fetcher: mock)
         presenter.viewDidLoad()
     }
 }
@@ -35,7 +36,7 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
             return nil
         }
         /// return a feed screen which realisies the information in the next item in the feed.
-        return FeedViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
+        return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -43,14 +44,14 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         guard let indexedFeed = presenter.fetchNextFeed() else {
             return nil
         }
-        return FeedViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
+        return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard completed else { return }
         if
-            let viewController = pageViewController.viewControllers?.first as? FeedViewController,
-            let previousViewController = previousViewControllers.first as? FeedViewController
+            let viewController = pageViewController.viewControllers?.first as? FeedItemViewController,
+            let previousViewController = previousViewControllers.first as? FeedItemViewController
         {
            // previousViewController.pause()
             //viewController.play()

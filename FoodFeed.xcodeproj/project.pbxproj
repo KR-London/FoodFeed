@@ -22,6 +22,8 @@
 		44C3DF212521D99000D317DA /* three.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF202521D99000D317DA /* three.jpeg */; };
 		44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF2C2521F1F300D317DA /* giphy-13.gif */; };
 		44C3DF332521F4FD00D317DA /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44C3DF322521F4FD00D317DA /* SwiftyGif */; };
+		44C3DF42252A0CAD00D317DA /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DF41252A0CAD00D317DA /* testViewController.swift */; };
+		44C3DF47252A274100D317DA /* fieri.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF46252A274100D317DA /* fieri.jpeg */; };
 		44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1918724F8CF7300DC5718 /* FeedViewController.swift */; };
 		44F1918A24F8E0A100DC5718 /* pineapple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44F1918924F8E0A100DC5718 /* pineapple.jpeg */; };
 		65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2124F816C2004CA3E9 /* AppDelegate.swift */; };
@@ -67,6 +69,8 @@
 		44C3DF1B2521D96100D317DA /* two.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = two.jpeg; sourceTree = "<group>"; };
 		44C3DF202521D99000D317DA /* three.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = three.jpeg; sourceTree = "<group>"; };
 		44C3DF2C2521F1F300D317DA /* giphy-13.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy-13.gif"; sourceTree = "<group>"; };
+		44C3DF41252A0CAD00D317DA /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		44C3DF46252A274100D317DA /* fieri.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fieri.jpeg; sourceTree = "<group>"; };
 		44F1918724F8CF7300DC5718 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		44F1918924F8E0A100DC5718 /* pineapple.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pineapple.jpeg; sourceTree = "<group>"; };
 		65D07A1E24F816C2004CA3E9 /* FoodFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +155,7 @@
 				44C3DF162521D94C00D317DA /* one.jpeg */,
 				44C3DF1B2521D96100D317DA /* two.jpeg */,
 				44C3DF202521D99000D317DA /* three.jpeg */,
+				44C3DF46252A274100D317DA /* fieri.jpeg */,
 			);
 			path = PlaceholderAssets;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				44C3DF052520DEF400D317DA /* Util */,
 				44C3DED22520C3AE00D317DA /* FeedFetchService.swift */,
 				65D07A2924F816C2004CA3E9 /* Main.storyboard */,
+				44C3DF41252A0CAD00D317DA /* testViewController.swift */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
 				65D07A3124F816C5004CA3E9 /* LaunchScreen.storyboard */,
@@ -327,6 +333,7 @@
 				44F1918A24F8E0A100DC5718 /* pineapple.jpeg in Resources */,
 				44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */,
 				44C3DF1C2521D96100D317DA /* two.jpeg in Resources */,
+				44C3DF47252A274100D317DA /* fieri.jpeg in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				44C3DF212521D99000D317DA /* three.jpeg in Resources */,
@@ -357,6 +364,7 @@
 			files = (
 				44C3DECE2520C30700D317DA /* FeedPagePresenter.swift in Sources */,
 				65D07A2E24F816C2004CA3E9 /* FoodFeed.xcdatamodeld in Sources */,
+				44C3DF42252A0CAD00D317DA /* testViewController.swift in Sources */,
 				44C3DEB42520B76000D317DA /* Feed.swift in Sources */,
 				65D07A2824F816C2004CA3E9 /* SecondViewController.swift in Sources */,
 				44C3DEC32520C15600D317DA /* Protocols.swift in Sources */,

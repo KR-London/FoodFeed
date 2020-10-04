@@ -19,14 +19,6 @@ protocol  FeedPagePresenterProtocol: class {
     func updateFeed( index: Int, increasing: Bool) -> [Feed]
 }
 
-protocol FeedFetchDelegate: class {
-    func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds feeds: [Feed], withError error: Error?)
-}
-
-protocol FeedFetchProtocol: class {
-    var delegate: FeedFetchDelegate? { get set }
-    func fetchFeeds()
-}
 
 protocol FeedPageView: class{
     func presentInitialFeed(_ feed: Feed)
