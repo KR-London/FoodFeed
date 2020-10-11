@@ -36,8 +36,12 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         fetcher.delegate = self
        // configureAudioSession()
         
-        feeds = [Feed(id: 0, text: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 1, text: nil, image: "one.jpeg", gifName: "giphy-13.gif", originalFilename: "original2"), Feed(id: 1, text: nil, image: "one.jpeg", gifName: nil, originalFilename: "original3")]
-    //    feeds = fetcher.returnFeed()
+        
+        // FIXME: Not supposed to need this - mock feed fetcher is supposed to take care of this.
+        feeds = [Feed(id: 0, text: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"),
+                 Feed(id: 1, text: "My best friends birthday next week!", image: nil, gifName: nil, originalFilename: "original2"),
+                 Feed(id: 2, text: nil, image: nil, gifName: "giphy30.gif", originalFilename: "original3")]
+        //feeds = fetcher.returnFeed()
         
         fetchFeeds()
         let initialFeed = Feed(id: 0, text:  "Swipe!", image: nil, gifName: nil, originalFilename: "originalStarter")

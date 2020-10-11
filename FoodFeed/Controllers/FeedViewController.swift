@@ -11,12 +11,18 @@ import AVKit
 import AVFoundation
 import SwiftyGif
 
-class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDelegate {
-    
+class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDelegate{
+
     static var sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var index: Int!
     var feed: Feed!
     var characterQuipLabel = UILabel()
+    
+    static let reuseID = "CELL"
+    
+    let commentsView = CommentsView()
+    var commentsDriver = TimedComments()
+    var comments: [Comment] = []
     
     fileprivate var isPlaying: Bool!
     
@@ -71,9 +77,9 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         
         let pic = UIImageView()
         
-        pic.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        pic.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        pic.layer.cornerRadius = 50
+        pic.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        pic.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        pic.layer.cornerRadius = 20
         pic.layer.masksToBounds = true
         pic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         pic.layer.borderWidth = 2
@@ -90,9 +96,9 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         let stack = UIStackView()
         
         stack.axis = .vertical
-        stack.alignment = .trailing
+        stack.alignment = .center
         stack.contentMode = .scaleAspectFit
-        stack.distribution = .fillProportionally
+        stack.distribution = .equalSpacing
         
         return stack
     }()
@@ -114,8 +120,6 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
         
-        
-        
         if let image = feed.image {
             mainImage.image = UIImage(named: image)
         }
@@ -129,14 +133,36 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
             } catch {
                 print(error)
             }
-            
-            view.bringSubviewToFront(buttonStack)
-
         }
+        
+        commentsDriver.didUpdateComments =
+            {
+                comments in
+                self.comments = comments
+                self.commentsView.reloadData()
+            }
+        commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+        commentsView.delegate = self
+        commentsView.dataSource = self
+        
+        view.bringSubviewToFront(buttonStack)
+        view.bringSubviewToFront(commentsView)
+        
 
     }
     
     func layoutSubviews(){
+        
+        let margins = view.layoutMarginsGuide
+        
+        view.addSubview(commentsView)
+        commentsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            commentsView.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3),
+            commentsView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            commentsView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -10),
+            commentsView.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 0.6)
+        ])
         
         profilePicture.image = UIImage(named: ["fieri.jpeg"].randomElement()!)
         
@@ -146,12 +172,17 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         
         self.view.addSubview(buttonStack)
         
-        let frame = self.view.frame
-        buttonStack.frame = CGRect(x: frame.maxX - 150, y: frame.maxY - 400, width: 150, height: 300)
+      //  let frame = self.view.frame
+     //   buttonStack.frame = CGRect(x: frame.maxX - 150, y: frame.maxY - 400, width: 150, height: 300)
         
-  
-        
-        let margins = view.layoutMarginsGuide
+        buttonStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            buttonStack.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.25),
+            buttonStack.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            buttonStack.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10),
+            buttonStack.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 0.1)
+        ])
+   
         
         self.view.addSubview(mainImage)
         mainImage.contentMode = .scaleAspectFill
@@ -179,8 +210,11 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
             characterQuipLabel.frame.inset(by: UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15))
             characterQuipLabel.textColor = [#colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1), #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1),#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1),#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1),#colorLiteral(red: 0.3176470697, green: 0.07450980693, blue: 0.02745098062, alpha: 1),#colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)].randomElement()
             view.bringSubviewToFront(characterQuipLabel)
-            
         }
+    }
+    
+    func setUpCommentsPipeline(){
+        
     }
         
         // Notes a like
@@ -337,4 +371,23 @@ extension FeedItemViewController: UIPickerViewDataSource {
         self.view.endEditing(true)
     }
     
+}
+
+extension FeedItemViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
+        cell.textLabel?.text = comments[indexPath.row]
+        return cell
+    }
+}
+
+extension FeedItemViewController: CommentProviderDelegate{
+    func didUpdate(comments: [Comment]){
+        self.comments = comments
+        self.commentsView.reloadData()
+    }
 }
