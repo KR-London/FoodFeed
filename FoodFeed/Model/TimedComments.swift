@@ -14,6 +14,7 @@ typealias Comment = String
 protocol CommentProviderDelegate {
     func didUpdate(comments: [Comment])
 }
+
 protocol CommentProvider
 {
     func comments(for id: Int) -> [Comment]

@@ -8,14 +8,10 @@
 
 import UIKit
 
-class CommentsView: UITableView {
-    
-//    required init?(coder:NSCoder) {
-//
-//        super.init(coder:coder)
-//        
-//        print("*** In MyTableView::init ***" )
-//    }
+extension UITableView {
 
+    func setUpCommentsView(){
+        backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+    }
 
 }

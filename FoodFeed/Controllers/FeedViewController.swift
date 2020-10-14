@@ -20,7 +20,10 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     
     static let reuseID = "CELL"
     
-    let commentsView = CommentsView()
+    let commentsView = UITableView()
+    
+    
+    
     var commentsDriver = TimedComments()
     var comments: [Comment] = []
     
@@ -52,7 +55,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         
         return button
     }()
-    
+
     lazy var dislikeButton :        UIButton = {
         
         let button = UIButton()
@@ -117,6 +120,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        commentsView.setUpCommentsView()
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
         
@@ -171,9 +176,6 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         buttonStack.addArrangedSubview(dislikeButton)
         
         self.view.addSubview(buttonStack)
-        
-      //  let frame = self.view.frame
-     //   buttonStack.frame = CGRect(x: frame.maxX - 150, y: frame.maxY - 400, width: 150, height: 300)
         
         buttonStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -380,7 +382,10 @@ extension FeedItemViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
-        cell.textLabel?.text = comments[indexPath.row]
+        cell.backgroundColor = UIColor.clear
+        if indexPath.row < comments.count {
+            cell.textLabel?.text = comments[comments.count - indexPath.row - 1]
+        }
         return cell
     }
 }

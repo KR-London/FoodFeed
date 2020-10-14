@@ -22,6 +22,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     
     
     fileprivate unowned var view: FeedPageView
+    
     fileprivate var fetcher: FeedFetchProtocol
     fileprivate var feeds: [Feed] = []
     fileprivate var currentFeedIndex = 0
