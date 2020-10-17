@@ -9,12 +9,140 @@
 import UIKit
 
 protocol FeedViewInteractionDelegate: class {
+    func likeTapped(_ sender: UIButton)
     var delegate: CommentProviderDelegate? { get set }
     func dontLikeThis(sender: UIView)
 }
 
+// button that has an "activated / deactivated" state
+
+/// Button that has an "activated / deactivated" state and a callback to react to a change in that state
+class ToggleButton: UIButton {
+    var isOn: Bool = false {
+        didSet {
+            // update appearance
+            self.tintColor = isOn ? .green : .red
+            if isOn {
+                self.setImage(selectedImage, for: .normal)
+            } else {
+                self.setImage(deselectedImage, for: .normal)
+            }
+        }
+    }
+    
+    var selectedImage: UIImage?
+    var deselectedImage: UIImage?
+    
+    var didToggle: ((Bool) -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.tintColor = UIColor.red
+        self.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
+    }
+    
+    @objc func didTap(_ sender: UIButton) {
+        self.isOn.toggle()
+        self.didToggle?(self.isOn)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+}
+
+
+/// A view that plays gifs and can be started and stopped
+class GifPlayerView: UIView {
+    var isPlaying: Bool = false
+    var url: URL?
+    init(url: URL? = nil) {
+        self.url = url
+        super.init(frame: .zero)
+        // setup touch interaction for play/pause
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+/// A view that contains a list of comments and scrolls the latest comments as they update (maybe :) ) [Unimplemented]
+class CommentsView: UIView {
+    var comments: [Comment] = []
+    
+    private let tableView: UITableView
+    
+    override init(frame: CGRect) {
+        tableView = UITableView.commentsTableView()
+        super.init(frame: frame)
+        setup()
+    }
+    required init?(coder: NSCoder) {
+        tableView = UITableView.commentsTableView()
+        super.init(coder: coder)
+        setup()
+    }
+    
+    private func setup() {
+        // add tableview to view
+        // 20 lines of setting properties on tablieview //  UITableViewr.comeent
+        // set datasource /
+    }
+}
+
+
+
+extension UITableView {
+    static func commentsTableView() -> UITableView {
+        let tableView = UITableView()
+        // configure / style
+        return tableView
+    }
+}
+
+//
+class FeedItemView: UIView {
+    private let gifPlayer = GifPlayerView()
+    private let likeButton = ToggleButton()
+    private let dislikeButton = ToggleButton()
+    private let commentsView = CommentsView()
+    private let profilePicture = UIImage()// ProfilePicture
+    
+    var likeButtonTapped: ((Bool) -> Void)?
+    var dislikeButtonTapped: ((Bool) -> Void)?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup() {
+        // add everything to view / layout
+        likeButton.didToggle = { isOn in
+            // do something that affects the feedview
+            self.likeButtonTapped?(isOn)
+        }
+        dislikeButton.didToggle = dislikeButtonTapped
+    }
+}
+
+
+
 extension UIView {
-    func feedViewLayout(feed: Feed, profilePic: UIImage){
+    
+    func feedViewLayout(feed: Feed, profilePic: UIImage, sender: UIViewController){
+        
+        weak var delegate: FeedViewInteractionDelegate?
+        
+        delegate = sender as! FeedViewInteractionDelegate
+        delegate?.dontLikeThis(sender: self)
         
         let margins = self.layoutMarginsGuide
         
@@ -99,7 +227,7 @@ extension UIView {
         likeButton.tintColor = UIColor.green
         likeButton.layer.cornerRadius = 50
         buttonStack.addArrangedSubview(likeButton)
-        likeButton.addTarget(self, action: #selector(likeTapped(_:)), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(likeTapped(_: )), for: .touchUpInside)
         
         let dislikeButton = UIButton()
         dislikeButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
@@ -126,10 +254,13 @@ extension UIView {
         ])
     }
 
+    //@objc func like(_ sender: UIButton){
+//        print("This works")
+//    }
     // Notes a like
     // toggles the value in user defaults, and changes appearance of button to match.
     @objc func likeTapped(_ sender: UIButton) {
-
+        
         print("I like this")
         let defaults = UserDefaults.standard
 

@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 import SwiftyGif
 
-class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDelegate{
+class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDelegate {
 
     static var sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var index: Int!
@@ -40,16 +40,37 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     }
 
     override func viewDidLoad() {
+        
+        let feedView = FeedItemView()
+        // layout etx.
+        
+        feedView.dislikeButtonTapped {
+            // update userdefaults / whatever
+        }
+        
+        
         super.viewDidLoad()
         
         commentsView.setUpCommentsView()
-        self.view.feedViewLayout(feed: feed, profilePic: UIImage(named: "fieri.jpeg")! )
+        self.view.feedViewLayout(feed: feed, profilePic: UIImage(named: "fieri.jpeg")!, sender: self )
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
         
         setUpCommentsView()
     }
+    
+    // likeTapped
+    // 1. change appearance of button i.e to a "tapped" state
+    // 2. update userdefaults to remember what use liked
+    
+    // dislikeTapped
+    // upate appearance
+    // bring up action menu to say why
+    // update userdefaults
+    
+    // play/pause
+    //
     
     func setUpCommentsView(){
         
@@ -81,90 +102,90 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         
     }
         
-//        // Notes a like
-//        // toggles the value in user defaults, and changes appearance of button to match.
-//        @objc func likeTapped(_ sender: UIButton) {
-//            var liked = defaults.array(forKey: "Liked") as? [String]
-//
-//            if #available(iOS 13.0, *) {
-//                if sender.backgroundImage(for: .normal) == UIImage(systemName: "heart")
-//                {
-//                    sender.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
-//                    sender.tintColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-//                    feed.liked = true
-//                    ///FIXME: Likes not persisiting(feed.gif as String)
-//                    let ref =  feed.image ?? feed.text ??  ""
-//
-//                    if let _ = liked {
-//                        liked = liked! + [ref]
-//                    }
-//                    else{
-//                        liked =  [ref]
-//                    }
-//
-//                    defaults.set( liked , forKey: "Liked")
-//
-//                }
-//                else
-//                {
-//                    sender.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
-//                    sender.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-//                    feed.liked = false
-//
-//                    //FIXME: feed.gif ?? to persisist likes
-//                    let ref = feed.image ?? feed.text ??  ""
-//
-//                    if let _ = liked {
-//                        liked = liked!.filter{ $0 != ref}
-//                    }
-//                    defaults.set( liked , forKey: "Liked")
-//                }
-//            } else {
-//                //FIXME: How to handle likes in iOS12
-//            }
-//
-//            //TODO: How to persist likes
-//            //        let dataToSave : [String: Any] = ["name": feed.originalFilename, "liked": feed.liked]
-//            //
-//            //        let docRef = userRef.document(Auth.auth().currentUser?.email ?? "Anonymous" + String(Int.random(in: 1...1000))).collection("likes").document(feed.originalFilename)
-//            //
-//            //        docRef.setData(dataToSave){
-//            //            (error) in
-//            //            if let error = error {
-//            //                print("Crumbs!")
-//            //                print( error.localizedDescription )
-//            //            }
-//            //            else{
-//            //                print("Data has been saved")
-//            //            }
-//            //        }
-//        }
+        // Notes a like
+        // toggles the value in user defaults, and changes appearance of button to match.
+        @objc func likeTapped(_ sender: UIButton) {
+            var liked = defaults.array(forKey: "Liked") as? [String]
+
+            if #available(iOS 13.0, *) {
+                if sender.backgroundImage(for: .normal) == UIImage(systemName: "heart")
+                {
+                    sender.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    sender.tintColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+                    feed.liked = true
+                    ///FIXME: Likes not persisiting(feed.gif as String)
+                    let ref =  feed.image ?? feed.text ??  ""
+
+                    if let _ = liked {
+                        liked = liked! + [ref]
+                    }
+                    else{
+                        liked =  [ref]
+                    }
+
+                    defaults.set( liked , forKey: "Liked")
+
+                }
+                else
+                {
+                    sender.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
+                    sender.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                    feed.liked = false
+
+                    //FIXME: feed.gif ?? to persisist likes
+                    let ref = feed.image ?? feed.text ??  ""
+
+                    if let _ = liked {
+                        liked = liked!.filter{ $0 != ref}
+                    }
+                    defaults.set( liked , forKey: "Liked")
+                }
+            } else {
+                //FIXME: How to handle likes in iOS12
+            }
+
+            //TODO: How to persist likes
+            //        let dataToSave : [String: Any] = ["name": feed.originalFilename, "liked": feed.liked]
+            //
+            //        let docRef = userRef.document(Auth.auth().currentUser?.email ?? "Anonymous" + String(Int.random(in: 1...1000))).collection("likes").document(feed.originalFilename)
+            //
+            //        docRef.setData(dataToSave){
+            //            (error) in
+            //            if let error = error {
+            //                print("Crumbs!")
+            //                print( error.localizedDescription )
+            //            }
+            //            else{
+            //                print("Data has been saved")
+            //            }
+            //        }
+        }
         
         
         // Notes that the user doesn't like a certain post
         // Gets some clarification why, and sends the data to Firestore
-//        @objc func dislikeTapped(_ sender: UIButton) {
-//
-//            pause()
-//
-//            let reasonPicker = UIPickerView()
-//
-//            reasonPicker.dataSource = self
-//            reasonPicker.delegate = self
-//
-//            let alert = UIAlertController(title: "Don't Want This?", message: "Can you tell me why to help me do better in future? \n\n\n\n\n\n\n\n\n\n\n\n", preferredStyle: .alert)
-//            alert.view.addSubview(reasonPicker)
-//            reasonPicker.frame = CGRect(x: 0, y: 40, width: 270, height: 200)
-//
-//            let selectAction = UIAlertAction(title: "OK", style: .default, handler: saveDislike)
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//            alert.addAction(selectAction.copy() as! UIAlertAction)
-//            alert.addAction(cancelAction)
-//
-//            present(alert, animated: true)
-//
-//        }
+        @objc func dislikeTapped(_ sender: UIButton) {
+
+            pause()
+
+            let reasonPicker = UIPickerView()
+
+            reasonPicker.dataSource = self
+            reasonPicker.delegate = self
+
+            let alert = UIAlertController(title: "Don't Want This?", message: "Can you tell me why to help me do better in future? \n\n\n\n\n\n\n\n\n\n\n\n", preferredStyle: .alert)
+            alert.view.addSubview(reasonPicker)
+            reasonPicker.frame = CGRect(x: 0, y: 40, width: 270, height: 200)
+
+            let selectAction = UIAlertAction(title: "OK", style: .default, handler: saveDislike)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+            alert.addAction(selectAction.copy() as! UIAlertAction)
+            alert.addAction(cancelAction)
+
+            present(alert, animated: true)
+
+        }
         
         func saveDislike(_ input: UIAlertAction){
             print("ME NO LIKE")
@@ -272,5 +293,8 @@ extension FeedItemViewController: FeedViewInteractionDelegate{
         print("I don't like this")
     }
     
+   func likeTapped(_ sender: UIButton) {
+        print("Back in VC")
+    }
     
 }

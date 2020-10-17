@@ -12,6 +12,7 @@ extension UITableView {
 
     func setUpCommentsView(){
         backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+        // 20 more lines of setup
     }
 
 }
