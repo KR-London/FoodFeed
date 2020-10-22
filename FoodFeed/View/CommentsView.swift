@@ -10,9 +10,15 @@ import UIKit
 
 extension UITableView {
 
-    func setUpCommentsView(){
+    func setUpCommentsView(margins: UILayoutGuide){
         backgroundColor = UIColor(white: 0.1, alpha: 0.2)
-        // 20 more lines of setup
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3),
+            bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+            leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -10),
+            widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 0.6)
+        ])
     }
 
 }

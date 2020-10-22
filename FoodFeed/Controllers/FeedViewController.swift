@@ -3,8 +3,7 @@
 //  FoodFeed
 //
 //  Created by Kate Roberts on 28/08/2020.
-//  Copyright © 2020 Daniel Haight. All rights reserved.
-//
+
 
 import UIKit
 import AVKit
@@ -40,106 +39,75 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     }
 
     override func viewDidLoad() {
-        
-        let feedView = FeedItemView()
-        // layout etx.
-        
-        feedView.dislikeButtonTapped {
-            // update userdefaults / whatever
-        }
-        
-        
-        super.viewDidLoad()
-        
-        commentsView.setUpCommentsView()
-        self.view.feedViewLayout(feed: feed, profilePic: UIImage(named: "fieri.jpeg")!, sender: self )
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        view.addGestureRecognizer(tap)
-        
+        let feedView = FeedItemView(frame: self.view.frame, feed: feed)
+        feedView.delegate = self
+        view = feedView
         setUpCommentsView()
     }
-    
-    // likeTapped
-    // 1. change appearance of button i.e to a "tapped" state
-    // 2. update userdefaults to remember what use liked
-    
-    // dislikeTapped
-    // upate appearance
-    // bring up action menu to say why
-    // update userdefaults
-    
-    // play/pause
-    //
-    
+
+
+    // MARK: Comments Work
+    // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
     func setUpCommentsView(){
-        
-        let margins = view.layoutMarginsGuide
-        
+
+
+        view.addSubview(commentsView)
+        commentsView.setUpCommentsView(margins: view.layoutMarginsGuide)
+
         commentsDriver.didUpdateComments =
-            {
-                comments in
-                self.comments = comments
-                self.commentsView.reloadData()
-            }
+        {
+            comments in
+            self.comments = comments
+            self.commentsView.reloadData()
+        }
+        
         commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
         commentsView.delegate = self
         commentsView.dataSource = self
-        
-        view.addSubview(commentsView)
-        commentsView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            commentsView.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3),
-            commentsView.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-            commentsView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: -10),
-            commentsView.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 0.6)
-        ])
 
-        view.bringSubviewToFront(commentsView)
-    }
+  }
     
     func setUpCommentsPipeline(){
         
     }
+    
+    // MARK: Likes & Dislikes actions
         
-        // Notes a like
-        // toggles the value in user defaults, and changes appearance of button to match.
-        @objc func likeTapped(_ sender: UIButton) {
-            var liked = defaults.array(forKey: "Liked") as? [String]
+        // Notes a like &toggles the value in user defaults
+        func likeTapped(_ sender: UIButton) {
+            
+        var liked = defaults.array(forKey: "Liked") as? [String]
 
-            if #available(iOS 13.0, *) {
-                if sender.backgroundImage(for: .normal) == UIImage(systemName: "heart")
-                {
-                    sender.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
-                    sender.tintColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-                    feed.liked = true
-                    ///FIXME: Likes not persisiting(feed.gif as String)
-                    let ref =  feed.image ?? feed.text ??  ""
+        if #available(iOS 13.0, *) {
+            if sender.backgroundImage(for: .normal) == UIImage(systemName: "heart")
+            {
+                feed.liked = true
+                ///FIXME: Likes not persisiting(feed.gif as String)
+                let ref =  feed.image ?? feed.text ??  ""
 
-                    if let _ = liked {
-                        liked = liked! + [ref]
-                    }
-                    else{
-                        liked =  [ref]
-                    }
-
-                    defaults.set( liked , forKey: "Liked")
-
+                if let _ = liked {
+                    liked = liked! + [ref]
                 }
-                else
-                {
-                    sender.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
-                    sender.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-                    feed.liked = false
-
-                    //FIXME: feed.gif ?? to persisist likes
-                    let ref = feed.image ?? feed.text ??  ""
-
-                    if let _ = liked {
-                        liked = liked!.filter{ $0 != ref}
-                    }
-                    defaults.set( liked , forKey: "Liked")
+                else{
+                    liked =  [ref]
                 }
+
+                defaults.set( liked , forKey: "Liked")
+
+            }
+            else
+            {
+
+                feed.liked = false
+
+                //FIXME: feed.gif ?? to persisist likes
+                let ref = feed.image ?? feed.text ??  ""
+
+                if let _ = liked {
+                    liked = liked!.filter{ $0 != ref}
+                }
+                defaults.set( liked , forKey: "Liked")
+            }
             } else {
                 //FIXME: How to handle likes in iOS12
             }
@@ -164,9 +132,11 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         
         // Notes that the user doesn't like a certain post
         // Gets some clarification why, and sends the data to Firestore
-        @objc func dislikeTapped(_ sender: UIButton) {
+        func dislikeTapped(_ sender: UIButton) {
+            
+            print("Dislike tapped")
 
-            pause()
+            //pause()
 
             let reasonPicker = UIPickerView()
 
@@ -262,7 +232,7 @@ extension FeedItemViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         comments.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
         cell.backgroundColor = UIColor.clear
@@ -276,7 +246,7 @@ extension FeedItemViewController: UITableViewDelegate, UITableViewDataSource{
 extension FeedItemViewController: CommentProviderDelegate{
     func didUpdate(comments: [Comment]){
         self.comments = comments
-        self.commentsView.reloadData()
+     //   self.commentsView.reloadData()
     }
 }
 
@@ -287,14 +257,6 @@ extension FeedItemViewController: FeedViewInteractionDelegate{
         }
         set {
         }
-    }
-    
-    func dontLikeThis(sender: UIView) {
-        print("I don't like this")
-    }
-    
-   func likeTapped(_ sender: UIButton) {
-        print("Back in VC")
     }
     
 }
