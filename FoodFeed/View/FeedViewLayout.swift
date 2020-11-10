@@ -6,14 +6,6 @@
 //  Copyright © 2020 Daniel Haight. All rights reserved.
 
 
-// likeTapped
-// 1. change appearance of button i.e to a "tapped" state
-// 2. update userdefaults to remember what use liked
-
-// dislikeTapped
-// upate appearance
-// bring up action menu to say why
-// update userdefaults
 
 // play/pause
 //
@@ -22,9 +14,9 @@
 import UIKit
 
 protocol FeedViewInteractionDelegate: class {
-    func likeTapped(_ sender: UIButton)
+//    func likeTapped(_ sender: UIButton)
     var delegate: CommentProviderDelegate? { get set }
-    func dislikeTapped(_ sender: UIButton)
+//    func dislikeTapped(_ sender: UIButton)
 }
 
 /// A view that plays gifs and can be started and stopped
@@ -207,20 +199,8 @@ class FeedItemView: UIView {
             mainView.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         ])
         
-        // MARK: Buttons and profile
-        let buttonStack = UIStackView()
-        
-        self.addSubview(buttonStack)
-        
-        buttonStack.axis = .vertical
-        buttonStack.alignment = .center
-        buttonStack.contentMode = .scaleAspectFit
-        buttonStack.distribution = .equalSpacing
-        self.addSubview(buttonStack)
 
         let pic = UIImageView()
-        pic.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        pic.widthAnchor.constraint(equalToConstant: 40).isActive = true
         pic.layer.cornerRadius = 20
         pic.layer.masksToBounds = true
         pic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -228,48 +208,17 @@ class FeedItemView: UIView {
         pic.backgroundColor = .white
         pic.contentMode = .scaleAspectFill
         pic.image = profilePic
-        buttonStack.addArrangedSubview(pic)
-
-        let likeButton = UIButton()
-        likeButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        likeButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-       // likeButton.titleLabel!.text = "Like"
-        //likeButton.titleLabel!.text = "Dislike"
-        if #available(iOS 13.0, *) {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        } else {
-            likeButton.setTitle("Like", for: .normal)
-        }
-        likeButton.tintColor = UIColor.green
-        likeButton.layer.cornerRadius = 50
-        buttonStack.addArrangedSubview(likeButton)
-        likeButton.addTarget(self, action: #selector(likeTapped(_: )), for: .touchUpInside)
-
-        let dislikeButton = UIButton()
-        dislikeButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        dislikeButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        dislikeButton.titleLabel!.text = "Dislike"
-        if #available(iOS 13.0, *) {
-            dislikeButton.setImage(UIImage(systemName: "hand.raised.slash"), for: .normal)
-        } else {
-            dislikeButton.setTitle("X", for: .normal)
-        }
-        dislikeButton.tintColor = UIColor.green
-        dislikeButton.layer.cornerRadius = 50
-        buttonStack.addArrangedSubview(dislikeButton)
-        dislikeButton.addTarget(self, action: #selector(dislikeTapped(_:)), for: .touchUpInside)
-
-
-
-        buttonStack.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            buttonStack.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.25),
-            buttonStack.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-            buttonStack.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: -10),
-            buttonStack.widthAnchor.constraint(equalTo: margins.widthAnchor, multiplier: 0.1)
-        ])
         
-        bringSubviewToFront(buttonStack)
+        self.addSubview(pic)
+        bringSubviewToFront(pic)
+        
+        pic.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pic.topAnchor.constraint(equalTo: margins.topAnchor),
+            pic.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+            pic.heightAnchor.constraint(equalToConstant: 60),
+            pic.widthAnchor.constraint(equalToConstant: 60)
+        ])
         
 //        if feed.text == nil{
 //            characterQuipLabel!.isHidden = true
@@ -291,30 +240,5 @@ class FeedItemView: UIView {
 //
 //        }
     }
-    
-        @objc func likeTapped(_ sender: UIButton) {
-            
-            delegate!.likeTapped(sender)
-            
-            if #available(iOS 13.0, *) {
-                if sender.backgroundImage(for: .normal) == UIImage(systemName: "heart")
-                {
-                    sender.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
-                    sender.tintColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
-                    
-                }
-                else
-                {
-                    sender.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
-                    sender.tintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-                }
-            } else {
-                //FIXME: How to handle likes in iOS12
-            }
-        }
-    
-    @objc func dislikeTapped(_ sender: UIButton) {
-        
-        delegate!.dislikeTapped(sender)
-    }
+
 }

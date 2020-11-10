@@ -17,12 +17,12 @@ struct Feed: Decodable{
     let gifName: String?
     
     let originalFilename: String
-    var liked = false
+   // var liked = false
     
     func toAnyObject() -> Any {
         return [
             "name": originalFilename,
-            "liked": liked,
+        //    "liked": liked,
         ]
     }
     
