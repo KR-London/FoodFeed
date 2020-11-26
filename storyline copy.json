@@ -1,0 +1,429 @@
+[
+    {
+        "day": 1,
+        "id": 1,
+        "bigtext": "HELLO!",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "day": 1,
+        "id": 2,
+        "caption": "I’m GUY!",
+        "user": "Guy",
+        "image": "guy_side_headphones.jpeg",
+        "type": "Image"
+    },
+    {
+        "day": 1,
+        "id": 3,
+        "bigtext": "Loving making new friends!",
+        "hashtag": "Mood",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "day": 1,
+        "id": 4,
+        "bigtext": "Best color: RED!",
+        "caption": "Who’s with me?",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "day": 1,
+        "id": 5,
+        "hashtag": "Wow",
+        "user": "Guy",
+        "image": "redpuff.gif",
+        "type": "Gif"
+    },
+    {
+        "day": 1,
+        "id": 6,
+        "bigtext": "Which jelly bean…?\nVote!",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "votea": "Very Cherry?",
+        "voteb": "Raspberry ?",
+        "image": "<Red jelly beans >",
+        "type": "Vote"
+    },
+    {
+        "day": 1,
+        "id": 7,
+        "caption": "Best shoes ever!",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "image": "<Red shoes >",
+        "type": "Vote"
+    },
+    {
+        "day": 1,
+        "id": 8,
+        "caption": "Do you grow anything?",
+        "hashtag": "skills",
+        "user": "Guy",
+        "video": "strawberry.mp4",
+        "type": "Video"
+    },
+    {
+        "day": 1,
+        "id": 9,
+        "hashtag": "funny",
+        "user": "Guy",
+        "image": "<Cat lettuce meme>",
+        "type": "Image"
+    },
+    {
+        "day": 1,
+        "id": 10,
+        "caption": "Dream pet … ?",
+        "hashtag": "chat",
+        "user": "Guy",
+        "gif": "parrotheadstroke.gif",
+        "textbox": true,
+        "type": "Question"
+    },
+    {
+        "day": 1,
+        "id": 11,
+        "caption": "Can you post a photo of your pet?",
+        "hashtag": "get_to_know_you",
+        "user": "Guy",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 1,
+        "id": 12,
+        "bigtext": "“Hold a true friend with both your hands.”\n– Turkish proverb.",
+        "hashtag": "wisdom",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "id": 13,
+        "caption": "Can you post a photo of your pet?",
+        "hashtag": "get_to_know_you",
+        "user": "Guy",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 1,
+        "id": 14,
+        "hashtag": "friends",
+        "user": "Guy",
+        "image": "friends.jpeg",
+        "type": "Image"
+    },
+    {
+        "day": 1,
+        "id": 15,
+        "hashtag": "aww",
+        "user": "Guy",
+        "gif": "<Cupcake Gif>",
+        "type": "Gif"
+    },
+    {
+        "day": 1,
+        "id": 16,
+        "caption": "Cool red drink!",
+        "user": "Guy",
+        "video": "Redjuice.mp4",
+        "type": "Vote"
+    },
+    {
+        "day": 1,
+        "id": 17,
+        "bigtext": "IT IS HARD \nTO FAIL, \nBUT IT IS WORSE NEVER TO HAVE TRIED TO SUCCEED.\nTheodore Roosevelt",
+        "hashtag": "wisdom",
+        "user": "Guy",
+        "type": "Question"
+    },
+    {
+        "day": 1,
+        "id": 18,
+        "caption": "Can you post a photo of your collection?",
+        "hashtag": "get_to_know_you",
+        "user": "Guy",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 1,
+        "id": 19,
+        "hashtag": "funny",
+        "user": "Guy",
+        "video": "catwatermelon.mp4",
+        "type": "Video"
+    },
+    {
+        "day": 1,
+        "id": 20,
+        "bigtext": "2moro big day - \nparty planning!",
+        "hashtag": "excited",
+        "type": "Text"
+    },
+    {
+        "day": 2,
+        "id": 1,
+        "bigtext": "My best friend’s birthday next week!",
+        "hashtag": "big_news",
+        "type": "Text"
+    },
+    {
+        "day": 2,
+        "id": 2,
+        "caption": "@You - found something you’ll like",
+        "image": "<Conditional on user response to pet question>",
+        "type": "Image"
+    },
+    {
+        "day": 2,
+        "id": 3,
+        "caption": "I’m loving life",
+        "hashtag": "get_to_know_me",
+        "image": "<Guy in red car>",
+        "type": "Image"
+    },
+    {
+        "day": 2,
+        "id": 4,
+        "hashtag": "get_to_know_me",
+        "image": "<Garlic bread breakfast lunch and dinner>",
+        "type": "Text"
+    },
+    {
+        "day": 2,
+        "id": 5,
+        "caption": "Do you collect stuff?",
+        "image": "<Coke bottle lids>",
+        "textbox": true,
+        "type": "Question"
+    },
+    {
+        "day": 2,
+        "id": 6,
+        "bigtext": "“Friendship is born at that moment when one person says to another, ‘What! You too? I thought I was the only one.”\nC.S. Lewis",
+        "hashtag": "Wisdom",
+        "type": "Text"
+    },
+    {
+        "day": 2,
+        "id": 7,
+        "hashtag": "birthday",
+        "image": "<Birthday cake>",
+        "type": "Image"
+    },
+    {
+        "day": 2,
+        "id": 8,
+        "hashtag": "birthday",
+        "gif": "Cat birthday blower",
+        "type": "Gif"
+    },
+    {
+        "day": 2,
+        "id": 9,
+        "bigtext": "Party’ is a sit-down meal …",
+        "hashtag": "what_do_I_do",
+        "type": "Text"
+    },
+    {
+        "day": 2,
+        "id": 10,
+        "hashtag": "mood",
+        "gif": "David tenant in the rain",
+        "type": "Gif"
+    },
+    {
+        "day": 2,
+        "id": 11,
+        "bigtext": "@Guy \nDude - what happened?",
+        "user": "Max",
+        "type": "Text"
+    },
+    {
+        "day": 2,
+        "id": 12,
+        "caption": "Cheer me up - post. Photo of your best red thing",
+        "hashtag": "get_to_know_you",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 2,
+        "id": 13,
+        "hashtag": "mood",
+        "gif": "Sad heart",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 1,
+        "bigtext": "I should be happy about my friend’s birthday …",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 2,
+        "hashtag": "mood",
+        "gif": "Kermit",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 3,
+        "bigtext": "… but I’m too busy being worried …",
+        "hashtag": "mood",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 4,
+        "bigtext": "Party’ is a sit-down meal …",
+        "hashtag": "what_do_I_do",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 5,
+        "hashtag": "mood",
+        "gif": "Black dog",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 6,
+        "hashtag": "what_do_I_do",
+        "gif": "Burger candle",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 7,
+        "hashtag": "what_do_I_do",
+        "gif": "Pizza candle",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 8,
+        "hashtag": "what_do_I_do",
+        "gif": "Cat salad",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 9,
+        "bigtext": "Party’ is a sit-down meal …",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 10,
+        "caption": "Aaargh!",
+        "hashtag": "worried",
+        "gif": "Big meal",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 11,
+        "bigtext": "I’m worried there will be nothing for me to eat",
+        "hashtag": "worried",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 12,
+        "gif": "Try food they said",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 13,
+        "image": "This smells fishy",
+        "type": "Image"
+    },
+    {
+        "day": 3,
+        "id": 14,
+        "hashtag": "worried",
+        "gif": "3stay home",
+        "type": "Gif"
+    },
+    {
+        "day": 3,
+        "id": 15,
+        "video": "The power of saying no",
+        "type": "Video"
+    },
+    {
+        "day": 3,
+        "id": 16,
+        "hashtag": "mood",
+        "gif": "All by myself",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 17,
+        "caption": "Join in! Your best all-alone food!",
+        "hashtag": "get_to_know_you",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 3,
+        "id": 18,
+        "bigtext": "How do you say ‘no’ without seeming rude?",
+        "hashtag": "chat",
+        "textbox": true,
+        "type": "Question"
+    },
+    {
+        "day": 3,
+        "id": 19,
+        "hashtag": "worried",
+        "video": "Pink car hamster",
+        "type": "Video"
+    },
+    {
+        "day": 3,
+        "id": 20,
+        "bigtext": "I don’t want look weird",
+        "hashtag": "what_do_I_do",
+        "type": "Text"
+    },
+    {
+        "day": 3,
+        "id": 21,
+        "hashtag": "worried",
+        "gif": "Joe Wicks",
+        "type": "Gif"
+    },
+    {
+        "day": 4,
+        "id": 1,
+        "type": "Text"
+    },
+    {
+        "day": 4,
+        "id": 2,
+        "type": "Text"
+    },
+    {
+        "day": 4,
+        "id": 3,
+        "type": "Text"
+    },
+    {
+        "day": 4,
+        "id": 4,
+        "type": "Text"
+    },
+    {
+        "day": 4,
+        "id": 5,
+        "type": "Text"
+    }
+]
