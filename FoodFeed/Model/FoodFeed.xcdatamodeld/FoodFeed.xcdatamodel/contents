@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="PostData" representedClassName="PostData" syncable="YES" codeGenerationType="class">
+        <attribute name="bigtext" optional="YES" attributeType="String"/>
+        <attribute name="caption" optional="YES" attributeType="String"/>
+        <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gif" optional="YES" attributeType="Binary"/>
+        <attribute name="hashtag" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="user" optional="YES" attributeType="String"/>
+        <attribute name="video" optional="YES" attributeType="Binary"/>
+        <attribute name="votea" optional="YES" attributeType="String"/>
+        <attribute name="voteb" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="PostData" positionX="-63" positionY="-18" width="128" height="223"/>
+    </elements>
+</model>

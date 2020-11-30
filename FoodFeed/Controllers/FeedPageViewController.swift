@@ -8,10 +8,12 @@
 
 import UIKit
 
+
 class FeedPageViewController:
         UIPageViewController,
         FeedPageView
 {
+    
     func presentInitialFeed(_ feed: Feed) {
         let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
         setViewControllers([viewController], direction: .forward, animated: false, completion: nil)
@@ -23,8 +25,12 @@ class FeedPageViewController:
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
-        let mock = MockFeedFetcher()
-        presenter = FeedPagePresenter(view: self, fetcher: mock)
+        
+        let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
+        
+      //  let mock = MockFeedFetcher()
+        let coreDataFetcher = CoreDataFeedFetcher(context: context)
+        presenter = FeedPagePresenter(view: self, context:context, fetcher: coreDataFetcher)
         presenter.viewDidLoad()
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol FeedFetchDelegate: class {
     func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds feeds: [Feed], withError error: Error?)
@@ -45,12 +46,46 @@ class FeedFetcher: FeedFetchProtocol {
 class MockFeedFetcher: FeedFetchProtocol{
     var delegate: FeedFetchDelegate?
     
-//    let mockFeed = [Feed(id: 0, text: "Swipe!", image:nil), Feed(id: 1, text: nil, image: "one.jpeg"), Feed(id: 2, text: "Stay curious!" , image: nil), Feed(id: 3, text: nil, image: "three.jpeg" ), Feed(id: 4, text: "I might try this and think it's not bad.", image: nil), Feed(id: 5, text: nil, image: "two.jpeg"), Feed(id: 6, text: "Party today!", image: nil )]
-    
-    let mockFeed = [Feed(id: 1, text: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, text: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, text: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
+ let mockFeed = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
     
     func fetchFeeds() {
         delegate?.feedFetchService(self, didFetchFeeds: mockFeed, withError: nil)
+    }
+}
+
+class CoreDataFeedFetcher: FeedFetchProtocol{
+    var delegate: FeedFetchDelegate?
+    
+    fileprivate let context: NSManagedObjectContext
+    
+    init(context: NSManagedObjectContext) {
+        self.context = context
+    }
+
+    func fetchFeeds() {
+
+        
+        var request: NSFetchRequest<PostData> = PostData.fetchRequest()
+       // NSPredicate(format: "name == %@", "Python")
+        //request.propertiesToFetch = ["bigtext"]
+        request.predicate = NSPredicate(format: "day == %i", 1)
+
+        do{
+            let fetchedPosts = try context.fetch(request)
+                //as! [coreDataFeed]
+            
+            fetchedPosts.forEach({print($0.bigtext)})
+            //delegate?.feedFetchService(self, didFetchFeeds: fetchedPosts, withError: nil)
+        } catch {
+            fatalError("Couldn't fetch the posts \(error)")
+        }
+        let mockFeed = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
+        
+        delegate?.feedFetchService(self, didFetchFeeds: mockFeed, withError: nil)
+    }
+    
+    func loadPosts(){
+        
     }
     
     

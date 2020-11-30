@@ -12,7 +12,7 @@ struct Feed: Decodable{
     var id: Int
     
     // Content types
-    let text: String?
+    let bigtext: String?
     let image: String?
     let gifName: String?
     
@@ -26,4 +26,16 @@ struct Feed: Decodable{
         ]
     }
     
+}
+
+
+struct coreDataFeed: Decodable{
+    var id: Int
+    
+    // Content types
+    let bigtext: String?
+    let image: String?
+    let gifName: String?
+    
+
 }

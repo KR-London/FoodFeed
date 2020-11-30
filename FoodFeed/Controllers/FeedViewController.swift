@@ -23,6 +23,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     var comments: [Comment] = []
     var commentButton = UIButton()
     
+    
     fileprivate var isPlaying: Bool!
     
     let reasons = ["Not for me", "Wrong", "Upsetting", "Too loud", "Seems rude", "Boring", "Pushy"]
@@ -41,6 +42,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     override func viewDidLoad() {
         let feedView = FeedItemView(frame: self.view.frame, feed: feed)
         feedView.delegate = self
+      
         view = feedView
         setUpCommentsView()
     }
@@ -70,6 +72,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     func setUpCommentsPipeline(){
         
     }
+
     
     // Pauses video playback on tap
     //FIXME: pause gifs and voice

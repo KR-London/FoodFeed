@@ -1,0 +1,59 @@
+[
+    {
+        "day": 1,
+        "id": 1,
+        "bigtext": "HELLO!",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "day": 1,
+        "id": 2,
+        "caption": "I’m GUY!",
+        "user": "Guy",
+        "image": "guy_side_headphones.jpeg",
+        "type": "Image"
+    },
+    {
+        "day": 1,
+        "id": 3,
+        "bigtext": "Loving making new friends!",
+        "hashtag": "Mood",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "day": 1,
+        "id": 4,
+        "bigtext": "Best color: RED!",
+        "caption": "Who’s with me?",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "day": 1,
+        "id": 5,
+        "hashtag": "Wow",
+        "user": "Guy",
+        "gif": "redpuff.gif",
+        "type": "Gif"
+    },
+     {
+        "day": 1,
+        "id": 8,
+        "caption": "Do you grow anything?",
+        "hashtag": "skills",
+        "user": "Guy",
+        "video": "strawberry.mp4",
+        "type": "Video"
+    },
+     {
+        "day": 1,
+        "id": 14,
+        "hashtag": "friends",
+        "user": "Guy",
+        "image": "friends.jpeg",
+        "type": "Image"
+    }
+]

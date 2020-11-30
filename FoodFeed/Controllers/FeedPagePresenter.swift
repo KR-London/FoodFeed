@@ -7,20 +7,19 @@
 //
 
 import Foundation
+import CoreData
 
 class FeedPagePresenter: FeedPagePresenterProtocol{
-    func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds feeds: [Feed], withError error: Error?) {
-      //  view.stopLoading()
+    func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds fetchedFeeds: [Feed], withError error: Error?) {
+        feeds = fetchedFeeds
         
         if let error = error {
-      //      view.showMessage(error.localizedDescription)
+                print(error.localizedDescription)
             return
         }
-       // let initialFeed = Feed(id: 1, text: nil)
-       // view.presentInitialFeed(initialFeed)
+
     }
-    
-    
+
     fileprivate unowned var view: FeedPageView
     
     fileprivate var fetcher: FeedFetchProtocol
@@ -33,19 +32,25 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         self.fetcher =  MockFeedFetcher()
     }
     
+    init(view: FeedPageView, context: NSManagedObjectContext, fetcher: FeedFetchProtocol = FeedFetcher()) {
+        self.view = view
+        self.fetcher =  CoreDataFeedFetcher(context:context)
+    }
+    
+    
     func viewDidLoad() {
         fetcher.delegate = self
        // configureAudioSession()
         
         
-        // FIXME: Not supposed to need this - mock feed fetcher is supposed to take care of this.
-        feeds = [Feed(id: 0, text: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"),
-                 Feed(id: 1, text: "My best friends birthday next week!", image: nil, gifName: nil, originalFilename: "original2"),
-                 Feed(id: 2, text: nil, image: nil, gifName: "giphy30.gif", originalFilename: "original3")]
+//        // FIXME: Not supposed to need this - mock feed fetcher is supposed to take care of this.
+//        feeds = [Feed(id: 0, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"),
+//                 Feed(id: 1, bigtext: "My best friends birthday next week!", image: nil, gifName: nil, originalFilename: "original2"),
+//                 Feed(id: 2, bigtext: nil, image: nil, gifName: "giphy30.gif", originalFilename: "original3")]
+//        //feeds = fetcher.returnFeed()
         //feeds = fetcher.returnFeed()
-        
         fetchFeeds()
-        let initialFeed = Feed(id: 0, text:  "Swipe!", image: nil, gifName: nil, originalFilename: "originalStarter")
+        let initialFeed = Feed(id: 0, bigtext:  "Swipe!", image: nil, gifName: nil, originalFilename: "originalStarter")
         view.presentInitialFeed(initialFeed)
     }
     
