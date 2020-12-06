@@ -178,7 +178,7 @@ class PostView: UIView {
     let mediaView = MediaView()
     
     struct State {
-        var tag: Model.Tag?
+        //var tag: Model.Tag?
         var avatar: AvatarView.State
         var media: MediaView.State
     }
@@ -280,7 +280,7 @@ class PostView: UIView {
     }
     
     func update(state: State) {
-        tagLabel.text = state.tag?.rawValue
+      //  tagLabel.text = state.tag?.rawValue
         avatarView.update(state: state.avatar)
         mediaView.update(state: state.media)
     }
@@ -404,13 +404,13 @@ class PostViewController: UIViewController {
 
 // MARK: - Mock Data
 #if DEBUG
-extension Model {
-    static let mock: Self = Model(id: "asdf", tag: Tag(rawValue: "#this is tag"), like: Like(state: .liked, count: 10))
-}
+//extension Model {
+//    static let mock: Self = Model(id: "asdf", tag: Tag(rawValue: "#this is tag"), like: Like(state: .liked, count: 10))
+//}
 
 extension PostView.State {
     static let mock: Self = PostView.State(
-        tag: Model.Tag(rawValue: "#this is tag"),
+       // tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
         media: MediaView.State(gifImage: try! UIImage(gifName: "giphy30.gif"))
     )

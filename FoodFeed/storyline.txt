@@ -9,9 +9,9 @@
     {
         "day": 1,
         "id": 2,
+        "image": "guy_side_headphones.jpeg",
         "caption": "I’m GUY!",
         "user": "Guy",
-        "image": "guy_side_headphones.jpeg",
         "type": "Image"
     },
     {
@@ -34,26 +34,134 @@
     {
         "day": 1,
         "id": 5,
+        "image": "redpuff.gif",
         "hashtag": "Wow",
         "user": "Guy",
-        "gif": "redpuff.gif",
         "type": "Gif"
     },
-     {
+    {
+        "day": 1,
+        "id": 6,
+        "bigtext": "Which jelly bean…?\nVote!",
+        "image": "jellybean.png",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "votea": "Very Cherry?",
+        "voteb": "Raspberry ?",
+        "type": "Vote"
+    },
+    {
+        "day": 1,
+        "id": 7,
+        "image": "redShoes.png",
+        "caption": "Best shoes ever!",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "type": "Vote"
+    },
+    {
         "day": 1,
         "id": 8,
+        "video": "strawberry.mp4",
         "caption": "Do you grow anything?",
         "hashtag": "skills",
         "user": "Guy",
-        "video": "strawberry.mp4",
         "type": "Video"
     },
-     {
+    {
+        "day": 1,
+        "id": 9,
+        "image": "catlettucesad.png",
+        "hashtag": "funny",
+        "user": "Guy",
+        "type": "Image"
+    },
+    {
+        "day": 1,
+        "id": 10,
+        "gif": "parrotheadstroke.gif",
+        "caption": "Dream pet … ?",
+        "hashtag": "chat",
+        "user": "Guy",
+        "textbox": true,
+        "type": "Question"
+    },
+    {
+        "day": 1,
+        "id": 11,
+        "caption": "Can you post a photo of your pet?",
+        "hashtag": "get_to_know_you",
+        "user": "Guy",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 1,
+        "id": 12,
+        "bigtext": "“Hold a true friend with both your hands.”\n– Turkish proverb.",
+        "hashtag": "wisdom",
+        "user": "Guy",
+        "type": "Text"
+    },
+    {
+        "id": 13,
+        "caption": "Can you post a photo of your pet?",
+        "hashtag": "get_to_know_you",
+        "user": "Guy",
+        "type": "PhotoPrompt"
+    },
+    {
         "day": 1,
         "id": 14,
+        "image": "friends.jpeg",
         "hashtag": "friends",
         "user": "Guy",
-        "image": "friends.jpeg",
         "type": "Image"
+    },
+    {
+        "day": 1,
+        "id": 15,
+        "gif": "redvelvet.gif",
+        "hashtag": "aww",
+        "user": "Guy",
+        "type": "Gif"
+    },
+    {
+        "day": 1,
+        "id": 16,
+        "video": "Redjuice.mp4",
+        "caption": "Cool red drink!",
+        "user": "Guy",
+        "type": "Vote"
+    },
+    {
+        "day": 1,
+        "id": 17,
+        "bigtext": "IT IS HARD \nTO FAIL, \nBUT IT IS WORSE NEVER TO HAVE TRIED TO SUCCEED.\nTheodore Roosevelt",
+        "hashtag": "wisdom",
+        "user": "Guy",
+        "type": "Question"
+    },
+    {
+        "day": 1,
+        "id": 18,
+        "caption": "Can you post a photo of your collection?",
+        "hashtag": "get_to_know_you",
+        "user": "Guy",
+        "type": "PhotoPrompt"
+    },
+    {
+        "day": 1,
+        "id": 19,
+        "video": "catwatermelon.mp4",
+        "hashtag": "funny",
+        "user": "Guy",
+        "type": "Video"
+    },
+    {
+        "day": 1,
+        "id": 20,
+        "bigtext": "2moro big day - \nparty planning!",
+        "hashtag": "excited",
+        "type": "Text"
     }
-]
+    ]
