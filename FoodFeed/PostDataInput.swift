@@ -70,10 +70,13 @@ class PostDataInput: UIViewController {
                     print(value)
                     switch category{
                         case "day": newPost.day = value as! Int16
-                        case "id": newPost.day = value as! Int16
+                        case "id": newPost.id = value as! Int32
                         case "bigtext": newPost.bigtext = value as! String
                         case "caption": newPost.caption = value as! String
                         case "type": newPost.type = value as! String
+                        case "gif":  newPost.video = value as! String
+                        case "image": newPost.image = value as! String
+                        case "video":  newPost.video = value as! String
                         // FIX ME: Change to URL rather than binary data?
 //                        case "gif":
 //                            let tempURL = Bundle.main.bundleURL.appendingPathComponent(value as! String)

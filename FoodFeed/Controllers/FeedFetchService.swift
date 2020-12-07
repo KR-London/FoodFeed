@@ -69,19 +69,26 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
         request.predicate = NSPredicate(format: "day == %i", 1)
+        
+        var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
 
         do{
             let fetchedPosts = try context.fetch(request)
                 //as! [coreDataFeed]
             
-            fetchedPosts.forEach({print($0.bigtext)})
+            fetchedPosts.forEach({
+                let newFeedItem = Feed(id: Int($0.id), bigtext: $0.bigtext, image: $0.image,  gifName: $0.gif, originalFilename: "original1")
+                                    print($0.bigtext)
+                
+                newFeedArray.append(newFeedItem)
+            })
             //delegate?.feedFetchService(self, didFetchFeeds: fetchedPosts, withError: nil)
         } catch {
             fatalError("Couldn't fetch the posts \(error)")
         }
-        let mockFeed = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
-        
-        delegate?.feedFetchService(self, didFetchFeeds: mockFeed, withError: nil)
+        print(newFeedArray.flatMap({$0.id}))
+//        newFeedArray = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
+        delegate?.feedFetchService(self, didFetchFeeds: newFeedArray, withError: nil)
     }
     
     func loadPosts(){

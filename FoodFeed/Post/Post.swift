@@ -177,6 +177,8 @@ class PostView: UIView {
     let avatarView = AvatarView()
     let mediaView = MediaView()
     
+    var delegate : FeedViewInteractionDelegate?
+    
     struct State {
         //var tag: Model.Tag?
         var avatar: AvatarView.State
@@ -187,6 +189,37 @@ class PostView: UIView {
         super.init(frame: frame)
         setup()
     }
+    
+    init(frame: CGRect, feed: Feed) {
+        super.init(frame: frame)
+        
+        setup()
+//
+//        switch feed {
+//            case let gifName where gifName == feed.gifName :
+//                self.update(state: PostView.State(
+//                    // tag: Model.Tag(rawValue: "#this is tag"),
+//                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+//                    media: MediaView.State(gifImage: try! UIImage(gifName: gifName ?? "giphy30.gif")
+//                    )
+//                ))
+//
+//            default :  self.update(state: PostView.State(
+//                        avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+//                        media: MediaView.State(gifImage: UIImage(named: feed.image) ?? UIImage(gifName: feed.gifName) ?? UIImage(gifName: "giphy30.gif")
+//                        )
+//                    ))
+//        }
+        
+        self.update(state: PostView.State(
+            // tag: Model.Tag(rawValue: "#this is tag"),
+            avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+            media: MediaView.State(gifImage: try! UIImage(gifName: feed.gifName ?? "giphy30.gif")
+            )
+        ))
+        
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()

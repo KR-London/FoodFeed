@@ -15,6 +15,11 @@
 		44A812E3257D549C00685A0E /* redShoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A812E2257D549C00685A0E /* redShoes.png */; };
 		44A812E8257D554100685A0E /* catlettucesad.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A812E7257D554100685A0E /* catlettucesad.png */; };
 		44A812ED257D55B100685A0E /* redvelvet.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44A812EC257D55B100685A0E /* redvelvet.gif */; };
+		44A812F7257E38E600685A0E /* garlicbread.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A812F4257E38E600685A0E /* garlicbread.png */; };
+		44A812F8257E38E600685A0E /* guyinredcar.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A812F5257E38E600685A0E /* guyinredcar.png */; };
+		44A812F9257E38E600685A0E /* cokebottlelids.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A812F6257E38E600685A0E /* cokebottlelids.png */; };
+		44A812FE257E390D00685A0E /* cakeparty.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44A812FD257E390D00685A0E /* cakeparty.gif */; };
+		44A81303257E39E600685A0E /* giphy30.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44A81302257E39E600685A0E /* giphy30.gif */; };
 		44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */; };
 		44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */; };
 		44C3DEB42520B76000D317DA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEB32520B76000D317DA /* Feed.swift */; };
@@ -129,6 +134,11 @@
 		44A812E2257D549C00685A0E /* redShoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redShoes.png; sourceTree = "<group>"; };
 		44A812E7257D554100685A0E /* catlettucesad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catlettucesad.png; sourceTree = "<group>"; };
 		44A812EC257D55B100685A0E /* redvelvet.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = redvelvet.gif; sourceTree = "<group>"; };
+		44A812F4257E38E600685A0E /* garlicbread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = garlicbread.png; sourceTree = "<group>"; };
+		44A812F5257E38E600685A0E /* guyinredcar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guyinredcar.png; sourceTree = "<group>"; };
+		44A812F6257E38E600685A0E /* cokebottlelids.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cokebottlelids.png; sourceTree = "<group>"; };
+		44A812FD257E390D00685A0E /* cakeparty.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cakeparty.gif; sourceTree = "<group>"; };
+		44A81302257E39E600685A0E /* giphy30.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = giphy30.gif; path = FoodFeed/PlaceholderAssets/giphy30.gif; sourceTree = SOURCE_ROOT; };
 		44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataInput.swift; sourceTree = "<group>"; };
 		44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
 		44C3DEB32520B76000D317DA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
@@ -455,6 +465,11 @@
 		44DC67F2256FEA5F00C7C1D4 /* Day1 */ = {
 			isa = PBXGroup;
 			children = (
+				44A81302257E39E600685A0E /* giphy30.gif */,
+				44A812F6257E38E600685A0E /* cokebottlelids.png */,
+				44A812F4257E38E600685A0E /* garlicbread.png */,
+				44A812F5257E38E600685A0E /* guyinredcar.png */,
+				44A812FD257E390D00685A0E /* cakeparty.gif */,
 				44DC67CC256FEA5F00C7C1D4 /* 200-9.gif */,
 				44DC67F4256FEA5F00C7C1D4 /* redpuff.gif */,
 				44DC67F5256FEA5F00C7C1D4 /* friends.jpeg */,
@@ -694,6 +709,7 @@
 				44DC6807256FEA5F00C7C1D4 /* 200-9.gif in Resources */,
 				44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */,
 				44DC680F256FEA5F00C7C1D4 /* v07044a00000bu8aiu1u0so8eg4kba40.mp4 in Resources */,
+				44A81303257E39E600685A0E /* giphy30.gif in Resources */,
 				44DC680D256FEA5F00C7C1D4 /* tomatosauce.MP4 in Resources */,
 				44DC6826256FEA5F00C7C1D4 /* friends.jpeg in Resources */,
 				44A812E3257D549C00685A0E /* redShoes.png in Resources */,
@@ -710,6 +726,7 @@
 				44DC6814256FEA5F00C7C1D4 /* v090442d0000br49ja6a9rh57kf7jeu0.mp4 in Resources */,
 				44DC6811256FEA5F00C7C1D4 /* giphy-29.gif in Resources */,
 				44A812ED257D55B100685A0E /* redvelvet.gif in Resources */,
+				44A812F9257E38E600685A0E /* cokebottlelids.png in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				44DC6824256FEA5F00C7C1D4 /* strawberry.mp4 in Resources */,
@@ -722,6 +739,7 @@
 				44A812CF257D468B00685A0E /* giphy 18.GIF-0.0000-15.0100.gif in Resources */,
 				44DC6803256FEA5F00C7C1D4 /* cucumberflower.MP4 in Resources */,
 				44DC682F256FEA5F00C7C1D4 /* no.MP4 in Resources */,
+				44A812F7257E38E600685A0E /* garlicbread.png in Resources */,
 				44DC682B256FEA5F00C7C1D4 /* v09044b60000bss1rnph20v13vrciuu0.mp4 in Resources */,
 				44DC6827256FEA5F00C7C1D4 /* redjuice.MP4 in Resources */,
 				44DC6817256FEA5F00C7C1D4 /* v09044c40000bou4iqnc0tomra4mnco0.MP4 in Resources */,
@@ -731,10 +749,12 @@
 				44DC681E256FEA5F00C7C1D4 /* 3b32af8f28332e769cae2685d8dae510.MOV in Resources */,
 				44DC6813256FEA5F00C7C1D4 /* v09044b10000bsa3o28h3nflv6m1o8j0.mp4 in Resources */,
 				44A812CA257D45DC00685A0E /* sadAnimeGirl.gif in Resources */,
+				44A812F8257E38E600685A0E /* guyinredcar.png in Resources */,
 				44DC6822256FEA5F00C7C1D4 /* v09044140000bteecr019l167crjal30.mp4 in Resources */,
 				44DC6809256FEA5F00C7C1D4 /* v09044d50000brljgip4uh3sr6teo7g0 copy.MP4 in Resources */,
 				44DC6823256FEA5F00C7C1D4 /* giphy-31.gif in Resources */,
 				44DC682D256FEA5F00C7C1D4 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 in Resources */,
+				44A812FE257E390D00685A0E /* cakeparty.gif in Resources */,
 				44772128252B16C800C76FB0 /* giphy30.gif in Resources */,
 				44DC6831256FEA5F00C7C1D4 /* wireflower.MP4 in Resources */,
 			);

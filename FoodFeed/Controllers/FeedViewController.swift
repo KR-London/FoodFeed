@@ -40,7 +40,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     }
 
     override func viewDidLoad() {
-        let feedView = FeedItemView(frame: self.view.frame, feed: feed)
+        let feedView = PostView(frame: self.view.frame, feed: feed)
         feedView.delegate = self
       
         view = feedView

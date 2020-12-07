@@ -4,13 +4,13 @@
         <attribute name="bigtext" optional="YES" attributeType="String"/>
         <attribute name="caption" optional="YES" attributeType="String"/>
         <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="gif" optional="YES" attributeType="Binary"/>
+        <attribute name="gif" optional="YES" attributeType="String"/>
         <attribute name="hashtag" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="user" optional="YES" attributeType="String"/>
-        <attribute name="video" optional="YES" attributeType="Binary"/>
+        <attribute name="video" optional="YES" attributeType="String"/>
         <attribute name="votea" optional="YES" attributeType="String"/>
         <attribute name="voteb" optional="YES" attributeType="String"/>
     </entity>
