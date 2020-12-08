@@ -41,16 +41,9 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     func viewDidLoad() {
         fetcher.delegate = self
        // configureAudioSession()
-        
-        
-//        // FIXME: Not supposed to need this - mock feed fetcher is supposed to take care of this.
-//        feeds = [Feed(id: 0, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"),
-//                 Feed(id: 1, bigtext: "My best friends birthday next week!", image: nil, gifName: nil, originalFilename: "original2"),
-//                 Feed(id: 2, bigtext: nil, image: nil, gifName: "giphy30.gif", originalFilename: "original3")]
-//        //feeds = fetcher.returnFeed()
-        //feeds = fetcher.returnFeed()
+
         fetchFeeds()
-        let initialFeed = Feed(id: 0, bigtext:  "Swipe!", image: nil, gifName: nil, originalFilename: "originalStarter")
+        let initialFeed = Feed(id: 0, state: .text(bigText: "Swipe!") )
         view.presentInitialFeed(initialFeed)
     }
     
@@ -70,13 +63,18 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     fileprivate func getFeed(atIndex index: Int) -> IndexedFeed? {
         
         let min = feeds.map{$0.id}.min() ?? 0
-        let max = feeds.map{$0.id}.max() ?? 15
+        
+        //FIXME: This was setting at 59?!?! That's weird
+        //let max = feeds.map{$0.id}.max() ?? 15
+        let max = 20
         
         guard index >= min && index <= max else {
             return nil
         }
         
         // return (feed: feeds[index], index: index)
+        //FIXME: This falls over if there is a missing record - can we handle this nicer?
+        print("index is \(index)")
         return (feeds.filter({$0.id == index}).first! , index)
     }
     

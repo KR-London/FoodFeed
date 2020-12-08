@@ -74,21 +74,9 @@ class PostDataInput: UIViewController {
                         case "bigtext": newPost.bigtext = value as! String
                         case "caption": newPost.caption = value as! String
                         case "type": newPost.type = value as! String
-                        case "gif":  newPost.video = value as! String
+                        case "gif":  newPost.gif = value as! String
                         case "image": newPost.image = value as! String
                         case "video":  newPost.video = value as! String
-                        // FIX ME: Change to URL rather than binary data?
-//                        case "gif":
-//                            let tempURL = Bundle.main.bundleURL.appendingPathComponent(value as! String)
-//                        let videoData = NSData(contentsOf:tempURL)
-//                            newPost.video = videoData as Data?
-//                        case "image":
-//                            let tempImage = UIImage(named: value as! String)
-//                            newPost.image = tempImage!.pngData()
-//                        case "video":
-//                            let tempURL = Bundle.main.bundleURL.appendingPathComponent(value as! String)
-//                            let videoData = NSData(contentsOf:tempURL)
-//                            newPost.video = videoData as Data?
                         case "hashtag": newPost.hashtag = value as! String
                         default: break
                     }

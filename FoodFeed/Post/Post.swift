@@ -73,15 +73,6 @@ extension PostModel.ID: ExpressibleByIntegerLiteral {
     }
 }
 
-// CoreDataRepresentation
-// Post.State
-
-// func (Post: ) -> Post.State
-
-// func (CDRepresentation) -> PostModel
-// func (PostModel) -> Post.State
-
-
 final class AvatarView: UIView {
     private let margin: CGFloat = 2
     private let imageView = UIImageView()
@@ -171,6 +162,13 @@ final class LikeView: UIView {
 }
 
 class PostView: UIView {
+    
+    struct State {
+        //var tag: Model.Tag?
+        var avatar: AvatarView.State
+        var media: MediaView.State
+    }
+    
     let stackView = UIStackView()
     let controlsStack = UIStackView()
     let tagLabel = UILabel.tagLabel()
@@ -179,11 +177,7 @@ class PostView: UIView {
     
     var delegate : FeedViewInteractionDelegate?
     
-    struct State {
-        //var tag: Model.Tag?
-        var avatar: AvatarView.State
-        var media: MediaView.State
-    }
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -212,10 +206,11 @@ class PostView: UIView {
 //        }
         
         self.update(state: PostView.State(
+            
+            //FIXME: Refactor
             // tag: Model.Tag(rawValue: "#this is tag"),
             avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-            media: MediaView.State(gifImage: try! UIImage(gifName: feed.gifName ?? "giphy30.gif")
-            )
+            media: MediaView.State(filename: "giphy30.gif")
         ))
         
     }
@@ -397,8 +392,30 @@ struct PostModel2 {
 
 
 final class MediaView: UIView {
-    struct State {
-        let gifImage: UIImage
+    enum State {
+        case gifImage(gifImage: UIImage)
+        case video(video: String)
+        case stillImage(image: UIImage)
+        case hidden
+        
+        init(filename: String) {
+            switch filename.suffix(4){
+                case ".mp4":
+                    self = .video(video: filename )
+                case "jpeg", ".jpg", ".png":
+                    self = .stillImage(image: UIImage(named: filename) ?? UIImage(named: "two.jpeg")!  )
+                case ".gif":
+                    //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
+                    self = .gifImage(gifImage: try! UIImage(gifName: filename))
+                default: self = .hidden
+            }
+            
+           
+        }
+        
+        init() {
+            self = .hidden
+        }
     }
 
     let imageView = UIImageView()
@@ -423,7 +440,13 @@ final class MediaView: UIView {
     
     
     func update(state: State) {
-        imageView.setGifImage(state.gifImage, loopCount: -1)
+        ///imageView.setGifImage(state.gifImage, loopCount: -1)
+        switch state {
+            case .gifImage( let gifImage):
+                imageView.setGifImage(gifImage, loopCount: -1)
+            default:
+                return
+        }
     }
 
 }
@@ -445,7 +468,7 @@ extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-        media: MediaView.State(gifImage: try! UIImage(gifName: "giphy30.gif"))
+        media: MediaView.State(filename: "giphy30.gif")
     )
 }
 

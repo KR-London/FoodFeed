@@ -44,71 +44,84 @@ class MainView: UIView {
     
     func setup(feed: Feed){
         
-        // Identify what the content of this feed item is, and load the correct view components to display it
-        if let quip = feed.bigtext{
-            characterQuipLabel = UILabel(frame: self.frame)
-            characterQuipLabel!.text = quip
-            addSubview(characterQuipLabel!)
+        switch feed.state {
+            case .text(let text):
+                print(text)
+                print("December 8")
+            default:
+                print("default")
         }
-        else{
-            //MARK: Stored image content
-            if let image = feed.image {
-                mainImage.image = UIImage(named: image)
-            }
-            
-            if let gifName = feed.gifName {
-                do {
-                    let gif = try UIImage(gifName: gifName)
-                    mainImage = UIImageView(gifImage: gif, loopCount: -1)
-                    // mainImage.frame = self.bounds
-                    // self.addSubview(mainImage)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            self.addSubview(mainImage)
-            
-        }
+        
+//        if case let feed.state.text = text {
+//            print(text)
+//        }
+        
+//        // Identify what the content of this feed item is, and load the correct view components to display it
+//        if let quip = feed.bigtext{
+//            characterQuipLabel = UILabel(frame: self.frame)
+//            characterQuipLabel!.text = quip
+//            addSubview(characterQuipLabel!)
+//        }
+//        else{
+//            //MARK: Stored image content
+//            if let image = feed.image {
+//                mainImage.image = UIImage(named: image)
+//            }
+//
+//            if let gifName = feed.gifName {
+//                do {
+//                    let gif = try UIImage(gifName: gifName)
+//                    mainImage = UIImageView(gifImage: gif, loopCount: -1)
+//                    // mainImage.frame = self.bounds
+//                    // self.addSubview(mainImage)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//
+//            self.addSubview(mainImage)
+//
+//        }
     }
     
     func layout(margins: UILayoutGuide){
+        
+        //FIXME: Refactor Layouts
+        switch feed.state {
+            case .text(let text):
+                backgroundColor = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)].randomElement()
+            
+                characterQuipLabel!.text = text
+                // self.contentOverlayView?.addSubview(Label)
+                characterQuipLabel!.textAlignment = .center
+                characterQuipLabel!.font = UIFont(name: "TwCenMT-CondensedExtraBold", size: 70 )
+                characterQuipLabel!.lineBreakMode = .byWordWrapping
+                characterQuipLabel!.numberOfLines = 4
+                characterQuipLabel!.frame.inset(by: UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15))
+                characterQuipLabel!.textColor = [#colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1), #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1),#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1),#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1),#colorLiteral(red: 0.3176470697, green: 0.07450980693, blue: 0.02745098062, alpha: 1),#colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)].randomElement()
+                
+                characterQuipLabel!.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    characterQuipLabel!.topAnchor.constraint(equalTo: margins.topAnchor),
+                    characterQuipLabel!.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+                    characterQuipLabel!.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+                    characterQuipLabel!.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+                ])
+                
+                
+                bringSubviewToFront(characterQuipLabel!)
+            default:
+                       // characterQuipLabel!.isHidden = true
+                        mainImage.contentMode = .scaleAspectFill
+                        mainImage.translatesAutoresizingMaskIntoConstraints = false
+                        NSLayoutConstraint.activate([
+                            mainImage.topAnchor.constraint(equalTo: margins.topAnchor),
+                            mainImage.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
+                            mainImage.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+                            mainImage.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+                        ])
+        }
 
-        if feed.bigtext == nil{
-           // characterQuipLabel!.isHidden = true
-            mainImage.contentMode = .scaleAspectFill
-            mainImage.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                mainImage.topAnchor.constraint(equalTo: margins.topAnchor),
-                mainImage.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-                mainImage.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-                mainImage.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-            ])
-        }
-        else{
-            backgroundColor = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)].randomElement()
-            
-            characterQuipLabel!.text = feed.bigtext
-            // self.contentOverlayView?.addSubview(Label)
-            characterQuipLabel!.textAlignment = .center
-            characterQuipLabel!.font = UIFont(name: "TwCenMT-CondensedExtraBold", size: 70 )
-            characterQuipLabel!.lineBreakMode = .byWordWrapping
-            characterQuipLabel!.numberOfLines = 4
-            characterQuipLabel!.frame.inset(by: UIEdgeInsets(top: 15,left: 15,bottom: 15,right: 15))
-            characterQuipLabel!.textColor = [#colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1), #colorLiteral(red: 0.06274510175, green: 0, blue: 0.1921568662, alpha: 1),#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1),#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1),#colorLiteral(red: 0.3176470697, green: 0.07450980693, blue: 0.02745098062, alpha: 1),#colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)].randomElement()
-            
-            characterQuipLabel!.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                characterQuipLabel!.topAnchor.constraint(equalTo: margins.topAnchor),
-                characterQuipLabel!.bottomAnchor.constraint(equalTo: margins.bottomAnchor),
-                characterQuipLabel!.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-                characterQuipLabel!.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-            ])
-            
-            
-            bringSubviewToFront(characterQuipLabel!)
-            
-        }
     }
 }
 

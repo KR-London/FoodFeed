@@ -11,21 +11,24 @@ import Foundation
 struct Feed: Decodable{
     var id: Int
     
-    // Content types
-    let bigtext: String?
-    let image: String?
-    let gifName: String?
-    
-    let originalFilename: String
-   // var liked = false
-    
-    func toAnyObject() -> Any {
-        return [
-            "name": originalFilename,
-        //    "liked": liked,
-        ]
+    enum State : Decodable {
+        
+        case text(bigText: String)
+        case image(imageName: String)
+        case gif(gifName: String)
+        
+        init(from decoder: Decoder) throws {
+            self = .text(bigText: "Keep Going!")
+        }
     }
     
+    struct Author { // fix up model maybe, fine for now
+        let ID: UUID
+        let avatar: URL
+        let username: String
+    }
+    
+    let state: State
 }
 
 

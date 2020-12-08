@@ -34,7 +34,7 @@
     {
         "day": 1,
         "id": 5,
-        "image": "redpuff.gif",
+        "gif": "redpuff.gif",
         "hashtag": "Wow",
         "user": "Guy",
         "type": "Gif"
@@ -103,6 +103,7 @@
         "type": "Text"
     },
     {
+        "day": 1,
         "id": 13,
         "caption": "Can you post a photo of your pet?",
         "hashtag": "get_to_know_you",

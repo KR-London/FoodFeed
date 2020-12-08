@@ -46,10 +46,10 @@ class FeedFetcher: FeedFetchProtocol {
 class MockFeedFetcher: FeedFetchProtocol{
     var delegate: FeedFetchDelegate?
     
- let mockFeed = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
+ //let mockFeed = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
     
     func fetchFeeds() {
-        delegate?.feedFetchService(self, didFetchFeeds: mockFeed, withError: nil)
+  //      delegate?.feedFetchService(self, didFetchFeeds: mockFeed, withError: nil)
     }
 }
 
@@ -70,17 +70,40 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         //request.propertiesToFetch = ["bigtext"]
         request.predicate = NSPredicate(format: "day == %i", 1)
         
-        var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
+        //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
+        
+        var newFeedArray = [ Feed(id: 0, state: .text(bigText: "Day 1") )]
 
         do{
             let fetchedPosts = try context.fetch(request)
                 //as! [coreDataFeed]
             
             fetchedPosts.forEach({
-                let newFeedItem = Feed(id: Int($0.id), bigtext: $0.bigtext, image: $0.image,  gifName: $0.gif, originalFilename: "original1")
-                                    print($0.bigtext)
-                
-                newFeedArray.append(newFeedItem)
+                switch $0.type {
+                    case "Text":
+                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: $0.bigtext ?? "Error - no text stored in text post") )
+                        newFeedArray.append(newFeedItem)
+                    case "Image":
+                        if let imageName = $0.image{
+                            let newFeedItem = Feed(id: Int($0.id), state: .image(imageName: imageName) )
+                            newFeedArray.append(newFeedItem)
+                        } else {
+                            print("Inconsistently formatted image record \($0)")
+                        }
+                    case "Gif":
+                        if let gifName = $0.gif{
+                            let newFeedItem = Feed(id: Int($0.id), state: .gif(gifName: gifName) )
+                            newFeedArray.append(newFeedItem)
+                        } else {
+                            print("Inconsistently formatted gif record \($0)")
+                        }
+                    case "PhotoPrompt":
+                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "PhotoPrompt") )
+                        newFeedArray.append(newFeedItem)
+                    default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here") )
+                        newFeedArray.append(newFeedItem)
+                }
+
             })
             //delegate?.feedFetchService(self, didFetchFeeds: fetchedPosts, withError: nil)
         } catch {
