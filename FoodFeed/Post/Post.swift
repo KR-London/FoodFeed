@@ -174,11 +174,10 @@ class PostView: UIView {
     let tagLabel = UILabel.tagLabel()
     let avatarView = AvatarView()
     let mediaView = MediaView()
+    let bigTextView = BigTextView()
     
     var delegate : FeedViewInteractionDelegate?
-    
-   
-    
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -188,30 +187,33 @@ class PostView: UIView {
         super.init(frame: frame)
         
         setup()
-//
-//        switch feed {
-//            case let gifName where gifName == feed.gifName :
-//                self.update(state: PostView.State(
-//                    // tag: Model.Tag(rawValue: "#this is tag"),
-//                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-//                    media: MediaView.State(gifImage: try! UIImage(gifName: gifName ?? "giphy30.gif")
-//                    )
-//                ))
-//
-//            default :  self.update(state: PostView.State(
-//                        avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-//                        media: MediaView.State(gifImage: UIImage(named: feed.image) ?? UIImage(gifName: feed.gifName) ?? UIImage(gifName: "giphy30.gif")
-//                        )
-//                    ))
-//        }
         
-        self.update(state: PostView.State(
-            
-            //FIXME: Refactor
-            // tag: Model.Tag(rawValue: "#this is tag"),
-            avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-            media: MediaView.State(filename: "giphy30.gif")
-        ))
+        switch feed.state{
+            case .text(let bigText):
+                self.update(state: PostView.State(
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+                    media: MediaView.State()
+                ))
+            case .gif(let gifName):
+                self.update(state: PostView.State(
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+                    media: MediaView.State(filename: gifName)
+                ))
+            case .image(let imageName):
+                self.update(state: PostView.State(
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+                    media: MediaView.State(filename: imageName)
+                ))
+            default: return
+        }
+        
+//        self.update(state: PostView.State(
+//
+//            //FIXME: Refactor
+//            // tag: Model.Tag(rawValue: "#this is tag"),
+//            avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+//            media: MediaView.State(filename: feed.gif)
+//        ))
         
     }
     
@@ -245,6 +247,15 @@ class PostView: UIView {
         mediaView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         mediaView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         mediaView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    
+    func setupBigTextView() {
+        addSubview(bigTextView)
+        bigTextView.translatesAutoresizingMaskIntoConstraints = false
+        bigTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        bigTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        bigTextView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        bigTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 
     
@@ -390,7 +401,6 @@ struct PostModel2 {
     let author: Author
 }
 
-
 final class MediaView: UIView {
     enum State {
         case gifImage(gifImage: UIImage)
@@ -399,6 +409,7 @@ final class MediaView: UIView {
         case hidden
         
         init(filename: String) {
+            
             switch filename.suffix(4){
                 case ".mp4":
                     self = .video(video: filename )
@@ -409,8 +420,6 @@ final class MediaView: UIView {
                     self = .gifImage(gifImage: try! UIImage(gifName: filename))
                 default: self = .hidden
             }
-            
-           
         }
         
         init() {
@@ -419,6 +428,47 @@ final class MediaView: UIView {
     }
 
     let imageView = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup() {
+        self.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+    }
+    
+    func update(state: State) {
+
+        switch state {
+            case .gifImage( let gifImage):
+                imageView.setGifImage(gifImage, loopCount: -1)
+            case .stillImage(let image):
+                imageView.setImage(image)
+            default:
+                return
+        }
+    }
+
+}
+
+final class BigTextView: UIView {
+    enum State {
+        case text(text: String)
+    }
+    
+    var label = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -429,26 +479,26 @@ final class MediaView: UIView {
     }
     
     func setup() {
-        self.addSubview(imageView)
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        self.addSubview(label)
+        label.text = "Hello"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
     }
     
     
     func update(state: State) {
-        ///imageView.setGifImage(state.gifImage, loopCount: -1)
+
         switch state {
-            case .gifImage( let gifImage):
-                imageView.setGifImage(gifImage, loopCount: -1)
+            case .text( let text):
+                label.text = text
             default:
                 return
         }
     }
-
+    
 }
 
 class PostViewController: UIViewController {
