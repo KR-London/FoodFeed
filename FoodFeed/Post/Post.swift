@@ -174,7 +174,7 @@ class PostView: UIView {
     let tagLabel = UILabel.tagLabel()
     let avatarView = AvatarView()
     let mediaView = MediaView()
-    let bigTextView = BigTextView()
+   // let bigTextView = BigTextView()
     
     var delegate : FeedViewInteractionDelegate?
   
@@ -192,8 +192,9 @@ class PostView: UIView {
             case .text(let bigText):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-                    media: MediaView.State()
+                    media: MediaView.State(filename: bigText)
                 ))
+              //  mediaView.isHidden == true
             case .gif(let gifName):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
@@ -215,6 +216,10 @@ class PostView: UIView {
 //            media: MediaView.State(filename: feed.gif)
 //        ))
         
+//
+//        if feed.state == .text(let bigText) { [self] in
+//            mediaView.isHidden == true
+//        }
     }
     
     required init?(coder: NSCoder) {
@@ -249,14 +254,14 @@ class PostView: UIView {
         mediaView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
-    func setupBigTextView() {
-        addSubview(bigTextView)
-        bigTextView.translatesAutoresizingMaskIntoConstraints = false
-        bigTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        bigTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        bigTextView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        bigTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-    }
+//    func setupBigTextView() {
+//        addSubview(bigTextView)
+//        bigTextView.translatesAutoresizingMaskIntoConstraints = false
+//        bigTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        bigTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+//        bigTextView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        bigTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//    }
 
     
     func setupRightView() {
@@ -406,9 +411,12 @@ final class MediaView: UIView {
         case gifImage(gifImage: UIImage)
         case video(video: String)
         case stillImage(image: UIImage)
+        case text(bigText: String)
         case hidden
         
         init(filename: String) {
+            
+            
             
             switch filename.suffix(4){
                 case ".mp4":
@@ -418,7 +426,8 @@ final class MediaView: UIView {
                 case ".gif":
                     //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
                     self = .gifImage(gifImage: try! UIImage(gifName: filename))
-                default: self = .hidden
+                default:
+                    self = .text(bigText: filename )
             }
         }
         
@@ -428,6 +437,7 @@ final class MediaView: UIView {
     }
 
     let imageView = UIImageView()
+    let label = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -447,6 +457,15 @@ final class MediaView: UIView {
         self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        
+        self.addSubview(label)
+        label.backgroundColor = .green
+        label.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+        //label.isHidden = true
     }
     
     func update(state: State) {
@@ -454,8 +473,16 @@ final class MediaView: UIView {
         switch state {
             case .gifImage( let gifImage):
                 imageView.setGifImage(gifImage, loopCount: -1)
+                imageView.isHidden = false
+                label.isHidden = true
             case .stillImage(let image):
                 imageView.setImage(image)
+                imageView.isHidden = false
+                label.isHidden = true
+            case .text(let bigText):
+                imageView.isHidden = true
+                label.isHidden = false
+                label.text = bigText
             default:
                 return
         }
@@ -463,43 +490,45 @@ final class MediaView: UIView {
 
 }
 
-final class BigTextView: UIView {
-    enum State {
-        case text(text: String)
-    }
-    
-    var label = UILabel()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setup()
-    }
-    
-    func setup() {
-        self.addSubview(label)
-        label.text = "Hello"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
-    }
-    
-    
-    func update(state: State) {
+///I think I will blend this into media view
 
-        switch state {
-            case .text( let text):
-                label.text = text
-            default:
-                return
-        }
-    }
-    
-}
+//final class BigTextView: UIView {
+//    enum State {
+//        case text(text: String)
+//    }
+//
+//    var label = UILabel()
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setup()
+//    }
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//        setup()
+//    }
+//
+//    func setup() {
+//        self.addSubview(label)
+//        label.text = "Hello"
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
+//        self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
+//        self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
+//        self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+//    }
+//
+//
+//    func update(state: State) {
+//
+//        switch state {
+//            case .text( let text):
+//                label.text = text
+//            default:
+//                return
+//        }
+//    }
+//
+//}
 
 class PostViewController: UIViewController {
     override func viewDidLoad() {
