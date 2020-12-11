@@ -449,6 +449,8 @@ final class MediaView: UIView {
         setup()
     }
     
+    
+    /// THINKS: Is setting up views I won;t use inefficient? Or is it in fact better to do it asap so that the user doe not get a hang?
     func setup() {
         self.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
@@ -466,7 +468,13 @@ final class MediaView: UIView {
         self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
         //label.isHidden = true
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.backgroundColor = .yellow
+        label.textAlignment = .center
+        label.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
     }
+    
     
     func update(state: State) {
 
@@ -490,46 +498,6 @@ final class MediaView: UIView {
 
 }
 
-///I think I will blend this into media view
-
-//final class BigTextView: UIView {
-//    enum State {
-//        case text(text: String)
-//    }
-//
-//    var label = UILabel()
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setup()
-//    }
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//        setup()
-//    }
-//
-//    func setup() {
-//        self.addSubview(label)
-//        label.text = "Hello"
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
-//        self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
-//        self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
-//        self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
-//    }
-//
-//
-//    func update(state: State) {
-//
-//        switch state {
-//            case .text( let text):
-//                label.text = text
-//            default:
-//                return
-//        }
-//    }
-//
-//}
-
 class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -547,7 +515,7 @@ extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-        media: MediaView.State(filename: "giphy30.gif")
+        media: MediaView.State(filename: "This is a block of text to work out how to format it.")
     )
 }
 
@@ -566,16 +534,28 @@ struct Preview {
     
     struct PostViewPreview: PreviewProvider {
         static var previews: some View {
-                    UIViewPreview {
-                        let postView = PostView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-                        postView.update(
-                            state: PostView.State.mock
-                        )
-                        postView.backgroundColor = .red
-                        return postView
-                    }
-                    .previewLayout(.sizeThatFits)
-                    .edgesIgnoringSafeArea(.all)
+            Group {
+                UIViewPreview {
+                            let postView = PostView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+                            postView.update(
+                                state: PostView.State.mock
+                            )
+                            postView.backgroundColor = .red
+                            return postView
+                        }
+                        .previewLayout(.sizeThatFits)
+                .edgesIgnoringSafeArea(.all)
+                UIViewPreview {
+                    let postView = PostView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+                    postView.update(
+                        state: PostView.State.mock
+                    )
+                    postView.backgroundColor = .red
+                    return postView
+                }
+                .previewLayout(.sizeThatFits)
+                .edgesIgnoringSafeArea(.all)
+            }
 
         }
     }

@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="07891284.ttf">
+            <string>TwCenMT-CondensedExtraBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Post Data Input-->
         <scene sceneID="q3t-5O-Z6v">
@@ -82,7 +87,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="lKK-cM-7sY"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <fontDescription key="fontDescription" name="TwCenMT-CondensedExtraBold" family="Tw Cen MT Condensed Extra Bold" pointSize="17"/>
                                         <state key="normal" title="Save Post">
                                             <color key="titleColor" systemColor="systemYellowColor"/>
                                         </state>
