@@ -100,6 +100,11 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                     case "PhotoPrompt":
                         let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "PhotoPrompt") )
                         newFeedArray.append(newFeedItem)
+                    case "Video":
+                        if let videoName = $0.video{
+                            let newFeedItem = Feed(id: Int($0.id), state: .video(videoName: videoName) )
+                            newFeedArray.append(newFeedItem)
+                        }
                     default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here") )
                         newFeedArray.append(newFeedItem)
                 }

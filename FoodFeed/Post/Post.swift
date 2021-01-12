@@ -1,4 +1,6 @@
 import Foundation
+import AVFoundation
+import AVKit
 import UIKit
 
 enum Media {
@@ -204,6 +206,11 @@ class PostView: UIView {
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
                     media: MediaView.State(filename: imageName)
+                ))
+            case .video(let videoName):
+                self.update(state: PostView.State(
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+                    media: MediaView.State(filename: videoName)
                 ))
             default: return
         }
@@ -437,6 +444,8 @@ final class MediaView: UIView {
     }
 
     let imageView = UIImageView()
+    let videoController = AVPlayerViewController()
+   
     let label = UILabel()
     
     override init(frame: CGRect) {
@@ -452,6 +461,8 @@ final class MediaView: UIView {
     
     /// THINKS: Is setting up views I won;t use inefficient? Or is it in fact better to do it asap so that the user doe not get a hang?
     func setup() {
+        let videoView = videoController.view
+        
         self.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -459,6 +470,14 @@ final class MediaView: UIView {
         self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        
+        self.addSubview(videoView!)
+        videoView!.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: videoView!.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: videoView!.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: videoView!.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: videoView!.bottomAnchor).isActive = true
+        
         
         self.addSubview(label)
         label.backgroundColor = .green
@@ -483,14 +502,25 @@ final class MediaView: UIView {
                 imageView.setGifImage(gifImage, loopCount: -1)
                 imageView.isHidden = false
                 label.isHidden = true
+                videoController.view.isHidden = true
             case .stillImage(let image):
                 imageView.setImage(image)
                 imageView.isHidden = false
                 label.isHidden = true
+                videoController.view.isHidden = true
             case .text(let bigText):
                 imageView.isHidden = true
                 label.isHidden = false
                 label.text = bigText
+                videoController.view.isHidden = true
+            case .video(let video):
+                imageView.isHidden = true
+                label.isHidden = true
+                let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".mp4")
+                print(urlPath)
+                let player = AVPlayer(url: urlPath!)
+                videoController.player = player
+                player.play()
             default:
                 return
         }
