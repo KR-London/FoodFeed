@@ -17,6 +17,7 @@ class FeedPageViewController:
     func presentInitialFeed(_ feed: Feed) {
         let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
         setViewControllers([viewController], direction: .forward, animated: false, completion: nil)
+        
     }
     
     fileprivate var presenter: FeedPagePresenterProtocol!

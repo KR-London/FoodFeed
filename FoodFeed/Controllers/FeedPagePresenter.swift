@@ -68,6 +68,10 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         //let max = feeds.map{$0.id}.max() ?? 15
         let max = 20
         
+    
+        //FIXME: this is a hack - because when i came back after christmas this was falling over becaus the index was one more than in should have. i think the extra 'tick' comes from the onboarding - so i need to look at how it's counting. For now, just put in a floor value
+    
+        
         guard index >= min && index <= max else {
             return nil
         }
@@ -75,7 +79,8 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         // return (feed: feeds[index], index: index)
         //FIXME: This falls over if there is a missing record - can we handle this nicer?
         print("index is \(index)")
-        return (feeds.filter({$0.id == index}).first! , index)
+       
+        return (feeds.filter({$0.id == index  }).first! , index  )
     }
     
     func updateFeedIndex(fromIndex index: Int) {
