@@ -160,31 +160,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guy " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfN-we-L4S">
-                                <rect key="frame" x="163" y="382" width="56" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ydQ-ka-L5Z">
-                                <rect key="frame" x="0.0" y="40" width="414" height="816"/>
+                            <stackView opaque="NO" contentMode="redraw" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ydQ-ka-L5Z">
+                                <rect key="frame" x="5" y="50" width="404" height="806"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="guy_side_headphones.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="duY-v8-hsf">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="265.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="414" id="ynd-MZ-aBN"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing my story - one day at a time. Follow me and help me with figuring out life!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6K-Jk-4Ju">
-                                        <rect key="frame" x="6" y="275.5" width="402" height="265"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guy " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfN-we-L4S">
+                                        <rect key="frame" x="174.5" y="0.0" width="55.5" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="guy_side_headphones.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="duY-v8-hsf">
+                                        <rect key="frame" x="0.0" y="43.5" width="404" height="535"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing my story - one day at a time. Follow me and help me with figuring out life!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y6K-Jk-4Ju">
+                                        <rect key="frame" x="0.0" y="588.5" width="404" height="107.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tl-qi-ebs" userLabel="Follow">
-                                        <rect key="frame" x="20" y="550.5" width="374" height="265.5"/>
+                                        <rect key="frame" x="10" y="706" width="384" height="100"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="q6E-Of-omU"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <state key="normal" title="Follow ">
                                             <color key="titleColor" systemColor="labelColor"/>
@@ -195,25 +194,24 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="2tl-qi-ebs" secondAttribute="trailing" constant="20" id="aTo-Um-uoj"/>
-                                    <constraint firstItem="2tl-qi-ebs" firstAttribute="leading" secondItem="ydQ-ka-L5Z" secondAttribute="leading" constant="20" id="slO-a0-97g"/>
+                                    <constraint firstItem="2tl-qi-ebs" firstAttribute="leading" secondItem="ydQ-ka-L5Z" secondAttribute="leading" constant="10" id="UFp-r6-1LR"/>
+                                    <constraint firstAttribute="trailing" secondItem="2tl-qi-ebs" secondAttribute="trailing" constant="10" id="xZB-yV-wld"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HQn-RF-fQw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ydQ-ka-L5Z" firstAttribute="centerX" secondItem="nZg-EK-86c" secondAttribute="centerX" id="4nl-Ll-bhm"/>
-                            <constraint firstItem="ydQ-ka-L5Z" firstAttribute="top" secondItem="nZg-EK-86c" secondAttribute="top" constant="40" id="D8b-Za-QUx"/>
-                            <constraint firstAttribute="bottom" secondItem="ydQ-ka-L5Z" secondAttribute="bottom" constant="40" id="JTC-eR-hJm"/>
-                            <constraint firstItem="ydQ-ka-L5Z" firstAttribute="leading" secondItem="nZg-EK-86c" secondAttribute="leading" id="nOO-Vz-kZ9"/>
-                            <constraint firstAttribute="trailing" secondItem="ydQ-ka-L5Z" secondAttribute="trailing" id="zV2-1a-BUr"/>
+                            <constraint firstAttribute="bottom" secondItem="ydQ-ka-L5Z" secondAttribute="bottom" priority="999" constant="40" id="V4m-dH-XU4"/>
+                            <constraint firstItem="ydQ-ka-L5Z" firstAttribute="top" secondItem="nZg-EK-86c" secondAttribute="top" priority="999" constant="50" id="eb6-A0-fUO"/>
+                            <constraint firstAttribute="trailing" secondItem="ydQ-ka-L5Z" secondAttribute="trailing" constant="5" id="hwq-TC-vG0"/>
+                            <constraint firstItem="ydQ-ka-L5Z" firstAttribute="leading" secondItem="HQn-RF-fQw" secondAttribute="leading" constant="5" id="iWZ-l0-MOH"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jF8-Ag-s4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-171" y="-320"/>
+            <point key="canvasLocation" x="-171.01449275362319" y="-320.08928571428572"/>
         </scene>
     </scenes>
     <resources>

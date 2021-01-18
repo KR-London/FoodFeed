@@ -24,7 +24,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     
     fileprivate var fetcher: FeedFetchProtocol
     fileprivate var feeds: [Feed] = []
-    fileprivate var currentFeedIndex = 0
+    fileprivate var currentFeedIndex = -1
     
     init(view: FeedPageView, fetcher: FeedFetchProtocol = FeedFetcher()) {
         self.view = view
@@ -43,7 +43,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
        // configureAudioSession()
 
         fetchFeeds()
-        let initialFeed = Feed(id: 0, state: .text(bigText: "Swipe!") )
+        let initialFeed = Feed(id: -1, state: .text(bigText: "Swipe!") )
         view.presentInitialFeed(initialFeed)
     }
     
@@ -66,7 +66,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         
         //FIXME: This was setting at 59?!?! That's weird
         //let max = feeds.map{$0.id}.max() ?? 15
-        let max = 20
+        let max = feeds.map{$0.id}.max() ?? 0
         
     
         //FIXME: this is a hack - because when i came back after christmas this was falling over becaus the index was one more than in should have. i think the extra 'tick' comes from the onboarding - so i need to look at how it's counting. For now, just put in a floor value
