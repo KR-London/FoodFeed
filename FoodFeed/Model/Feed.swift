@@ -18,6 +18,8 @@ struct Feed: Decodable{
         case gif(gifName: String)
         case video(videoName: String)
         
+        case poll
+        
         init(from decoder: Decoder) throws {
             self = .text(bigText: "Keep Going!")
         }

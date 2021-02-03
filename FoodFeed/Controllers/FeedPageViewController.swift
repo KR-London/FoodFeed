@@ -15,18 +15,23 @@ class FeedPageViewController:
 {
     
     func presentInitialFeed(_ feed: Feed) {
-        let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: -1, isPlaying: true) as! FeedItemViewController
+        let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
+        
+     
+//
         setViewControllers([viewController], direction: .forward, animated: false, completion: nil)
         
     }
     
     fileprivate var presenter: FeedPagePresenterProtocol!
     
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
         self.delegate = self
         
+     
         let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
         
       //  let mock = MockFeedFetcher()

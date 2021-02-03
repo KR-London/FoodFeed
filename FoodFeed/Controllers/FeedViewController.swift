@@ -29,6 +29,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     let reasons = ["Not for me", "Wrong", "Upsetting", "Too loud", "Seems rude", "Boring", "Pushy"]
     var reason = String()
     
+    var following = false
+    
     let defaults = UserDefaults.standard
 
     static func instantiate(feed: Feed, andIndex index: Int, isPlaying: Bool = false) -> UIViewController{
@@ -38,13 +40,28 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         viewController.isPlaying = isPlaying
         return viewController
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.object(forKey: "following") == nil
+        {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "hello")
+                        self.present(newViewController, animated: true, completion: nil)
+            }
+    }
+    
 
     override func viewDidLoad() {
         let feedView = PostView(frame: self.view.frame, feed: feed)
         feedView.delegate = self
       
         view = feedView
-        setUpCommentsView()
+        
+        //FIXME: Move this to top of the screen - so it doesn;t fill valuable thumb real estate
+//        if feed.id != 0 && feed.id != -1 {
+//            setUpCommentsView()
+//        }
     }
 
 

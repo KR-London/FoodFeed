@@ -177,6 +177,8 @@ class PostView: UIView {
     let avatarView = AvatarView()
     let mediaView = MediaView()
    // let bigTextView = BigTextView()
+    ///let interactionView = InteractionView()
+    let settingsButton = UIButton()
     
     var delegate : FeedViewInteractionDelegate?
   
@@ -188,7 +190,7 @@ class PostView: UIView {
     init(frame: CGRect, feed: Feed) {
         super.init(frame: frame)
         
-        setup()
+        setup(feed: feed)
         
         switch feed.state{
             case .text(let bigText):
@@ -212,6 +214,8 @@ class PostView: UIView {
                     avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
                     media: MediaView.State(filename: videoName)
                 ))
+          //  case .poll:
+             //   print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
             default: return
         }
         
@@ -234,6 +238,25 @@ class PostView: UIView {
         setup()
     }
     
+    func setup(feed: Feed) {
+        
+//        if feed.state == .poll{
+//            setupMediaView()
+//        }
+        
+        setupMediaView()
+        
+        if feed.id  == -1 {
+            setUpResetButtons()
+        }
+        else{
+            setupStackView()
+            setupTag()
+            setupRightView()
+        }
+        
+    }
+    
     func setup() {
         setupMediaView()
         setupStackView()
@@ -253,6 +276,7 @@ class PostView: UIView {
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     func setupMediaView() {
+        
         addSubview(mediaView)
         mediaView.translatesAutoresizingMaskIntoConstraints = false
         mediaView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -269,17 +293,35 @@ class PostView: UIView {
 //        bigTextView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
 //        bigTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 //    }
+    
+    func setUpResetButtons()
+    {
+        self.addSubview(settingsButton)
+        settingsButton.backgroundColor = .blue
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -20).isActive = true
+        self.trailingAnchor.constraint(equalTo: settingsButton.trailingAnchor, constant: 20).isActive = true
+        settingsButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        settingsButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+        settingsButton.titleLabel?.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)!
+        settingsButton.setTitle("Reset Beta Test?", for: .normal)
+        settingsButton.layer.cornerRadius = 10.0
+        settingsButton.layer.borderWidth = 1.0
+        
+        settingsButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
+    }
 
     
     func setupRightView() {
         addSubview(controlsStack)
         controlsStack.axis = .vertical
 
-        let lView = likeView()
+        //FIXME: Hiddne like button because i won't be able to do anything with it this time around 
+       // let lView = likeView()
         controlsStack.addArrangedSubview(avatarView)
-        controlsStack.addArrangedSubview(lView)
-        controlsStack.setCustomSpacing(36, after: lView)
-        controlsStack.addArrangedSubview(commentView())
+       // controlsStack.addArrangedSubview(lView)
+       // controlsStack.setCustomSpacing(36, after: lView)
+        //controlsStack.addArrangedSubview(commentView())
         controlsStack.isLayoutMarginsRelativeArrangement = true
         controlsStack.spacing = 24
         controlsStack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -334,6 +376,12 @@ class PostView: UIView {
       //  tagLabel.text = state.tag?.rawValue
         avatarView.update(state: state.avatar)
         mediaView.update(state: state.media)
+    }
+    
+    @objc func resetUserDefaults(sender: UIButton!) {
+        UserDefaults.standard.removeObject(forKey: "loginRecord")
+        UserDefaults.standard.removeObject(forKey: "following")
+            
     }
     
 }
@@ -419,6 +467,7 @@ final class MediaView: UIView {
         case video(video: String)
         case stillImage(image: UIImage)
         case text(bigText: String)
+        case poll
         case hidden
         
         init(filename: String) {
@@ -445,6 +494,7 @@ final class MediaView: UIView {
 
     let imageView = UIImageView()
     let videoController = AVPlayerViewController()
+    let settingsButton = UIButton()
    
     let label = UILabel()
     
@@ -492,6 +542,7 @@ final class MediaView: UIView {
         label.backgroundColor = .yellow
         label.textAlignment = .center
         label.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
+        
     }
     
     
@@ -525,6 +576,8 @@ final class MediaView: UIView {
                 return
         }
     }
+    
+
 
 }
 

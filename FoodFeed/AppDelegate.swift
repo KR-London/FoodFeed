@@ -17,6 +17,61 @@ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        doIPlaceANewDatestamp()
+        
+//        if launchedBefore{
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+//            self.window?.rootViewController = initialViewController
+//
+//            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
+//            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
+//            self.window?.makeKeyAndVisible()
+//
+//        }
+//        else
+//        {
+//            UserDefaults.standard.set(true, forKey: "launchedBefore")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "hello" )
+//            self.window?.rootViewController = initialViewController
+//
+//            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
+//            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
+//            self.window?.makeKeyAndVisible()
+//
+////            if newTutorial{
+////                self.window = UIWindow(frame: UIScreen.main.bounds)
+////
+////                let storyboard = UIStoryboard(name: "ExtraTutorial", bundle: nil)
+////
+////                let initialViewController = storyboard.instantiateViewController(withIdentifier: "p1" )
+////                self.window?.rootViewController = initialViewController
+////            }
+////            else{
+////                // UserDefaults.standard.set(true, forKey: "launchedBefore")
+////                self.window = UIWindow(frame: UIScreen.main.bounds)
+////
+////                let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+////
+////                //let initialViewController = storyboard.instantiateViewController(withIdentifier: "o1" )
+////                let initialViewController = storyboard.instantiateViewController(withIdentifier: "o1" )
+////
+////                self.window?.rootViewController = initialViewController
+////                self.window?.makeKeyAndVisible()
+////            }
+////
+//        }
+        
+        
+        
         return true
     }
 
@@ -108,6 +163,37 @@ var window: UIWindow?
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    
+    // FIXME: Step through this to make sure it's still valid
+    func doIPlaceANewDatestamp(){
+        let now = Date()
+        print(Date())
+        var loginRecord = UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] ?? [ Date ]()
+        
+       
+        
+        print("login record")
+        print(loginRecord)
+        
+        //loginRecord = [ Date ]()
+        
+        loginRecord = loginRecord + [now]
+        UserDefaults.standard.set(loginRecord, forKey: "loginRecord")
+
+        
+        //        if let lastStamp = loginRecord.popLast()
+        //        {
+        //            if Calendar.current.isDateInToday(lastStamp)
+        //            {
+        //                loginRecord = loginRecord + [now]
+        //                UserDefaults.standard.set(loginRecord, forKey: "loginRecord")
+        //            }
+        //        }
+        
+        
+        
     }
 
 }

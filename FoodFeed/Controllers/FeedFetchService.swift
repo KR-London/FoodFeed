@@ -68,15 +68,29 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         var request: NSFetchRequest<PostData> = PostData.fetchRequest()
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
-        request.predicate = NSPredicate(format: "day == %i", 1)
+        let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 ) 
+        request.predicate = NSPredicate(format: "day == %i", day)
         
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
-        
-        var newFeedArray = [ Feed(id: 0, state: .text(bigText: "Day 1") )]
+        let dayString = "Day " + String(day)
+        var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString) )]
 
         do{
             let fetchedPosts = try context.fetch(request)
                 //as! [coreDataFeed]
+//
+//            @NSManaged public var bigtext: String?
+//            @NSManaged public var caption: String?
+//            @NSManaged public var day: Int16
+//            @NSManaged public var gif: String?
+//            @NSManaged public var hashtag: String?
+//            @NSManaged public var id: Int32
+//            @NSManaged public var image: String?
+//            @NSManaged public var type: String?
+//            @NSManaged public var user: String?
+//            @NSManaged public var video: String?
+//            @NSManaged public var votea: String?
+//            @NSManaged public var voteb: String?
             
             fetchedPosts.forEach({
                 switch $0.type {
