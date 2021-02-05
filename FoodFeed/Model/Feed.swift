@@ -17,8 +17,7 @@ struct Feed: Decodable{
         case image(imageName: String)
         case gif(gifName: String)
         case video(videoName: String)
-        
-        case poll
+        case poll(caption: String, votea: String, voteb: String)
         
         init(from decoder: Decoder) throws {
             self = .text(bigText: "Keep Going!")

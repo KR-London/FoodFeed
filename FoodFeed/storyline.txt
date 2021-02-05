@@ -1,15 +1,4 @@
 [
-        {
-        "day": 1,
-        "id": 1,
-        "bigtext": "Which jelly bean…?\nVote!",
-        "image": "jellybean.png",
-        "hashtag": "get_to_know_me",
-        "user": "Guy",
-        "votea": "Very Cherry?",
-        "voteb": "Raspberry ?",
-        "type": "Vote"
-    },
     {
         "day": 1,
         "id": 6,
@@ -52,7 +41,7 @@
     },
     {
         "day": 1,
-        "id": 6,
+        "id": 1,
         "bigtext": "Which jelly bean…?\nVote!",
         "image": "jellybean.png",
         "hashtag": "get_to_know_me",
@@ -176,9 +165,20 @@
         "hashtag": "excited",
         "type": "Text"
     },
+       {
+        "day": 2,
+        "id": 1,
+        "bigtext": "Which jelly bean…?\nVote!",
+        "image": "jellybean.png",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "votea": "Very Cherry?",
+        "voteb": "Raspberry ?",
+        "type": "Vote"
+    },
      {
    "day": 2,
-   "id": 1,
+   "id": 11,
    "bigText": "My best friend’s birthday next week!",
    "caption": "",
    "hashtag": "big_news",
@@ -369,11 +369,22 @@
    "gif": "Sad heart",
    "video": "",
    "textbox": null,
-   "type": "Text"
+   "type": "Gif"
  },
+    {
+        "day": 3,
+        "id": 1,
+        "bigtext": "Which jelly bean…?\nVote!",
+        "image": "jellybean.png",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "votea": "Very Cherry?",
+        "voteb": "Raspberry ?",
+        "type": "Vote"
+    },
  {
    "day": 3,
-   "id": 1,
+   "id": 11,
    "bigText": "I should be happy about my friend’s birthday … ",
    "caption": "",
    "hashtag": "",
@@ -399,7 +410,7 @@
    "gif": "Kermit",
    "video": "",
    "textbox": null,
-   "type": "Text"
+   "type": "Gif"
  },
  {
    "day": 3,
@@ -609,7 +620,7 @@
    "gif": "All by myself ",
    "video": "",
    "textbox": null,
-   "type": "Text"
+   "type": "Gif"
  },
  {
    "day": 3,
@@ -686,79 +697,15 @@
    "textbox": null,
    "type": "Gif"
  },
- {
-   "day": 4,
-   "id": 1,
-   "bigText": "",
-   "caption": "",
-   "hashtag": "",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
- },
- {
-   "day": 4,
-   "id": 2,
-   "bigText": "",
-   "caption": "",
-   "hashtag": "",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
- },
- {
-   "day": 4,
-   "id": 3,
-   "bigText": "",
-   "caption": "",
-   "hashtag": "",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
- },
- {
-   "day": 4,
-   "id": 4,
-   "bigText": "",
-   "caption": "",
-   "hashtag": "",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
- },
- {
-   "day": 4,
-   "id": 5,
-   "bigText": "",
-   "caption": "",
-   "hashtag": "",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
- }
+    {
+        "day": 4,
+        "id": 1,
+        "bigtext": "Which jelly bean…?\nVote!",
+        "image": "jellybean.png",
+        "hashtag": "get_to_know_me",
+        "user": "Guy",
+        "votea": "Very Cherry?",
+        "voteb": "Raspberry ?",
+        "type": "Vote"
+    }
     ]

@@ -78,19 +78,6 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         do{
             let fetchedPosts = try context.fetch(request)
                 //as! [coreDataFeed]
-//
-//            @NSManaged public var bigtext: String?
-//            @NSManaged public var caption: String?
-//            @NSManaged public var day: Int16
-//            @NSManaged public var gif: String?
-//            @NSManaged public var hashtag: String?
-//            @NSManaged public var id: Int32
-//            @NSManaged public var image: String?
-//            @NSManaged public var type: String?
-//            @NSManaged public var user: String?
-//            @NSManaged public var video: String?
-//            @NSManaged public var votea: String?
-//            @NSManaged public var voteb: String?
             
             fetchedPosts.forEach({
                 switch $0.type {
@@ -119,9 +106,29 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                             let newFeedItem = Feed(id: Int($0.id), state: .video(videoName: videoName) )
                             newFeedArray.append(newFeedItem)
                         }
+                    case "Vote": // should i allow for missing captions...?
+                        let caption = $0.caption ?? $0.bigtext ?? "Vote!!!"
+                        
+                        if let votea = $0.votea{
+                            if let voteb = $0.voteb{
+                                let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb) )
+                                newFeedArray.append(newFeedItem)
+                            }
+                        }
+
                     default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here") )
                         newFeedArray.append(newFeedItem)
                 }
+                
+//                "day": 5,
+//                "id": 1,
+//                "caption": "Which jelly bean…?\nVote!",
+//                "image": "jellybean.png",
+//                "hashtag": "get_to_know_me",
+//                "user": "Guy",
+//                "votea": "Very Cherry?",
+//                "voteb": "Raspberry ?",
+//                "type": "Vote"
 
             })
             //delegate?.feedFetchService(self, didFetchFeeds: fetchedPosts, withError: nil)

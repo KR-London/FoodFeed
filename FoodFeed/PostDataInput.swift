@@ -66,6 +66,7 @@ class PostDataInput: UIViewController {
         if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
             for item in parsedData {
                 let newPost = PostData(context: context)
+                
                 for (category, value) in item{
                     print(value)
                     switch category{
@@ -78,6 +79,8 @@ class PostDataInput: UIViewController {
                         case "image": newPost.image = value as! String
                         case "video":  newPost.video = value as! String
                         case "hashtag": newPost.hashtag = value as! String
+                        case "votea": newPost.votea = value as! String
+                        case "voteb": newPost.voteb = value as! String
                         default: break
                     }
                  

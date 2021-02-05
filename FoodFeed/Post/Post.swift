@@ -130,7 +130,7 @@ import SwiftUI
 struct AvatarViewPreview: PreviewProvider {
     static var previews: some View {
                 UIViewPreview {
-                    let image = UIImage(named: "one.jpeg")!
+                    let image = UIImage(named: "guy_profile_pic.jpeg")!
                     let view = AvatarView()
                     view.update(
                         state: AvatarView.State(image: image)
@@ -169,6 +169,7 @@ class PostView: UIView {
         //var tag: Model.Tag?
         var avatar: AvatarView.State
         var media: MediaView.State
+        var interaction: InteractionView.State
     }
     
     let stackView = UIStackView()
@@ -177,7 +178,7 @@ class PostView: UIView {
     let avatarView = AvatarView()
     let mediaView = MediaView()
    // let bigTextView = BigTextView()
-    ///let interactionView = InteractionView()
+    let interactionView = InteractionView()
     let settingsButton = UIButton()
     
     var delegate : FeedViewInteractionDelegate?
@@ -191,31 +192,41 @@ class PostView: UIView {
         super.init(frame: frame)
         
         setup(feed: feed)
+      //  tagLabel = feed.
         
         switch feed.state{
             case .text(let bigText):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-                    media: MediaView.State(filename: bigText)
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    media: MediaView.State(filename: bigText),
+                    interaction: InteractionView.State()
                 ))
               //  mediaView.isHidden == true
             case .gif(let gifName):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-                    media: MediaView.State(filename: gifName)
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    media: MediaView.State(filename: gifName),
+                    interaction: InteractionView.State()
                 ))
             case .image(let imageName):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-                    media: MediaView.State(filename: imageName)
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    media: MediaView.State(filename: imageName),
+                    interaction: InteractionView.State()
                 ))
             case .video(let videoName):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-                    media: MediaView.State(filename: videoName)
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    media: MediaView.State(filename: videoName),
+                    interaction: InteractionView.State()
                 ))
-          //  case .poll:
-             //   print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
+            case .poll(let caption, let votea, let voteb):
+                print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
+                self.update(state: PostView.State(
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    media: MediaView.State(),
+                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb)
+                ))
             default: return
         }
         
@@ -223,7 +234,7 @@ class PostView: UIView {
 //
 //            //FIXME: Refactor
 //            // tag: Model.Tag(rawValue: "#this is tag"),
-//            avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
+//            avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
 //            media: MediaView.State(filename: feed.gif)
 //        ))
         
@@ -244,17 +255,22 @@ class PostView: UIView {
 //            setupMediaView()
 //        }
         
+        // MARK: Where views are placed
         setupMediaView()
         
         if feed.id  == -1 {
             setUpResetButtons()
         }
         else{
+           
             setupStackView()
             setupTag()
             setupRightView()
+            setupInteractionView()
+            
         }
         
+       
     }
     
     func setup() {
@@ -283,6 +299,17 @@ class PostView: UIView {
         mediaView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         mediaView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         mediaView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    
+    func setupInteractionView() {
+        
+        addSubview(interactionView)
+        interactionView.translatesAutoresizingMaskIntoConstraints = false
+        interactionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        interactionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        interactionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        interactionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        interactionView.isUserInteractionEnabled == true
     }
     
 //    func setupBigTextView() {
@@ -363,7 +390,7 @@ class PostView: UIView {
         textStack.distribution = .equalCentering
         textStack.axis = .vertical
         let xxx = UILabel.usernameLabel()
-        xxx.text = "asdfasdfsadf"
+        xxx.text = T
         textStack.addArrangedSubview(tagLabel)
         textStack.addArrangedSubview(xxx)
         addSubview(textStack)
@@ -376,6 +403,7 @@ class PostView: UIView {
       //  tagLabel.text = state.tag?.rawValue
         avatarView.update(state: state.avatar)
         mediaView.update(state: state.media)
+        interactionView.update(state: state.interaction)
     }
     
     @objc func resetUserDefaults(sender: UIButton!) {
@@ -461,13 +489,135 @@ struct PostModel2 {
     let author: Author
 }
 
+final class InteractionView: UIView{
+    
+    enum State {
+        case poll(captionText: String, votea: String, voteb: String)
+        case hidden
+        
+        init(caption: String, votea: String, voteb: String) {
+            self = .poll(captionText: caption, votea: votea, voteb: voteb)
+        }
+
+        init() {
+            self = .hidden
+        }
+    }
+    
+    let caption = UILabel()
+    let voteAbutton = UIButton()
+    let voteBbutton = UIButton()
+    let backgroundImage = UIImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup() {
+        
+        self.isUserInteractionEnabled = true
+        
+//        backgroundImage.image = UIImage(named: "one.jpeg")
+//        backgroundImage.isUserInteractionEnabled = true
+//        self.addSubview(backgroundImage)
+//
+//        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+//        self.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor).isActive = true
+//        self.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
+//        self.topAnchor.constraint(equalTo: backgroundImage.topAnchor).isActive = true
+//        self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
+//
+
+        self.addSubview(caption)
+        caption.contentMode = .scaleAspectFit
+        caption.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: caption.bottomAnchor).isActive = true
+        caption.lineBreakMode = .byWordWrapping
+        caption.numberOfLines = 0
+        caption.backgroundColor = .green
+        caption.textAlignment = .center
+        caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
+        
+        self.addSubview(voteAbutton)
+        voteAbutton.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
+        voteAbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+        voteAbutton.backgroundColor = .blue
+        voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteAbutton.tag = 0
+      //  voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+       
+        
+        self.addSubview(voteBbutton)
+        voteBbutton.translatesAutoresizingMaskIntoConstraints = false
+        self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
+        voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+        voteBbutton.backgroundColor = .blue
+        voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteBbutton.tag = 1
+       // voteBbutton.isUserInteractionEnabled = true
+        voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        bringSubviewToFront(voteAbutton)
+        bringSubviewToFront(voteBbutton)
+    }
+    
+    func update(state: State) {
+     
+        switch state {
+            case .poll(let captionText, let votea, let voteb):
+                caption.text = captionText
+                voteAbutton.setTitle(votea, for: .normal)
+                voteBbutton.setTitle(voteb, for: .normal)
+                voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+            case .hidden:
+                caption.isHidden = true
+                voteAbutton.isHidden = true
+                voteBbutton.isHidden = true
+            default:
+                return
+        }
+    }
+    
+    @objc func voted(_ sender: UIButton) {
+        print("button Pressed")
+        if sender.tag == 0 {
+            caption.text = (String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ?? "Sunshine") + " is the best!"
+        }
+        if sender.tag == 1 {
+            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ?? "Sunshine") + " is the best!"
+        }
+        
+        voteBbutton.isHidden = true
+        voteAbutton.isHidden = true
+        //caption.isHidden = true
+        //sendSubviewToBack(self)
+       // reloadInputViews()
+    }
+    
+    
+}
+
+
 final class MediaView: UIView {
     enum State {
         case gifImage(gifImage: UIImage)
         case video(video: String)
         case stillImage(image: UIImage)
         case text(bigText: String)
-        case poll
         case hidden
         
         init(filename: String) {
@@ -572,6 +722,10 @@ final class MediaView: UIView {
                 let player = AVPlayer(url: urlPath!)
                 videoController.player = player
                 player.play()
+            case .hidden:
+                imageView.isHidden = true
+                label.isHidden = true
+                videoController.view.isHidden = true
             default:
                 return
         }
@@ -597,8 +751,9 @@ class PostViewController: UIViewController {
 extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
-        avatar: AvatarView.State(image: try! UIImage(imageName: "one.jpeg")!),
-        media: MediaView.State(filename: "This is a block of text to work out how to format it.")
+        avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+        media: MediaView.State(filename: "This is a block of text to work out how to format it."),
+        interaction: InteractionView.State()
     )
 }
 
