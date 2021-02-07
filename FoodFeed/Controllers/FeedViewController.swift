@@ -58,9 +58,9 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
       
         view = feedView
         
-        //FIXME: Move this to top of the screen - so it doesn;t fill valuable thumb real estate
+        ///FIXME: Put back - but not when I;m voting 
 //        if feed.id != 0 && feed.id != -1 {
-//            setUpCommentsView()
+//                setUpCommentsView()
 //        }
     }
 

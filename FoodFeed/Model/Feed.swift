@@ -13,14 +13,16 @@ struct Feed: Decodable{
     
     enum State : Decodable {
         
-        case text(bigText: String)
-        case image(imageName: String)
-        case gif(gifName: String)
+        case text(bigText: String, caption: String?)
+        case image(imageName: String, caption: String?)
+        case gif(gifName: String, caption: String?)
         case video(videoName: String)
         case poll(caption: String, votea: String, voteb: String)
+        case question(caption: String)
+        case photoPrompt(caption: String)
         
         init(from decoder: Decoder) throws {
-            self = .text(bigText: "Keep Going!")
+            self = .text(bigText: "Keep Going!", caption: nil)
         }
     }
     

@@ -2,78 +2,7 @@ import Foundation
 import AVFoundation
 import AVKit
 import UIKit
-
-enum Media {
-    case image(URL) // data
-    case video(URL, position: Int)
-    case unknown(URL) // should be able to fallback to image or video, not sure best way yet
-}
-
-enum Interaction {
-    struct Poll {
-        struct Option {
-            let ID: UUID
-            let text: String
-            let votes: Int
-        }
-        let ID: UUID // TODO: should make ID's specific to types
-        let questionText: String
-        let options: [Option] // TODO: could restrict to only 2?
-    }
-    case CommentPrompt(String)
-    case PollPrompt(Poll)
-    case PhotoPrompt
-}
-
-struct PostModel: Identifiable {
-    let id: ID
-    var bigText: String
-    var caption: String
-    var media: Media // gif, video, image
-    var interaction: Interaction
-    var tag: Tag?
-
-    struct Like {
-        var state: State
-        var count: Int
-        
-        enum State {
-            case liked
-            case disliked
-            case undecided
-        }
-    }
-    
-    struct ID: RawRepresentable, Hashable {
-        let rawValue: Int
-        init(rawValue value: Int) {
-            self.rawValue = value
-        }
-    }
-    
-    struct Tag: RawRepresentable, Hashable {
-        let rawValue: String
-        var displayText: String {
-            return "# \(rawValue)"
-        }
-    }
-}
-
-struct TextContent: RawRepresentable, Hashable {
-    let rawValue: String
-    init?(rawValue: String) {
-        if rawValue.count > 400 {
-            return nil
-        }
-        self.rawValue = rawValue
-    }
-}
-
-extension PostModel.ID: ExpressibleByIntegerLiteral {
-    init(integerLiteral value: Int) {
-        self.init(rawValue: value)
-    }
-}
+import Speech
 
 final class AvatarView: UIView {
     private let margin: CGFloat = 2
@@ -195,29 +124,29 @@ class PostView: UIView {
       //  tagLabel = feed.
         
         switch feed.state{
-            case .text(let bigText):
+            case .text(let bigText, let caption):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: bigText),
+                    media: MediaView.State(filename: bigText, captionText: caption),
                     interaction: InteractionView.State()
                 ))
               //  mediaView.isHidden == true
-            case .gif(let gifName):
+            case .gif(let gifName, let caption):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: gifName),
+                    media: MediaView.State(filename: gifName, captionText: caption),
                     interaction: InteractionView.State()
                 ))
-            case .image(let imageName):
+            case .image(let imageName, let caption):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: imageName),
+                    media: MediaView.State(filename: imageName,captionText: caption),
                     interaction: InteractionView.State()
                 ))
             case .video(let videoName):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: videoName),
+                    media: MediaView.State(filename: videoName, captionText: nil),
                     interaction: InteractionView.State()
                 ))
             case .poll(let caption, let votea, let voteb):
@@ -227,6 +156,20 @@ class PostView: UIView {
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb)
                 ))
+            case .question(caption: let caption):
+                print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
+                self.update(state: PostView.State(
+                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    media: MediaView.State(),
+                    interaction: InteractionView.State(caption: caption)
+                ))
+//            case .photoPrompt(caption: let caption):
+//                print("This is a photo prompt ")
+//                self.update(state: PostView.State(
+//                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+//                    media: MediaView.State(),
+//                    interaction: InteractionView.State(caption: caption)
+//                ))
             default: return
         }
         
@@ -390,7 +333,7 @@ class PostView: UIView {
         textStack.distribution = .equalCentering
         textStack.axis = .vertical
         let xxx = UILabel.usernameLabel()
-        xxx.text = T
+       // xxx.text = T
         textStack.addArrangedSubview(tagLabel)
         textStack.addArrangedSubview(xxx)
         addSubview(textStack)
@@ -409,9 +352,7 @@ class PostView: UIView {
     @objc func resetUserDefaults(sender: UIButton!) {
         UserDefaults.standard.removeObject(forKey: "loginRecord")
         UserDefaults.standard.removeObject(forKey: "following")
-            
     }
-    
 }
 
 extension UILabel {
@@ -440,63 +381,20 @@ extension UILabel {
 
 
 
-struct PostModel2 {
-    enum Media {
-        case image(URL)
-        case video(URL, position: Int)
-        case unknown(URL) // should be able to fallback to image or video, not sure best way yet
-    }
-    
-    struct Author { // fix up model maybe, fine for now
-        let ID: UUID
-        let avatar: URL
-        let username: String
-    }
-    struct Comment { // fix up model, combine the user/username somehow
-        struct Author {
-            let ID: UUID
-            let username: String
-        }
-        let content: String
-        let user: Author
-        let date: Date
-    }
-    
-    struct Tag {
-        let rawValue: String
-    }
-    
-    enum Interaction {
-        struct Poll {
-            struct Option {
-                let ID: UUID
-                let text: String
-                let votes: Int
-            }
-            let ID: UUID // TODO: should make ID's specific to types
-            let questionText: String
-            let options: [Option] // TODO: could restrict to only 2?
-        }
-        case CommentPrompt(String)
-        case PollPrompt(Poll)
-        case PhotoPrompt
-    }
-    
-    let media: Media
-    let caption: String
-    let tags: [Tag]
-    let comments: [Comment]
-    let author: Author
-}
-
 final class InteractionView: UIView{
     
+    /// I deleted the refactor code because I got completely lost in what the point was.
+    /// but at some point will i be limited by not being able to pass pictuers in  ... ?
     enum State {
         case poll(captionText: String, votea: String, voteb: String)
+        case question(captionText: String)
         case hidden
-        
         init(caption: String, votea: String, voteb: String) {
             self = .poll(captionText: caption, votea: votea, voteb: voteb)
+        }
+        
+        init(caption: String) {
+            self = .question(captionText: caption)
         }
 
         init() {
@@ -507,6 +405,7 @@ final class InteractionView: UIView{
     let caption = UILabel()
     let voteAbutton = UIButton()
     let voteBbutton = UIButton()
+    let answerInput = UITextField()
     let backgroundImage = UIImageView()
     
     override init(frame: CGRect) {
@@ -571,6 +470,15 @@ final class InteractionView: UIView{
        // voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
+        self.addSubview(answerInput)
+        answerInput.backgroundColor = .lightGray
+        answerInput.placeholder = "............."
+        answerInput.translatesAutoresizingMaskIntoConstraints = false
+        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor).isActive = true
+        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
+        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
+        answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
+        
         bringSubviewToFront(voteAbutton)
         bringSubviewToFront(voteBbutton)
     }
@@ -583,10 +491,16 @@ final class InteractionView: UIView{
                 voteAbutton.setTitle(votea, for: .normal)
                 voteBbutton.setTitle(voteb, for: .normal)
                 voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+                answerInput.isHidden = true
+            case .question(let captionText):
+                caption.text = captionText
+                voteAbutton.isHidden = true
+                voteBbutton.isHidden = true
             case .hidden:
                 caption.isHidden = true
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
+                answerInput.isHidden = true
             default:
                 return
         }
@@ -614,26 +528,24 @@ final class InteractionView: UIView{
 
 final class MediaView: UIView {
     enum State {
-        case gifImage(gifImage: UIImage)
-        case video(video: String)
-        case stillImage(image: UIImage)
-        case text(bigText: String)
+        case gifImage(gifImage: UIImage, caption: String)
+        case video(video: String, caption: String)
+        case stillImage(image: UIImage, caption: String)
+        case text(bigText: String, caption: String)
         case hidden
         
-        init(filename: String) {
-            
-            
-            
-            switch filename.suffix(4){
-                case ".mp4":
-                    self = .video(video: filename )
-                case "jpeg", ".jpg", ".png":
-                    self = .stillImage(image: UIImage(named: filename) ?? UIImage(named: "two.jpeg")!  )
-                case ".gif":
-                    //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-                    self = .gifImage(gifImage: try! UIImage(gifName: filename))
-                default:
-                    self = .text(bigText: filename )
+        init(filename: String, captionText: String?) {
+
+        switch filename.suffix(4){
+            case ".mp4":
+                self = .video(video: filename, caption: captionText ?? "" )
+            case "jpeg", ".jpg", ".png":
+                self = .stillImage(image: UIImage(named: filename) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+            case ".gif":
+                //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
+                self = .gifImage(gifImage: try! UIImage(gifName: filename), caption: captionText ?? "")
+            default:
+                self = .text(bigText: filename, caption: captionText ?? "" )
             }
         }
         
@@ -645,8 +557,8 @@ final class MediaView: UIView {
     let imageView = UIImageView()
     let videoController = AVPlayerViewController()
     let settingsButton = UIButton()
-   
     let label = UILabel()
+    let caption = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -670,6 +582,7 @@ final class MediaView: UIView {
         self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        imageView.backgroundColor = .blue
         
         self.addSubview(videoView!)
         videoView!.translatesAutoresizingMaskIntoConstraints = false
@@ -680,7 +593,6 @@ final class MediaView: UIView {
         
         
         self.addSubview(label)
-        label.backgroundColor = .green
         label.translatesAutoresizingMaskIntoConstraints = false
         self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
@@ -693,38 +605,85 @@ final class MediaView: UIView {
         label.textAlignment = .center
         label.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
         
+        self.addSubview(caption)
+        caption.backgroundColor = .green
+        caption.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
+        caption.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        //label.isHidden = true
+        caption.lineBreakMode = .byWordWrapping
+        caption.numberOfLines = 0
+        caption.backgroundColor = .purple
+        caption.textAlignment = .center
+        caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 24)
+        
+        
+        
+        
     }
     
     
     func update(state: State) {
 
         switch state {
-            case .gifImage( let gifImage):
+            case .gifImage( let gifImage, let captionText):
                 imageView.setGifImage(gifImage, loopCount: -1)
                 imageView.isHidden = false
                 label.isHidden = true
                 videoController.view.isHidden = true
-            case .stillImage(let image):
+                if captionText == "" {
+                    caption.isHidden = true
+
+                }
+                else{
+                    caption.text = captionText
+                }
+            case .stillImage(let image, let captionText):
                 imageView.setImage(image)
                 imageView.isHidden = false
                 label.isHidden = true
+                if captionText == "" {
+                    caption.isHidden = true
+                    
+                }
+                else{
+                    caption.text = captionText
+                }
                 videoController.view.isHidden = true
-            case .text(let bigText):
+            case .text(let bigText, let captionText):
                 imageView.isHidden = true
                 label.isHidden = false
                 label.text = bigText
                 videoController.view.isHidden = true
-            case .video(let video):
+                if captionText == "" {
+                    caption.isHidden = true
+
+                }
+                else{
+                    caption.text = captionText
+                }
+            case .video(let video, let captionText):
                 imageView.isHidden = true
                 label.isHidden = true
-                let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".mp4")
-                print(urlPath)
-                let player = AVPlayer(url: urlPath!)
-                videoController.player = player
-                player.play()
+                if captionText == "" {
+                    caption.isHidden = true
+                    
+                }
+                else{
+                    caption.text = captionText
+                }
+                if let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".mp4"){
+                    print(urlPath)
+                    let player = AVPlayer(url: urlPath)
+                    videoController.player = player
+                    player.play()
+                }
             case .hidden:
                 imageView.isHidden = true
                 label.isHidden = true
+                caption.isHidden = true
                 videoController.view.isHidden = true
             default:
                 return
@@ -752,7 +711,7 @@ extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-        media: MediaView.State(filename: "This is a block of text to work out how to format it."),
+        media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" ),
         interaction: InteractionView.State()
     )
 }

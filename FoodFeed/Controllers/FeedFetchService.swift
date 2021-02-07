@@ -68,12 +68,13 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         var request: NSFetchRequest<PostData> = PostData.fetchRequest()
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
-        let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 ) 
+       // let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
+        let day = 1 
         request.predicate = NSPredicate(format: "day == %i", day)
         
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
         let dayString = "Day " + String(day)
-        var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString) )]
+        var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "") )]
 
         do{
             let fetchedPosts = try context.fetch(request)
@@ -82,24 +83,24 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
             fetchedPosts.forEach({
                 switch $0.type {
                     case "Text":
-                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: $0.bigtext ?? "Error - no text stored in text post") )
+                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: $0.bigtext ?? "Error - no text stored in text post", caption: $0.caption ?? "" ))
                         newFeedArray.append(newFeedItem)
                     case "Image":
                         if let imageName = $0.image{
-                            let newFeedItem = Feed(id: Int($0.id), state: .image(imageName: imageName) )
+                            let newFeedItem = Feed(id: Int($0.id), state: .image(imageName: imageName, caption: $0.caption ?? "" ) )
                             newFeedArray.append(newFeedItem)
                         } else {
                             print("Inconsistently formatted image record \($0)")
                         }
                     case "Gif":
                         if let gifName = $0.gif{
-                            let newFeedItem = Feed(id: Int($0.id), state: .gif(gifName: gifName) )
+                            let newFeedItem = Feed(id: Int($0.id), state: .gif(gifName: gifName, caption: $0.caption ?? "" ) )
                             newFeedArray.append(newFeedItem)
                         } else {
                             print("Inconsistently formatted gif record \($0)")
                         }
                     case "PhotoPrompt":
-                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "PhotoPrompt") )
+                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "PhotoPrompt", caption: $0.caption ?? "" ) )
                         newFeedArray.append(newFeedItem)
                     case "Video":
                         if let videoName = $0.video{
@@ -115,8 +116,13 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                                 newFeedArray.append(newFeedItem)
                             }
                         }
+                    case "Question":
+                        if let caption = $0.caption{
+                            let newFeedItem = Feed(id: Int($0.id), state: .question(caption: caption) )
+                            newFeedArray.append(newFeedItem)
+                        }
 
-                    default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here") )
+                    default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here", caption: $0.caption ?? "" ) )
                         newFeedArray.append(newFeedItem)
                 }
                 
