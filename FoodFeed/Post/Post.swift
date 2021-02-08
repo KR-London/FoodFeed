@@ -99,6 +99,7 @@ class PostView: UIView {
         var avatar: AvatarView.State
         var media: MediaView.State
         var interaction: InteractionView.State
+        var tag: String?
     }
     
     let stackView = UIStackView()
@@ -109,6 +110,7 @@ class PostView: UIView {
    // let bigTextView = BigTextView()
     let interactionView = InteractionView()
     let settingsButton = UIButton()
+    var didPause = false
     
     var delegate : FeedViewInteractionDelegate?
   
@@ -124,45 +126,59 @@ class PostView: UIView {
       //  tagLabel = feed.
         
         switch feed.state{
-            case .text(let bigText, let caption):
+            case .text(let bigText, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: bigText, captionText: caption),
-                    interaction: InteractionView.State()
+                    interaction: InteractionView.State(),
+                    tag: hashtag
                 ))
+                if let tag = hashtag{
+                    tagLabel.text = "#" + tag
+                }
               //  mediaView.isHidden == true
-            case .gif(let gifName, let caption):
+            case .gif(let gifName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: gifName, captionText: caption),
-                    interaction: InteractionView.State()
+                    interaction: InteractionView.State(),
+                    tag: hashtag
                 ))
-            case .image(let imageName, let caption):
+                tagLabel.text = hashtag
+            case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: imageName,captionText: caption),
-                    interaction: InteractionView.State()
+                    interaction: InteractionView.State(),
+                    tag: hashtag
                 ))
-            case .video(let videoName):
+                tagLabel.text = hashtag
+            case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: videoName, captionText: nil),
-                    interaction: InteractionView.State()
+                    interaction: InteractionView.State(),
+                    tag: hashtag
                 ))
-            case .poll(let caption, let votea, let voteb):
+                tagLabel.text = hashtag
+            case .poll(let caption, let votea, let voteb, let hashtag):
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
-                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb)
+                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb),
+                    tag: hashtag
                 ))
-            case .question(caption: let caption):
+                tagLabel.text = hashtag
+            case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
-                    interaction: InteractionView.State(caption: caption)
+                    interaction: InteractionView.State(caption: caption),
+                    tag: hashtag
                 ))
+               // tagLabel.text = hashtag
 //            case .photoPrompt(caption: let caption):
 //                print("This is a photo prompt ")
 //                self.update(state: PostView.State(
@@ -210,10 +226,26 @@ class PostView: UIView {
             setupTag()
             setupRightView()
             setupInteractionView()
-            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+            addGestureRecognizer(tap)
         }
         
        
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        
+        didPause = !didPause
+        if didPause{
+            mediaView.pause()
+        }
+        else{
+            mediaView.play()
+        }
+    }
+    
+    func pause(){
+        mediaView.pause()
     }
     
     func setup() {
@@ -277,7 +309,6 @@ class PostView: UIView {
         settingsButton.setTitle("Reset Beta Test?", for: .normal)
         settingsButton.layer.cornerRadius = 10.0
         settingsButton.layer.borderWidth = 1.0
-        
         settingsButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
     }
 
@@ -333,7 +364,7 @@ class PostView: UIView {
         textStack.distribution = .equalCentering
         textStack.axis = .vertical
         let xxx = UILabel.usernameLabel()
-       // xxx.text = T
+        //xxx.text = T
         textStack.addArrangedSubview(tagLabel)
         textStack.addArrangedSubview(xxx)
         addSubview(textStack)
@@ -343,10 +374,14 @@ class PostView: UIView {
     }
     
     func update(state: State) {
-      //  tagLabel.text = state.tag?.rawValue
+        if let tag = state.tag{
+            tagLabel.text = "#" + tag
+            tagLabel.textColor = .blue
+        }
         avatarView.update(state: state.avatar)
         mediaView.update(state: state.media)
         interactionView.update(state: state.interaction)
+        
     }
     
     @objc func resetUserDefaults(sender: UIButton!) {
@@ -559,6 +594,8 @@ final class MediaView: UIView {
     let settingsButton = UIButton()
     let label = UILabel()
     let caption = UILabel()
+    var player : AVPlayer?
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -573,6 +610,7 @@ final class MediaView: UIView {
     
     /// THINKS: Is setting up views I won;t use inefficient? Or is it in fact better to do it asap so that the user doe not get a hang?
     func setup() {
+
         let videoView = videoController.view
         
         self.addSubview(imageView)
@@ -674,11 +712,12 @@ final class MediaView: UIView {
                 else{
                     caption.text = captionText
                 }
+              
                 if let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".mp4"){
                     print(urlPath)
-                    let player = AVPlayer(url: urlPath)
+                    player = AVPlayer(url: urlPath)
                     videoController.player = player
-                    player.play()
+                    player?.play()
                 }
             case .hidden:
                 imageView.isHidden = true
@@ -690,6 +729,18 @@ final class MediaView: UIView {
         }
     }
     
+    
+    func play() {
+        player?.play()
+    }
+    
+    func pause() {
+        player?.pause()
+    }
+
+    // Pauses video playback on tap
+    //FIXME: pause gifs and voice
+
 
 
 }

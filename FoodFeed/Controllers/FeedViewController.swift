@@ -22,6 +22,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     var commentsDriver = TimedComments()
     var comments: [Comment] = []
     var commentButton = UIButton()
+    var feedView = PostView()
     
     
     fileprivate var isPlaying: Bool!
@@ -53,17 +54,22 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     
 
     override func viewDidLoad() {
-        let feedView = PostView(frame: self.view.frame, feed: feed)
+        feedView = PostView(frame: self.view.frame, feed: feed)
         feedView.delegate = self
       
         view = feedView
+      
         
         ///FIXME: Put back - but not when I;m voting 
 //        if feed.id != 0 && feed.id != -1 {
 //                setUpCommentsView()
 //        }
+        
     }
-
+    
+    func pause(){
+        feedView.pause()
+    }
 
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view

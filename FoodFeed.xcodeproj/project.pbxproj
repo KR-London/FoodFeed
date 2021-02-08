@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
 		44772128252B16C800C76FB0 /* giphy30.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44772127252B16C800C76FB0 /* giphy30.gif */; };
+		4493C55025D112F000A6768D /* redbike.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C54F25D112F000A6768D /* redbike.jpg */; };
+		4493C55525D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C55425D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg */; };
+		4493C55A25D1144900A6768D /* pokeBike.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4493C55925D1144900A6768D /* pokeBike.gif */; };
+		4493C55F25D115B200A6768D /* day2biketrick.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4493C55E25D115B200A6768D /* day2biketrick.gif */; };
+		4493C56425D1183C00A6768D /* catday2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C56325D1183C00A6768D /* catday2.jpeg */; };
+		4493C56925D1184000A6768D /* dogday2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C56825D1184000A6768D /* dogday2.jpeg */; };
 		449DFE0D256FD4CE00120774 /* storyline.txt in Resources */ = {isa = PBXBuildFile; fileRef = 449DFE0C256FD4CE00120774 /* storyline.txt */; };
 		44A812CA257D45DC00685A0E /* sadAnimeGirl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44A812C9257D45DC00685A0E /* sadAnimeGirl.gif */; };
 		44A812CF257D468B00685A0E /* giphy 18.GIF-0.0000-15.0100.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44A812CE257D468B00685A0E /* giphy 18.GIF-0.0000-15.0100.gif */; };
@@ -133,6 +139,12 @@
 /* Begin PBXFileReference section */
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
 		44772127252B16C800C76FB0 /* giphy30.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy30.gif; sourceTree = "<group>"; };
+		4493C54F25D112F000A6768D /* redbike.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redbike.jpg; sourceTree = "<group>"; };
+		4493C55425D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg"; sourceTree = "<group>"; };
+		4493C55925D1144900A6768D /* pokeBike.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pokeBike.gif; sourceTree = "<group>"; };
+		4493C55E25D115B200A6768D /* day2biketrick.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = day2biketrick.gif; sourceTree = "<group>"; };
+		4493C56325D1183C00A6768D /* catday2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = catday2.jpeg; sourceTree = "<group>"; };
+		4493C56825D1184000A6768D /* dogday2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogday2.jpeg; sourceTree = "<group>"; };
 		449DFE0C256FD4CE00120774 /* storyline.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = storyline.txt; sourceTree = "<group>"; };
 		44A812C9257D45DC00685A0E /* sadAnimeGirl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sadAnimeGirl.gif; sourceTree = "<group>"; };
 		44A812CE257D468B00685A0E /* giphy 18.GIF-0.0000-15.0100.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy 18.GIF-0.0000-15.0100.gif"; sourceTree = "<group>"; };
@@ -400,6 +412,8 @@
 				44DC67FA256FEA5F00C7C1D4 /* v09044b60000bss1rnph20v13vrciuu0.mp4 */,
 				44DC67FB256FEA5F00C7C1D4 /* v09044870000bt9t18n7hc96rduchojg.mp4 */,
 				44DC67FC256FEA5F00C7C1D4 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 */,
+				4493C55925D1144900A6768D /* pokeBike.gif */,
+				4493C55425D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg */,
 				44DC67FD256FEA5F00C7C1D4 /* Day10 */,
 				44DC67FF256FEA5F00C7C1D4 /* ProfilePictures */,
 				44DC6800256FEA5F00C7C1D4 /* no.MP4 */,
@@ -431,7 +445,11 @@
 		44DC67D5256FEA5F00C7C1D4 /* Day2 */ = {
 			isa = PBXGroup;
 			children = (
+				4493C56325D1183C00A6768D /* catday2.jpeg */,
+				4493C56825D1184000A6768D /* dogday2.jpeg */,
+				4493C54F25D112F000A6768D /* redbike.jpg */,
 				44EACC8F25D011B80015A9EC /* tenor-6559.gif */,
+				4493C55E25D115B200A6768D /* day2biketrick.gif */,
 				44EACC8A25D0118C0015A9EC /* tenor-6369.gif */,
 				44EACC8525D011760015A9EC /* giphy 30-5163.GIF */,
 				44DC67E7256FEA5F00C7C1D4 /* v09044bd0000brogfeop685g27h318ig.mp4 */,
@@ -721,6 +739,7 @@
 			files = (
 				44EACC9025D011B80015A9EC /* tenor-6559.gif in Resources */,
 				44DC6806256FEA5F00C7C1D4 /* hotchoc.MP4 in Resources */,
+				4493C56925D1184000A6768D /* dogday2.jpeg in Resources */,
 				44DC680A256FEA5F00C7C1D4 /* v07025db0000bu6lh79u0sobgpo574dg.mp4 in Resources */,
 				44DC680B256FEA5F00C7C1D4 /* v07025c40000btq2arvglrfa1qbsg6f0.mp4 in Resources */,
 				44DC6825256FEA5F00C7C1D4 /* redpuff.gif in Resources */,
@@ -744,6 +763,7 @@
 				44DC680F256FEA5F00C7C1D4 /* v07044a00000bu8aiu1u0so8eg4kba40.mp4 in Resources */,
 				44A81303257E39E600685A0E /* giphy30.gif in Resources */,
 				44DC680D256FEA5F00C7C1D4 /* tomatosauce.MP4 in Resources */,
+				4493C56425D1183C00A6768D /* catday2.jpeg in Resources */,
 				44DC6826256FEA5F00C7C1D4 /* friends.jpeg in Resources */,
 				44A812E3257D549C00685A0E /* redShoes.png in Resources */,
 				44DC6830256FEA5F00C7C1D4 /* v090440e0000bl03mcjl96bevlo69jrg.MP4 in Resources */,
@@ -753,6 +773,7 @@
 				44DC6815256FEA5F00C7C1D4 /* thankyou.MP4 in Resources */,
 				44C3DF47252A274100D317DA /* fieri.jpeg in Resources */,
 				44DC681D256FEA5F00C7C1D4 /* v09044bd0000brogfeop685g27h318ig.mp4 in Resources */,
+				4493C55025D112F000A6768D /* redbike.jpg in Resources */,
 				44DC6821256FEA5F00C7C1D4 /* penguins.gif in Resources */,
 				44DC682E256FEA5F00C7C1D4 /* v09044030000blnsldfdgse6emlj0lo0.mp4 in Resources */,
 				44DC6814256FEA5F00C7C1D4 /* v090442d0000br49ja6a9rh57kf7jeu0.mp4 in Resources */,
@@ -764,6 +785,7 @@
 				44EACC8125D0114E0015A9EC /* cupcake.gif in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
+				4493C55A25D1144900A6768D /* pokeBike.gif in Resources */,
 				44DC6824256FEA5F00C7C1D4 /* strawberry.mp4 in Resources */,
 				44DC6812256FEA5F00C7C1D4 /* v09044200000bq5oe1kb0k2ilcn2iekg.mp4 in Resources */,
 				44DC6808256FEA5F00C7C1D4 /* v09044060000bg471jqvfskjjg9j1fcg.mp4 in Resources */,
@@ -792,7 +814,9 @@
 				44DC6823256FEA5F00C7C1D4 /* giphy-31.gif in Resources */,
 				44DC682D256FEA5F00C7C1D4 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 in Resources */,
 				44A812FE257E390D00685A0E /* cakeparty.gif in Resources */,
+				4493C55525D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg in Resources */,
 				44772128252B16C800C76FB0 /* giphy30.gif in Resources */,
+				4493C55F25D115B200A6768D /* day2biketrick.gif in Resources */,
 				44DC6831256FEA5F00C7C1D4 /* wireflower.MP4 in Resources */,
 				44EACC8625D011760015A9EC /* giphy 30-5163.GIF in Resources */,
 			);

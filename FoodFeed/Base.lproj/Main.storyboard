@@ -170,20 +170,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="guy_side_headphones.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="duY-v8-hsf">
-                                        <rect key="frame" x="0.0" y="43.5" width="404" height="535"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="404" height="583"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing my story - one day at a time. Follow me and help me with figuring out life!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="y6K-Jk-4Ju">
-                                        <rect key="frame" x="0.0" y="588.5" width="404" height="107.5"/>
+                                        <rect key="frame" x="0.0" y="636.5" width="404" height="107.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tl-qi-ebs" userLabel="Follow">
-                                        <rect key="frame" x="10" y="706" width="384" height="100"/>
+                                        <rect key="frame" x="10" y="754" width="384" height="52"/>
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="q6E-Of-omU"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <state key="normal" title="Follow ">
                                             <color key="titleColor" systemColor="labelColor"/>

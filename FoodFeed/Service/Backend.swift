@@ -20,7 +20,7 @@ enum Backend {
     
     struct Tag: Identifiable {
         var id: String {
-            return name
+            return "#" + name
         }
         var name: String
     }

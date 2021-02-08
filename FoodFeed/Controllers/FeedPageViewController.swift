@@ -65,7 +65,7 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
             let viewController = pageViewController.viewControllers?.first as? FeedItemViewController,
             let previousViewController = previousViewControllers.first as? FeedItemViewController
         {
-           // previousViewController.pause()
+            previousViewController.pause()
             //viewController.play()
             presenter.updateFeedIndex(fromIndex: viewController.index)
             if previousViewController.index < viewController.index{
