@@ -67,6 +67,7 @@ class PostDataInput: UIViewController {
             for item in parsedData {
                 let newPost = PostData(context: context)
                 
+                print(item)
                 for (category, value) in item{
                     print(value)
                     switch category{

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443A9EB425E2EF0D001E69BB /* burgerCandle.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EB325E2EF0D001E69BB /* burgerCandle.GIF */; };
+		443A9EB925E2F003001E69BB /* dogsInYellowHats.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EB825E2F003001E69BB /* dogsInYellowHats.GIF */; };
+		443A9EBE25E2F013001E69BB /* pizzaCandle.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EBD25E2F013001E69BB /* pizzaCandle.GIF */; };
+		443A9EC325E2F01B001E69BB /* bigMeal.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EC225E2F01B001E69BB /* bigMeal.GIF */; };
+		443A9EC825E2F037001E69BB /* catLettuce.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EC725E2F037001E69BB /* catLettuce.GIF */; };
+		443A9ECD25E2F061001E69BB /* stayHome.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ECC25E2F061001E69BB /* stayHome.gif */; };
+		443A9ED225E2F071001E69BB /* joeWicks.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED125E2F071001E69BB /* joeWicks.gif */; };
+		443A9ED725E2F1A3001E69BB /* allByMyself.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED625E2F1A3001E69BB /* allByMyself.gif */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
 		44772128252B16C800C76FB0 /* giphy30.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44772127252B16C800C76FB0 /* giphy30.gif */; };
 		4493C55025D112F000A6768D /* redbike.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C54F25D112F000A6768D /* redbike.jpg */; };
@@ -137,6 +145,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		443A9EB325E2EF0D001E69BB /* burgerCandle.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = burgerCandle.GIF; sourceTree = "<group>"; };
+		443A9EB825E2F003001E69BB /* dogsInYellowHats.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dogsInYellowHats.GIF; sourceTree = "<group>"; };
+		443A9EBD25E2F013001E69BB /* pizzaCandle.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pizzaCandle.GIF; sourceTree = "<group>"; };
+		443A9EC225E2F01B001E69BB /* bigMeal.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bigMeal.GIF; sourceTree = "<group>"; };
+		443A9EC725E2F037001E69BB /* catLettuce.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = catLettuce.GIF; sourceTree = "<group>"; };
+		443A9ECC25E2F061001E69BB /* stayHome.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = stayHome.gif; sourceTree = "<group>"; };
+		443A9ED125E2F071001E69BB /* joeWicks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = joeWicks.gif; sourceTree = "<group>"; };
+		443A9ED625E2F1A3001E69BB /* allByMyself.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = allByMyself.gif; sourceTree = "<group>"; };
+		443A9EDB25E2F292001E69BB /* hamsterPinkCar.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hamsterPinkCar.MP4; sourceTree = "<group>"; };
+		443A9EDC25E2F2B8001E69BB /* powerOfNo.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerOfNo.MP4; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
 		44772127252B16C800C76FB0 /* giphy30.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy30.gif; sourceTree = "<group>"; };
 		4493C54F25D112F000A6768D /* redbike.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redbike.jpg; sourceTree = "<group>"; };
@@ -435,6 +453,16 @@
 			isa = PBXGroup;
 			children = (
 				44DC67D2256FEA5F00C7C1D4 /* v07025c40000btq2arvglrfa1qbsg6f0.mp4 */,
+				443A9EB325E2EF0D001E69BB /* burgerCandle.GIF */,
+				443A9EC725E2F037001E69BB /* catLettuce.GIF */,
+				443A9EB825E2F003001E69BB /* dogsInYellowHats.GIF */,
+				443A9EC225E2F01B001E69BB /* bigMeal.GIF */,
+				443A9ECC25E2F061001E69BB /* stayHome.gif */,
+				443A9ED125E2F071001E69BB /* joeWicks.gif */,
+				443A9EDC25E2F2B8001E69BB /* powerOfNo.MP4 */,
+				443A9EDB25E2F292001E69BB /* hamsterPinkCar.MP4 */,
+				443A9ED625E2F1A3001E69BB /* allByMyself.gif */,
+				443A9EBD25E2F013001E69BB /* pizzaCandle.GIF */,
 				44DC67C8256FEA5F00C7C1D4 /* cucumberflower.MP4 */,
 				44DC67D1256FEA5F00C7C1D4 /* v07025db0000bu6lh79u0sobgpo574dg.mp4 */,
 				44A812DF257D494000685A0E /* v090448b0000blng9r7smmql6ajj798g.MP4-0.0000-15.1000.mp4 */,
@@ -738,7 +766,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				44EACC9025D011B80015A9EC /* tenor-6559.gif in Resources */,
+				443A9EB425E2EF0D001E69BB /* burgerCandle.GIF in Resources */,
+				443A9ECD25E2F061001E69BB /* stayHome.gif in Resources */,
 				44DC6806256FEA5F00C7C1D4 /* hotchoc.MP4 in Resources */,
+				443A9EC825E2F037001E69BB /* catLettuce.GIF in Resources */,
 				4493C56925D1184000A6768D /* dogday2.jpeg in Resources */,
 				44DC680A256FEA5F00C7C1D4 /* v07025db0000bu6lh79u0sobgpo574dg.mp4 in Resources */,
 				44DC680B256FEA5F00C7C1D4 /* v07025c40000btq2arvglrfa1qbsg6f0.mp4 in Resources */,
@@ -750,6 +781,7 @@
 				44DC681B256FEA5F00C7C1D4 /* shyguinea.gif in Resources */,
 				44DC682A256FEA5F00C7C1D4 /* parrotheadstroke.gif in Resources */,
 				44DC6816256FEA5F00C7C1D4 /* 3stepsconfidence.MP4 in Resources */,
+				443A9EC325E2F01B001E69BB /* bigMeal.GIF in Resources */,
 				44C3DF172521D94C00D317DA /* one.jpeg in Resources */,
 				44DC6820256FEA5F00C7C1D4 /* v09044660000bsnfe40o4qnk4c1hu2e0.mp4 in Resources */,
 				449DFE0D256FD4CE00120774 /* storyline.txt in Resources */,
@@ -772,16 +804,19 @@
 				44DC680C256FEA5F00C7C1D4 /* gift.gif in Resources */,
 				44DC6815256FEA5F00C7C1D4 /* thankyou.MP4 in Resources */,
 				44C3DF47252A274100D317DA /* fieri.jpeg in Resources */,
+				443A9ED225E2F071001E69BB /* joeWicks.gif in Resources */,
 				44DC681D256FEA5F00C7C1D4 /* v09044bd0000brogfeop685g27h318ig.mp4 in Resources */,
 				4493C55025D112F000A6768D /* redbike.jpg in Resources */,
 				44DC6821256FEA5F00C7C1D4 /* penguins.gif in Resources */,
 				44DC682E256FEA5F00C7C1D4 /* v09044030000blnsldfdgse6emlj0lo0.mp4 in Resources */,
+				443A9EB925E2F003001E69BB /* dogsInYellowHats.GIF in Resources */,
 				44DC6814256FEA5F00C7C1D4 /* v090442d0000br49ja6a9rh57kf7jeu0.mp4 in Resources */,
 				44EACC9525D012570015A9EC /* d63b946f9d9fde72319b24c439516e4f-small-4490.jpeg in Resources */,
 				44DC6811256FEA5F00C7C1D4 /* giphy-29.gif in Resources */,
 				44A812ED257D55B100685A0E /* redvelvet.gif in Resources */,
 				44EACC9A25D0125B0015A9EC /* db43afbcc77a2c9be3cef525c7d74d0b-4487.jpg in Resources */,
 				44A812F9257E38E600685A0E /* cokebottlelids.png in Resources */,
+				443A9EBE25E2F013001E69BB /* pizzaCandle.GIF in Resources */,
 				44EACC8125D0114E0015A9EC /* cupcake.gif in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
@@ -801,6 +836,7 @@
 				44DC6827256FEA5F00C7C1D4 /* redjuice.MP4 in Resources */,
 				44DC6817256FEA5F00C7C1D4 /* v09044c40000bou4iqnc0tomra4mnco0.MP4 in Resources */,
 				44DC682C256FEA5F00C7C1D4 /* v09044870000bt9t18n7hc96rduchojg.mp4 in Resources */,
+				443A9ED725E2F1A3001E69BB /* allByMyself.gif in Resources */,
 				44DC6805256FEA5F00C7C1D4 /* guy_profile_pic.jpeg in Resources */,
 				44DC680E256FEA5F00C7C1D4 /* v09044d50000brljgip4uh3sr6teo7g0.MP4 in Resources */,
 				44EACCB925D027840015A9EC /* catlettucesad.png in Resources */,

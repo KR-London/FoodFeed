@@ -578,7 +578,12 @@ final class MediaView: UIView {
                 self = .stillImage(image: UIImage(named: filename) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
             case ".gif":
                 //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-                self = .gifImage(gifImage: try! UIImage(gifName: filename), caption: captionText ?? "")
+                if let gif = try? UIImage(gifName: filename){
+                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
+                }
+                else{
+                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
+                }
             default:
                 self = .text(bigText: filename, caption: captionText ?? "" )
             }

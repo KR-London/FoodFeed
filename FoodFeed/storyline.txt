@@ -1,5 +1,4 @@
-[
- {
+[ {
    "day": 1,
    "id": 1,
    "bigtext": "HELLO!",
@@ -78,7 +77,7 @@
    "day": 1,
    "id": 6,
    "bigtext": "",
-   "caption": "Which jelly bean…?\nVote!",
+   "caption": "Which jelly bean…?",
    "hashtag": "get_to_know_me",
    "user": "Guy",
    "votea": "Very Cherry? ",
@@ -93,16 +92,16 @@
    "day": 1,
    "id": 7,
    "bigtext": "",
-   "caption": "Best shoes ever!",
+   "caption": "Best Shoes Ever …?",
    "hashtag": "get_to_know_me",
    "user": "Guy",
-   "votea": "Yes!!!",
-   "voteb": "No no no",
+   "votea": "Yes!",
+   "voteb": "No no no…",
    "image": "redShoes.png",
    "gif": "",
    "video": "",
    "textbox": null,
-   "type": "Vote"
+   "type": "Image"
  },
  {
    "day": 1,
@@ -151,7 +150,7 @@
  },
  {
    "day": 1,
-   "id": 10,
+   "id": 11,
    "bigtext": "“Hold a true friend with both your hands.”\n– Turkish proverb.",
    "caption": "",
    "hashtag": "wisdom",
@@ -166,7 +165,7 @@
  },
  {
    "day": 1,
-   "id": 10,
+   "id": 12,
    "bigtext": "",
    "caption": "",
    "hashtag": "friends",
@@ -181,22 +180,7 @@
  },
  {
    "day": 1,
-   "id": 11,
-   "bigtext": "",
-   "caption": "",
-   "hashtag": "aww",
-   "user": "Guy",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "cupcake.gif",
-   "video": "",
-   "textbox": null,
-   "type": "Gif"
- },
- {
-   "day": 1,
-   "id": 12,
+   "id": 13,
    "bigtext": "",
    "caption": "Cool red drink!",
    "hashtag": "",
@@ -208,21 +192,6 @@
    "video": "redjuice.mp4",
    "textbox": null,
    "type": "Video"
- },
- {
-   "day": 1,
-   "id": 13,
-   "bigtext": "IT IS HARD \nTO FAIL, \nBUT IT IS WORSE NEVER TO HAVE TRIED TO SUCCEED.\nTheodore Roosevelt",
-   "caption": "",
-   "hashtag": "wisdom \n",
-   "user": "Guy",
-   "votea": "",
-   "voteb": "",
-   "image": "",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
  },
  {
    "day": 1,
@@ -242,9 +211,54 @@
  {
    "day": 1,
    "id": 15,
-   "bigtext": "2moro big day - \nparty planning! ",
+   "bigtext": "Tomorrow getting\nsomething so\ncool!",
    "caption": "",
-   "hashtag": "excited",
+   "hashtag": "excited\n",
+   "user": "Guy",
+   "votea": "",
+   "voteb": "",
+   "image": "",
+   "gif": "",
+   "video": "",
+   "textbox": null,
+   "type": "Text"
+ },
+ {
+   "day": 1,
+   "id": 16,
+   "bigtext": "",
+   "caption": "",
+   "hashtag": "Excited",
+   "user": "Guy",
+   "votea": "",
+   "voteb": "",
+   "image": "",
+   "gif": "pokeBike.gif",
+   "video": "",
+   "textbox": null,
+   "type": "Gif"
+ },
+ {
+   "day": 1,
+   "id": 17,
+   "bigtext": "Come back tomorrow and I will show you!",
+   "caption": "",
+   "hashtag": "Excited",
+   "user": "Guy",
+   "votea": "",
+   "voteb": "",
+   "image": "",
+   "gif": "",
+   "video": "",
+   "textbox": null,
+   "type": "Text"
+ },
+ {
+   "day": 2,
+   "id": 1,
+   "bigtext": "I got something so cool!",
+   "caption": "",
+   "hashtag": "get_to_know_me",
    "user": "",
    "votea": "",
    "voteb": "",
@@ -257,81 +271,51 @@
  {
    "day": 2,
    "id": 1,
-   "bigtext": "My best friend’s birthday next week!",
+   "bigtext": "Bike! New bike!",
    "caption": "",
-   "hashtag": "big_news",
+   "hashtag": "get_to_know_me",
    "user": "",
    "votea": "",
    "voteb": "",
-   "image": "",
+   "image": "redbike.jpg",
    "gif": "",
    "video": "",
    "textbox": null,
-   "type": "Text"
+   "type": "Image"
  },
  {
    "day": 2,
    "id": 2,
    "bigtext": "",
-   "caption": "@You - found something you’ll like ",
-   "hashtag": "",
+   "caption": "Gonna have so much fun!",
+   "hashtag": "get_to_know_me",
    "user": "",
    "votea": "",
    "voteb": "",
-   "image": "Conditional on user response to pet question ",
-   "gif": "",
+   "image": "",
+   "gif": "day2biketrick.gif",
    "video": "",
    "textbox": null,
-   "type": "Image"
+   "type": "Gif"
  },
  {
    "day": 2,
    "id": 3,
    "bigtext": "",
-   "caption": "I’m loving life ",
-   "hashtag": "get_to_know_me",
+   "caption": "@You - think you’ll like this!",
+   "hashtag": "Funny",
    "user": "",
    "votea": "",
    "voteb": "",
-   "image": "Guy in red car",
+   "image": "dogday2.jpeg||catday2.jpeg",
    "gif": "",
    "video": "",
    "textbox": null,
    "type": "Image"
  },
  {
-   "day": 2,
-   "id": 4,
-   "bigtext": "",
-   "caption": "",
-   "hashtag": "get_to_know_me",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "Garlic bread breakfast lunch and dinner",
-   "gif": "",
-   "video": "",
-   "textbox": null,
-   "type": "Text"
- },
- {
-   "day": 2,
-   "id": 5,
-   "bigtext": "",
-   "caption": "Do you collect stuff?",
-   "hashtag": "",
-   "user": "",
-   "votea": "",
-   "voteb": "",
-   "image": "Coke bottle lids",
-   "gif": "",
-   "video": "",
-   "textbox": true,
-   "type": "Question"
- },
- {
-   "day": 2,
-   "id": 6,
+   "day": 0,
+   "id": 1,
    "bigtext": "“Friendship is born at that moment when one person says to another, ‘What! You too? I thought I was the only one.”\nC.S. Lewis",
    "caption": "",
    "hashtag": "Wisdom",
@@ -345,8 +329,8 @@
    "type": "Text"
  },
  {
-   "day": 2,
-   "id": 7,
+   "day": 0,
+   "id": 2,
    "bigtext": "",
    "caption": "",
    "hashtag": "birthday",
@@ -360,8 +344,8 @@
    "type": "Image"
  },
  {
-   "day": 2,
-   "id": 8,
+   "day": 0,
+   "id": 3,
    "bigtext": "",
    "caption": "",
    "hashtag": "birthday ",
@@ -375,8 +359,8 @@
    "type": "Gif"
  },
  {
-   "day": 2,
-   "id": 9,
+   "day": 0,
+   "id": 4,
    "bigtext": "Party’ is a sit-down meal … ",
    "caption": "",
    "hashtag": "what_do_I_do",
@@ -390,8 +374,8 @@
    "type": "Text"
  },
  {
-   "day": 2,
-   "id": 10,
+   "day": 0,
+   "id": 5,
    "bigtext": "",
    "caption": "",
    "hashtag": "mood",
@@ -405,8 +389,8 @@
    "type": "Gif"
  },
  {
-   "day": 2,
-   "id": 11,
+   "day": 0,
+   "id": 6,
    "bigtext": "@Guy \nDude - what happened? ",
    "caption": "",
    "hashtag": "",
@@ -420,8 +404,8 @@
    "type": "Text"
  },
  {
-   "day": 2,
-   "id": 12,
+   "day": 0,
+   "id": 7,
    "bigtext": "",
    "caption": "Cheer me up - post. Photo of your best red thing",
    "hashtag": "get_to_know_you",
@@ -435,8 +419,8 @@
    "type": "PhotoPrompt"
  },
  {
-   "day": 2,
-   "id": 13,
+   "day": 0,
+   "id": 8,
    "bigtext": "",
    "caption": "",
    "hashtag": "mood",
@@ -534,7 +518,7 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "Burger candle ",
+   "gif": "burgerCandle.gif",
    "video": "",
    "textbox": null,
    "type": "Gif"
@@ -549,7 +533,7 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "Pizza candle ",
+   "gif": "pizzaCandle.GIF",
    "video": "",
    "textbox": null,
    "type": "Gif"
@@ -564,7 +548,7 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "Cat salad ",
+   "gif": "catLettuce.GIF",
    "video": "",
    "textbox": null,
    "type": "Gif"
@@ -594,7 +578,7 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "Big meal ",
+   "gif": "bigMeal.GIF",
    "video": "",
    "textbox": null,
    "type": "Gif"
@@ -654,7 +638,7 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "3stay home ",
+   "gif": "stayHome.gif",
    "video": "",
    "textbox": null,
    "type": "Gif"
@@ -670,7 +654,7 @@
    "voteb": "",
    "image": "",
    "gif": "",
-   "video": "The power of saying no",
+   "video": "powerOfNo.MP4",
    "textbox": null,
    "type": "Video"
  },
@@ -684,10 +668,10 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "All by myself ",
+   "gif": "allByMyself.gif",
    "video": "",
    "textbox": null,
-   "type": "Text"
+   "type": "Gif"
  },
  {
    "day": 3,
@@ -730,7 +714,7 @@
    "voteb": "",
    "image": "",
    "gif": "",
-   "video": "Pink car hamster ",
+   "video": "hamsterPinkCar.MP4",
    "textbox": null,
    "type": "Video"
  },
@@ -759,7 +743,7 @@
    "votea": "",
    "voteb": "",
    "image": "",
-   "gif": "Joe Wicks ",
+   "gif": "joeWicks.gif",
    "video": "",
    "textbox": null,
    "type": "Gif"
