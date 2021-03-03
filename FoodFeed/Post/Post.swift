@@ -416,7 +416,8 @@ extension UILabel {
 
 
 
-final class InteractionView: UIView{
+final class InteractionView: UIView, UITableViewDelegate{
+    
     
     /// I deleted the refactor code because I got completely lost in what the point was.
     /// but at some point will i be limited by not being able to pass pictuers in  ... ?
@@ -442,6 +443,13 @@ final class InteractionView: UIView{
     let voteBbutton = UIButton()
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
+    
+    /// scaffolding for the comments feed
+    static let reuseID = "CELL"
+    let commentsView = UITableView()
+    var commentsDriver = TimedComments()
+    var comments: [Comment] = []
+    var commentButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -509,13 +517,50 @@ final class InteractionView: UIView{
         answerInput.backgroundColor = .lightGray
         answerInput.placeholder = "............."
         answerInput.translatesAutoresizingMaskIntoConstraints = false
-        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor).isActive = true
-        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
-        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
-        answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
+      //  answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor).isActive = true
+       // answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
+      //  answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
+       // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
+        answerInput.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 150).isActive = true
+        
+        setUpCommentsView()
+        commentsView.backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+        commentsView.translatesAutoresizingMaskIntoConstraints = false
+        commentsView.bottomAnchor.constraint(equalTo: answerInput.topAnchor).isActive = true
+        commentsView.topAnchor.constraint(equalTo: caption.bottomAnchor).isActive = true
+     //   commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        bringSubviewToFront(answerInput)
         
         bringSubviewToFront(voteAbutton)
         bringSubviewToFront(voteBbutton)
+        
+    }
+    
+    // MARK: Comments Work
+    // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
+    func setUpCommentsView(){
+        
+        
+        self.addSubview(commentsView)
+     commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
+        
+        commentsDriver.didUpdateComments =
+            {
+                comments in
+                self.comments = comments
+                self.commentsView.reloadData()
+            }
+        
+        commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+        commentsView.delegate = self
+        commentsView.dataSource = self
+        
+    }
+    
+    func setUpCommentsPipeline(){
+        
     }
     
     func update(state: State) {
@@ -561,6 +606,22 @@ final class InteractionView: UIView{
 }
 
 
+extension InteractionView: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
+        cell.backgroundColor = UIColor.clear
+        if indexPath.row < comments.count {
+            cell.textLabel?.text = comments[comments.count - indexPath.row - 1]
+        }
+        return cell
+    }
+}
+
+
 final class MediaView: UIView {
     enum State {
         case gifImage(gifImage: UIImage, caption: String)
@@ -570,22 +631,24 @@ final class MediaView: UIView {
         case hidden
         
         init(filename: String, captionText: String?) {
+            
+           
 
         switch filename.suffix(4){
-            case ".mp4":
-                self = .video(video: filename, caption: captionText ?? "" )
+            case ".mp4", ".MP4":
+                self = .video(video: filename.lowercased(), caption: captionText ?? "" )
             case "jpeg", ".jpg", ".png":
-                self = .stillImage(image: UIImage(named: filename) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-            case ".gif":
+                self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+            case ".gif", ".GIF":
                 //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-                if let gif = try? UIImage(gifName: filename){
+                if let gif = try? UIImage(gifName: filename.lowercased()){
                     self = .gifImage(gifImage: gif, caption: captionText ?? "")
                 }
                 else{
                     self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
                 }
             default:
-                self = .text(bigText: filename, caption: captionText ?? "" )
+                self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
             }
         }
         
@@ -593,6 +656,8 @@ final class MediaView: UIView {
             self = .hidden
         }
     }
+    
+  
 
     let imageView = UIImageView()
     let videoController = AVPlayerViewController()
