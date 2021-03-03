@@ -484,6 +484,31 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.topAnchor.constraint(equalTo: backgroundImage.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
         self.sendSubviewToBack(backgroundImage)
+        
+        
+        self.addSubview(voteAbutton)
+        voteAbutton.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
+        voteAbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+        voteAbutton.backgroundColor = .blue
+        voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteAbutton.tag = 0
+        //  voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        
+        self.addSubview(voteBbutton)
+        voteBbutton.translatesAutoresizingMaskIntoConstraints = false
+        self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
+        voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+        voteBbutton.backgroundColor = .blue
+        voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteBbutton.tag = 1
+        // voteBbutton.isUserInteractionEnabled = true
+        voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
 
 
         self.addSubview(caption)
@@ -498,53 +523,31 @@ final class InteractionView: UIView, UITableViewDelegate{
         caption.textAlignment = .center
         caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
         self.bringSubviewToFront(caption)
-        
-        self.addSubview(voteAbutton)
-        voteAbutton.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
-        voteAbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-        voteAbutton.backgroundColor = .blue
-        voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
-        voteAbutton.tag = 0
-      //  voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
-       
-        
-        self.addSubview(voteBbutton)
-        voteBbutton.translatesAutoresizingMaskIntoConstraints = false
-        self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
-        voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-        voteBbutton.backgroundColor = .blue
-        voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
-        voteBbutton.tag = 1
-       // voteBbutton.isUserInteractionEnabled = true
-        voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+
         
         self.addSubview(answerInput)
-        answerInput.backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+        answerInput.backgroundColor = .white
         answerInput.placeholder = "What do you think?"
         answerInput.translatesAutoresizingMaskIntoConstraints = false
-        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor).isActive = true
+        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor, multiplier: 1.5).isActive = true
         answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
         answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
        // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
-        answerInput.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        answerInput.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         answerInput.layer.cornerRadius = 20.0
+        //answerInput.enablesReturnKeyAutomatically
         answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
         
         setUpCommentsView()
-        commentsView.backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+        commentsView.backgroundColor = .clear
         commentsView.translatesAutoresizingMaskIntoConstraints = false
         commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-        commentsView.topAnchor.constraint(equalTo: caption.bottomAnchor).isActive = true
+        commentsView.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -100).isActive = true
       //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
         //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
 //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
-        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6).isActive = true
+        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         bringSubviewToFront(answerInput)
         
@@ -609,7 +612,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
             case .question(let captionText):
-                caption.text = captionText
+                caption.text = "Q:" + captionText
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
             case .hidden:

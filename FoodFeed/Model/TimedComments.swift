@@ -34,13 +34,14 @@ class TimedComments: CommentProvider {
         }
     }
     
+    var ladyBookComments = ["Take advantage of free samples", "Become a relaxation expert", "Get enough sleep, nourishment, and exercise.", "Connect with others.", "Connect with nature.", "Pay attention to the good things."]
     
     init()
     {
         var i = 2
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ tim in
-            self.storedComments.append("Comment \(i)")
+        self.timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ [self] tim in
+            self.storedComments.append(ladyBookComments.randomElement()!)
             i += 1
         }
         
