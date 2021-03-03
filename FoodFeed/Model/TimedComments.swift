@@ -26,7 +26,7 @@ protocol CommentProvider
 // MARK: Implementation of CommentProvider
 class TimedComments: CommentProvider {
     private var timer = Timer()
-    private var storedComments = ["Comment 1", "Comment 2"]
+    private var storedComments = ["Interesting!"]
     {
         didSet {
             delegate?.didUpdate(comments: storedComments)
@@ -37,18 +37,37 @@ class TimedComments: CommentProvider {
     
     init()
     {
-        var i = 3
+        var i = 2
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true){ tim in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ tim in
             self.storedComments.append("Comment \(i)")
             i += 1
         }
         
     }
     
+    func userComment(userComment: String){
+        print(userComment)
+        self.storedComments.append(userComment)
+        timer.invalidate()
+        respondToUser(userComment: userComment)
+    }
+    
+    func respondToUser(userComment: String){
+        var i = 0
+        self.timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ tim in
+            self.storedComments.append("I like \(userComment) too!")
+            i += 1
+        }
+    }
+    
     
     var delegate: CommentProviderDelegate?
     var didUpdateComments: (([Comment]) -> Void)?
+    
+    
+    
+    
     func comments(for id: Int) -> [Comment] {
         return storedComments
     }

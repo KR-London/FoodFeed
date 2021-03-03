@@ -224,10 +224,11 @@ class PostView: UIView {
            
             setupStackView()
             setupTag()
-            setupRightView()
+            
             setupInteractionView()
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
             addGestureRecognizer(tap)
+            setupRightView()
         }
         
        
@@ -329,7 +330,7 @@ class PostView: UIView {
         controlsStack.widthAnchor.constraint(equalToConstant: 80).isActive = true
         controlsStack.translatesAutoresizingMaskIntoConstraints = false
         controlsStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        controlsStack.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        controlsStack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     }
     
     func likeView() -> UIView {
@@ -459,22 +460,31 @@ final class InteractionView: UIView, UITableViewDelegate{
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+        //setupRightView()
+    }
+    
+    @objc func userAnswer(_ textField:UITextField ){
+       // print(textField.text!)
+        commentsDriver.userComment(userComment: textField.text!)
+        textField.text = ""
+        textField.placeholder = "Thank you for comment. "
     }
     
     func setup() {
         
         self.isUserInteractionEnabled = true
         
-//        backgroundImage.image = UIImage(named: "one.jpeg")
-//        backgroundImage.isUserInteractionEnabled = true
-//        self.addSubview(backgroundImage)
-//
-//        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
-//        self.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor).isActive = true
-//        self.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
-//        self.topAnchor.constraint(equalTo: backgroundImage.topAnchor).isActive = true
-//        self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
-//
+        backgroundImage.backgroundColor = .green
+        backgroundImage.isUserInteractionEnabled = true
+        self.addSubview(backgroundImage)
+
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: backgroundImage.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
+        self.sendSubviewToBack(backgroundImage)
+
 
         self.addSubview(caption)
         caption.contentMode = .scaleAspectFit
@@ -482,12 +492,12 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: caption.bottomAnchor).isActive = true
         caption.lineBreakMode = .byWordWrapping
         caption.numberOfLines = 0
         caption.backgroundColor = .green
         caption.textAlignment = .center
         caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
+        self.bringSubviewToFront(caption)
         
         self.addSubview(voteAbutton)
         voteAbutton.translatesAutoresizingMaskIntoConstraints = false
@@ -514,29 +524,36 @@ final class InteractionView: UIView, UITableViewDelegate{
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
         self.addSubview(answerInput)
-        answerInput.backgroundColor = .lightGray
-        answerInput.placeholder = "............."
+        answerInput.backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+        answerInput.placeholder = "What do you think?"
         answerInput.translatesAutoresizingMaskIntoConstraints = false
-      //  answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor).isActive = true
-       // answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
-      //  answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
+        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor).isActive = true
+        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
+        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
        // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
-        answerInput.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 150).isActive = true
+        answerInput.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        answerInput.layer.cornerRadius = 20.0
+        answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
         
         setUpCommentsView()
         commentsView.backgroundColor = UIColor(white: 0.1, alpha: 0.2)
         commentsView.translatesAutoresizingMaskIntoConstraints = false
-        commentsView.bottomAnchor.constraint(equalTo: answerInput.topAnchor).isActive = true
+        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         commentsView.topAnchor.constraint(equalTo: caption.bottomAnchor).isActive = true
-     //   commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+      //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
+        //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
 //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+       // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6).isActive = true
         commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         bringSubviewToFront(answerInput)
         
-        bringSubviewToFront(voteAbutton)
-        bringSubviewToFront(voteBbutton)
+       // bringSubviewToFront(voteAbutton)
+       // bringSubviewToFront(voteBbutton)
         
     }
+    
+ 
     
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
@@ -563,6 +580,25 @@ final class InteractionView: UIView, UITableViewDelegate{
         
     }
     
+//    func setupRightView() {
+//        addSubview(controlsStack)
+//        controlsStack.axis = .vertical
+//
+//        //FIXME: Hiddne like button because i won't be able to do anything with it this time around
+//        // let lView = likeView()
+//        controlsStack.addArrangedSubview(avatarView)
+//        // controlsStack.addArrangedSubview(lView)
+//        // controlsStack.setCustomSpacing(36, after: lView)
+//        //controlsStack.addArrangedSubview(commentView())
+//        controlsStack.isLayoutMarginsRelativeArrangement = true
+//        controlsStack.spacing = 24
+//        controlsStack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+//        controlsStack.widthAnchor.constraint(equalToConstant: 80).isActive = true
+//        controlsStack.translatesAutoresizingMaskIntoConstraints = false
+//        controlsStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+//        controlsStack.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//    }
+//
     func update(state: State) {
      
         switch state {
