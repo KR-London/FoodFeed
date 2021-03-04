@@ -654,7 +654,7 @@ extension InteractionView: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
         cell.backgroundColor = UIColor.clear
         if indexPath.row < comments.count {
-            cell.textLabel?.text = comments[comments.count - indexPath.row - 1]
+            cell.textLabel?.text = comments[comments.count - indexPath.row - 1].comment
         }
         return cell
     }

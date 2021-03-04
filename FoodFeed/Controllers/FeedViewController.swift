@@ -86,7 +86,9 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
             self.commentsView.reloadData()
         }
         
-        commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+     //   commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+       // commentsView.register(myTableViewCell , forCellReuseIdentifier: "commentCell" )
+        commentsView.register(UINib.init(nibName: "commentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentCell")
         commentsView.delegate = self
         commentsView.dataSource = self
 
@@ -132,15 +134,26 @@ extension FeedItemViewController: UIPickerViewDataSource {
 }
 
 extension FeedItemViewController: UITableViewDelegate, UITableViewDataSource{
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         comments.count
     }
 
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
+//        cell.backgroundColor = UIColor.clear
+//        if indexPath.row < comments.count {
+//            cell.textLabel?.text = comments[comments.count - indexPath.row - 1].comment
+//        }
+//        return cell
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
         cell.backgroundColor = UIColor.clear
         if indexPath.row < comments.count {
-            cell.textLabel?.text = comments[comments.count - indexPath.row - 1]
+            cell.textLabel?.text = comments[comments.count - indexPath.row - 1].comment
         }
         return cell
     }

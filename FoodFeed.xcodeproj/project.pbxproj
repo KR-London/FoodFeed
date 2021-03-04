@@ -16,6 +16,9 @@
 		443A9ECD25E2F061001E69BB /* stayhome.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ECC25E2F061001E69BB /* stayhome.gif */; };
 		443A9ED225E2F071001E69BB /* joewicks.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED125E2F071001E69BB /* joewicks.gif */; };
 		443A9ED725E2F1A3001E69BB /* allbymyself.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED625E2F1A3001E69BB /* allbymyself.gif */; };
+		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
+		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
+		446B298B25F0C1EC00379390 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298A25F0C1EC00379390 /* testTableViewController.swift */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
 		4472E44125EC1BA2006AEEDC /* yummy_they_said.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4472E44025EC1BA2006AEEDC /* yummy_they_said.jpg */; };
 		4472E44625EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4472E44525EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg */; };
@@ -167,6 +170,9 @@
 		443A9ED625E2F1A3001E69BB /* allbymyself.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = allbymyself.gif; sourceTree = "<group>"; };
 		443A9EDB25E2F292001E69BB /* hamsterpinkcar.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hamsterpinkcar.mp4; sourceTree = "<group>"; };
 		443A9EDC25E2F2B8001E69BB /* powerofno.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerofno.mp4; sourceTree = "<group>"; };
+		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
+		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
+		446B298A25F0C1EC00379390 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
 		4472E44025EC1BA2006AEEDC /* yummy_they_said.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yummy_they_said.jpg; sourceTree = "<group>"; };
 		4472E44525EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grumpy-baby-photo-shoot.jpg"; sourceTree = "<group>"; };
@@ -647,6 +653,9 @@
 				44D66C7C2533700A00C81C41 /* View */,
 				44C3DF052520DEF400D317DA /* Util */,
 				65D07A2924F816C2004CA3E9 /* Main.storyboard */,
+				446B298A25F0C1EC00379390 /* testTableViewController.swift */,
+				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
+				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
 				446CDCC725CA910A0028B799 /* newCharacterViewController.swift */,
 				44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */,
 				44DC67C7256FEA5F00C7C1D4 /* Assets_for_prototype */,
@@ -843,6 +852,7 @@
 				44A812F9257E38E600685A0E /* cokebottlelids.png in Resources */,
 				443A9EBE25E2F013001E69BB /* pizzacandle.gif in Resources */,
 				44EACC8125D0114E0015A9EC /* cupcake.gif in Resources */,
+				446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				441C0CA625EBBF8200BB0710 /* kermit.gif in Resources */,
@@ -916,6 +926,7 @@
 				44C3DECE2520C30700D317DA /* FeedPagePresenter.swift in Sources */,
 				44D66C68253316B300C81C41 /* TimedComments.swift in Sources */,
 				44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */,
+				446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */,
 				65D07A2E24F816C2004CA3E9 /* FoodFeed.xcdatamodeld in Sources */,
 				44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */,
 				659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */,
@@ -930,6 +941,7 @@
 				65D07A2424F816C2004CA3E9 /* SceneDelegate.swift in Sources */,
 				44C3DF0B2520DEF400D317DA /* Constant.swift in Sources */,
 				44C3DED32520C3AE00D317DA /* FeedFetchService.swift in Sources */,
+				446B298B25F0C1EC00379390 /* testTableViewController.swift in Sources */,
 				44C3DF0E2520DEF400D317DA /* HTTPRequest.swift in Sources */,
 				44C3DF0D2520DEF400D317DA /* InteractionUtil.swift in Sources */,
 				6536A648256185B3006D7297 /* Post.swift in Sources */,
