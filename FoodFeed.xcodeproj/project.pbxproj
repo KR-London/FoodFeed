@@ -51,6 +51,13 @@
 		44A813242583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813252583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */; };
+		44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B189F125F5333800A94028 /* commentTableViewController.swift */; };
+		44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F225F5333800A94028 /* commentTableViewController.xib */; };
+		44B189F925F5430200A94028 /* bot1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F825F5430200A94028 /* bot1.jpeg */; };
+		44B189FE25F5432200A94028 /* bot2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44B189FD25F5432200A94028 /* bot2.jpeg */; };
+		44B18A0325F5434500A94028 /* bot3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44B18A0225F5434500A94028 /* bot3.jpeg */; };
+		44B18A0825F5434900A94028 /* bot4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44B18A0725F5434900A94028 /* bot4.jpeg */; };
+		44B18A1025F54B7600A94028 /* U.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44B18A0F25F54B7600A94028 /* U.jpeg */; };
 		44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BCE16425CDEB4F00760142 /* InteractionViewController.swift */; };
 		44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */; };
 		44C3DEB42520B76000D317DA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEB32520B76000D317DA /* Feed.swift */; };
@@ -205,6 +212,13 @@
 		44A8131A25838E0700685A0E /* 07891284.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07891284.ttf; sourceTree = "<group>"; };
 		44A8131F2583926B00685A0E /* 07891284.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07891284.ttf; sourceTree = "<group>"; };
 		44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataInput.swift; sourceTree = "<group>"; };
+		44B189F125F5333800A94028 /* commentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewController.swift; sourceTree = "<group>"; };
+		44B189F225F5333800A94028 /* commentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewController.xib; sourceTree = "<group>"; };
+		44B189F825F5430200A94028 /* bot1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot1.jpeg; sourceTree = "<group>"; };
+		44B189FD25F5432200A94028 /* bot2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot2.jpeg; sourceTree = "<group>"; };
+		44B18A0225F5434500A94028 /* bot3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot3.jpeg; sourceTree = "<group>"; };
+		44B18A0725F5434900A94028 /* bot4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot4.jpeg; sourceTree = "<group>"; };
+		44B18A0F25F54B7600A94028 /* U.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = U.jpeg; sourceTree = "<group>"; };
 		44BCE16425CDEB4F00760142 /* InteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewController.swift; sourceTree = "<group>"; };
 		44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
 		44C3DEB32520B76000D317DA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
@@ -598,6 +612,11 @@
 		44DC67FF256FEA5F00C7C1D4 /* ProfilePictures */ = {
 			isa = PBXGroup;
 			children = (
+				44B189F825F5430200A94028 /* bot1.jpeg */,
+				44B189FD25F5432200A94028 /* bot2.jpeg */,
+				44B18A0225F5434500A94028 /* bot3.jpeg */,
+				44B18A0725F5434900A94028 /* bot4.jpeg */,
+				44B18A0F25F54B7600A94028 /* U.jpeg */,
 			);
 			path = ProfilePictures;
 			sourceTree = "<group>";
@@ -621,6 +640,8 @@
 		65D07A1524F816C2004CA3E9 = {
 			isa = PBXGroup;
 			children = (
+				44B189F125F5333800A94028 /* commentTableViewController.swift */,
+				44B189F225F5333800A94028 /* commentTableViewController.xib */,
 				44BCE16425CDEB4F00760142 /* InteractionViewController.swift */,
 				65D07A2024F816C2004CA3E9 /* FoodFeed */,
 				65D07A3C24F816C5004CA3E9 /* FoodFeedTests */,
@@ -800,6 +821,7 @@
 				443A9EB425E2EF0D001E69BB /* burgercandle.gif in Resources */,
 				443A9ECD25E2F061001E69BB /* stayhome.gif in Resources */,
 				44DC6806256FEA5F00C7C1D4 /* hotchoc.MP4 in Resources */,
+				44B18A0325F5434500A94028 /* bot3.jpeg in Resources */,
 				443A9EC825E2F037001E69BB /* catlettuce.gif in Resources */,
 				4493C56925D1184000A6768D /* dogday2.jpeg in Resources */,
 				44DC680A256FEA5F00C7C1D4 /* v07025db0000bu6lh79u0sobgpo574dg.mp4 in Resources */,
@@ -808,6 +830,7 @@
 				44DC6819256FEA5F00C7C1D4 /* morph.gif in Resources */,
 				44DC6810256FEA5F00C7C1D4 /* v09044b80000br7aj2kb0k2lv77r7v10.mp4 in Resources */,
 				44DC6818256FEA5F00C7C1D4 /* minidogcake.gif in Resources */,
+				44B189F925F5430200A94028 /* bot1.jpeg in Resources */,
 				44A812E8257D554100685A0E /* catlettucesad.png in Resources */,
 				44DC681B256FEA5F00C7C1D4 /* shyguinea.gif in Resources */,
 				44DC682A256FEA5F00C7C1D4 /* parrotheadstroke.gif in Resources */,
@@ -857,8 +880,10 @@
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				441C0CA625EBBF8200BB0710 /* kermit.gif in Resources */,
 				4493C55A25D1144900A6768D /* pokebike.gif in Resources */,
+				44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */,
 				44DC6824256FEA5F00C7C1D4 /* strawberry.mp4 in Resources */,
 				44DC6812256FEA5F00C7C1D4 /* v09044200000bq5oe1kb0k2ilcn2iekg.mp4 in Resources */,
+				44B18A0825F5434900A94028 /* bot4.jpeg in Resources */,
 				44DC6808256FEA5F00C7C1D4 /* v09044060000bg471jqvfskjjg9j1fcg.mp4 in Resources */,
 				4480FC1125ECC64D0074A286 /* redjuice.mp4 in Resources */,
 				4480FC0D25ECC6400074A286 /* blackdog.mp4 in Resources */,
@@ -866,6 +891,7 @@
 				44C3DF212521D99000D317DA /* three.jpeg in Resources */,
 				65D07A2B24F816C2004CA3E9 /* Main.storyboard in Resources */,
 				44DC681A256FEA5F00C7C1D4 /* 200w-23.gif in Resources */,
+				44B18A1025F54B7600A94028 /* U.jpeg in Resources */,
 				4472E44125EC1BA2006AEEDC /* yummy_they_said.jpg in Resources */,
 				44A812CF257D468B00685A0E /* giphy 18.GIF-0.0000-15.0100.gif in Resources */,
 				44DC6803256FEA5F00C7C1D4 /* cucumberflower.mp4 in Resources */,
@@ -888,6 +914,7 @@
 				4480FC2125ECC7220074A286 /* redShoes.png in Resources */,
 				44A812F8257E38E600685A0E /* guyinredcar.png in Resources */,
 				44DC6822256FEA5F00C7C1D4 /* v09044140000bteecr019l167crjal30.mp4 in Resources */,
+				44B189FE25F5432200A94028 /* bot2.jpeg in Resources */,
 				44DC6809256FEA5F00C7C1D4 /* v09044d50000brljgip4uh3sr6teo7g0 copy.mp4 in Resources */,
 				44DC6823256FEA5F00C7C1D4 /* giphy-31.gif in Resources */,
 				44DC682D256FEA5F00C7C1D4 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 in Resources */,
@@ -923,6 +950,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */,
 				44C3DECE2520C30700D317DA /* FeedPagePresenter.swift in Sources */,
 				44D66C68253316B300C81C41 /* TimedComments.swift in Sources */,
 				44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */,

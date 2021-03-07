@@ -4,9 +4,10 @@ import AVKit
 import UIKit
 import Speech
 
+@IBDesignable
 final class AvatarView: UIView {
     private let margin: CGFloat = 2
-    private let imageView = UIImageView()
+    let imageView = UIImageView()
     
     struct State {
         let image: UIImage
@@ -26,6 +27,8 @@ final class AvatarView: UIView {
             NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: imageView, attribute: .width, multiplier: 1, constant: 0)
             
         ])
+        
+     //   CommentsView.
     }
     
     // MARK: UIView
@@ -447,7 +450,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     /// scaffolding for the comments feed
     static let reuseID = "CELL"
-    let commentsView = UITableView()
+    let commentsView = commentTableViewController().view! as! UITableView
     var commentsDriver = TimedComments()
     var comments: [Comment] = []
     var commentButton = UIButton()
@@ -465,6 +468,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     @objc func userAnswer(_ textField:UITextField ){
        // print(textField.text!)
+
         commentsDriver.userComment(userComment: textField.text!)
         textField.text = ""
         textField.placeholder = "Thank you for comment. "
@@ -573,7 +577,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 self.commentsView.reloadData()
             }
         
-        commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+        commentsView.register(commentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
         commentsView.delegate = self
         commentsView.dataSource = self
         
@@ -651,10 +655,16 @@ extension InteractionView: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! commentTableViewCell
+        
+       // let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath) as! commentTableViewCell
+        //cell.awakeFromNib()
         cell.backgroundColor = UIColor.clear
         if indexPath.row < comments.count {
-            cell.textLabel?.text = comments[comments.count - indexPath.row - 1].comment
+            cell.comment.text = comments[comments.count - indexPath.row - 1].comment
+            cell.avatarView.imageView.image = comments[comments.count - indexPath.row - 1].avatar
+            //[#imageLiteral(resourceName: "bot1.jpeg") ,#imageLiteral(resourceName: "bot2.jpeg") ,#imageLiteral(resourceName: "bot3.jpeg") , #imageLiteral(resourceName: "bot4.jpeg")].randomElement()
         }
         return cell
     }

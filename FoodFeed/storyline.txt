@@ -1,9 +1,8 @@
-[
- {
+[ {
     "day": 0,
     "id": 1,
-    "bigtext": "What makes a family meal fun for you?",
-    "caption": "What makes a family meal fun for you?",
+    "bigtext": "What makes a meal stressful for you?",
+    "caption": "What makes a meal stressful for you?",
     "hashtag": "chat",
     "user": "",
     "votea": "",
@@ -144,6 +143,21 @@
     "id": 10,
     "bigtext": "How do you celebrate life's little wins?",
     "caption": "How do you celebrate life's little wins?",
+    "hashtag": "chat",
+    "user": "",
+    "votea": "",
+    "voteb": "",
+    "image": "",
+    "gif": "",
+    "video": "",
+    "textbox": "TRUE",
+    "type": "Question"
+  },
+   {
+    "day": 0,
+    "id": 11,
+    "bigtext": "Perfect family meal?",
+    "caption": "Perfect family meal?",
     "hashtag": "chat",
     "user": "",
     "votea": "",
