@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Speech
 
 ///typealias Comment = String
 
@@ -53,7 +54,7 @@ protocol CommentProvider
 
 // MARK: Implementation of CommentProvider
 class TimedComments: CommentProvider {
-    private var timer = Timer()
+    var timer : Timer?
     private var storedComments = [ Comment(avatar: botUser.fred.profilePic, comment: "hellp", liked: false)]
     {
         didSet {
@@ -65,31 +66,63 @@ class TimedComments: CommentProvider {
     var ladyBookComments = ["Large portions", "Pressure", "People watching", "Music", "Noise", "Food touching", "Hidden stuff in my food", "Nagging", "Smells", "Different plates"]
     var guyComments = ["Oh yes?", "More ideas?", "Ha ha!", "I feel understood!", "That drives me mad too!"]
     
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
+
+    
     init()
     {
         var i = 2
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true){ [self] tim in
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
             if storedComments.count % 5 == 0{
                 let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
                 self.storedComments.append(newComment )
                 
+               let say =  newComment.comment
+
+                   utterance = AVSpeechUtterance(string: say)
+                   utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+                   utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+                    let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+                   utterance.voice =  language.first!!
+                   synthesizer.speak(utterance)
+
             }
             else {
                 let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
                 let newComment = Comment(avatar: bot.profilePic, comment: ladyBookComments.randomElement()!, liked: false)
                 self.storedComments.append(newComment )
+                
+                let say =  newComment.comment
+                
+                utterance = AVSpeechUtterance(string: say)
+                utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+                utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+                let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+                utterance.voice =  language.first!!
+                synthesizer.speak(utterance)
             }
             i += 1
+            
+           
         }
         
     }
+    
+    func stop(){
+        self.timer?.invalidate()
+    }
+    
+//    deinit{
+//        self.timer.invalidate()
+//    }
     
     func userComment(userComment: String){
         print(userComment)
         let newComment = Comment(avatar: botUser.human.profilePic, comment: userComment, liked: false)
         self.storedComments.append(newComment)
-        timer.invalidate()
+        timer?.invalidate()
         respondToUser(userComment: userComment)
     }
     
@@ -97,7 +130,7 @@ class TimedComments: CommentProvider {
         var i = 0
         var responseComments = ["I hate \(userComment) too!", "Urggh" , "I agree", "Ha ha"]
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true){ tim in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ tim in
             let newComment = Comment(avatar: botUser.fred.profilePic, comment: responseComments.randomElement()!, liked: false)
             self.storedComments.append(newComment)
             i += 1

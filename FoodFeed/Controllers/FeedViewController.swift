@@ -52,6 +52,13 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
             }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        print("I've changed page.")
+       // feedView.interactionView.stopTimedComments()
+        feedView.interactionView.commentsDriver.timer?.invalidate()
+        
+    }
+    
 
     override func viewDidLoad() {
         feedView = PostView(frame: self.view.frame, feed: feed)

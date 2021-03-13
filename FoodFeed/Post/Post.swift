@@ -115,6 +115,8 @@ class PostView: UIView {
     let settingsButton = UIButton()
     var didPause = false
     
+
+    
     var delegate : FeedViewInteractionDelegate?
   
     override init(frame: CGRect) {
@@ -455,6 +457,9 @@ final class InteractionView: UIView, UITableViewDelegate{
     var comments: [Comment] = []
     var commentButton = UIButton()
     
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -521,6 +526,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
         self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
+        caption.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.5).isActive = true
         caption.lineBreakMode = .byWordWrapping
         caption.numberOfLines = 0
         caption.backgroundColor = .green
@@ -537,7 +543,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
         answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
        // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
-        answerInput.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
         answerInput.layer.cornerRadius = 20.0
         //answerInput.enablesReturnKeyAutomatically
         answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
@@ -545,18 +551,22 @@ final class InteractionView: UIView, UITableViewDelegate{
         setUpCommentsView()
         commentsView.backgroundColor = .clear
         commentsView.translatesAutoresizingMaskIntoConstraints = false
-        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-        commentsView.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -100).isActive = true
-      //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
+        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        let topConstraint = commentsView.topAnchor.constraint(equalTo: answerInput.bottomAnchor, constant: 50)
+        topConstraint.priority = UILayoutPriority(rawValue: 700)
+        topConstraint.isActive = true
+        //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
         //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-       // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
         commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         bringSubviewToFront(answerInput)
         
        // bringSubviewToFront(voteAbutton)
        // bringSubviewToFront(voteBbutton)
+        
+
         
     }
     
@@ -571,7 +581,7 @@ final class InteractionView: UIView, UITableViewDelegate{
      commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
         
         commentsDriver.didUpdateComments =
-            {
+            { [self]
                 comments in
                 self.comments = comments
                 self.commentsView.reloadData()
@@ -581,6 +591,12 @@ final class InteractionView: UIView, UITableViewDelegate{
         commentsView.delegate = self
         commentsView.dataSource = self
         
+        
+        
+    }
+    
+    func stopTimedComments(){
+        commentsDriver.stop()
     }
     
     func setUpCommentsPipeline(){
@@ -627,6 +643,16 @@ final class InteractionView: UIView, UITableViewDelegate{
             default:
                 return
         }
+        // Reads out the label in a random Anglophone voice
+        if let say = caption.text
+        {
+            utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
+           // utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+           // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+            utterance.voice =  language.first!!
+            synthesizer.speak(utterance)
+        }
     }
     
     @objc func voted(_ sender: UIButton) {
@@ -636,6 +662,17 @@ final class InteractionView: UIView, UITableViewDelegate{
         }
         if sender.tag == 1 {
             caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ?? "Sunshine") + " is the best!"
+        }
+        
+        // Reads out the label in a random Anglophone voice
+        if let say = caption.text
+        {
+            utterance = AVSpeechUtterance(string: say)
+            //utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+            //utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+            utterance.voice =  language.first!!
+            synthesizer.speak(utterance)
         }
         
         voteBbutton.isHidden = true
