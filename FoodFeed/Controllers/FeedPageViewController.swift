@@ -13,6 +13,7 @@ class FeedPageViewController:
         UIPageViewController,
         FeedPageView
 {
+    var commentsDriver = TimedComments()
     
     func presentInitialFeed(_ feed: Feed) {
         let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
@@ -67,10 +68,15 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         {
             previousViewController.pause()
             //viewController.play()
+            //commentsDriver.stop()
+            viewController.commentsDriver = commentsDriver
+            viewController.commentsDriver?.currentCaption = String(viewController.index)
+            viewController.triggerCommentsView()
             presenter.updateFeedIndex(fromIndex: viewController.index)
             if previousViewController.index < viewController.index{
                 presenter.updateFeed( index:  viewController.index as Int, increasing: true )
             }
+           
         }
     }
 }

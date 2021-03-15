@@ -26,6 +26,10 @@ struct botUser{
     static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"))
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"))
     static let human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
+    
+ //   static func ==(lhs: User, rhs: User) -> Bool {
+   //     return lhs.name == rhs.name && lhs.age == rhs.age//
+  //  }
 }
 //enum botUser{
 //    case fred = User(name: "Fred", profilePic: UIImage(named:"one.jpeg"))
@@ -68,55 +72,85 @@ class TimedComments: CommentProvider {
     
     let synthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
-
     
-    init()
-    {
-        var i = 2
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
-            if storedComments.count % 5 == 0{
-                let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
-                self.storedComments.append(newComment )
-                
-               let say =  newComment.comment
+    var currentCaption = "don't know"
 
-                   utterance = AVSpeechUtterance(string: say)
-                   utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-                   utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-                    let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-                   utterance.voice =  language.first!!
-                   synthesizer.speak(utterance)
+    init(){
+        print("I'm initing timed comments")
+        start()
+    }
+    
+    func start()
+    {
+        stop()
+        var i = 0
+//
+//        let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+//
+        timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ [self] tim in
+            if storedComments.count % 5 == 0{
+               let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
+                //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
+                self.storedComments.append(newComment )
+
+               let say =  newComment.comment
+            
+                utterance = AVSpeechUtterance(string: say)
+                utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+                synthesizer.speak(utterance)
 
             }
             else {
                 let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
                 let newComment = Comment(avatar: bot.profilePic, comment: ladyBookComments.randomElement()!, liked: false)
+               // let newComment = Comment(avatar: bot.profilePic, comment: String(i), liked: false)
                 self.storedComments.append(newComment )
-                
+
                 let say =  newComment.comment
-                
+
                 utterance = AVSpeechUtterance(string: say)
                 utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
                 utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-                let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-                utterance.voice =  language.first!!
+
+                switch bot.name{
+                    case botUser.alexis.name:
+                        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                        utterance.pitchMultiplier = Float(1)
+                        utterance.rate = Float(0.5)
+                    case botUser.emery.name:
+                        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                        utterance.pitchMultiplier = Float(1.1)
+                        utterance.rate = Float(0.4)
+                    case botUser.fred.name:
+                        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+                        utterance.pitchMultiplier = Float(1.4)
+                        utterance.rate = Float(0.6)
+                    case botUser.tony.name: utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
+                        utterance.pitchMultiplier = Float(1.5)
+                        utterance.rate = Float(0.7)
+                    default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
+                }
                 synthesizer.speak(utterance)
             }
             i += 1
-            
-           
+
+
         }
         
+    }
+    
+    @objc func fireTimer() {
+        print("Timer fired!")
     }
     
     func stop(){
         self.timer?.invalidate()
     }
     
-//    deinit{
-//        self.timer.invalidate()
-//    }
+    deinit{
+        self.timer?.invalidate()
+        print("I'm in deinit")
+    }
     
     func userComment(userComment: String){
         print(userComment)

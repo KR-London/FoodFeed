@@ -19,7 +19,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     static let reuseID = "CELL"
     
     let commentsView = UITableView()
-    var commentsDriver = TimedComments()
+    var commentsDriver : TimedComments?
     var comments: [Comment] = []
     var commentButton = UIButton()
     var feedView = PostView()
@@ -50,12 +50,23 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
                         let newViewController = storyBoard.instantiateViewController(withIdentifier: "hello")
                         self.present(newViewController, animated: true, completion: nil)
             }
+        
+        //commentsDriver?.start()
+        
+//        commentsDriver = TimedComments()
+//        if let caption = feedView.interactionView.caption.text
+//        {
+//            commentsDriver?.currentCaption = caption
+//        }
+//        //commentsDriver?.currentCaption = f
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         print("I've changed page.")
+       // commentsDriver?.stop()
        // feedView.interactionView.stopTimedComments()
-        feedView.interactionView.commentsDriver.timer?.invalidate()
+        //feedView.interactionView.commentsDriver.timer?.invalidate()
+       // commentsDriver = nil
         
     }
     
@@ -74,6 +85,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         
     }
     
+
+    
     func pause(){
         feedView.pause()
     }
@@ -81,23 +94,31 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
     func setUpCommentsView(){
-
-
         view.addSubview(commentsView)
         commentsView.setUpCommentsView(margins: view.layoutMarginsGuide)
+    }
+    
+    
+    func triggerCommentsView(){
 
-        commentsDriver.didUpdateComments =
-        {
-            comments in
-            self.comments = comments
-            self.commentsView.reloadData()
-        }
+//        commentsDriver?.didUpdateComments =
+//        {
+//            comments in
+//            self.comments = comments
+//            self.commentsView.reloadData()
+//        }
         
      //   commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
        // commentsView.register(myTableViewCell , forCellReuseIdentifier: "commentCell" )
-        commentsView.register(UINib.init(nibName: "commentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentCell")
-        commentsView.delegate = self
-        commentsView.dataSource = self
+//        commentsView.register(UINib.init(nibName: "commentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentCell")
+//        commentsView.delegate = self
+//        commentsView.dataSource = self
+        
+    //    if let myView = feedView.interactionView
+     //   {
+            feedView.interactionView.commentsDriver = commentsDriver
+            feedView.interactionView.triggerCommentsView()
+      //  }
 
   }
     

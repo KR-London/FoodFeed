@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1567" y="-398"/>
         </scene>
         <!--Feed Item View Controller-->
         <scene sceneID="dd4-D0-dAi">
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtx-lX-7eE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432" y="-320"/>
+            <point key="canvasLocation" x="2270" y="-398"/>
         </scene>
         <!--New Character View Controller-->
         <scene sceneID="hRz-ry-S6s">
@@ -209,6 +209,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jF8-Ag-s4J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-171.01449275362319" y="-320.08928571428572"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7uM-bD-9TA">
+            <objects>
+                <viewController id="Wdc-0x-ghK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5An-Tq-V9W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ftP-Or-eL6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HIk-7I-vCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="-320"/>
         </scene>
         <!--Test Table View Controller-->
         <scene sceneID="37X-U1-nqS">

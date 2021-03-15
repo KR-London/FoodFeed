@@ -453,7 +453,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     /// scaffolding for the comments feed
     static let reuseID = "CELL"
     let commentsView = commentTableViewController().view! as! UITableView
-    var commentsDriver = TimedComments()
+    var commentsDriver : TimedComments?
     var comments: [Comment] = []
     var commentButton = UIButton()
     
@@ -474,7 +474,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     @objc func userAnswer(_ textField:UITextField ){
        // print(textField.text!)
 
-        commentsDriver.userComment(userComment: textField.text!)
+        commentsDriver?.userComment(userComment: textField.text!)
         textField.text = ""
         textField.placeholder = "Thank you for comment. "
     }
@@ -578,15 +578,15 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         
         self.addSubview(commentsView)
-     commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
+        commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
         
-        commentsDriver.didUpdateComments =
-            { [self]
-                comments in
-                self.comments = comments
-                self.commentsView.reloadData()
-            }
-        
+//        commentsDriver?.didUpdateComments =
+//            { [self]
+//                comments in
+//                self.comments = comments
+//                self.commentsView.reloadData()
+//            }
+//
         commentsView.register(commentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
         commentsView.delegate = self
         commentsView.dataSource = self
@@ -595,8 +595,19 @@ final class InteractionView: UIView, UITableViewDelegate{
         
     }
     
+    func triggerCommentsView(){
+        commentsDriver?.start()
+        commentsDriver?.didUpdateComments =
+            { [self]
+                comments in
+                self.comments = comments
+                self.commentsView.reloadData()
+            }
+        
+    }
+    
     func stopTimedComments(){
-        commentsDriver.stop()
+        commentsDriver?.stop()
     }
     
     func setUpCommentsPipeline(){
@@ -646,6 +657,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         // Reads out the label in a random Anglophone voice
         if let say = caption.text
         {
+            commentsDriver?.currentCaption = say 
             utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
            // utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
            // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
