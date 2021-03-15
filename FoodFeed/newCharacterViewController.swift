@@ -12,7 +12,21 @@ class newCharacterViewController: UIViewController {
 
     @IBAction func Follow(_ sender: Any) {
         UserDefaults.standard.set( ["Guy"],  forKey: "following")
-        dismiss(animated: true)
+        ///dismiss(animated: true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+      
+        
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+            initialViewController.modalPresentationStyle = .fullScreen
+            self.present(initialViewController, animated: true, completion: nil)
+        //dismiss(animated: true)
+        //self.window?.rootViewController = initialViewController
+        
+                    //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
+                    //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -47,7 +47,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         if UserDefaults.standard.object(forKey: "following") == nil
         {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "hello")
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "profileSetter")
                         self.present(newViewController, animated: true, completion: nil)
             }
         

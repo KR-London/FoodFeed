@@ -25,7 +25,7 @@ struct botUser{
     static let emery = User(name: "Emery", profilePic: UIImage(named:"bot3.jpeg"))
     static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"))
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"))
-    static let human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
+    static var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
     
  //   static func ==(lhs: User, rhs: User) -> Bool {
    //     return lhs.name == rhs.name && lhs.age == rhs.age//
@@ -73,7 +73,7 @@ class TimedComments: CommentProvider {
     let synthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
     
-    var currentCaption = "don't know"
+    var currentCaption = "hello"
 
     init(){
         print("I'm initing timed comments")
@@ -102,7 +102,8 @@ class TimedComments: CommentProvider {
             }
             else {
                 let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
-                let newComment = Comment(avatar: bot.profilePic, comment: ladyBookComments.randomElement()!, liked: false)
+               // let newComment = Comment(avatar: bot.profilePic, comment: ladyBookComments.randomElement()!, liked: false)
+                let newComment = Comment(avatar: bot.profilePic, comment: botAnswers[String(currentCaption.dropFirst().dropFirst())]?.randomElement()! ?? "", liked: false)
                // let newComment = Comment(avatar: bot.profilePic, comment: String(i), liked: false)
                 self.storedComments.append(newComment )
 
@@ -166,7 +167,8 @@ class TimedComments: CommentProvider {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
-            let newComment = Comment(avatar: bot.profilePic, comment: responseComments.randomElement()!, liked: false)
+            let newComment = Comment(avatar: bot.profilePic, comment: botAnswersToHuman(userComment: userComment, key: currentCaption), liked: false)
+                                        ///responseComments.randomElement()!, liked: false)
             self.storedComments.append(newComment)
             i += 1
             

@@ -609,6 +609,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func triggerCommentsView(){
+        commentsDriver?.currentCaption = caption.text ?? "Trying to copy before its initialised"
         commentsDriver?.start()
         commentsDriver?.didUpdateComments =
             { [self]

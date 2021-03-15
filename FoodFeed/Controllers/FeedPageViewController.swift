@@ -70,7 +70,7 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
             //viewController.play()
             //commentsDriver.stop()
             viewController.commentsDriver = commentsDriver
-            viewController.commentsDriver?.currentCaption = String(viewController.index)
+           
             viewController.triggerCommentsView()
             presenter.updateFeedIndex(fromIndex: viewController.index)
             if previousViewController.index < viewController.index{
