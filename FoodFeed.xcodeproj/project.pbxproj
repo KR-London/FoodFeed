@@ -24,14 +24,13 @@
 		446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */; };
 		4472E44125EC1BA2006AEEDC /* yummy_they_said.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4472E44025EC1BA2006AEEDC /* yummy_they_said.jpg */; };
 		4472E44625EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4472E44525EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg */; };
-		44772128252B16C800C76FB0 /* giphy30.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44772127252B16C800C76FB0 /* giphy30.gif */; };
+		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
 		4480FC0525ECC1F40074A286 /* powerofno.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EDC25E2F2B8001E69BB /* powerofno.mp4 */; };
 		4480FC0925ECC2FD0074A286 /* hamsterpinkcar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EDB25E2F292001E69BB /* hamsterpinkcar.mp4 */; };
 		4480FC0D25ECC6400074A286 /* blackdog.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 441C0CAE25EBF43400BB0710 /* blackdog.mp4 */; };
 		4480FC1125ECC64D0074A286 /* redjuice.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4472E45225EC1F81006AEEDC /* redjuice.mp4 */; };
 		4480FC1525ECC6560074A286 /* v07044670000bu2s1grle1ejujl4qvf0.MP4-0.0000-59.1170.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 44A812D4257D46BA00685A0E /* v07044670000bu2s1grle1ejujl4qvf0.MP4-0.0000-59.1170.mp4 */; };
 		4480FC1925ECC6600074A286 /* v09044870000bt9t18n7hc96rduchojg.MP4-0.0000-52.1310.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 44A812D3257D469800685A0E /* v09044870000bt9t18n7hc96rduchojg.MP4-0.0000-52.1310.mp4 */; };
-		4480FC2125ECC7220074A286 /* redShoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 4480FC2025ECC7220074A286 /* redShoes.png */; };
 		4493C55025D112F000A6768D /* redbike.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C54F25D112F000A6768D /* redbike.jpg */; };
 		4493C55525D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4493C55425D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg */; };
 		4493C55A25D1144900A6768D /* pokebike.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4493C55925D1144900A6768D /* pokebike.gif */; };
@@ -133,7 +132,6 @@
 		44EACC9025D011B80015A9EC /* tenor-6559.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44EACC8F25D011B80015A9EC /* tenor-6559.gif */; };
 		44EACC9525D012570015A9EC /* d63b946f9d9fde72319b24c439516e4f-small-4490.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44EACC9425D012570015A9EC /* d63b946f9d9fde72319b24c439516e4f-small-4490.jpeg */; };
 		44EACC9A25D0125B0015A9EC /* db43afbcc77a2c9be3cef525c7d74d0b-4487.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44EACC9925D0125B0015A9EC /* db43afbcc77a2c9be3cef525c7d74d0b-4487.jpg */; };
-		44EACCB925D027840015A9EC /* catlettucesad.png in Resources */ = {isa = PBXBuildFile; fileRef = 44EACCB825D027840015A9EC /* catlettucesad.png */; };
 		44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1918724F8CF7300DC5718 /* FeedViewController.swift */; };
 		44F1918A24F8E0A100DC5718 /* pineapple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44F1918924F8E0A100DC5718 /* pineapple.jpeg */; };
 		6536A648256185B3006D7297 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536A647256185B3006D7297 /* Post.swift */; };
@@ -189,6 +187,7 @@
 		4472E44525EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grumpy-baby-photo-shoot.jpg"; sourceTree = "<group>"; };
 		4472E45225EC1F81006AEEDC /* redjuice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = redjuice.mp4; path = FoodFeed/Assets_for_prototype/Day1/redjuice.mp4; sourceTree = SOURCE_ROOT; };
 		44772127252B16C800C76FB0 /* giphy30.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy30.gif; sourceTree = "<group>"; };
+		447B69D625FFFDBC003400A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4480FC2025ECC7220074A286 /* redShoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redShoes.png; path = FoodFeed/Assets_for_prototype/Day0/redShoes.png; sourceTree = SOURCE_ROOT; };
 		4493C54F25D112F000A6768D /* redbike.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redbike.jpg; sourceTree = "<group>"; };
 		4493C55425D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg"; sourceTree = "<group>"; };
@@ -679,6 +678,7 @@
 				44D66C7C2533700A00C81C41 /* View */,
 				44C3DF052520DEF400D317DA /* Util */,
 				65D07A2924F816C2004CA3E9 /* Main.storyboard */,
+				447B69D625FFFDBC003400A0 /* Extensions.swift */,
 				446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */,
 				446B298A25F0C1EC00379390 /* testTableViewController.swift */,
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
@@ -779,7 +779,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Daniel Haight";
 				TargetAttributes = {
 					65D07A1D24F816C2004CA3E9 = {
@@ -912,12 +912,10 @@
 				4480FC0925ECC2FD0074A286 /* hamsterpinkcar.mp4 in Resources */,
 				4472E44625EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg in Resources */,
 				44DC680E256FEA5F00C7C1D4 /* v09044d50000brljgip4uh3sr6teo7g0.mp4 in Resources */,
-				44EACCB925D027840015A9EC /* catlettucesad.png in Resources */,
 				44EACC8B25D0118C0015A9EC /* tenor-6369.gif in Resources */,
 				44DC681E256FEA5F00C7C1D4 /* 3b32af8f28332e769cae2685d8dae510.MOV in Resources */,
 				44DC6813256FEA5F00C7C1D4 /* v09044b10000bsa3o28h3nflv6m1o8j0.mp4 in Resources */,
 				44A812CA257D45DC00685A0E /* sadanimegirl.gif in Resources */,
-				4480FC2125ECC7220074A286 /* redShoes.png in Resources */,
 				44A812F8257E38E600685A0E /* guyinredcar.png in Resources */,
 				44DC6822256FEA5F00C7C1D4 /* v09044140000bteecr019l167crjal30.mp4 in Resources */,
 				44B189FE25F5432200A94028 /* bot2.jpeg in Resources */,
@@ -926,7 +924,6 @@
 				44DC682D256FEA5F00C7C1D4 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 in Resources */,
 				44A812FE257E390D00685A0E /* cakeparty.gif in Resources */,
 				4493C55525D1140400A6768D /* 904533F5-6D4F-4B56-AEF6-5B386EBD5BC1_4_5005_c.jpeg in Resources */,
-				44772128252B16C800C76FB0 /* giphy30.gif in Resources */,
 				4493C55F25D115B200A6768D /* day2biketrick.gif in Resources */,
 				44DC6831256FEA5F00C7C1D4 /* wireflower.mp4 in Resources */,
 				44EACC8625D011760015A9EC /* giphy 30-5163.gif in Resources */,
@@ -963,6 +960,7 @@
 				446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */,
 				65D07A2E24F816C2004CA3E9 /* FoodFeed.xcdatamodeld in Sources */,
 				44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */,
+				447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */,
 				659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */,
 				44C3DEB42520B76000D317DA /* Feed.swift in Sources */,
 				446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */,

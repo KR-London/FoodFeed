@@ -557,7 +557,8 @@ final class InteractionView: UIView, UITableViewDelegate{
         humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
         humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
         humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
-        humanAvatar.imageView.image = botUser.human.profilePic
+        humanAvatar.imageView.image = human.profilePic
+            //botUser.human.profilePic
       
         
         setUpCommentsView()

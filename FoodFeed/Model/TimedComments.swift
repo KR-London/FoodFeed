@@ -12,6 +12,8 @@ import Speech
 
 ///typealias Comment = String
 
+var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
+
 struct User{
     let name: String
     let profilePic: UIImage?
@@ -88,7 +90,7 @@ class TimedComments: CommentProvider {
 //        let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
 //
         timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ [self] tim in
-            if storedComments.count % 5 == 0{
+            if storedComments.count % 5 == 0 && currentCaption.count > 0 {
                let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
                 //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
                 self.storedComments.append(newComment )
@@ -155,7 +157,7 @@ class TimedComments: CommentProvider {
     
     func userComment(userComment: String){
         print(userComment)
-        let newComment = Comment(avatar: botUser.human.profilePic, comment: userComment, liked: false)
+        let newComment = Comment(avatar: human.profilePic, comment: userComment, liked: false)
         self.storedComments.append(newComment)
         timer?.invalidate()
         respondToUser(userComment: userComment)
