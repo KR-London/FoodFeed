@@ -164,10 +164,37 @@ class TimedComments: CommentProvider {
         var i = 0
         var responseComments = ["I hate \(userComment) too!", "Urggh" , "I agree", "Ha ha"]
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ tim in
-            let newComment = Comment(avatar: botUser.fred.profilePic, comment: responseComments.randomElement()!, liked: false)
+        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
+            let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
+            let newComment = Comment(avatar: bot.profilePic, comment: responseComments.randomElement()!, liked: false)
             self.storedComments.append(newComment)
             i += 1
+            
+            let say =  newComment.comment
+            
+            utterance = AVSpeechUtterance(string: say)
+            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+            
+            switch bot.name{
+                case botUser.alexis.name:
+                    utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+                    utterance.pitchMultiplier = Float(1)
+                    utterance.rate = Float(0.5)
+                case botUser.emery.name:
+                    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                    utterance.pitchMultiplier = Float(1.1)
+                    utterance.rate = Float(0.4)
+                case botUser.fred.name:
+                    utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+                    utterance.pitchMultiplier = Float(1.4)
+                    utterance.rate = Float(0.6)
+                case botUser.tony.name: utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
+                    utterance.pitchMultiplier = Float(1.5)
+                    utterance.rate = Float(0.7)
+                default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
+            }
+            synthesizer.speak(utterance)
         }
     }
     

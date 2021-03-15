@@ -450,6 +450,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     
+    let humanAvatar = AvatarView()
+    
     /// scaffolding for the comments feed
     static let reuseID = "CELL"
     let commentsView = commentTableViewController().view! as! UITableView
@@ -475,8 +477,9 @@ final class InteractionView: UIView, UITableViewDelegate{
        // print(textField.text!)
 
         commentsDriver?.userComment(userComment: textField.text!)
+        
+        textField.placeholder =  textField.text!
         textField.text = ""
-        textField.placeholder = "Thank you for comment. "
     }
     
     func setup() {
@@ -540,13 +543,22 @@ final class InteractionView: UIView, UITableViewDelegate{
         answerInput.placeholder = "What do you think?"
         answerInput.translatesAutoresizingMaskIntoConstraints = false
         answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor, multiplier: 1.5).isActive = true
-        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor).isActive = true
+        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -10).isActive = true
         answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
        // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
         answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
         answerInput.layer.cornerRadius = 20.0
         //answerInput.enablesReturnKeyAutomatically
         answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
+        
+        self.addSubview(humanAvatar)
+        humanAvatar.translatesAutoresizingMaskIntoConstraints = false
+        humanAvatar.heightAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
+        humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
+        humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
+        humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
+        humanAvatar.imageView.image = botUser.human.profilePic
+      
         
         setUpCommentsView()
         commentsView.backgroundColor = .clear
@@ -562,6 +574,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         bringSubviewToFront(answerInput)
+        bringSubviewToFront(humanAvatar)
         
        // bringSubviewToFront(voteAbutton)
        // bringSubviewToFront(voteBbutton)
