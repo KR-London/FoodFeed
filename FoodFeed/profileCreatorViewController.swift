@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+let usingSimulator = true
+
 /// <#Description#>
 class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -181,7 +183,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         idStack.translatesAutoresizingMaskIntoConstraints = false
         adjectiveStack.translatesAutoresizingMaskIntoConstraints = false
         
-        idStack.topAnchor.constraint(equalTo: pageTitle.bottomAnchor).isActive = true
+        idStack.topAnchor.constraint(equalTo: pageTitle.bottomAnchor, constant: 50).isActive = true
         idStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         idStack.bottomAnchor.constraint(equalTo: adjectiveStack.topAnchor, constant: -50).isActive = true
         
@@ -235,17 +237,30 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             if previewView.isHidden
             {
                  previewView.isHidden = false
-                 recordTheFood()
+                
+                if usingSimulator == false
+                {
+                    recordTheFood()
+                }
+                else{
+                    //captureImageView.isHidden = false
+                    /// captureImageView.image = UIImage(named: "NoCameraPlaceholder.001.jpeg")
+                    //saveAndDisplayImage(imageData: imageData)
+                    pickFromCameraRoll()
+                    previewView.isHidden = true
+                }
             }
             else{
                 previewView.isHidden = true
                 
                 haptic.notificationOccurred(.success)
+                
                 if AVCaptureDevice.authorizationStatus(for: .video) != .denied
                 {
                     let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
                     stillImageOutput.capturePhoto(with: settings, delegate: self)
                 }
+
             }
           
         }
@@ -278,21 +293,29 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
               guard let imageData = photo.fileDataRepresentation()
                 else { return }
-              image = UIImage(data: imageData) ?? UIImage(named: "onejpg")!
-              profilePictureImageView.image = image
-              profilePictureImageView.layer.masksToBounds = true
-                human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
-            
-//            if let data = image!.jpegData(compressionQuality: 0.8) {
-                let filename = getDocumentsDirectory().appendingPathComponent("U.jpeg")
-                    try! imageData.write(to: filename)
-                //}
-           /// performSegue(withIdentifier: presentState ?? "Undefined", sender: "dataInputViewController")
-              //passData(dvc1: nextViewController)
-              //nextViewController.formatImage()
-             // nextViewController.foodImage.image = image
+             
+            saveAndDisplayImage(imageData: imageData)
           
         }
+    
+    func saveAndDisplayImage(imageData: Data){
+        image = UIImage(data: imageData) ?? UIImage(named: "onejpg")!
+        profilePictureImageView.image = image
+        profilePictureImageView.layer.masksToBounds = true
+       // human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
+        botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
+        
+        
+        //            if let data = image!.jpegData(compressionQuality: 0.8) {
+        let filename = getDocumentsDirectory().appendingPathComponent("U.jpeg")
+        try! imageData.write(to: filename)
+        //}
+        /// performSegue(withIdentifier: presentState ?? "Undefined", sender: "dataInputViewController")
+        //passData(dvc1: nextViewController)
+        //nextViewController.formatImage()
+        // nextViewController.foodImage.image = image
+        
+    }
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -389,8 +412,25 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
                 profilePictureImageView.image = userPickedImage
                 //image = userPickedImage.scaleImage(toSize: CGSize(width: 150, height: 150)) ?? UIImage(named: "chaos.jpg")!
                 image = userPickedImage ?? UIImage(named: "one.jpeg")!
+                
             }
-            imagePicker.dismiss(animated: true, completion: nil)
+            else {
+                if let userPickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
+                profilePictureImageView.image = userPickedImage
+                //image = userPickedImage.scaleImage(toSize: CGSize(width: 150, height: 150)) ?? UIImage(named: "chaos.jpg")!
+                image = userPickedImage ?? UIImage(named: "one.jpeg")!
+                }
+            }
+            
+            imagePicker.dismiss(animated: true){ [self] in profilePictureImageView.image = image
+                
+                botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
+                
+                
+                //            if let data = image!.jpegData(compressionQuality: 0.8) {
+              //  let filename = getDocumentsDirectory().appendingPathComponent("U.jpeg")
+               // try! imageData.write(to: filename)
+            }
         }
         
         // MARK: User interaction handlers
@@ -406,7 +446,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 
     // Helper function inserted by Swift 4.2 migrator.
     fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-    return input.rawValue}
+        return input.rawValue
+        
+    }
     
     func stopsInteractionWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissInteractions))

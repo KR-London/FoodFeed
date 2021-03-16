@@ -12,7 +12,7 @@ import Speech
 
 ///typealias Comment = String
 
-var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
+//var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
 
 struct User{
     let name: String
@@ -27,7 +27,13 @@ struct botUser{
     static let emery = User(name: "Emery", profilePic: UIImage(named:"bot3.jpeg"))
     static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"))
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"))
-    static var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"))
+    static var human = User(name: "You", profilePic: UIImage(named:"U.jpeg")){
+        didSet{
+            print("I changed something about human")
+            humanAvatar.imageView.image = human.profilePic
+            humanAvatar.reloadInputViews()
+        }
+    }
     
  //   static func ==(lhs: User, rhs: User) -> Bool {
    //     return lhs.name == rhs.name && lhs.age == rhs.age//
@@ -157,7 +163,7 @@ class TimedComments: CommentProvider {
     
     func userComment(userComment: String){
         print(userComment)
-        let newComment = Comment(avatar: human.profilePic, comment: userComment, liked: false)
+        let newComment = Comment(avatar: botUser.human.profilePic, comment: userComment, liked: false)
         self.storedComments.append(newComment)
         timer?.invalidate()
         respondToUser(userComment: userComment)

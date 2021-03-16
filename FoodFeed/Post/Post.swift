@@ -4,6 +4,8 @@ import AVKit
 import UIKit
 import Speech
 
+let humanAvatar = AvatarView()
+
 @IBDesignable
 final class AvatarView: UIView {
     private let margin: CGFloat = 2
@@ -27,6 +29,10 @@ final class AvatarView: UIView {
             NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: imageView, attribute: .width, multiplier: 1, constant: 0)
             
         ])
+        
+//        override func viewDidAppear(){
+//            imageView.reloadInputViews()
+//        }
         
      //   CommentsView.
     }
@@ -450,7 +456,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     
-    let humanAvatar = AvatarView()
+//    let humanAvatar = AvatarView()
     
     /// scaffolding for the comments feed
     static let reuseID = "CELL"
@@ -557,7 +563,15 @@ final class InteractionView: UIView, UITableViewDelegate{
         humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
         humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
         humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
-        humanAvatar.imageView.image = human.profilePic
+        
+        humanAvatar.imageView.image = botUser.human.profilePic
+        
+        
+//        humanAvatar.imageView.image = human.profilePic{
+//            didSet{
+//                reloadInputViews()
+//            }
+//        }
             //botUser.human.profilePic
       
         
@@ -584,7 +598,9 @@ final class InteractionView: UIView, UITableViewDelegate{
         
     }
     
- 
+    func reloadHumanAvatar(){
+        humanAvatar.imageView.image = botUser.human.profilePic
+    }
     
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
@@ -669,6 +685,8 @@ final class InteractionView: UIView, UITableViewDelegate{
             default:
                 return
         }
+        
+        reloadHumanAvatar()
         // Reads out the label in a random Anglophone voice
         if let say = caption.text
         {
