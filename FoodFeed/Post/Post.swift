@@ -338,7 +338,7 @@ class PostView: UIView {
         controlsStack.isLayoutMarginsRelativeArrangement = true
         controlsStack.spacing = 24
         controlsStack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        controlsStack.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        controlsStack.widthAnchor.constraint(equalToConstant: 120).isActive = true
         controlsStack.translatesAutoresizingMaskIntoConstraints = false
         controlsStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         controlsStack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -550,6 +550,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         answerInput.translatesAutoresizingMaskIntoConstraints = false
         answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor, multiplier: 1.5).isActive = true
         answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -10).isActive = true
+        answerInput.setLeftPaddingPoints(10)
         answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
        // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
         answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
@@ -560,7 +561,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.addSubview(humanAvatar)
         humanAvatar.translatesAutoresizingMaskIntoConstraints = false
         humanAvatar.heightAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
-        humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor).isActive = true
+        humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -10).isActive = true
         humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
         humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
         
@@ -588,8 +589,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
         commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
         bringSubviewToFront(answerInput)
         bringSubviewToFront(humanAvatar)
+        bringSubviewToFront(commentsView)
         
        // bringSubviewToFront(voteAbutton)
        // bringSubviewToFront(voteBbutton)
@@ -626,7 +629,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func triggerCommentsView(){
-        commentsDriver?.currentCaption = caption.text ?? "Trying to copy before its initialised"
+        commentsDriver?.currentCaption = caption.text ?? ""
         commentsDriver?.start()
         commentsDriver?.didUpdateComments =
             { [self]

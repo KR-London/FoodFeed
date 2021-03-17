@@ -26,26 +26,29 @@
                         <rect key="frame" x="0.0" y="87" width="84" height="75"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <view contentMode="scaleToFill" id="6Qj-SN-fgK" customClass="AvatarView" customModule="FoodFeed" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="87" width="84" height="75"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <viewLayoutGuide key="safeArea" id="oTK-uM-Hoy"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <color key="tintColor" systemColor="systemGreenColor"/>
-                    </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xSW-u2-Lb3">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="xSW-u2-Lb3">
                         <rect key="frame" x="286" y="93" width="64" height="69"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="suit.heart" catalog="system"/>
+                        <connections>
+                            <action selector="likeClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UHf-pr-o6g"/>
+                        </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Comment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" id="q4b-eN-r5F">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Comment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q4b-eN-r5F">
                         <rect key="frame" x="48" y="0.0" width="275" height="111"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" id="6Qj-SN-fgK" customClass="AvatarView" customModule="FoodFeed" customModuleProvider="target">
+                        <rect key="frame" x="10" y="93" width="84" height="75"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oTK-uM-Hoy"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -55,6 +58,7 @@
                 <outlet property="contentVIew" destination="H2p-sc-9uM" id="hLg-u7-NgE"/>
                 <outlet property="profilePic" destination="tpm-r7-02d" id="XDz-FP-4hz"/>
                 <outlet property="reaction" destination="xSW-u2-Lb3" id="hFt-1A-HgW"/>
+                <outlet property="speechBubble" destination="4VY-jE-pjh" id="Kzj-Ei-Z1Z"/>
             </connections>
             <point key="canvasLocation" x="-58.695652173913047" y="-171.76339285714286"/>
         </tableViewCell>

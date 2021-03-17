@@ -96,16 +96,21 @@ class TimedComments: CommentProvider {
 //        let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
 //
         timer = Timer.scheduledTimer(withTimeInterval: 7, repeats: true){ [self] tim in
-            if storedComments.count % 5 == 0 && currentCaption.count > 0 {
-               let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
-                //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
-                self.storedComments.append(newComment )
-
-               let say =  newComment.comment
-            
-                utterance = AVSpeechUtterance(string: say)
-                utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                synthesizer.speak(utterance)
+            if storedComments.count % 5 == 0  {
+                if currentCaption.isEmpty {
+                    print("")
+                }
+                else{
+                    let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
+                    //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
+                    self.storedComments.append(newComment )
+                    
+                    let say =  newComment.comment
+                    
+                    utterance = AVSpeechUtterance(string: say)
+                    utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+                    synthesizer.speak(utterance)
+                }
 
             }
             else {
@@ -171,7 +176,7 @@ class TimedComments: CommentProvider {
     
     func respondToUser(userComment: String){
         var i = 0
-        var responseComments = ["I hate \(userComment) too!", "Urggh" , "I agree", "Ha ha"]
+        var responseComments = ["I hate \(userComment.lowercased()) too!", "Urggh" , "I agree", "Ha ha"]
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!

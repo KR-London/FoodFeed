@@ -120,14 +120,26 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             return 100
         }
     }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        if component == 0 {
-//            return "First \(row)"
-//        } else {
-//            return "Second \(row)"
-//        }
-        return goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+////        if component == 0 {
+////            return "First \(row)"
+////        } else {
+////            return "Second \(row)"
+////        }
+//        return goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
+//    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        let pickerLabel = UILabel()
+        
+        pickerLabel.adjustsFontSizeToFitWidth = true
+        let titleData = goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
+        let myTitle = NSAttributedString(string: titleData as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedString.Key.foregroundColor:UIColor.black])
+        pickerLabel.attributedText = myTitle
+  
+        return pickerLabel
     }
     
     func setUpPicker(){
@@ -140,12 +152,14 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     func layoutSubviews(){
         
+   
+        
         let layoutUnit = (self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/8
         let margins = view.layoutMarginsGuide
         
         
     
-        
+        nextButton.layer.cornerRadius = 5.0
         
         let nameStack = UIStackView()
         nameStack.axis = .vertical
@@ -157,7 +171,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         let idStack = UIStackView()
         idStack.axis = .horizontal
         idStack.addArrangedSubview(nameStack)
-        idStack.alignment = .top
+       // idStack.alignment = .top
         
         
     
@@ -165,6 +179,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         profilePictureImageView.translatesAutoresizingMaskIntoConstraints = false
         profilePictureImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         profilePictureImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        profilePictureImageView.layer.cornerRadius = 10.0
     
         idStack.addArrangedSubview(profilePictureImageView)
         view.addSubview(idStack)
@@ -184,8 +199,13 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         adjectiveStack.translatesAutoresizingMaskIntoConstraints = false
         
         idStack.topAnchor.constraint(equalTo: pageTitle.bottomAnchor, constant: 50).isActive = true
-        idStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        idStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        idStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         idStack.bottomAnchor.constraint(equalTo: adjectiveStack.topAnchor, constant: -50).isActive = true
+        
+        idStack.distribution = .fillProportionally
+        idStack.spacing = 20.0
+        idStack.alignment = .center
         
         nameEntry.translatesAutoresizingMaskIntoConstraints = false
         nameEntry.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6).isActive = true
@@ -194,6 +214,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         //adjectiveStack.bottomAnchor.constraint(equalTo: nextButton.topAnchor).isActive = true
         adjectiveStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         adjectiveStack.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        adjectiveStack.alignment = .center
         
     
         nextButton.translatesAutoresizingMaskIntoConstraints = false

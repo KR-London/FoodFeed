@@ -75,6 +75,10 @@ var window: UIWindow?
         return true
     }
 
+    // Lock the orientation to Portrait mode
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)
+    }
     // MARK: UISceneSession Lifecycle
 
     @available(iOS 13.0, *)

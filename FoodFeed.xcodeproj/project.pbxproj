@@ -24,6 +24,10 @@
 		446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */; };
 		4472E44125EC1BA2006AEEDC /* yummy_they_said.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4472E44025EC1BA2006AEEDC /* yummy_they_said.jpg */; };
 		4472E44625EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4472E44525EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg */; };
+		4473ED4626021E6C00CFF919 /* filled_favourite-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED4526021E6C00CFF919 /* filled_favourite-512.png */; };
+		4473ED70260225CE00CFF919 /* heart_outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED6F260225CE00CFF919 /* heart_outline.png */; };
+		4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */; };
+		4473ED9A2602343200CFF919 /* speechBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED992602343200CFF919 /* speechBubble.png */; };
 		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
 		4480FC0525ECC1F40074A286 /* powerofno.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EDC25E2F2B8001E69BB /* powerofno.mp4 */; };
 		4480FC0925ECC2FD0074A286 /* hamsterpinkcar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EDB25E2F292001E69BB /* hamsterpinkcar.mp4 */; };
@@ -186,6 +190,10 @@
 		4472E44025EC1BA2006AEEDC /* yummy_they_said.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yummy_they_said.jpg; sourceTree = "<group>"; };
 		4472E44525EC1D09006AEEDC /* grumpy-baby-photo-shoot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grumpy-baby-photo-shoot.jpg"; sourceTree = "<group>"; };
 		4472E45225EC1F81006AEEDC /* redjuice.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = redjuice.mp4; path = FoodFeed/Assets_for_prototype/Day1/redjuice.mp4; sourceTree = SOURCE_ROOT; };
+		4473ED4526021E6C00CFF919 /* filled_favourite-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filled_favourite-512.png"; sourceTree = "<group>"; };
+		4473ED6F260225CE00CFF919 /* heart_outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_outline.png; sourceTree = "<group>"; };
+		4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "341-3417063_herz-clipart.png"; sourceTree = "<group>"; };
+		4473ED992602343200CFF919 /* speechBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechBubble.png; sourceTree = "<group>"; };
 		44772127252B16C800C76FB0 /* giphy30.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy30.gif; sourceTree = "<group>"; };
 		447B69D625FFFDBC003400A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4480FC2025ECC7220074A286 /* redShoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redShoes.png; path = FoodFeed/Assets_for_prototype/Day0/redShoes.png; sourceTree = SOURCE_ROOT; };
@@ -413,6 +421,10 @@
 		44C3DF2B2521E4E000D317DA /* PlaceholderAssets */ = {
 			isa = PBXGroup;
 			children = (
+				4473ED992602343200CFF919 /* speechBubble.png */,
+				4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */,
+				4473ED6F260225CE00CFF919 /* heart_outline.png */,
+				4473ED4526021E6C00CFF919 /* filled_favourite-512.png */,
 				44A8131F2583926B00685A0E /* 07891284.ttf */,
 				44C3DF2C2521F1F300D317DA /* giphy-13.gif */,
 				44772127252B16C800C76FB0 /* giphy30.gif */,
@@ -850,6 +862,7 @@
 				44DC6829256FEA5F00C7C1D4 /* catwatermelon.mp4 in Resources */,
 				44DC6828256FEA5F00C7C1D4 /* guy_side_headphones.jpeg in Resources */,
 				4480FC1525ECC6560074A286 /* v07044670000bu2s1grle1ejujl4qvf0.MP4-0.0000-59.1170.mp4 in Resources */,
+				4473ED9A2602343200CFF919 /* speechBubble.png in Resources */,
 				44DC6807256FEA5F00C7C1D4 /* 200-9.gif in Resources */,
 				44A813202583926D00685A0E /* 07891284.ttf in Resources */,
 				44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */,
@@ -882,6 +895,7 @@
 				443A9EBE25E2F013001E69BB /* pizzacandle.gif in Resources */,
 				44EACC8125D0114E0015A9EC /* cupcake.gif in Resources */,
 				446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */,
+				4473ED4626021E6C00CFF919 /* filled_favourite-512.png in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				441C0CA625EBBF8200BB0710 /* kermit.gif in Resources */,
@@ -891,6 +905,7 @@
 				44DC6812256FEA5F00C7C1D4 /* v09044200000bq5oe1kb0k2ilcn2iekg.mp4 in Resources */,
 				44B18A0825F5434900A94028 /* bot4.jpeg in Resources */,
 				44DC6808256FEA5F00C7C1D4 /* v09044060000bg471jqvfskjjg9j1fcg.mp4 in Resources */,
+				4473ED70260225CE00CFF919 /* heart_outline.png in Resources */,
 				4480FC1125ECC64D0074A286 /* redjuice.mp4 in Resources */,
 				4480FC0D25ECC6400074A286 /* blackdog.mp4 in Resources */,
 				44DC681F256FEA5F00C7C1D4 /* anxiety.MP4 in Resources */,
@@ -906,6 +921,7 @@
 				44DC682B256FEA5F00C7C1D4 /* v09044b60000bss1rnph20v13vrciuu0.mp4 in Resources */,
 				44DC6827256FEA5F00C7C1D4 /* redjuice.MP4 in Resources */,
 				44DC6817256FEA5F00C7C1D4 /* v09044c40000bou4iqnc0tomra4mnco0.mp4 in Resources */,
+				4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */,
 				44DC682C256FEA5F00C7C1D4 /* v09044870000bt9t18n7hc96rduchojg.mp4 in Resources */,
 				443A9ED725E2F1A3001E69BB /* allbymyself.gif in Resources */,
 				44DC6805256FEA5F00C7C1D4 /* guy_profile_pic.jpeg in Resources */,
