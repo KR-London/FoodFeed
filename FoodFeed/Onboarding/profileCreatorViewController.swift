@@ -13,6 +13,8 @@ let usingSimulator = true
 
 /// <#Description#>
 class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet var pageTitle: UILabel!
     
@@ -73,11 +75,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         super.viewDidLoad()
 
         layoutSubviews()
-    
         setUpPicker()
         
-        //Looks for single or multiple taps.
-       //   let tap = UITapGestureRecognizer(target: self, action: #selector("tap"))
+        whereIsMySQLite()
+        loadJSON()
 
         stopsInteractionWhenTappedAround()
         nameEntry.delegate = self
@@ -490,3 +491,69 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 //        return true
 //    }
 //}
+
+extension profileCreatorViewController{
+ 
+    func saveItems(){
+        do{
+            
+            try  context.save()
+            
+        } catch {
+            print("Error saving context \(error)")
+        }
+        
+    }
+    
+    func loadJSON(){
+        
+        let filePath = Bundle.main.resourcePath!
+        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+                               encoding: String.Encoding.utf8).data(using: .utf8)
+        
+        //  let decoder = JSONDecoder()
+        
+        if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+            for item in parsedData {
+                let newPost = PostData(context: context)
+                
+                print(item)
+                for (category, value) in item{
+                    print(value)
+                    switch category{
+                        case "day": newPost.day = value as! Int16
+                        case "id": newPost.id = value as! Int32
+                        case "bigtext": newPost.bigtext = value as! String
+                        case "caption": newPost.caption = value as! String
+                        case "type": newPost.type = value as! String
+                        case "gif":  newPost.gif = value as! String
+                        case "image": newPost.image = value as! String
+                        case "video":  newPost.video = value as! String
+                        case "hashtag": newPost.hashtag = value as! String
+                        case "votea": newPost.votea = value as! String
+                        case "voteb": newPost.voteb = value as! String
+                        default: break
+                    }
+                    
+                }
+                saveItems()
+            }
+        }
+        
+        //  decoder.decode(newPost.self, from: textContent )
+        //
+    }
+    
+    func whereIsMySQLite() {
+        let path = FileManager
+            .default
+            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+            .last?
+            .absoluteString
+            .replacingOccurrences(of: "file://", with: "")
+            .removingPercentEncoding
+        
+        print(path ?? "Not found")
+    }
+    
+}

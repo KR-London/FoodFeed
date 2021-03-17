@@ -18,7 +18,6 @@
 		443A9ED725E2F1A3001E69BB /* allbymyself.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED625E2F1A3001E69BB /* allbymyself.gif */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
 		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
-		446B298B25F0C1EC00379390 /* testTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298A25F0C1EC00379390 /* testTableViewController.swift */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
 		446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CF03325FF9A470039C9A4 /* HardcodedData.swift */; };
 		446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */; };
@@ -183,7 +182,6 @@
 		443A9EDC25E2F2B8001E69BB /* powerofno.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerofno.mp4; sourceTree = "<group>"; };
 		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
-		446B298A25F0C1EC00379390 /* testTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTableViewController.swift; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
 		446CF03325FF9A470039C9A4 /* HardcodedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedData.swift; sourceTree = "<group>"; };
 		446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCreatorViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +348,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4473EDA7260251E400CFF919 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				446CDCC725CA910A0028B799 /* newCharacterViewController.swift */,
+				446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */,
+				44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		44A812D6257D474600685A0E /* Day11 */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +429,7 @@
 		44C3DF2B2521E4E000D317DA /* PlaceholderAssets */ = {
 			isa = PBXGroup;
 			children = (
+				449DFE0C256FD4CE00120774 /* storyline.txt */,
 				4473ED992602343200CFF919 /* speechBubble.png */,
 				4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */,
 				4473ED6F260225CE00CFF919 /* heart_outline.png */,
@@ -640,6 +649,8 @@
 			isa = PBXGroup;
 			children = (
 				6536A647256185B3006D7297 /* Post.swift */,
+				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
+				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -649,6 +660,7 @@
 			children = (
 				659F112A2562A4BA00E5C8B1 /* Backend.swift */,
 				446CF03325FF9A470039C9A4 /* HardcodedData.swift */,
+				447B69D625FFFDBC003400A0 /* Extensions.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -680,7 +692,6 @@
 			isa = PBXGroup;
 			children = (
 				44A8131A25838E0700685A0E /* 07891284.ttf */,
-				449DFE0C256FD4CE00120774 /* storyline.txt */,
 				659F11292562A49300E5C8B1 /* Service */,
 				6536A64625618597006D7297 /* Post */,
 				65D07A2124F816C2004CA3E9 /* AppDelegate.swift */,
@@ -690,13 +701,7 @@
 				44D66C7C2533700A00C81C41 /* View */,
 				44C3DF052520DEF400D317DA /* Util */,
 				65D07A2924F816C2004CA3E9 /* Main.storyboard */,
-				447B69D625FFFDBC003400A0 /* Extensions.swift */,
-				446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */,
-				446B298A25F0C1EC00379390 /* testTableViewController.swift */,
-				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
-				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
-				446CDCC725CA910A0028B799 /* newCharacterViewController.swift */,
-				44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */,
+				4473EDA7260251E400CFF919 /* Onboarding */,
 				44DC67C7256FEA5F00C7C1D4 /* Assets_for_prototype */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
@@ -990,7 +995,6 @@
 				65D07A2424F816C2004CA3E9 /* SceneDelegate.swift in Sources */,
 				44C3DF0B2520DEF400D317DA /* Constant.swift in Sources */,
 				44C3DED32520C3AE00D317DA /* FeedFetchService.swift in Sources */,
-				446B298B25F0C1EC00379390 /* testTableViewController.swift in Sources */,
 				44C3DF0E2520DEF400D317DA /* HTTPRequest.swift in Sources */,
 				44C3DF0D2520DEF400D317DA /* InteractionUtil.swift in Sources */,
 				6536A648256185B3006D7297 /* Post.swift in Sources */,

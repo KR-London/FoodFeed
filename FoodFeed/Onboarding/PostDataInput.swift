@@ -10,8 +10,8 @@ import UIKit
 
 @available(iOS 13.0, *)
 class PostDataInput: UIViewController {
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var captionOutlet: UITextField!
     
 
@@ -33,6 +33,7 @@ class PostDataInput: UIViewController {
             newPost.caption = captionOutlet.text
             saveItems()
     }
+    
     
     override func viewDidLoad() {
         
