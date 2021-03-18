@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SoftUIView
 
 let usingSimulator = true
 
@@ -46,13 +47,13 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     lazy var addButton: UIButton = {
          let button = UIButton()
-         button.backgroundColor = UIColor(red: 186/255, green: 242/255, blue: 206/255, alpha: 1)
+         button.backgroundColor = .xeniaGreen
          button.setTitle("+", for: .normal)
          button.titleLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
          button.titleLabel?.font = UIFont(name: "TwCenMT-CondensedExtraBold", size: 106 )
          button.titleLabel?.textAlignment = .center
-         button.layer.borderWidth = 5.0
-         button.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+       //  button.layer.borderWidth = 5.0
+        // button.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
          button.addTarget(self, action: #selector(pictureInput), for: .touchUpInside)
          return button
      }()
@@ -73,6 +74,8 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
 
         layoutSubviews()
         setUpPicker()
@@ -83,6 +86,12 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         stopsInteractionWhenTappedAround()
         nameEntry.delegate = self
        //  view.addGestureRecognizer(tap)
+    }
+    
+    override var modalPresentationStyle: UIModalPresentationStyle {
+        get { .fullScreen
+        }
+        set { assertionFailure("Shouldnt change that 😠") }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -104,12 +113,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         }
        }
     
-
-//    @objc func tap(){
-//        nameEntry.
-//
-//    }
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -121,15 +124,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             return 100
         }
     }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-////        if component == 0 {
-////            return "First \(row)"
-////        } else {
-////            return "Second \(row)"
-////        }
-//        return goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
-//    }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
@@ -139,6 +133,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         let titleData = goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
         let myTitle = NSAttributedString(string: titleData as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedString.Key.foregroundColor:UIColor.black])
         pickerLabel.attributedText = myTitle
+        pickerLabel.textAlignment = NSTextAlignment.center
   
         return pickerLabel
     }
@@ -153,96 +148,168 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     func layoutSubviews(){
         
-   
         
-        let layoutUnit = (self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/8
+        //pageTitle.isHidden = true
+       // profilePictureImageView.isHidden = true
+       //nickname.isHidden = true
+       // nameEntry.isHidden = true
+       //describe.isHidden = true
+       //describePicker.isHidden = true
+        nextButton.isHidden = true
+        
+        let layoutUnit = 0.9*(self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/6
         let margins = view.layoutMarginsGuide
         
+        let softUIViewProfilePic = SoftUIView(frame: .init(x: self.view.frame.width - 20 - layoutUnit , y: layoutUnit, width: layoutUnit, height: layoutUnit))
+        softUIViewProfilePic.cornerRadius = layoutUnit/2
+        view.addSubview(softUIViewProfilePic)
         
-    
-        nextButton.layer.cornerRadius = 5.0
-        
-        let nameStack = UIStackView()
-        nameStack.axis = .vertical
-        nameStack.alignment = .leading
-        nameStack.addArrangedSubview(nickname)
-        nameStack.addArrangedSubview(nameEntry)
-        nameStack.distribution = .fill
-        
-        let idStack = UIStackView()
-        idStack.axis = .horizontal
-        idStack.addArrangedSubview(nameStack)
-       // idStack.alignment = .top
-        
-        
-    
-        
+        view.addSubview(profilePictureImageView)
         profilePictureImageView.translatesAutoresizingMaskIntoConstraints = false
-        profilePictureImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        profilePictureImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        profilePictureImageView.layer.cornerRadius = 10.0
-    
-        idStack.addArrangedSubview(profilePictureImageView)
-        view.addSubview(idStack)
+        profilePictureImageView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        profilePictureImageView.layer.cornerRadius = layoutUnit/2
+        
+        NSLayoutConstraint.activate([
+            profilePictureImageView.topAnchor.constraint(equalTo: softUIViewProfilePic.topAnchor),
+            profilePictureImageView.bottomAnchor.constraint(equalTo: softUIViewProfilePic.bottomAnchor),
+            profilePictureImageView.leadingAnchor.constraint(equalTo: softUIViewProfilePic.leadingAnchor),
+            profilePictureImageView.trailingAnchor.constraint(equalTo: softUIViewProfilePic.trailingAnchor)
+        ])
+        
+        let softUIViewNameEntry = SoftUIView(frame: .init(x:  20 , y: 1.5*layoutUnit, width: self.view.frame.width - 60 - layoutUnit, height: layoutUnit/2))
+        softUIViewNameEntry.isSelected = true
+        nameEntry.translatesAutoresizingMaskIntoConstraints = false
+    //    softUIViewNameEntry.interaction = false
+        //softUIViewNameEntry.setContentView(nameEntry)
+        view.addSubview(softUIViewNameEntry)
+        nameEntry.backgroundColor = .clear
+        
+        view.addSubview(nameEntry)
+        
+        // FIXME: this brings in a subtle bug that the very edges will irrevocably select softUIVoew
+        NSLayoutConstraint.activate([
+            nameEntry.topAnchor.constraint(equalTo: softUIViewNameEntry.topAnchor),
+            nameEntry.bottomAnchor.constraint(equalTo: softUIViewNameEntry.bottomAnchor),
+            nameEntry.leadingAnchor.constraint(equalTo: softUIViewNameEntry.leadingAnchor, constant: 5),
+            nameEntry.trailingAnchor.constraint(equalTo: softUIViewNameEntry.trailingAnchor, constant: -5)
+        ])
+        
+        
+        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+                          NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
+                          NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+        ]
+        
+        let string = NSAttributedString(string: "YOU", attributes: titleAttrs)
+        pageTitle.attributedText = string
+        
+        pageTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            pageTitle.centerYAnchor.constraint(equalTo: nameEntry.centerYAnchor, constant: -layoutUnit),
+            // pageTitle.heightAnchor.constraint(equalToConstant: 0.75*layoutUnit),
+            pageTitle.leadingAnchor.constraint(equalTo: nameEntry.leadingAnchor),
+            pageTitle.trailingAnchor.constraint(equalTo: nameEntry.trailingAnchor, constant: 30 )
+        ])//
+        
+        
+        
+        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+        ]
+        
+        let string2 = NSAttributedString(string: "Nickname", attributes: attrs)
+        nickname.attributedText = string2
+        nickname.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nickname.topAnchor.constraint(equalTo: softUIViewProfilePic.topAnchor),
+            nickname.bottomAnchor.constraint(equalTo: softUIViewNameEntry.topAnchor, constant: 10),
+            nickname.leadingAnchor.constraint(equalTo: softUIViewNameEntry.leadingAnchor),
+            nickname.trailingAnchor.constraint(equalTo: softUIViewNameEntry.trailingAnchor, constant: -5)
+        ])
+        
 
+        let string3 = NSAttributedString(string: "Pick your personality", attributes: attrs)
+        describe.attributedText = string3
+        
+    
         
         let adjectiveStack = UIStackView()
         adjectiveStack.axis = .vertical
         adjectiveStack.alignment = .leading
-        
         adjectiveStack.addArrangedSubview(describe)
         adjectiveStack.addArrangedSubview(describePicker)
-        adjectiveStack.addArrangedSubview(nextButton)
         
+       
+       // adjectiveStack.addArrangedSubview(nextButton)
         view.addSubview(adjectiveStack)
-        
-        idStack.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 14.0, *) {
+            describePicker.translatesAutoresizingMaskIntoConstraints = false
+            describePicker.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        }
+
         adjectiveStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        idStack.topAnchor.constraint(equalTo: pageTitle.bottomAnchor, constant: 50).isActive = true
-        idStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        idStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        idStack.bottomAnchor.constraint(equalTo: adjectiveStack.topAnchor, constant: -50).isActive = true
-        
-        idStack.distribution = .fillProportionally
-        idStack.spacing = 20.0
-        idStack.alignment = .center
-        
-        nameEntry.translatesAutoresizingMaskIntoConstraints = false
-        nameEntry.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6).isActive = true
-        nameEntry.placeholder = "Write here."
-        
-        //adjectiveStack.bottomAnchor.constraint(equalTo: nextButton.topAnchor).isActive = true
+
         adjectiveStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         adjectiveStack.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        adjectiveStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 3*layoutUnit).isActive = true
+        
+        describe.translatesAutoresizingMaskIntoConstraints = false
+        describe.leadingAnchor.constraint(equalTo: adjectiveStack.leadingAnchor, constant: 20).isActive = true
+        
+       // adjectiveStack.topAnchor.constraint(equalTo: softUIViewNameEntry.bottomAnchor) = true
+       // adjectiveStack.topAnchor.constraint(equalToConstant: 2.5*layoutUnit).isActive = true
+        
+        
         adjectiveStack.alignment = .center
+
+
+        let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.5*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
+        view.addSubview(softUIViewButton)
+        let okLabel = UILabel()
+        //okLabel.text = "OK"
+        okLabel.attributedText = NSAttributedString(string: "OK", attributes: titleAttrs)
+       // softUIViewButton.setContentView(okLabel)
+        okLabel.textAlignment = .center
+        view.addSubview(okLabel)
         
-    
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        okLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            okLabel.topAnchor.constraint(equalTo: softUIViewButton.topAnchor),
+            okLabel.bottomAnchor.constraint(equalTo: softUIViewButton.bottomAnchor),
+            okLabel.leadingAnchor.constraint(equalTo: softUIViewButton.leadingAnchor),
+            okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
+        ])
         
-        nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-        nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        nextButton.topAnchor.constraint(equalTo: adjectiveStack.bottomAnchor, constant: 100).isActive = true
         
-        view.addSubview(nextButton)
         
+//        softUIView.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+//        
+//        @objc func handleTap() {
+//            // code
+//        }
+ //       nextButton.translatesAutoresizingMaskIntoConstraints = false
+//
+//        nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+//        nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+//        nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+//        nextButton.topAnchor.constraint(equalTo: adjectiveStack.bottomAnchor, constant: 100).isActive = true
+//
+//        view.addSubview(nextButton)
+//
         view.addSubview(previewView)
                  previewView.isHidden = true
                  previewView.translatesAutoresizingMaskIntoConstraints = false
                  previewView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
-                // foodImage.image = UIImage(named: "cracker.jpeg")
-                 previewView.layer.borderWidth = 6.0
-                 previewView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-                 
+
                  NSLayoutConstraint.activate([
                         previewView.topAnchor.constraint(equalTo: profilePictureImageView.topAnchor),
                         previewView.bottomAnchor.constraint(equalTo: profilePictureImageView.bottomAnchor),
                         previewView.leadingAnchor.constraint(equalTo: profilePictureImageView.leadingAnchor),
                         previewView.trailingAnchor.constraint(equalTo: profilePictureImageView.trailingAnchor)
                  ])
-        //previewView.cornerRadius = 1.5*layoutUnit
-        
+
         view.addSubview(addButton)
                 addButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -251,7 +318,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             addButton.leadingAnchor.constraint(equalTo: profilePictureImageView.leadingAnchor),
             addButton.trailingAnchor.constraint(equalTo: profilePictureImageView.trailingAnchor)
         ])
-        
+
+        previewView.layer.cornerRadius = layoutUnit/2
+        addButton.layer.cornerRadius = layoutUnit/2
+
     }
     
     @objc func pictureInput(){

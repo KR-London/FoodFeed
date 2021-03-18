@@ -34,3 +34,9 @@ extension UITextField {
         self.rightViewMode = .always
     }
 }
+
+
+extension UIColor{
+    static let xeniaGreen = UIColor(red: 146/255, green: 222/255, blue: 206/255, alpha: 1)
+    //  static let xeniaGreen = UIColor(red: 186/255, green: 242/255, blue: 206/255, alpha: 1)
+}

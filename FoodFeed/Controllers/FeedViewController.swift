@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 import AVFoundation
-import SwiftyGif
+//import SwiftyGif
 
 class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDelegate {
 

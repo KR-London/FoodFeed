@@ -16,6 +16,8 @@
 		443A9ECD25E2F061001E69BB /* stayhome.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ECC25E2F061001E69BB /* stayhome.gif */; };
 		443A9ED225E2F071001E69BB /* joewicks.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED125E2F071001E69BB /* joewicks.gif */; };
 		443A9ED725E2F1A3001E69BB /* allbymyself.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED625E2F1A3001E69BB /* allbymyself.gif */; };
+		4465404126039674004B202B /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 4465404026039674004B202B /* SwiftyGif */; };
+		44654047260396D5004B202B /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44654046260396D5004B202B /* SoftUIView */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
 		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
@@ -27,6 +29,7 @@
 		4473ED70260225CE00CFF919 /* heart_outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED6F260225CE00CFF919 /* heart_outline.png */; };
 		4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */; };
 		4473ED9A2602343200CFF919 /* speechBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED992602343200CFF919 /* speechBubble.png */; };
+		4473EDAC26032E0A00CFF919 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4473EDAB26032E0A00CFF919 /* SnapshotHelper.swift */; };
 		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
 		4480FC0525ECC1F40074A286 /* powerofno.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EDC25E2F2B8001E69BB /* powerofno.mp4 */; };
 		4480FC0925ECC2FD0074A286 /* hamsterpinkcar.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 443A9EDB25E2F292001E69BB /* hamsterpinkcar.mp4 */; };
@@ -77,7 +80,6 @@
 		44C3DF1C2521D96100D317DA /* two.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF1B2521D96100D317DA /* two.jpeg */; };
 		44C3DF212521D99000D317DA /* three.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF202521D99000D317DA /* three.jpeg */; };
 		44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF2C2521F1F300D317DA /* giphy-13.gif */; };
-		44C3DF332521F4FD00D317DA /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44C3DF322521F4FD00D317DA /* SwiftyGif */; };
 		44C3DF47252A274100D317DA /* fieri.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF46252A274100D317DA /* fieri.jpeg */; };
 		44D66C68253316B300C81C41 /* TimedComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C67253316B300C81C41 /* TimedComments.swift */; };
 		44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C7725336FF100C81C41 /* CommentsView.swift */; };
@@ -192,6 +194,8 @@
 		4473ED6F260225CE00CFF919 /* heart_outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_outline.png; sourceTree = "<group>"; };
 		4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "341-3417063_herz-clipart.png"; sourceTree = "<group>"; };
 		4473ED992602343200CFF919 /* speechBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechBubble.png; sourceTree = "<group>"; };
+		4473EDAB26032E0A00CFF919 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		4473EDB326032ED500CFF919 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		44772127252B16C800C76FB0 /* giphy30.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy30.gif; sourceTree = "<group>"; };
 		447B69D625FFFDBC003400A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4480FC2025ECC7220074A286 /* redShoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redShoes.png; path = FoodFeed/Assets_for_prototype/Day0/redShoes.png; sourceTree = SOURCE_ROOT; };
@@ -327,7 +331,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44C3DF332521F4FD00D317DA /* SwiftyGif in Frameworks */,
+				4465404126039674004B202B /* SwiftyGif in Frameworks */,
+				44654047260396D5004B202B /* SoftUIView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +729,8 @@
 		65D07A4724F816C5004CA3E9 /* FoodFeedUITests */ = {
 			isa = PBXGroup;
 			children = (
+				4473EDB326032ED500CFF919 /* TestPlan.xctestplan */,
+				4473EDAB26032E0A00CFF919 /* SnapshotHelper.swift */,
 				65D07A4824F816C5004CA3E9 /* FoodFeedUITests.swift */,
 				65D07A4A24F816C5004CA3E9 /* Info.plist */,
 			);
@@ -747,7 +754,8 @@
 			);
 			name = FoodFeed;
 			packageProductDependencies = (
-				44C3DF322521F4FD00D317DA /* SwiftyGif */,
+				4465404026039674004B202B /* SwiftyGif */,
+				44654046260396D5004B202B /* SoftUIView */,
 			);
 			productName = FoodFeed;
 			productReference = 65D07A1E24F816C2004CA3E9 /* FoodFeed.app */;
@@ -822,7 +830,8 @@
 			);
 			mainGroup = 65D07A1524F816C2004CA3E9;
 			packageReferences = (
-				44C3DF312521F4FD00D317DA /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				4465403F26039674004B202B /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				44654045260396D5004B202B /* XCRemoteSwiftPackageReference "SoftUIView" */,
 			);
 			productRefGroup = 65D07A1F24F816C2004CA3E9 /* Products */;
 			projectDirPath = "";
@@ -1018,6 +1027,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D07A4924F816C5004CA3E9 /* FoodFeedUITests.swift in Sources */,
+				4473EDAC26032E0A00CFF919 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1093,6 +1103,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = "Any iOS Simulator SDK: arm64";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1155,6 +1166,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = "Any iOS Simulator SDK: arm64";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1333,21 +1345,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		44C3DF312521F4FD00D317DA /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+		4465403F26039674004B202B /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kirualex/SwiftyGif";
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.0;
+				minimumVersion = 5.4.0;
+			};
+		};
+		44654045260396D5004B202B /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmhv/SoftUIView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		44C3DF322521F4FD00D317DA /* SwiftyGif */ = {
+		4465404026039674004B202B /* SwiftyGif */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44C3DF312521F4FD00D317DA /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			package = 4465403F26039674004B202B /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
+		};
+		44654046260396D5004B202B /* SoftUIView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44654045260396D5004B202B /* XCRemoteSwiftPackageReference "SoftUIView" */;
+			productName = SoftUIView;
 		};
 /* End XCSwiftPackageProductDependency section */
 

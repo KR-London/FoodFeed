@@ -139,7 +139,7 @@ class PostView: UIView {
         switch feed.state{
             case .text(let bigText, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: bigText, captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -150,7 +150,7 @@ class PostView: UIView {
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: gifName, captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -158,7 +158,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: imageName,captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -166,7 +166,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: videoName, captionText: nil),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -175,7 +175,7 @@ class PostView: UIView {
             case .poll(let caption, let votea, let voteb, let hashtag):
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb),
                     tag: hashtag
@@ -184,7 +184,7 @@ class PostView: UIView {
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
@@ -773,14 +773,14 @@ final class MediaView: UIView {
                 self = .video(video: filename.lowercased(), caption: captionText ?? "" )
             case "jpeg", ".jpg", ".png":
                 self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-            case ".gif", ".GIF":
+  //          case ".gif", ".GIF":
                 //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-                if let gif = try? UIImage(gifName: filename.lowercased()){
-                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
-                }
-                else{
-                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
-                }
+//                if let gif = try? UIImage(gifName: filename.lowercased()){
+//                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
+//                }
+//                else{
+//                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
+//                }
             default:
                 self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
             }
@@ -871,7 +871,7 @@ final class MediaView: UIView {
 
         switch state {
             case .gifImage( let gifImage, let captionText):
-                imageView.setGifImage(gifImage, loopCount: -1)
+              //  imageView.setGifImage(gifImage, loopCount: -1)
                 imageView.isHidden = false
                 label.isHidden = true
                 videoController.view.isHidden = true
@@ -883,7 +883,7 @@ final class MediaView: UIView {
                     caption.text = captionText
                 }
             case .stillImage(let image, let captionText):
-                imageView.setImage(image)
+              //  imageView.setImage(image)
                 imageView.isHidden = false
                 label.isHidden = true
                 if captionText == "" {
@@ -965,7 +965,7 @@ class PostViewController: UIViewController {
 extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
-        avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
+        avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
         media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" ),
         interaction: InteractionView.State()
     )

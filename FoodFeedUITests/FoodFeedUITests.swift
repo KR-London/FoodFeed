@@ -24,11 +24,24 @@ class FoodFeedUITests: XCTestCase {
     }
 
     func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
 
-        // Use recording to get started writing UI tests.
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launch()
+        snapshot("01SwipeScreen")
+        app.buttons["Reset Beta Test?"].tap()
+        app.swipeLeft()
+        snapshot("02ProfileScreen")
+        app.textFields["Write here."].tap()
+        app.buttons["Next "].tap()
+        snapshot("03FriendScreen")
+        app.buttons["Follow "].tap()
+        
+        app.swipeLeft()
+        app.swipeLeft()
+        snapshot("04ChatScreen")
+        app.textFields["What do you think?"].tap()
+        
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
