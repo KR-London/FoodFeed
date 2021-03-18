@@ -271,6 +271,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         //okLabel.text = "OK"
         okLabel.attributedText = NSAttributedString(string: "OK", attributes: titleAttrs)
        // softUIViewButton.setContentView(okLabel)
+        
+        softUIViewButton.addTarget(self, action: #selector(segueToSummary), for: .touchUpInside)
+        
         okLabel.textAlignment = .center
         view.addSubview(okLabel)
         
@@ -322,6 +325,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         previewView.layer.cornerRadius = layoutUnit/2
         addButton.layer.cornerRadius = layoutUnit/2
 
+    }
+    
+    @objc func segueToSummary(){
+        performSegue(withIdentifier: "summaryProfile", sender: self)
     }
     
     @objc func pictureInput(){
@@ -395,7 +402,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         profilePictureImageView.image = image
         profilePictureImageView.layer.masksToBounds = true
        // human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
-        botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
+        botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
         
         
         //            if let data = image!.jpegData(compressionQuality: 0.8) {
@@ -516,7 +523,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             
             imagePicker.dismiss(animated: true){ [self] in profilePictureImageView.image = image
                 
-                botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
+                botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
                 
                 
                 //            if let data = image!.jpegData(compressionQuality: 0.8) {

@@ -295,11 +295,28 @@
                         <outlet property="nickname" destination="jqV-FJ-t1D" id="B5l-7e-Qfi"/>
                         <outlet property="pageTitle" destination="IaI-lc-kVt" id="gS4-fJ-OKI"/>
                         <outlet property="profilePictureImageView" destination="Z3e-OE-DlF" id="08c-kX-pco"/>
+                        <segue destination="XoC-Ys-Vq6" kind="show" identifier="summaryProfile" id="DR0-vP-nS5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIk-7I-vCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3389.8550724637685" y="-311.38392857142856"/>
+        </scene>
+        <!--Profile Card View Controller-->
+        <scene sceneID="2Ja-Hp-FOf">
+            <objects>
+                <viewController id="XoC-Ys-Vq6" customClass="profileCardViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JNQ-YS-mMf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="grv-oP-ecf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="38a-D9-ddR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbY-YT-tda" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2404" y="510"/>
         </scene>
         <!--Test Table View Controller-->
         <scene sceneID="37X-U1-nqS">

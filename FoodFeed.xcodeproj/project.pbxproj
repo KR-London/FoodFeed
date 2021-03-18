@@ -18,6 +18,8 @@
 		443A9ED725E2F1A3001E69BB /* allbymyself.gif in Resources */ = {isa = PBXBuildFile; fileRef = 443A9ED625E2F1A3001E69BB /* allbymyself.gif */; };
 		4465404126039674004B202B /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 4465404026039674004B202B /* SwiftyGif */; };
 		44654047260396D5004B202B /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44654046260396D5004B202B /* SoftUIView */; };
+		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
+		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
 		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
@@ -182,6 +184,8 @@
 		443A9ED625E2F1A3001E69BB /* allbymyself.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = allbymyself.gif; sourceTree = "<group>"; };
 		443A9EDB25E2F292001E69BB /* hamsterpinkcar.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hamsterpinkcar.mp4; sourceTree = "<group>"; };
 		443A9EDC25E2F2B8001E69BB /* powerofno.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerofno.mp4; sourceTree = "<group>"; };
+		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
+		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
 		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 			children = (
 				446CDCC725CA910A0028B799 /* newCharacterViewController.swift */,
 				446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */,
+				446540582603ABA4004B202B /* userProfileCard.swift */,
+				4465404B2603A7B9004B202B /* profileCardViewController.swift */,
 				44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */,
 			);
 			path = Onboarding;
@@ -983,6 +989,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446540592603ABA4004B202B /* userProfileCard.swift in Sources */,
 				44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */,
 				44C3DECE2520C30700D317DA /* FeedPagePresenter.swift in Sources */,
 				44D66C68253316B300C81C41 /* TimedComments.swift in Sources */,
@@ -1007,6 +1014,7 @@
 				44C3DF0E2520DEF400D317DA /* HTTPRequest.swift in Sources */,
 				44C3DF0D2520DEF400D317DA /* InteractionUtil.swift in Sources */,
 				6536A648256185B3006D7297 /* Post.swift in Sources */,
+				4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */,
 				44C3DF0F2520DEF400D317DA /* HTTPError.swift in Sources */,
 				446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */,
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,

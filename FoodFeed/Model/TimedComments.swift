@@ -17,17 +17,18 @@ import Speech
 struct User{
     let name: String
     let profilePic: UIImage?
+    let personalQualities : [ String]?
 }
 
 
 //TO DO: update this
 struct botUser{
-    static let fred = User(name: "Fred", profilePic: UIImage(named:"bot1.jpeg"))
-    static let tony = User(name: "Tony", profilePic: UIImage(named:"bot2.jpeg"))
-    static let emery = User(name: "Emery", profilePic: UIImage(named:"bot3.jpeg"))
-    static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"))
-    static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"))
-    static var human = User(name: "You", profilePic: UIImage(named:"U.jpeg")){
+    static let fred = User(name: "Fred", profilePic: UIImage(named:"bot1.jpeg"), personalQualities: nil)
+    static let tony = User(name: "Tony", profilePic: UIImage(named:"bot2.jpeg"), personalQualities: nil)
+    static let emery = User(name: "Emery", profilePic: UIImage(named:"bot3.jpeg"), personalQualities: nil)
+    static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"), personalQualities: nil)
+    static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"), personalQualities: nil)
+    static var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"), personalQualities: nil){
         didSet{
             print("I changed something about human")
             humanAvatar.imageView.image = human.profilePic
