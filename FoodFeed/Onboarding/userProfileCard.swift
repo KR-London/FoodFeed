@@ -18,6 +18,8 @@ class UserProfileCard: UIView{
     var layoutUnit = CGFloat(100)
     var width = 100.0
     
+    var mainViewController: profileCardViewController?
+    
     init(frame: CGRect, user: User?) {
         super.init(frame: frame)
         
@@ -36,6 +38,8 @@ class UserProfileCard: UIView{
         
         let softUIView = SoftUIView(frame: .init(x: 0 , y: 0, width: width, height: Double(3*layoutUnit) ))
         addSubview(softUIView)
+        
+        softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
         
 //        let profileStack = UIStackView()
 //        profileStack.axis = .vertical
@@ -99,4 +103,7 @@ class UserProfileCard: UIView{
         ])
     }
     
+    @objc func cardTapped(){
+        mainViewController?.dismiss(animated: true, completion: nil)       
+    }
 }
