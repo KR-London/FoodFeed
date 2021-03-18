@@ -1186,5 +1186,179 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66322DE5-CA9B-450E-A182-564FE9466F7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodFeed/Onboarding/profileCreatorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C154A7AC-EA43-4F2B-8EF2-710B5664E379"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodFeed/Onboarding/profileCardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E343C56-1B2E-49D8-ACBC-C4CEBA28CCE4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodFeed/Onboarding/profileCreatorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "profileCreatorViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46E68B54-53AE-4F05-A243-9520DEC70C00"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodFeed/Onboarding/profileCreatorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "pickerView(_:titleForRow:forComponent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "46E68B54-53AE-4F05-A243-9520DEC70C00 - 2f1a18c9e7363ae6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.profileCreatorViewController.pickerView(_: __C.UIPickerView, titleForRow: Swift.Int, forComponent: Swift.Int) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Onboarding/profileCreatorViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "46E68B54-53AE-4F05-A243-9520DEC70C00 - 2f1a18c9e7363ae6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.profileCreatorViewController.pickerView(_: __C.UIPickerView, titleForRow: Swift.Int, forComponent: Swift.Int) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Onboarding/profileCreatorViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "46E68B54-53AE-4F05-A243-9520DEC70C00 - 2f1a18c9e7363ae6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.profileCreatorViewController.pickerView(_: __C.UIPickerView, titleForRow: Swift.Int, forComponent: Swift.Int) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Onboarding/profileCreatorViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "864">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9099E577-DADD-45D8-8967-B95D8C938558"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodFeed/Onboarding/profileCreatorViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9099E577-DADD-45D8-8967-B95D8C938558 - 49aa3a2226f751b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.profileCreatorViewController.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Onboarding/profileCreatorViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "9099E577-DADD-45D8-8967-B95D8C938558 - 49aa3a2226f751b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.profileCreatorViewController.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Onboarding/profileCreatorViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "9099E577-DADD-45D8-8967-B95D8C938558 - 49aa3a2226f751b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.profileCreatorViewController.pickerView(_: __C.UIPickerView, didSelectRow: Swift.Int, inComponent: Swift.Int) -&gt; ()"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Onboarding/profileCreatorViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "864">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

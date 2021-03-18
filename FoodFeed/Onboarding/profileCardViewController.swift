@@ -10,6 +10,8 @@ import UIKit
 import SoftUIView
 
 class profileCardViewController: UIViewController {
+    
+    var human : User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +55,7 @@ class profileCardViewController: UIViewController {
         
         /// Little pop-out summary card
         
-        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: nil)
+        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human)
         
         view.addSubview(card)
 //

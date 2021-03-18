@@ -313,10 +313,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="38a-D9-ddR"/>
+                    <connections>
+                        <segue destination="yq1-f5-c5S" kind="show" identifier="friendProfile" id="N7F-Gn-UgC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbY-YT-tda" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2404" y="510"/>
+            <point key="canvasLocation" x="-3390" y="477"/>
+        </scene>
+        <!--Bot Profile View Controller-->
+        <scene sceneID="vJP-V4-ISk">
+            <objects>
+                <viewController id="yq1-f5-c5S" customClass="BotProfileViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AuL-dE-1MK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="K3m-h2-1Yh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7G8-uJ-SQ3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ybm-M1-9fp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3375" y="1217"/>
         </scene>
         <!--Test Table View Controller-->
         <scene sceneID="37X-U1-nqS">
