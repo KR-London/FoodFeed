@@ -512,6 +512,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         let screenRect = UIScreen.main.bounds
         let widthLayoutUnit = screenRect.size.width - 40
         let heightLayoutUnit = 0.9*(screenRect.size.width / 3)
+        let thirdScreenHeight = screenRect.size.height / 3
         
         
         backgroundColor = .postBackground
@@ -554,45 +555,60 @@ final class InteractionView: UIView, UITableViewDelegate{
         voteBbutton.tag = 1
         // voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
-
-
-//        let yCoord = (screenRect.size.height - widthLayoutUnit)/2
-//        let labelCard = SoftUIView(frame: CGRect(x: 50, y: 100, width: widthLayoutUnit, height: heightLayoutUnit))
-//        caption.frame = CGRect(x: 50, y: 100, width: widthLayoutUnit, height: heightLayoutUnit)
-//        labelCard.setContentView(caption)
-//        self.addSubview(labelCard)
         
-        let sayCard = chatBubbleView(frame:  CGRect(x: 20, y: heightLayoutUnit, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
+        let descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
+        let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 18)!,
+                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+        ]
+        
+        let subtitleStyled = NSAttributedString(string: "Question:", attributes: subtitleAttrs)
+        descriptiveLabel.attributedText = subtitleStyled
+        self.addSubview(descriptiveLabel)
+        
+        let sayCard = chatBubbleView(frame:  CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
         self.addSubview(sayCard)
-//        self.addSubview(caption)
-//        caption.contentMode = .scaleAspectFit
-//        caption.translatesAutoresizingMaskIntoConstraints = false
-//        self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
-//        self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
-//        self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
-//        caption.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.5).isActive = true
-//        caption.lineBreakMode = .byWordWrapping
-//        caption.numberOfLines = 0
-//        caption.backgroundColor = .green
-//        caption.textAlignment = .center
-//        caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
-//        self.bringSubviewToFront(caption)
+        
+        let userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.human)
+        self.addSubview(userAnswerCard)
+        
+        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
+        self.addSubview(botCommentCard)
+        
+        let descriptiveLabel2 = UILabel()
+        descriptiveLabel2.textAlignment = .right
+        self.addSubview(descriptiveLabel2)
+        descriptiveLabel2.translatesAutoresizingMaskIntoConstraints = false
+        descriptiveLabel2.heightAnchor.constraint(equalTo:  descriptiveLabel.heightAnchor).isActive = true
+        descriptiveLabel2.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -10).isActive = true
+        descriptiveLabel2.widthAnchor.constraint(equalTo:  descriptiveLabel.widthAnchor).isActive = true
+        descriptiveLabel2.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -10).isActive = true
 
-//
-//        self.addSubview(answerInput)
-//        answerInput.backgroundColor = .white
-//        answerInput.placeholder = "What do you think?"
-//        answerInput.translatesAutoresizingMaskIntoConstraints = false
-//        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor, multiplier: 1.5).isActive = true
+        let subtitleStyled2 = NSAttributedString(string: ":Answers", attributes: subtitleAttrs)
+        descriptiveLabel2.attributedText = subtitleStyled2
+      
+
+        self.addSubview(answerInput)
+        answerInput.frame = CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit/2)
+        //answerInput= CGRect(x: 20, y: 20, width: 50, height: 50)
+        answerInput.backgroundColor = .green
+        answerInput.placeholder = "What do you think?"
+      //  answerInput.translatesAutoresizingMaskIntoConstraints = false
+     //   answerInput.centerYAnchor.constraint(equalTo: userAnswerCard.centerYAnchor).isActive = true
+      //  answerInput.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    //    answerInput.widthAnchor.constraint(equalToConstant: 100).isActive = true
+     //   answerInput.centerXAnchor.constraint(equalTo: userAnswerCard.centerXAnchor).isActive = true
 //        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -10).isActive = true
 //        answerInput.setLeftPaddingPoints(10)
 //        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
 //       // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
 //        answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
-//        answerInput.layer.cornerRadius = 20.0
-//        //answerInput.enablesReturnKeyAutomatically
-//        answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
-//
+     
+        answerInput.layer.cornerRadius = 20.0
+        //answerInput.enablesReturnKeyAutomatically
+        answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
+        answerInput.isHidden = false
+
 //        self.addSubview(humanAvatar)
 //        humanAvatar.translatesAutoresizingMaskIntoConstraints = false
 //        humanAvatar.heightAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
@@ -632,7 +648,7 @@ final class InteractionView: UIView, UITableViewDelegate{
        // bringSubviewToFront(voteAbutton)
        // bringSubviewToFront(voteBbutton)
         
-
+        bringSubviewToFront(answerInput)
         
     }
     
@@ -655,7 +671,8 @@ final class InteractionView: UIView, UITableViewDelegate{
 //                self.commentsView.reloadData()
 //            }
 //
-        commentsView.register(commentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+       // commentsView.register(commentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+        commentsView.register(softCommentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
         commentsView.delegate = self
         commentsView.dataSource = self
         
@@ -734,7 +751,7 @@ final class InteractionView: UIView, UITableViewDelegate{
            // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-            synthesizer.speak(utterance)
+            //synthesizer.speak(utterance)
         }
     }
     
@@ -755,7 +772,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             //utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-            synthesizer.speak(utterance)
+           // synthesizer.speak(utterance)
         }
         
         voteBbutton.isHidden = true
@@ -776,14 +793,16 @@ extension InteractionView: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! commentTableViewCell
+       // let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! commentTableViewCell
         
-       // let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath) as! commentTableViewCell
+       //NSStringFromClass(StockCell)
+        
+       let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath) as! softCommentTableViewCell
         //cell.awakeFromNib()
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.green
         if indexPath.row < comments.count {
-            cell.comment.text = comments[comments.count - indexPath.row - 1].comment
-            cell.avatarView.imageView.image = comments[comments.count - indexPath.row - 1].avatar
+         //   cell.comment.text = comments[comments.count - indexPath.row - 1].comment
+          //  cell.avatarView.imageView.image = comments[comments.count - indexPath.row - 1].avatar
             //[#imageLiteral(resourceName: "bot1.jpeg") ,#imageLiteral(resourceName: "bot2.jpeg") ,#imageLiteral(resourceName: "bot3.jpeg") , #imageLiteral(resourceName: "bot4.jpeg")].randomElement()
         }
         return cell
@@ -872,8 +891,9 @@ final class MediaView: UIView {
         
         
         //self.addSubview(label)
-        
         let yCoord = (screenRect.size.height - widthLayoutUnit)/2
+     
+        
         let labelCard = SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
         label.frame = CGRect(x: 0, y: 0, width: widthLayoutUnit, height: widthLayoutUnit)
         labelCard.setContentView(label)

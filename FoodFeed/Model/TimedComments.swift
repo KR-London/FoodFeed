@@ -110,7 +110,7 @@ class TimedComments: CommentProvider {
                     
                     utterance = AVSpeechUtterance(string: say)
                     utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                    synthesizer.speak(utterance)
+                        //synthesizer.speak(utterance)
                 }
 
             }
@@ -145,7 +145,7 @@ class TimedComments: CommentProvider {
                         utterance.rate = Float(0.7)
                     default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
                 }
-                synthesizer.speak(utterance)
+               // synthesizer.speak(utterance)
             }
             i += 1
 
@@ -210,7 +210,7 @@ class TimedComments: CommentProvider {
                     utterance.rate = Float(0.7)
                 default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
             }
-            synthesizer.speak(utterance)
+           /// synthesizer.speak(utterance)
         }
     }
     

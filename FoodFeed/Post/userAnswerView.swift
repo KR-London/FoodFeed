@@ -9,14 +9,14 @@
 import UIKit
 import SoftUIView
 
-class chatBubbleView: UIView {
+class userAnswerView: UIView {
     
    // var height = 100.0
     //var width = 100.0
     
-    var bigText = "Tips for trying new foods?"
+    var bigText = "Q: Tips for trying new foods?"
     
-    var mainViewController: profileCardViewController?
+ //   var postView: postView?
    
     init(frame: CGRect, user: User?) {
         super.init(frame: frame)
@@ -35,11 +35,14 @@ class chatBubbleView: UIView {
     
     func setup(user: User?, frame: CGRect){
         
-        let softUIView = SoftUIView(frame: .init(x: 0 , y: 0, width: frame.width, height: frame.height ))
+        let humanPicDimensionUnit = frame.width/5
+        
+        let softUIView = SoftUIView(frame: .init(x: humanPicDimensionUnit , y: frame.height/4, width: frame.width - humanPicDimensionUnit , height: frame.height/2))
         addSubview(softUIView)
         
         softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
-        
+        softUIView.isSelected = true
+        softUIView.isUserInteractionEnabled = false
        
         
         let label = UILabel()
@@ -49,32 +52,24 @@ class chatBubbleView: UIView {
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
 
-        let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
-        label.attributedText = bigTextStyled
-        addSubview(label)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: softUIView.topAnchor),
-            label.heightAnchor.constraint(equalToConstant: frame.height),
-            label.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -frame.width/2)
-        ])
-//
+
+      
+        let softUIImageView = SoftUIView(frame: .init(x: 0 , y: frame.height/2 - humanPicDimensionUnit/2, width: humanPicDimensionUnit, height: humanPicDimensionUnit))
+        softUIImageView.cornerRadius = humanPicDimensionUnit/2
+        addSubview(softUIImageView)
         
         let profilePicture = UIImageView()
         profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
         addSubview(profilePicture)
         profilePicture.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6 ),
-            profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6),
-            profilePicture.topAnchor.constraint(equalTo: softUIView.topAnchor, constant: 10),
-            profilePicture.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -10)
+            profilePicture.heightAnchor.constraint(equalToConstant: humanPicDimensionUnit),
+            profilePicture.widthAnchor.constraint(equalToConstant: humanPicDimensionUnit),
+            profilePicture.topAnchor.constraint(equalTo: softUIImageView.topAnchor),
+            profilePicture.leadingAnchor.constraint(equalTo: softUIImageView.leadingAnchor)
         ])
         profilePicture.contentMode = .scaleAspectFill
-        profilePicture.layer.cornerRadius = frame.width/12
+        profilePicture.layer.cornerRadius = humanPicDimensionUnit/2
         profilePicture.clipsToBounds = true
     }
     
