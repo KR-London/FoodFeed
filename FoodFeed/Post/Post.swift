@@ -184,7 +184,7 @@ class PostView: UIView {
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
@@ -492,7 +492,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         self.isUserInteractionEnabled = true
         
-        backgroundImage.backgroundColor = .green
+        backgroundImage.backgroundColor = .white
         backgroundImage.isUserInteractionEnabled = true
         self.addSubview(backgroundImage)
 
