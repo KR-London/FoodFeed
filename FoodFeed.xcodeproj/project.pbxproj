@@ -365,7 +365,6 @@
 				446CDCC725CA910A0028B799 /* newCharacterViewController.swift */,
 				446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */,
 				446540582603ABA4004B202B /* userProfileCard.swift */,
-				446540662604B7E5004B202B /* chatBubbleView.swift */,
 				4465404B2603A7B9004B202B /* profileCardViewController.swift */,
 				4470BF7D2603DD29002EE94E /* BotProfileViewController.swift */,
 				44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */,
@@ -665,6 +664,7 @@
 			children = (
 				6536A647256185B3006D7297 /* Post.swift */,
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
+				446540662604B7E5004B202B /* chatBubbleView.swift */,
 				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
 			);
 			path = Post;
