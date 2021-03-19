@@ -43,9 +43,10 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
        // configureAudioSession()
 
         fetchFeeds()
-        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<<< \n <<<<<<<<<< \n  <<<<<<<<<< \n Swipe! \n <<<<<<<<<<\n <<<<<<<<<<\n <<<<<<<<<< ", caption: "", hashtag: "") )
+        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n<<<<<<<", caption: "", hashtag: "") )
         view.presentInitialFeed(initialFeed)
     }
+    //"<<<<<<<<<< \n <<<<<<<<<< \n  <<<<<<<<<< \n Swipe! \n <<<<<<<<<<\n <<<<<<<<<<\n <<<<<<<<<< "
     
     fileprivate func fetchFeeds() {
        // view.startLoading()

@@ -23,7 +23,7 @@ class UserProfileCard: UIView{
         
         layoutUnit = Double((frame.height)/3)
         width = Double(frame.width)
-        
+        backgroundColor = .mainBackground
         setup(user: user)
     }
     

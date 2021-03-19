@@ -15,7 +15,7 @@ class profileCardViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
+        view.backgroundColor = .mainBackground
         layoutSubviews()
  
     }

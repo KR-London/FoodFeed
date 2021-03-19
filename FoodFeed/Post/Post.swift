@@ -3,6 +3,7 @@ import AVFoundation
 import AVKit
 import UIKit
 import Speech
+import SoftUIView
 
 let humanAvatar = AvatarView()
 
@@ -136,6 +137,8 @@ class PostView: UIView {
         setup(feed: feed)
       //  tagLabel = feed.
         
+       backgroundColor = .postBackground
+        
         switch feed.state{
             case .text(let bigText, let caption, let hashtag):
                 self.update(state: PostView.State(
@@ -150,7 +153,7 @@ class PostView: UIView {
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: gifName, captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -158,7 +161,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: imageName,captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -166,7 +169,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: videoName, captionText: nil),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -175,7 +178,7 @@ class PostView: UIView {
             case .poll(let caption, let votea, let voteb, let hashtag):
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb),
                     tag: hashtag
@@ -184,7 +187,7 @@ class PostView: UIView {
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
@@ -310,18 +313,35 @@ class PostView: UIView {
     
     func setUpResetButtons()
     {
-        self.addSubview(settingsButton)
-        settingsButton.backgroundColor = .blue
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -20).isActive = true
-        self.trailingAnchor.constraint(equalTo: settingsButton.trailingAnchor, constant: 20).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        settingsButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
-        settingsButton.titleLabel?.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)!
-        settingsButton.setTitle("Reset Beta Test?", for: .normal)
-        settingsButton.layer.cornerRadius = 10.0
-        settingsButton.layer.borderWidth = 1.0
-        settingsButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
+        
+        let softButton = SoftUIView(frame: CGRect(x: 1, y: self.frame.height - 101, width: 100, height: 100))
+        softButton.cornerRadius = 50
+        
+        let label = UILabel()
+        //label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.init(name: "Georgia", size: 60)
+        label.text =  "\u{2672}"
+       // label.frame = CGRect(x: -3, y: self.frame.height - 97, width: 100, height: 100)
+        label.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        label.textAlignment = .center
+        label.textColor = .darkText
+        softButton.setContentView(label)
+        softButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
+        
+        
+        
+        self.addSubview(softButton)
+    //    settingsButton.backgroundColor = .blue
+     //   settingsButton.translatesAutoresizingMaskIntoConstraints = false
+      //  self.leadingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -20).isActive = true
+       // self.trailingAnchor.constraint(equalTo: settingsButton.trailingAnchor, constant: 20).isActive = true
+       // settingsButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+      //  settingsButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+     //   settingsButton.titleLabel?.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)!
+     //   settingsButton.setTitle("Reset Beta Test?", for: .normal)
+       // settingsButton.layer.cornerRadius = 10.0
+      //  settingsButton.layer.borderWidth = 1.0
+       // settingsButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
     }
 
     
@@ -490,9 +510,11 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     func setup() {
         
+        backgroundColor = .postBackground
+        
         self.isUserInteractionEnabled = true
         
-        backgroundImage.backgroundColor = .green
+        backgroundImage.backgroundColor = .postBackground
         backgroundImage.isUserInteractionEnabled = true
         self.addSubview(backgroundImage)
 
@@ -814,6 +836,8 @@ final class MediaView: UIView {
     
     /// THINKS: Is setting up views I won;t use inefficient? Or is it in fact better to do it asap so that the user doe not get a hang?
     func setup() {
+        let screenRect = UIScreen.main.bounds
+        let widthLayoutUnit = screenRect.size.width - 100
 
         let videoView = videoController.view
         
@@ -834,16 +858,30 @@ final class MediaView: UIView {
         self.bottomAnchor.constraint(equalTo: videoView!.bottomAnchor).isActive = true
         
         
-        self.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+        //self.addSubview(label)
+        
+        let yCoord = (screenRect.size.height - widthLayoutUnit)/2
+        let labelCard = SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
+        label.frame = CGRect(x: 0, y: 0, width: widthLayoutUnit, height: widthLayoutUnit)
+        labelCard.setContentView(label)
+        self.addSubview(labelCard)
+        
+       
+       // labelCard.translatesAutoresizingMaskIntoConstraints = false
+       // labelCard.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+       // labelCard.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        
+       //label.translatesAutoresizingMaskIntoConstraints = false
+        //self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
+        //self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
+        //self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
+        //self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
         //label.isHidden = true
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
-        label.backgroundColor = .yellow
+        //label.backgroundColor = .yellow
+       // label.backgroundColor = .postBackground
         label.textAlignment = .center
         label.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
         
@@ -897,7 +935,14 @@ final class MediaView: UIView {
             case .text(let bigText, let captionText):
                 imageView.isHidden = true
                 label.isHidden = false
-                label.text = bigText
+            
+                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+                ]
+                
+                let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
+                label.attributedText = bigTextStyled
                 videoController.view.isHidden = true
                 if captionText == "" {
                     caption.isHidden = true

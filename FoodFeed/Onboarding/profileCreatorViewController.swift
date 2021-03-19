@@ -76,7 +76,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         super.viewDidLoad()
         
        
-
+        view.backgroundColor = .mainBackground
         layoutSubviews()
         setUpPicker()
         

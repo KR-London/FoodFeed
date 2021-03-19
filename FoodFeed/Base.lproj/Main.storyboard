@@ -140,7 +140,7 @@
         <!--Feed Item View Controller-->
         <scene sceneID="dd4-D0-dAi">
             <objects>
-                <viewController storyboardIdentifier="FeedItemViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3nP-Ma-oiP" customClass="FeedItemViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedItemViewController" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3nP-Ma-oiP" customClass="FeedItemViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P41-wU-IBi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -40,6 +40,10 @@ class FeedPageViewController:
         presenter = FeedPagePresenter(view: self, context:context, fetcher: coreDataFetcher)
         presenter.viewDidLoad()
     }
+    
+    required init?(coder: NSCoder) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
 }
 
 extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
