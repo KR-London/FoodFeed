@@ -351,7 +351,7 @@ class PostView: UIView {
 
         //FIXME: Hiddne like button because i won't be able to do anything with it this time around 
        // let lView = likeView()
-        controlsStack.addArrangedSubview(avatarView)
+        //controlsStack.addArrangedSubview(avatarView)
        // controlsStack.addArrangedSubview(lView)
        // controlsStack.setCustomSpacing(36, after: lView)
         //controlsStack.addArrangedSubview(commentView())
@@ -509,12 +509,17 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func setup() {
+        let screenRect = UIScreen.main.bounds
+        let widthLayoutUnit = screenRect.size.width - 40
+        let heightLayoutUnit = 0.9*(screenRect.size.width / 3)
+        
         
         backgroundColor = .postBackground
         
         self.isUserInteractionEnabled = true
-        
+
         backgroundImage.backgroundColor = .postBackground
+
         backgroundImage.isUserInteractionEnabled = true
         self.addSubview(backgroundImage)
 
@@ -551,70 +556,78 @@ final class InteractionView: UIView, UITableViewDelegate{
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
 
 
-        self.addSubview(caption)
-        caption.contentMode = .scaleAspectFit
-        caption.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
-        self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
-        self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
-        caption.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.5).isActive = true
-        caption.lineBreakMode = .byWordWrapping
-        caption.numberOfLines = 0
-        caption.backgroundColor = .green
-        caption.textAlignment = .center
-        caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
-        self.bringSubviewToFront(caption)
+//        let yCoord = (screenRect.size.height - widthLayoutUnit)/2
+//        let labelCard = SoftUIView(frame: CGRect(x: 50, y: 100, width: widthLayoutUnit, height: heightLayoutUnit))
+//        caption.frame = CGRect(x: 50, y: 100, width: widthLayoutUnit, height: heightLayoutUnit)
+//        labelCard.setContentView(caption)
+//        self.addSubview(labelCard)
+        
+        let sayCard = chatBubbleView(frame:  CGRect(x: 20, y: heightLayoutUnit, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
+        self.addSubview(sayCard)
+//        self.addSubview(caption)
+//        caption.contentMode = .scaleAspectFit
+//        caption.translatesAutoresizingMaskIntoConstraints = false
+//        self.leadingAnchor.constraint(equalTo: caption.leadingAnchor).isActive = true
+//        self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
+//        self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
+//        caption.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.5).isActive = true
+//        caption.lineBreakMode = .byWordWrapping
+//        caption.numberOfLines = 0
+//        caption.backgroundColor = .green
+//        caption.textAlignment = .center
+//        caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
+//        self.bringSubviewToFront(caption)
 
-        
-        self.addSubview(answerInput)
-        answerInput.backgroundColor = .white
-        answerInput.placeholder = "What do you think?"
-        answerInput.translatesAutoresizingMaskIntoConstraints = false
-        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor, multiplier: 1.5).isActive = true
-        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -10).isActive = true
-        answerInput.setLeftPaddingPoints(10)
-        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
-       // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
-        answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
-        answerInput.layer.cornerRadius = 20.0
-        //answerInput.enablesReturnKeyAutomatically
-        answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
-        
-        self.addSubview(humanAvatar)
-        humanAvatar.translatesAutoresizingMaskIntoConstraints = false
-        humanAvatar.heightAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
-        humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -10).isActive = true
-        humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
-        humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
-        
-        humanAvatar.imageView.image = botUser.human.profilePic
-        
-        
-//        humanAvatar.imageView.image = human.profilePic{
-//            didSet{
-//                reloadInputViews()
-//            }
-//        }
-            //botUser.human.profilePic
-      
-        
-        setUpCommentsView()
-        commentsView.backgroundColor = .clear
-        commentsView.translatesAutoresizingMaskIntoConstraints = false
-        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        let topConstraint = commentsView.topAnchor.constraint(equalTo: answerInput.bottomAnchor, constant: 50)
-        topConstraint.priority = UILayoutPriority(rawValue: 700)
-        topConstraint.isActive = true
-        //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
-        //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
-        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-        bringSubviewToFront(answerInput)
-        bringSubviewToFront(humanAvatar)
-        bringSubviewToFront(commentsView)
+//
+//        self.addSubview(answerInput)
+//        answerInput.backgroundColor = .white
+//        answerInput.placeholder = "What do you think?"
+//        answerInput.translatesAutoresizingMaskIntoConstraints = false
+//        answerInput.heightAnchor.constraint(equalTo: voteBbutton.heightAnchor, multiplier: 1.5).isActive = true
+//        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -10).isActive = true
+//        answerInput.setLeftPaddingPoints(10)
+//        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
+//       // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
+//        answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
+//        answerInput.layer.cornerRadius = 20.0
+//        //answerInput.enablesReturnKeyAutomatically
+//        answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
+//
+//        self.addSubview(humanAvatar)
+//        humanAvatar.translatesAutoresizingMaskIntoConstraints = false
+//        humanAvatar.heightAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
+//        humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -10).isActive = true
+//        humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
+//        humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
+//
+//        humanAvatar.imageView.image = botUser.human.profilePic
+//
+//
+////        humanAvatar.imageView.image = human.profilePic{
+////            didSet{
+////                reloadInputViews()
+////            }
+////        }
+//            //botUser.human.profilePic
+//
+//
+//        setUpCommentsView()
+//        commentsView.backgroundColor = .clear
+//        commentsView.translatesAutoresizingMaskIntoConstraints = false
+//        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        let topConstraint = commentsView.topAnchor.constraint(equalTo: answerInput.bottomAnchor, constant: 50)
+//        topConstraint.priority = UILayoutPriority(rawValue: 700)
+//        topConstraint.isActive = true
+//        //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
+//        //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+//        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
+//        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+//        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+//
+//        bringSubviewToFront(answerInput)
+//        bringSubviewToFront(humanAvatar)
+//        bringSubviewToFront(commentsView)
         
        // bringSubviewToFront(voteAbutton)
        // bringSubviewToFront(voteBbutton)
@@ -997,7 +1010,7 @@ final class MediaView: UIView {
 class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        view.backgroundColor = .postBackground
     }
 }
 

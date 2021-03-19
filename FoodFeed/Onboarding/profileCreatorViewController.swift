@@ -16,6 +16,8 @@ let usingSimulator = true
 class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var personalQualities = ["Nice", "Kind", "Brave"]
 
     @IBOutlet var pageTitle: UILabel!
     
@@ -85,6 +87,8 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 
         stopsInteractionWhenTappedAround()
         nameEntry.delegate = self
+        
+        describePicker.delegate = self
        //  view.addGestureRecognizer(tap)
     }
     
@@ -118,11 +122,38 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if component == 0 {
-            return 10
-        } else {
-            return 100
+        return goodAtPickerData.count - 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        switch component{
+            case 0 : personalQualities[0] = goodAtPickerData[row]
+            case 1: personalQualities[1] = goodAtPickerData[row]
+            case 2: personalQualities[2] = goodAtPickerData[row]
+            default: break
         }
+        return "Why do I have to return here?"
+    }
+    
+//    func pickerView( pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//
+//
+//        switch component{
+//                   case 0 : personalQualities[0] = goodAtPickerData[row]
+//                   case 1: personalQualities[1] = goodAtPickerData[row]
+//                   case 2: personalQualities[2] = goodAtPickerData[row]
+//                   default: break
+//       }
+//    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component{
+                   case 0 : personalQualities[0] = goodAtPickerData[row]
+                   case 1: personalQualities[1] = goodAtPickerData[row]
+                   case 2: personalQualities[2] = goodAtPickerData[row]
+                   default: break
+       }
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -329,6 +360,21 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     @objc func segueToSummary(){
         performSegue(withIdentifier: "summaryProfile", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+       if segue.identifier == "summaryProfile" {
+           if let destVC = segue.destination as? profileCardViewController {
+              
+              
+            let human = User(name: nameEntry.text ?? "You", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
+                
+            destVC.human = human
+
+           }
+       }
     }
     
     @objc func pictureInput(){

@@ -10,6 +10,8 @@ import UIKit
 import SoftUIView
 
 class profileCardViewController: UIViewController {
+    
+    var human : User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,19 +55,24 @@ class profileCardViewController: UIViewController {
         
         /// Little pop-out summary card
         
-        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: nil)
+        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human) as! UserProfileCard
+        
+        card.mainViewController = self
+        
         
         view.addSubview(card)
-//
-//        okLabel.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            okLabel.topAnchor.constraint(equalTo: softUIViewButton.topAnchor),
-//            okLabel.bottomAnchor.constraint(equalTo: softUIViewButton.bottomAnchor),
-//            okLabel.leadingAnchor.constraint(equalTo: softUIViewButton.leadingAnchor),
-//            okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
-//        ])
         
-        
+//        if #available(iOS 13.0, *) {
+//            // use UIStackView
+//        } else {
+//            let hiddenButton = UIButton()
+//            hiddenButton.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
+//            hiddenButton.backgroundColor = .clear
+//            hiddenButton.frame = CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit)
+//            
+//            view.addSubview(hiddenButton)
+//        }
+  
         // Segue button
         
         let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.2*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
@@ -87,10 +94,9 @@ class profileCardViewController: UIViewController {
             okLabel.leadingAnchor.constraint(equalTo: softUIViewButton.leadingAnchor),
             okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
         ])
-        
- 
-        
     }
+    
+ 
     
     @objc func segueToFriend(){
         performSegue(withIdentifier: "friendProfile", sender: self)
