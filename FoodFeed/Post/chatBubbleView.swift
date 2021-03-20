@@ -59,9 +59,10 @@ class chatBubbleView: UIView {
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: softUIView.topAnchor),
             label.heightAnchor.constraint(equalToConstant: frame.height),
-            label.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor),
-            label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -frame.width/2)
+            label.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: 5),
+            label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -frame.width/4)
         ])
+    
 //
         
         let profilePicture = UIImageView()

@@ -48,9 +48,13 @@ struct botUser{
 //}
 
 struct Comment{
-    var avatar: UIImage?
+    //var avatar: UIImage?
+    var user : User?
     var comment: String
     var liked: Bool?
+    var avatar : UIImage?{
+        return user?.profilePic
+    }
 }
 
 protocol CommentProviderDelegate {
@@ -68,7 +72,7 @@ protocol CommentProvider
 // MARK: Implementation of CommentProvider
 class TimedComments: CommentProvider {
     var timer : Timer?
-    private var storedComments = [ Comment(avatar: botUser.fred.profilePic, comment: "hellp", liked: false)]
+    private var storedComments = [ Comment(user: botUser.fred, comment: "hellp", liked: false)]
     {
         didSet {
             delegate?.didUpdate(comments: storedComments)
@@ -102,7 +106,7 @@ class TimedComments: CommentProvider {
                     print("")
                 }
                 else{
-                    let newComment = Comment(avatar: botUser.guy.profilePic, comment: guyComments.randomElement()!, liked: false)
+                    let newComment = Comment(user: botUser.guy, comment: guyComments.randomElement()!, liked: false)
                     //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
                     self.storedComments.append(newComment )
                     
@@ -117,7 +121,7 @@ class TimedComments: CommentProvider {
             else {
                 let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
                // let newComment = Comment(avatar: bot.profilePic, comment: ladyBookComments.randomElement()!, liked: false)
-                let newComment = Comment(avatar: bot.profilePic, comment: botAnswers[String(currentCaption.dropFirst().dropFirst())]?.randomElement()! ?? "", liked: false)
+                let newComment = Comment(user: bot, comment: botAnswers[String(currentCaption.dropFirst().dropFirst())]?.randomElement()! ?? "", liked: false)
                // let newComment = Comment(avatar: bot.profilePic, comment: String(i), liked: false)
                 self.storedComments.append(newComment )
 
@@ -169,7 +173,7 @@ class TimedComments: CommentProvider {
     
     func userComment(userComment: String){
         print(userComment)
-        let newComment = Comment(avatar: botUser.human.profilePic, comment: userComment, liked: false)
+        let newComment = Comment(user: botUser.human, comment: userComment, liked: false)
         self.storedComments.append(newComment)
         timer?.invalidate()
         respondToUser(userComment: userComment)
@@ -181,7 +185,7 @@ class TimedComments: CommentProvider {
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
-            let newComment = Comment(avatar: bot.profilePic, comment: botAnswersToHuman(userComment: userComment, key: currentCaption), liked: false)
+            let newComment = Comment(user: bot, comment: botAnswersToHuman(userComment: userComment, key: currentCaption), liked: false)
                                         ///responseComments.randomElement()!, liked: false)
             self.storedComments.append(newComment)
             i += 1

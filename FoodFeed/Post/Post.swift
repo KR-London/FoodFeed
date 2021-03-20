@@ -809,10 +809,10 @@ extension InteractionView: UITableViewDataSource{
             //
             
             /// FIXME: Change the Comment data structure so it carries a user i can directly read
-            let bot = [botUser.emery, botUser.fred, botUser.tony]
-            let comment = comments.last!.avatar
+           // let bot = [botUser.emery, botUser.fred, botUser.tony]
+            //let comment = comments.last!.avatar
             
-            let botAnswerView = chatBubbleView(frame: CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/4, width: self.frame.width - 40, height: heightLayoutUnit), user: bot.randomElement())
+            let botAnswerView = chatBubbleView(frame: CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/4, width: self.frame.width - 40, height: heightLayoutUnit), user:comments.last!.user)
         //    botAnswerView.bigText = "Wash it down with a big glass of water"
             
             
