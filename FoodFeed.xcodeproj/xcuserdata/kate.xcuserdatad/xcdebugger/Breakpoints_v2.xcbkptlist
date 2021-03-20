@@ -638,8 +638,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "842"
             endingLineNumber = "842"
-            landmarkName = "init(frame:)"
-            landmarkType = "7">
+            landmarkName = "State"
+            landmarkType = "13">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -654,7 +654,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "934"
             endingLineNumber = "934"
-            landmarkName = "update(state:)"
+            landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -846,7 +846,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "745"
             endingLineNumber = "745"
-            landmarkName = "voted(_:)"
+            landmarkName = "update(state:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -862,7 +862,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "749"
             endingLineNumber = "749"
-            landmarkName = "voted(_:)"
+            landmarkName = "update(state:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -910,8 +910,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "693"
             endingLineNumber = "693"
-            landmarkName = "InteractionView"
-            landmarkType = "3">
+            landmarkName = "triggerCommentsView()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2D6C6D47-75FF-4E9C-913D-9C42F7CAA635 - 8e8cf9b57eefeaea"
@@ -974,7 +974,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "924"
             endingLineNumber = "924"
-            landmarkName = "update(state:)"
+            landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1054,8 +1054,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "792"
             endingLineNumber = "792"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
