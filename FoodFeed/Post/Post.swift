@@ -186,6 +186,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
+              
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
@@ -477,6 +478,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
     var heightLayoutUnit = CGFloat(100.0)
+    var sayCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
     
 //    let humanAvatar = AvatarView()
     
@@ -568,7 +570,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         descriptiveLabel.attributedText = subtitleStyled
         self.addSubview(descriptiveLabel)
         
-        let sayCard = chatBubbleView(frame:  CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
+        sayCard = chatBubbleView(frame:  CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
         self.addSubview(sayCard)
         
         let userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.human)
@@ -729,6 +731,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 answerInput.isHidden = true
             case .question(let captionText):
                 caption.text = "Q:" + captionText
+                sayCard.label.text = captionText
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
             case .hidden:

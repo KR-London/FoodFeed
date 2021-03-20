@@ -33,6 +33,10 @@ class chatBubbleView: UIView {
         // setup()
     }
     
+    func updateCaption(){
+        print("Update caption")
+    }
+    
     
     func setup(user: User?, frame: CGRect){
         
