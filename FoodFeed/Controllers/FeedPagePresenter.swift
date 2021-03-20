@@ -24,7 +24,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     
     fileprivate var fetcher: FeedFetchProtocol
     fileprivate var feeds: [Feed] = []
-    fileprivate var currentFeedIndex = -1
+    fileprivate var currentFeedIndex =  -1 
     
     init(view: FeedPageView, fetcher: FeedFetchProtocol = FeedFetcher()) {
         self.view = view
