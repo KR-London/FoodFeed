@@ -9,6 +9,7 @@
 import UIKit
 
 class softCommentTableViewCell: UITableViewCell {
+    var botAnswerView = userAnswerView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,9 +25,13 @@ class softCommentTableViewCell: UITableViewCell {
     }
     
     private func commonInit(){
-        let botAnswerView = userAnswerView(frame: self.frame, user: botUser.emery)
-        self.addSubview(botAnswerView)
+       // botAnswerView = userAnswerView(frame: self.frame, user: botUser.emery)
+      //  self.addSubview(botAnswerView)
         
+    }
+    
+    func updateText(){
+        botAnswerView.bigText = "I updated text"
     }
 
 }

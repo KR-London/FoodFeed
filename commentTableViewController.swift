@@ -33,7 +33,7 @@ class commentTableViewController: UITableViewController {
     }
     
     func setUpCommentsView(margins: UILayoutGuide){
-        // backgroundColor = UIColor(white: 0.1, alpha: 0.2)
+        view.backgroundColor = .blue
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3),
@@ -46,8 +46,10 @@ class commentTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! commentTableViewCell
+     //   let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as! commentTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as! softCommentTableViewCell
         
+        cell.updateText()
         //cell.middleLabel.text = items[indexPath.row]
         // cell.leftLabel.text = items[indexPath.row]
         // cell.rightLabel.text = items[indexPath.row]

@@ -15,6 +15,7 @@ class chatBubbleView: UIView {
     //var width = 100.0
     
     var bigText = "Tips for trying new foods?"
+    let label = UILabel()
     
     var mainViewController: profileCardViewController?
    
@@ -42,7 +43,7 @@ class chatBubbleView: UIView {
         
        
         
-        let label = UILabel()
+       
         label.textAlignment = .center
         let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,

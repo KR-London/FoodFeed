@@ -475,6 +475,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     let voteBbutton = UIButton()
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
+    var thirdScreenHeight = CGFloat(100.0)
+    var heightLayoutUnit = CGFloat(100.0)
     
 //    let humanAvatar = AvatarView()
     
@@ -511,8 +513,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     func setup() {
         let screenRect = UIScreen.main.bounds
         let widthLayoutUnit = screenRect.size.width - 40
-        let heightLayoutUnit = 0.9*(screenRect.size.width / 3)
-        let thirdScreenHeight = screenRect.size.height / 3
+        heightLayoutUnit = 0.9*(screenRect.size.width / 3)
+        thirdScreenHeight = screenRect.size.height / 3
         
         
         backgroundColor = .postBackground
@@ -572,9 +574,9 @@ final class InteractionView: UIView, UITableViewDelegate{
         let userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.human)
         self.addSubview(userAnswerCard)
         
-        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
-        self.addSubview(botCommentCard)
-        
+//        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
+//        self.addSubview(botCommentCard)
+//
         let descriptiveLabel2 = UILabel()
         descriptiveLabel2.textAlignment = .right
         self.addSubview(descriptiveLabel2)
@@ -586,7 +588,7 @@ final class InteractionView: UIView, UITableViewDelegate{
 
         let subtitleStyled2 = NSAttributedString(string: ":Answers", attributes: subtitleAttrs)
         descriptiveLabel2.attributedText = subtitleStyled2
-      
+
 
         self.addSubview(answerInput)
        // answerInput.frame = CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25 + frame.height/2, width: widthLayoutUnit, height: heightLayoutUnit/2)
@@ -621,19 +623,21 @@ final class InteractionView: UIView, UITableViewDelegate{
 //            //botUser.human.profilePic
 //
 //
-//        setUpCommentsView()
-//        commentsView.backgroundColor = .clear
-//        commentsView.translatesAutoresizingMaskIntoConstraints = false
-//        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//        let topConstraint = commentsView.topAnchor.constraint(equalTo: answerInput.bottomAnchor, constant: 50)
-//        topConstraint.priority = UILayoutPriority(rawValue: 700)
-//        topConstraint.isActive = true
-//        //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
-//        //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-//        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
-//        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-//        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        setUpCommentsView()
+        commentsView.backgroundColor = .clear
+        commentsView.translatesAutoresizingMaskIntoConstraints = false
+      //  commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
+        commentsView.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
+        //let topConstraint = commentsView.topAnchor.constraint(equalTo: answerInput.bottomAnchor, constant: 50)
+       // topConstraint.priority = UILayoutPriority(rawValue: 700)
+       // topConstraint.isActive = true
+        //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
+        //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
+        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 //
 //        bringSubviewToFront(answerInput)
 //        bringSubviewToFront(humanAvatar)
@@ -682,6 +686,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 comments in
                 self.comments = comments
                 self.commentsView.reloadData()
+                
             }
         
     }
@@ -793,11 +798,29 @@ extension InteractionView: UITableViewDataSource{
         
        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath) as! softCommentTableViewCell
         //cell.awakeFromNib()
-        cell.backgroundColor = UIColor.green
+        cell.backgroundColor = UIColor.clear
+        cell.indentationLevel = 2
         if indexPath.row < comments.count {
          //   cell.comment.text = comments[comments.count - indexPath.row - 1].comment
           //  cell.avatarView.imageView.image = comments[comments.count - indexPath.row - 1].avatar
             //[#imageLiteral(resourceName: "bot1.jpeg") ,#imageLiteral(resourceName: "bot2.jpeg") ,#imageLiteral(resourceName: "bot3.jpeg") , #imageLiteral(resourceName: "bot4.jpeg")].randomElement()
+            //        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
+            //        self.addSubview(botCommentCard)
+            //
+            
+            /// FIXME: Change the Comment data structure so it carries a user i can directly read
+            let bot = [botUser.emery, botUser.fred, botUser.tony]
+            let comment = comments.last!.avatar
+            
+            let botAnswerView = chatBubbleView(frame: CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/4, width: self.frame.width - 40, height: heightLayoutUnit), user: bot.randomElement())
+        //    botAnswerView.bigText = "Wash it down with a big glass of water"
+            
+            
+            botAnswerView.label.text = comments.last!.comment
+            botAnswerView.reloadInputViews()
+            
+            self.addSubview(botAnswerView)
+            
         }
         return cell
     }
