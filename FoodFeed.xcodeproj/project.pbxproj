@@ -21,6 +21,7 @@
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
 		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446540672604B7E5004B202B /* chatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540662604B7E5004B202B /* chatBubbleView.swift */; };
+		4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465406E2605F0AC004B202B /* userAnswerView.swift */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
 		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
@@ -188,6 +189,7 @@
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
 		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
 		446540662604B7E5004B202B /* chatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatBubbleView.swift; sourceTree = "<group>"; };
+		4465406E2605F0AC004B202B /* userAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAnswerView.swift; sourceTree = "<group>"; };
 		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 			isa = PBXGroup;
 			children = (
 				6536A647256185B3006D7297 /* Post.swift */,
+				4465406E2605F0AC004B202B /* userAnswerView.swift */,
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
 				446540662604B7E5004B202B /* chatBubbleView.swift */,
 				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
@@ -1008,6 +1011,7 @@
 				44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */,
 				44C3DEC32520C15600D317DA /* Protocols.swift in Sources */,
 				65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */,
+				4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */,
 				44D66C892534556E00C81C41 /* FeedViewLayout.swift in Sources */,
 				44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */,
 				44C3DF0C2520DEF400D317DA /* Connection.swift in Sources */,
