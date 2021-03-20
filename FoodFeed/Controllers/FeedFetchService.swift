@@ -75,11 +75,12 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
         let dayString = "Day " + String(day)
         var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "") )]
+       // var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "") )]
 
         do{
             let fetchedPosts = try context.fetch(request)
                 //as! [coreDataFeed]
-            
+            newFeedArray = newFeedArray.filter{$0.id != 0 }
             fetchedPosts.forEach({
                 switch $0.type {
                     case "Text":
@@ -87,7 +88,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                         newFeedArray.append(newFeedItem)
                     case "Image":
                         if let imageName = $0.image{
-                            let newFeedItem = Feed(id: Int($0.id), state: .image(imageName: imageName, caption: $0.caption ?? "" , hashtag: $0.hashtag) )
+                            let newFeedItem = Feed(id: Int($0.id) , state: .image(imageName: imageName, caption: $0.caption ?? "" , hashtag: $0.hashtag) )
                             newFeedArray.append(newFeedItem)
                         } else {
                             print("Inconsistently formatted image record \($0)")
@@ -118,7 +119,8 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                         }
                     case "Question":
                         if let caption = $0.caption{
-                            let newFeedItem = Feed(id: Int($0.id), state: .question(caption: caption, hashtag: $0.hashtag) )
+                            let newFeedItem = Feed(id: Int($0.id) - 1, state: .question(caption: caption, hashtag: $0.hashtag) )
+                            newFeedArray = newFeedArray.filter{ Int($0.id) != Int(newFeedItem.id)}
                             newFeedArray.append(newFeedItem)
                         }
 
@@ -128,11 +130,16 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
 
             })
             //delegate?.feedFetchService(self, didFetchFeeds: fetchedPosts, withError: nil)
+            
         } catch {
             fatalError("Couldn't fetch the posts \(error)")
         }
+        
+        
         print(newFeedArray.flatMap({$0.id}))
 //        newFeedArray = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
+       // newFeedArray = Array(newFeedArray.dropFirst())
+        
         delegate?.feedFetchService(self, didFetchFeeds: newFeedArray, withError: nil)
     }
     
