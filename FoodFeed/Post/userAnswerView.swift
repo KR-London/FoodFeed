@@ -14,6 +14,8 @@ class userAnswerView: UIView {
     //var width = 100.0
     
     var bigText = "Q: Tips for trying new foods?"
+    var dimensionMultiplier = 0.2 as CGFloat
+    
     
     //   var postView: postView?
     
@@ -33,8 +35,7 @@ class userAnswerView: UIView {
     
     
     func setup(user: User?, frame: CGRect){
-        
-        let humanPicDimensionUnit = frame.width/5
+        var humanPicDimensionUnit = frame.width*dimensionMultiplier
         
         let softUIView = SoftUIView(frame: .init(x: humanPicDimensionUnit , y: frame.height/4, width: frame.width - humanPicDimensionUnit , height: frame.height/2))
         addSubview(softUIView)

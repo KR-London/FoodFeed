@@ -580,32 +580,26 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.addSubview(descriptiveLabel2)
         descriptiveLabel2.translatesAutoresizingMaskIntoConstraints = false
         descriptiveLabel2.heightAnchor.constraint(equalTo:  descriptiveLabel.heightAnchor).isActive = true
-        descriptiveLabel2.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -10).isActive = true
+        descriptiveLabel2.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -20).isActive = true
         descriptiveLabel2.widthAnchor.constraint(equalTo:  descriptiveLabel.widthAnchor).isActive = true
-        descriptiveLabel2.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -10).isActive = true
+        descriptiveLabel2.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -20).isActive = true
 
         let subtitleStyled2 = NSAttributedString(string: ":Answers", attributes: subtitleAttrs)
         descriptiveLabel2.attributedText = subtitleStyled2
       
 
         self.addSubview(answerInput)
-        answerInput.frame = CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit/2)
+       // answerInput.frame = CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25 + frame.height/2, width: widthLayoutUnit, height: heightLayoutUnit/2)
         //answerInput= CGRect(x: 20, y: 20, width: 50, height: 50)
-        answerInput.backgroundColor = .green
+        answerInput.backgroundColor = .clear
         answerInput.placeholder = "What do you think?"
-      //  answerInput.translatesAutoresizingMaskIntoConstraints = false
-     //   answerInput.centerYAnchor.constraint(equalTo: userAnswerCard.centerYAnchor).isActive = true
-      //  answerInput.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    //    answerInput.widthAnchor.constraint(equalToConstant: 100).isActive = true
-     //   answerInput.centerXAnchor.constraint(equalTo: userAnswerCard.centerXAnchor).isActive = true
-//        answerInput.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -10).isActive = true
-//        answerInput.setLeftPaddingPoints(10)
-//        answerInput.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor).isActive = true
-//       // answerInput.topAnchor.constraint(equalTo: voteBbutton.topAnchor).isActive = true
-//        answerInput.topAnchor.constraint(equalTo: caption.bottomAnchor, constant: -50).isActive = true
-     
+        answerInput.translatesAutoresizingMaskIntoConstraints = false
+        answerInput.centerYAnchor.constraint(equalTo: userAnswerCard.centerYAnchor).isActive = true
+        answerInput.heightAnchor.constraint(equalTo: userAnswerCard.heightAnchor, multiplier: 0.5).isActive = true
+        answerInput.widthAnchor.constraint(equalToConstant: userAnswerCard.frame.width - userAnswerCard.frame.width*userAnswerCard.dimensionMultiplier).isActive = true
+        answerInput.leadingAnchor.constraint(equalTo: userAnswerCard.leadingAnchor, constant: userAnswerCard.frame.width*userAnswerCard.dimensionMultiplier).isActive = true
+        answerInput.setLeftPaddingPoints(10)
         answerInput.layer.cornerRadius = 20.0
-        //answerInput.enablesReturnKeyAutomatically
         answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
         answerInput.isHidden = false
 

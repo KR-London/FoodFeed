@@ -22,6 +22,7 @@
 		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446540672604B7E5004B202B /* chatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540662604B7E5004B202B /* chatBubbleView.swift */; };
 		4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465406E2605F0AC004B202B /* userAnswerView.swift */; };
+		446540772605F107004B202B /* softCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540762605F107004B202B /* softCommentTableViewCell.swift */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
 		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
@@ -190,6 +191,7 @@
 		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
 		446540662604B7E5004B202B /* chatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatBubbleView.swift; sourceTree = "<group>"; };
 		4465406E2605F0AC004B202B /* userAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAnswerView.swift; sourceTree = "<group>"; };
+		446540762605F107004B202B /* softCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = softCommentTableViewCell.swift; sourceTree = "<group>"; };
 		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
@@ -669,6 +671,7 @@
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
 				446540662604B7E5004B202B /* chatBubbleView.swift */,
 				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
+				446540762605F107004B202B /* softCommentTableViewCell.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				6536A648256185B3006D7297 /* Post.swift in Sources */,
 				4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */,
 				4470BF7E2603DD2A002EE94E /* BotProfileViewController.swift in Sources */,
+				446540772605F107004B202B /* softCommentTableViewCell.swift in Sources */,
 				44C3DF0F2520DEF400D317DA /* HTTPError.swift in Sources */,
 				446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */,
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,
