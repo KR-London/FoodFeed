@@ -35,7 +35,7 @@ class userAnswerView: UIView {
     
     
     func setup(user: User?, frame: CGRect){
-        var humanPicDimensionUnit = frame.width*dimensionMultiplier
+        let humanPicDimensionUnit = frame.width*dimensionMultiplier
         
         let softUIView = SoftUIView(frame: .init(x: humanPicDimensionUnit , y: frame.height/4, width: frame.width - humanPicDimensionUnit , height: frame.height/2))
         addSubview(softUIView)
@@ -47,12 +47,6 @@ class userAnswerView: UIView {
         
         let label = UILabel()
         label.textAlignment = .center
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
-                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-        ]
-        
-        
         
         let softUIImageView = SoftUIView(frame: .init(x: 0 , y: frame.height/2 - humanPicDimensionUnit/2, width: humanPicDimensionUnit, height: humanPicDimensionUnit))
         softUIImageView.cornerRadius = humanPicDimensionUnit/2

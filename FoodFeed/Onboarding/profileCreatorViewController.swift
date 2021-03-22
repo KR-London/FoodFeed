@@ -108,7 +108,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
            if usedCamera == true {
                self.captureSession?.stopRunning()
            }
-        if let following = UserDefaults.standard.object(forKey: "following")
+        if UserDefaults.standard.object(forKey: "following") != nil
         {
             UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
         }
@@ -162,7 +162,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         
         pickerLabel.adjustsFontSizeToFitWidth = true
         let titleData = goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
-        let myTitle = NSAttributedString(string: titleData as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedString.Key.foregroundColor:UIColor.black])
+        let myTitle = NSAttributedString(string: titleData , attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedString.Key.foregroundColor:UIColor.black])
         pickerLabel.attributedText = myTitle
         pickerLabel.textAlignment = NSTextAlignment.center
   
@@ -189,7 +189,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         nextButton.isHidden = true
         
         let layoutUnit = 0.9*(self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/6
-        let margins = view.layoutMarginsGuide
+       // let margins = view.layoutMarginsGuide
         
         let softUIViewProfilePic = SoftUIView(frame: .init(x: self.view.frame.width - 20 - layoutUnit , y: layoutUnit, width: layoutUnit, height: layoutUnit))
         softUIViewProfilePic.cornerRadius = layoutUnit/2
@@ -427,7 +427,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
       
       // MARK: Functions to manage the image input
         func setupLivePreview() {
-          let layoutUnit = (self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/8
+         // let layoutUnit = (self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/8
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer.videoGravity = .resizeAspectFill
             videoPreviewLayer.connection?.videoOrientation = .portrait
@@ -502,6 +502,8 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
                         print("Permission denied")
                     }
                 }
+            @unknown default:
+                    print("Gosh - AVCapture did not have that option when this code was writte. ")
             }
             
             return true
@@ -556,14 +558,14 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             if let userPickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
                 profilePictureImageView.image = userPickedImage
                 //image = userPickedImage.scaleImage(toSize: CGSize(width: 150, height: 150)) ?? UIImage(named: "chaos.jpg")!
-                image = userPickedImage ?? UIImage(named: "one.jpeg")!
+                image = userPickedImage 
                 
             }
             else {
                 if let userPickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
                 profilePictureImageView.image = userPickedImage
                 //image = userPickedImage.scaleImage(toSize: CGSize(width: 150, height: 150)) ?? UIImage(named: "chaos.jpg")!
-                image = userPickedImage ?? UIImage(named: "one.jpeg")!
+                    image = userPickedImage
                 }
             }
             
@@ -646,15 +648,15 @@ extension profileCreatorViewController{
                     switch category{
                         case "day": newPost.day = value as! Int16
                         case "id": newPost.id = value as! Int32
-                        case "bigtext": newPost.bigtext = value as! String
-                        case "caption": newPost.caption = value as! String
-                        case "type": newPost.type = value as! String
-                        case "gif":  newPost.gif = value as! String
-                        case "image": newPost.image = value as! String
-                        case "video":  newPost.video = value as! String
-                        case "hashtag": newPost.hashtag = value as! String
-                        case "votea": newPost.votea = value as! String
-                        case "voteb": newPost.voteb = value as! String
+                        case "bigtext": newPost.bigtext = value as? String
+                        case "caption": newPost.caption = value as? String
+                        case "type": newPost.type = value as? String
+                        case "gif":  newPost.gif = value as? String
+                        case "image": newPost.image = value as? String
+                        case "video":  newPost.video = value as? String
+                        case "hashtag": newPost.hashtag = value as? String
+                        case "votea": newPost.votea = value as? String
+                        case "voteb": newPost.voteb = value as? String
                         default: break
                     }
                     

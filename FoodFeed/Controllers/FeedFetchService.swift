@@ -65,7 +65,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
     func fetchFeeds() {
 
         
-        var request: NSFetchRequest<PostData> = PostData.fetchRequest()
+        let request: NSFetchRequest<PostData> = PostData.fetchRequest()
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
         //let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )

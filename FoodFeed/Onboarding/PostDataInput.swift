@@ -74,15 +74,15 @@ class PostDataInput: UIViewController {
                     switch category{
                         case "day": newPost.day = value as! Int16
                         case "id": newPost.id = value as! Int32
-                        case "bigtext": newPost.bigtext = value as! String
-                        case "caption": newPost.caption = value as! String
-                        case "type": newPost.type = value as! String
-                        case "gif":  newPost.gif = value as! String
-                        case "image": newPost.image = value as! String
-                        case "video":  newPost.video = value as! String
-                        case "hashtag": newPost.hashtag = value as! String
-                        case "votea": newPost.votea = value as! String
-                        case "voteb": newPost.voteb = value as! String
+                        case "bigtext": newPost.bigtext = value as? String
+                        case "caption": newPost.caption = value as? String
+                        case "type": newPost.type = value as? String
+                        case "gif":  newPost.gif = value as? String
+                        case "image": newPost.image = value as? String
+                        case "video":  newPost.video = value as? String
+                        case "hashtag": newPost.hashtag = value as? String
+                        case "votea": newPost.votea = value as? String
+                        case "voteb": newPost.voteb = value as? String
                         default: break
                     }
                  

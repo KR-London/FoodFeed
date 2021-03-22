@@ -25,7 +25,7 @@ class profileCardViewController: UIViewController {
     func layoutSubviews(){
         
         let layoutUnit = 0.9*(self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/6
-        let margins = view.layoutMarginsGuide
+       // let margins = view.layoutMarginsGuide
  
         
         ///Title
@@ -45,17 +45,10 @@ class profileCardViewController: UIViewController {
             pageTitle.centerYAnchor.constraint(equalTo: view.topAnchor , constant: layoutUnit),
             pageTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
-
-        
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
-                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-        ]
-        
         
         /// Little pop-out summary card
         
-        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human) as! UserProfileCard
+        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human) 
         
         card.mainViewController = self
         

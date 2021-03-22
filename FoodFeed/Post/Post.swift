@@ -142,7 +142,7 @@ class PostView: UIView {
         switch feed.state{
             case .text(let bigText, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: bigText, captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -153,7 +153,7 @@ class PostView: UIView {
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: gifName, captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -161,7 +161,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: imageName,captionText: caption),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -169,7 +169,7 @@ class PostView: UIView {
                 tagLabel.text = hashtag
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(filename: videoName, captionText: nil),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -178,7 +178,7 @@ class PostView: UIView {
             case .poll(let caption, let votea, let voteb, let hashtag):
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb),
                     tag: hashtag
@@ -188,7 +188,7 @@ class PostView: UIView {
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
               
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: try! UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
@@ -300,7 +300,7 @@ class PostView: UIView {
         interactionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         interactionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         interactionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        interactionView.isUserInteractionEnabled == true
+        interactionView.isUserInteractionEnabled = true
     }
     
 //    func setupBigTextView() {
@@ -739,8 +739,6 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
                 answerInput.isHidden = true
-            default:
-                return
         }
         
         reloadHumanAvatar()
@@ -760,10 +758,10 @@ final class InteractionView: UIView, UITableViewDelegate{
     @objc func voted(_ sender: UIButton) {
         print("button Pressed")
         if sender.tag == 0 {
-            caption.text = (String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ?? "Sunshine") + " is the best!"
+            caption.text = (String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
         }
         if sender.tag == 1 {
-            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ?? "Sunshine") + " is the best!"
+            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
         }
         
         // Reads out the label in a random Anglophone voice
@@ -961,7 +959,7 @@ final class MediaView: UIView {
     func update(state: State) {
 
         switch state {
-            case .gifImage( let gifImage, let captionText):
+            case .gifImage(  _, let captionText):
               //  imageView.setGifImage(gifImage, loopCount: -1)
                 imageView.isHidden = false
                 label.isHidden = true
@@ -973,7 +971,7 @@ final class MediaView: UIView {
                 else{
                     caption.text = captionText
                 }
-            case .stillImage(let image, let captionText):
+            case .stillImage(_, let captionText):
               //  imageView.setImage(image)
                 imageView.isHidden = false
                 label.isHidden = true
@@ -1026,8 +1024,6 @@ final class MediaView: UIView {
                 label.isHidden = true
                 caption.isHidden = true
                 videoController.view.isHidden = true
-            default:
-                return
         }
     }
     
@@ -1063,7 +1059,7 @@ class PostViewController: UIViewController {
 extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
-        avatar: AvatarView.State(image: try! UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+        avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
         media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" ),
         interaction: InteractionView.State()
     )

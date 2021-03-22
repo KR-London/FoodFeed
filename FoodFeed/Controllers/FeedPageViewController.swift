@@ -23,6 +23,24 @@ class FeedPageViewController:
         setViewControllers([viewController], direction: .forward, animated: false, completion: nil)
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.object(forKey: "following") == nil
+        {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "profileSetter")
+            self.present(newViewController, animated: true, completion: nil)
+        }
+        
+        //commentsDriver?.start()
+        
+        //        commentsDriver = TimedComments()
+        //        if let caption = feedView.interactionView.caption.text
+        //        {
+        //            commentsDriver?.currentCaption = caption
+        //        }
+        //        //commentsDriver?.currentCaption = f
+    }
     
     fileprivate var presenter: FeedPagePresenterProtocol!
     

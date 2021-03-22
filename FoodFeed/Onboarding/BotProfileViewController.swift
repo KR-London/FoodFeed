@@ -51,29 +51,13 @@ class BotProfileViewController: UIViewController {
             ])
 
             
-            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
-                         NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-                         NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-            ]
-            
-            
             /// Little pop-out summary card
             
             let guy = User(name: "Guy", profilePic: botUser.guy.profilePic , personalQualities: ["Fun" , "Chatty", "Open"])
             
             let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: guy)
+            card.mainViewController = self
             view.addSubview(card)
-    //
-    //        okLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        NSLayoutConstraint.activate([
-    //            okLabel.topAnchor.constraint(equalTo: softUIViewButton.topAnchor),
-    //            okLabel.bottomAnchor.constraint(equalTo: softUIViewButton.bottomAnchor),
-    //            okLabel.leadingAnchor.constraint(equalTo: softUIViewButton.leadingAnchor),
-    //            okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
-    //        ])
-            
-            
-            // Segue button
             
             let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.2*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
             view.addSubview(softUIViewButton)

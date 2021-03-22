@@ -42,24 +42,24 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         return viewController
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if UserDefaults.standard.object(forKey: "following") == nil
-        {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "profileSetter")
-                        self.present(newViewController, animated: true, completion: nil)
-            }
-        
-        //commentsDriver?.start()
-        
-//        commentsDriver = TimedComments()
-//        if let caption = feedView.interactionView.caption.text
+//    override func viewDidAppear(_ animated: Bool) {
+//        
+//        if UserDefaults.standard.object(forKey: "following") == nil
 //        {
-//            commentsDriver?.currentCaption = caption
-//        }
-//        //commentsDriver?.currentCaption = f
-    }
+//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "profileSetter")
+//                        self.present(newViewController, animated: true, completion: nil)
+//            }
+//        
+//        //commentsDriver?.start()
+//        
+////        commentsDriver = TimedComments()
+////        if let caption = feedView.interactionView.caption.text
+////        {
+////            commentsDriver?.currentCaption = caption
+////        }
+////        //commentsDriver?.currentCaption = f
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         print("I've changed page.")

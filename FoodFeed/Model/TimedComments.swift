@@ -100,7 +100,7 @@ class TimedComments: CommentProvider {
 //
 //        let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
 //
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true){ [self] tim in
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true){ [self] tim in
             if storedComments.count % 5 == 0  {
                 if currentCaption.isEmpty {
                     print("")
@@ -181,7 +181,7 @@ class TimedComments: CommentProvider {
     
     func respondToUser(userComment: String){
         var i = 0
-        var responseComments = ["I hate \(userComment.lowercased()) too!", "Urggh" , "I agree", "Ha ha"]
+        //var responseComments = ["I hate \(userComment.lowercased()) too!", "Urggh" , "I agree", "Ha ha"]
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!

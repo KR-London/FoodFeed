@@ -18,7 +18,8 @@ class UserProfileCard: UIView{
     var layoutUnit = CGFloat(100)
     var width = 100.0
     
-    var mainViewController: profileCardViewController?
+   // var mainViewController: profileCardViewController?
+    var mainViewController: UIViewController?
     
     init(frame: CGRect, user: User?) {
         super.init(frame: frame)
