@@ -369,7 +369,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
            if let destVC = segue.destination as? profileCardViewController {
               
               
-            let human = User(name: nameEntry.text ?? "You", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
+            let human = User(name: nameEntry.text ?? "Buddy", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
+            
+            botUser.human = human 
                 
             destVC.human = human
 

@@ -28,7 +28,7 @@ struct botUser{
     static let emery = User(name: "Emery", profilePic: UIImage(named:"bot3.jpeg"), personalQualities: nil)
     static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"), personalQualities: nil)
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"), personalQualities: nil)
-    static var human = User(name: "You", profilePic: UIImage(named:"U.jpeg"), personalQualities: nil){
+    static var human = User(name: "Buddy", profilePic: UIImage(named:"U.jpeg"), personalQualities: nil){
         didSet{
             print("I changed something about human")
             humanAvatar.imageView.image = human.profilePic
