@@ -17,6 +17,12 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var profileSet = false {
+        didSet{
+            saveProfile()
+        }
+    }
+    
     var personalQualities = ["Nice", "Kind", "Brave"]
 
     @IBOutlet var pageTitle: UILabel!
@@ -108,13 +114,15 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
            if usedCamera == true {
                self.captureSession?.stopRunning()
            }
-        if UserDefaults.standard.object(forKey: "following") != nil
-        {
-            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
-        }
-        else{
-            UserDefaults.standard.set( ["Human"],  forKey: "following")
-        }
+        
+            saveProfile()
+//        if UserDefaults.standard.object(forKey: "following") != nil
+//        {
+//            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
+//        }
+//        else{
+//            UserDefaults.standard.set( ["Human"],  forKey: "following")
+//        }
        }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -370,13 +378,34 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
               
               
             let human = User(name: nameEntry.text ?? "Buddy", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
-            
-            botUser.human = human 
-                
+        
             destVC.human = human
+            botUser.human = human
+          //  DispatchQueue.global(qos: .background).async { [self] in
+          //      saveProfile()
+          //  }
+           
 
            }
        }
+    }
+    
+    func saveProfile(){
+        
+       // let human = User(name: nameEntry.text ?? "Buddy", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
+     //   botUser.human = human
+        
+        if UserDefaults.standard.object(forKey: "following") != nil
+        {
+            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
+        }
+        else{
+            UserDefaults.standard.set( ["Human"],  forKey: "following")
+        }
+        
+        
+   //     UserDefaults.standard.set( human.name,  forKey: "humanName")
+        
     }
     
     @objc func pictureInput(){
@@ -573,7 +602,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             
             imagePicker.dismiss(animated: true){ [self] in profilePictureImageView.image = image
                 
-                botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
+                botUser.human = User(name: nameEntry.text ?? "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
                 
                 
                 //            if let data = image!.jpegData(compressionQuality: 0.8) {

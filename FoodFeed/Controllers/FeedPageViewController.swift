@@ -31,6 +31,37 @@ class FeedPageViewController:
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "profileSetter")
             self.present(newViewController, animated: true, completion: nil)
         }
+        else{
+            
+//            var loadingUser = User()
+//            if let humanName = UserDefaults.standard.object(forKey: "userName"){
+//                loadingUser.name = hu
+//            }
+            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
+            
+            
+            if let name = UserDefaults.standard.object(forKey: "userName")
+            {
+                var pic = UIImage()
+                
+               if let data = try? Data(contentsOf: url){
+                pic = UIImage(data: data)!
+                }
+               
+                let personality0 = UserDefaults.standard.object(forKey: "userPersonality0") as? String ?? "Sweet"
+                let personality1 = UserDefaults.standard.object(forKey: "userPersonality1") as? String ?? "Lovely"
+                let personality2 = UserDefaults.standard.object(forKey: "userPersonality2") as? String ?? "Adorable"
+                
+                
+                    let human = User(name: name as! String ,
+                             profilePic: pic, personalQualities: [
+                                personality0 ,
+                                personality1,
+                                personality2])
+                    botUser.human = human
+            }
+        }
         
         //commentsDriver?.start()
         

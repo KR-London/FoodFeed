@@ -28,6 +28,12 @@ class UserProfileCard: UIView{
         width = Double(frame.width)
         backgroundColor = .mainBackground
         setup(user: user)
+//        if mainViewController is profileCreatorViewController{
+//            let profileMaker = mainViewController as! profileCreatorViewController
+////            DispatchQueue.global(qos: .background).async { [self] in
+////                profileMaker.saveProfile()
+////            }
+//        }
     }
     
     required init?(coder: NSCoder) {

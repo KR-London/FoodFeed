@@ -33,6 +33,25 @@ struct botUser{
             print("I changed something about human")
             humanAvatar.imageView.image = human.profilePic
             humanAvatar.reloadInputViews()
+            
+            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            if let data = human.profilePic?.jpegData(compressionQuality: 1){
+                let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
+                do {
+                    try data.write(to: url)
+                    // Store URL in User Defaults
+                    UserDefaults.standard.set(url, forKey: "userSetPic")
+                }
+                catch {
+                    print("Unable to Write Data to Disk (\(error))")
+                }
+            }
+            
+            UserDefaults.standard.set(human.name, forKey: "userName")
+            UserDefaults.standard.set(human.personalQualities?[0], forKey: "userPersonality0")
+            UserDefaults.standard.set(human.personalQualities?[1], forKey: "userPersonality1")
+            UserDefaults.standard.set(human.personalQualities?[2], forKey: "userPersonality2")
+     
         }
     }
     
@@ -100,7 +119,7 @@ class TimedComments: CommentProvider {
 //
 //        let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
 //
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true){ [self] tim in
+        timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
             if storedComments.count % 5 == 0  {
                 if currentCaption.isEmpty {
                     print("")
@@ -114,7 +133,7 @@ class TimedComments: CommentProvider {
                     
                     utterance = AVSpeechUtterance(string: say)
                     utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                        //synthesizer.speak(utterance)
+                    synthesizer.speak(utterance)
                 }
 
             }
@@ -149,7 +168,7 @@ class TimedComments: CommentProvider {
                         utterance.rate = Float(0.7)
                     default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
                 }
-               // synthesizer.speak(utterance)
+              synthesizer.speak(utterance)
             }
             i += 1
 
@@ -183,7 +202,7 @@ class TimedComments: CommentProvider {
         var i = 0
         //var responseComments = ["I hate \(userComment.lowercased()) too!", "Urggh" , "I agree", "Ha ha"]
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true){ [self] tim in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
             let newComment = Comment(user: bot, comment: botAnswersToHuman(userComment: userComment, key: currentCaption), liked: false)
                                         ///responseComments.randomElement()!, liked: false)
@@ -214,7 +233,7 @@ class TimedComments: CommentProvider {
                     utterance.rate = Float(0.7)
                 default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
             }
-           /// synthesizer.speak(utterance)
+          synthesizer.speak(utterance)
         }
     }
     

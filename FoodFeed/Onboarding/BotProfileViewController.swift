@@ -23,10 +23,11 @@ class BotProfileViewController: UIViewController {
             layoutSubviews()
 
             let say =  "Hi, I'm Guy. Follow me and help me figure out my life!"
+            view.backgroundColor = .mainBackground
                             
             utterance = AVSpeechUtterance(string: say)
             utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-           // synthesizer.speak(utterance)
+            synthesizer.speak(utterance)
         }
 
         func layoutSubviews(){
