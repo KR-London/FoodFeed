@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4465404126039674004B202B /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 4465404026039674004B202B /* SwiftyGif */; };
-		44654047260396D5004B202B /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44654046260396D5004B202B /* SoftUIView */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
 		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446540672604B7E5004B202B /* chatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540662604B7E5004B202B /* chatBubbleView.swift */; };
@@ -33,6 +31,8 @@
 		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
 		449DFE0D256FD4CE00120774 /* storyline.txt in Resources */ = {isa = PBXBuildFile; fileRef = 449DFE0C256FD4CE00120774 /* storyline.txt */; };
 		44A766DF2608A1BC00EBC9AD /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A766DE2608A1BC00EBC9AD /* testViewController.swift */; };
+		44A76757260A284900EBC9AD /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44A76756260A284900EBC9AD /* SoftUIView */; };
+		44A7675D260A285600EBC9AD /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44A7675C260A285600EBC9AD /* SwiftyGif */; };
 		44A813202583926D00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813242583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813252583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
@@ -164,8 +164,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4465404126039674004B202B /* SwiftyGif in Frameworks */,
-				44654047260396D5004B202B /* SoftUIView in Frameworks */,
+				44A76757260A284900EBC9AD /* SoftUIView in Frameworks */,
+				44A7675D260A285600EBC9AD /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,8 +388,8 @@
 			);
 			name = FoodFeed;
 			packageProductDependencies = (
-				4465404026039674004B202B /* SwiftyGif */,
-				44654046260396D5004B202B /* SoftUIView */,
+				44A76756260A284900EBC9AD /* SoftUIView */,
+				44A7675C260A285600EBC9AD /* SwiftyGif */,
 			);
 			productName = FoodFeed;
 			productReference = 65D07A1E24F816C2004CA3E9 /* FoodFeed.app */;
@@ -464,8 +464,8 @@
 			);
 			mainGroup = 65D07A1524F816C2004CA3E9;
 			packageReferences = (
-				4465403F26039674004B202B /* XCRemoteSwiftPackageReference "SwiftyGif" */,
-				44654045260396D5004B202B /* XCRemoteSwiftPackageReference "SoftUIView" */,
+				44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */,
+				44A7675B260A285600EBC9AD /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 			);
 			productRefGroup = 65D07A1F24F816C2004CA3E9 /* Products */;
 			projectDirPath = "";
@@ -657,7 +657,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=*]" = "Any iOS Simulator SDK: arm64";
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -720,7 +720,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=*]" = "Any iOS Simulator SDK: arm64";
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -753,6 +753,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.haight.FoodFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -772,6 +773,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.haight.FoodFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -785,6 +787,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -805,6 +808,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -824,6 +828,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -843,6 +848,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeedUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -899,15 +905,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4465403F26039674004B202B /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.0;
-			};
-		};
-		44654045260396D5004B202B /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
+		44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/SoftUIView.git";
 			requirement = {
@@ -915,18 +913,26 @@
 				minimumVersion = 0.0.3;
 			};
 		};
+		44A7675B260A285600EBC9AD /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4465404026039674004B202B /* SwiftyGif */ = {
+		44A76756260A284900EBC9AD /* SoftUIView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4465403F26039674004B202B /* XCRemoteSwiftPackageReference "SwiftyGif" */;
-			productName = SwiftyGif;
-		};
-		44654046260396D5004B202B /* SoftUIView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 44654045260396D5004B202B /* XCRemoteSwiftPackageReference "SoftUIView" */;
+			package = 44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */;
 			productName = SoftUIView;
+		};
+		44A7675C260A285600EBC9AD /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44A7675B260A285600EBC9AD /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
 		};
 /* End XCSwiftPackageProductDependency section */
 
