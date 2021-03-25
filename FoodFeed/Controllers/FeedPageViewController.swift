@@ -121,7 +121,7 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         {
             previousViewController.pause()
             //viewController.play()
-            //commentsDriver.stop()
+            commentsDriver.stop()
             viewController.commentsDriver = commentsDriver
            
             viewController.triggerCommentsView()

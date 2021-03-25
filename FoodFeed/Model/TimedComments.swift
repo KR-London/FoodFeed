@@ -133,7 +133,7 @@ class TimedComments: CommentProvider {
                     
                     utterance = AVSpeechUtterance(string: say)
                     utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                    synthesizer.speak(utterance)
+                    //synthesizer.speak(utterance)
                 }
 
             }

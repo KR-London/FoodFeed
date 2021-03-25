@@ -751,7 +751,7 @@ final class InteractionView: UIView, UITableViewDelegate{
            // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-            synthesizer.speak(utterance)
+          //  synthesizer.speak(utterance)
         }
     }
     

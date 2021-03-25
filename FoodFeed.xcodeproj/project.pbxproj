@@ -28,11 +28,11 @@
 		4473ED70260225CE00CFF919 /* heart_outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED6F260225CE00CFF919 /* heart_outline.png */; };
 		4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */; };
 		4473ED9A2602343200CFF919 /* speechBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED992602343200CFF919 /* speechBubble.png */; };
+		4474FBFB260B7D09004B8D5B /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 4474FBFA260B7D09004B8D5B /* SwiftyGif */; };
 		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
 		449DFE0D256FD4CE00120774 /* storyline.txt in Resources */ = {isa = PBXBuildFile; fileRef = 449DFE0C256FD4CE00120774 /* storyline.txt */; };
 		44A766DF2608A1BC00EBC9AD /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A766DE2608A1BC00EBC9AD /* testViewController.swift */; };
 		44A76757260A284900EBC9AD /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44A76756260A284900EBC9AD /* SoftUIView */; };
-		44A7675D260A285600EBC9AD /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44A7675C260A285600EBC9AD /* SwiftyGif */; };
 		44A813202583926D00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813242583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813252583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
@@ -165,7 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A76757260A284900EBC9AD /* SoftUIView in Frameworks */,
-				44A7675D260A285600EBC9AD /* SwiftyGif in Frameworks */,
+				4474FBFB260B7D09004B8D5B /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +389,7 @@
 			name = FoodFeed;
 			packageProductDependencies = (
 				44A76756260A284900EBC9AD /* SoftUIView */,
-				44A7675C260A285600EBC9AD /* SwiftyGif */,
+				4474FBFA260B7D09004B8D5B /* SwiftyGif */,
 			);
 			productName = FoodFeed;
 			productReference = 65D07A1E24F816C2004CA3E9 /* FoodFeed.app */;
@@ -465,7 +465,7 @@
 			mainGroup = 65D07A1524F816C2004CA3E9;
 			packageReferences = (
 				44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */,
-				44A7675B260A285600EBC9AD /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				4474FBF9260B7D09004B8D5B /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 			);
 			productRefGroup = 65D07A1F24F816C2004CA3E9 /* Products */;
 			projectDirPath = "";
@@ -753,6 +753,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.haight.FoodFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -773,8 +774,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.haight.FoodFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saltformysquid.fudfid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -905,6 +907,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4474FBF9260B7D09004B8D5B /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 		44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/SoftUIView.git";
@@ -913,26 +923,18 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		44A7675B260A285600EBC9AD /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4474FBFA260B7D09004B8D5B /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4474FBF9260B7D09004B8D5B /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
+		};
 		44A76756260A284900EBC9AD /* SoftUIView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */;
 			productName = SoftUIView;
-		};
-		44A7675C260A285600EBC9AD /* SwiftyGif */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 44A7675B260A285600EBC9AD /* XCRemoteSwiftPackageReference "SwiftyGif" */;
-			productName = SwiftyGif;
 		};
 /* End XCSwiftPackageProductDependency section */
 
