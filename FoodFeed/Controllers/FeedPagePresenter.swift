@@ -81,7 +81,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         //FIXME: This falls over if there is a missing record - can we handle this nicer?
         print("index is \(index)")
        
-        return (feeds.filter({$0.id == index  }).first ?? Feed(id: index, state: .text(bigText: "Come back again tomorrow!", caption: nil, hashtag: "")) , index  )
+        return (feeds.filter({$0.id == index    }).first ?? Feed(id: index, state: .text(bigText: "Come back again tomorrow!", caption: nil, hashtag: "")) , index  )
     }
     
     func updateFeedIndex(fromIndex index: Int) {

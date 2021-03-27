@@ -105,7 +105,7 @@ class TimedComments: CommentProvider {
     let synthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
     
-    var currentCaption = "hello"
+    var currentCaption = ""
 
     init(){
         print("I'm initing timed comments")
@@ -116,9 +116,15 @@ class TimedComments: CommentProvider {
     {
         stop()
         var i = 0
-//
-//        let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-//
+        
+            //commentsDriver?.currentCaption = say
+            utterance = AVSpeechUtterance(string: String(currentCaption.dropFirst().dropFirst()))
+           // utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+           // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+            utterance.voice =  language.first!!
+            synthesizer.speak(utterance)
+        
         timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
             if storedComments.count % 5 == 0  {
                 if currentCaption.isEmpty {
@@ -133,7 +139,7 @@ class TimedComments: CommentProvider {
                     
                     utterance = AVSpeechUtterance(string: say)
                     utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                    //synthesizer.speak(utterance)
+                    synthesizer.speak(utterance)
                 }
 
             }

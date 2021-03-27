@@ -62,15 +62,6 @@ class FeedPageViewController:
                     botUser.human = human
             }
         }
-        
-        //commentsDriver?.start()
-        
-        //        commentsDriver = TimedComments()
-        //        if let caption = feedView.interactionView.caption.text
-        //        {
-        //            commentsDriver?.currentCaption = caption
-        //        }
-        //        //commentsDriver?.currentCaption = f
     }
     
     fileprivate var presenter: FeedPagePresenterProtocol!

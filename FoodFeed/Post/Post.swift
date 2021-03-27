@@ -652,6 +652,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         
     }
     
+    func pause(){
+        synthesizer.pauseSpeaking(at: .immediate)
+    }
+    
     func reloadHumanAvatar(){
         humanAvatar.imageView.image = botUser.human.profilePic
     }
@@ -745,13 +749,13 @@ final class InteractionView: UIView, UITableViewDelegate{
         // Reads out the label in a random Anglophone voice
         if let say = caption.text
         {
-            commentsDriver?.currentCaption = say 
-            utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
+            commentsDriver?.currentCaption = say
+          //  utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
            // utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
            // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-            utterance.voice =  language.first!!
-          //  synthesizer.speak(utterance)
+         //   let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+          //  utterance.voice =  language.first!!
+           // synthesizer.speak(utterance)
         }
     }
     
@@ -1034,6 +1038,8 @@ final class MediaView: UIView {
     
     func pause() {
         player?.pause()
+        
+        
     }
 
     // Pauses video playback on tap

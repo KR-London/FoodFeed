@@ -43,8 +43,9 @@ let botAnswers = [
                                     "Keep your distance!",
                                     "Cover your nose", "Masks come in handy!",
                                     "Switch seats",
-                                    "Check it out with a distant sniff", "Some smells "],
-    "llo": ["FudFid is a game to help you know yourself better", "Make friends with some cute characters", "Swipe to get started!"]
+                                    "Check it out with a distant sniff", "Some smells "]
+    //,
+ //   "llo": ["FudFid is a game to help you know yourself better", "Make friends with some cute characters", "Swipe to get started!"]
 ]
 
 func botAnswersToHuman(userComment: String, key: String) -> String{
