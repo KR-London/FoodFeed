@@ -66,21 +66,31 @@ func botAnswersToHuman(userComment: String, key: String) -> String{
 //    }
     
     let botAnswer = [
-        "What makes a meal stressful for you?" :  ["Awww - I understand, \(botUser.human.name)."],
-        //"I hate \(userComment) too!",     "Urggh" ,   "I agree", "I'm not sure my family know how much \(userComment) upsets me"],
+        "What makes a meal stressful for you?" :  ["Awww - I understand, \(botUser.human.name).",
+                                                   "I hate \(userComment) too!",
+                                                   "Urggh" ,
+                                                   "I agree",
+                                                   "I'm not sure my family know how much \(userComment) upsets me"],
         "Tips to explore new foods?":  ["I like your thinking, \(botUser.human.name).",
-//                                        "I might try \(userComment) too!",
-//                                        "That’s actually a great idea.",
-//                                        "Does that help?",
-//                                        "Win some, lose some - it’s still progress" ,
+                                        "I might try \(userComment) too!",
+                                        "That’s actually a great idea.",
+                                        "Does that help?",
+                                        "Win some, lose some - it’s still progress" ,
                                         "You are \(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased()) friend \(botUser.human.name)."],
-        "What in the world is hummus???": [
-            "I never knew that, \(botUser.human.name)!" ,
-            "Really?!?!",
-            "Is that true???",
-            "You are \(String(describing: positiveWords.randomElement()!) )" ],
-        "How do you celebrate life's little wins?": ["I might try \(userComment) too!", "That’s actually a great idea." , "Oh - that’s nice!", "Super cool", "I bet that makes you feel good about yourself", "Party at \(botUser.human.name)'s house!"],
-    "How do you deal with smell?":  ["I do \(userComment) too!", "Great thinking \(botUser.human.name)!" , "What happens when you do that?", "Does that help?"]
+        "What in the world is hummus???": ["I never knew that, \(botUser.human.name)!" ,
+                                        "Really?!?!",
+                                        "Is that true???",
+                                        "You are \(String(describing: positiveWords.randomElement()!) )" ],
+        "How do you celebrate life's little wins?": ["I might try \(userComment) too!",
+                                                    "That’s actually a great idea." ,
+                                                    "Oh - that’s nice!",
+                                                    "Super cool",
+                                                    "I bet that makes you feel good about yourself",
+                                                    "Party at \(botUser.human.name)'s house!"],
+    "How do you deal with smell?":  ["I do \(userComment) too!",
+                                     "Great thinking \(botUser.human.name)!" ,
+                                     "What happens when you do that?",
+                                     "Does that help?"]
 ]
     
     return botAnswer[String(key.dropFirst().dropFirst())]?.randomElement() ?? "Good answer"
