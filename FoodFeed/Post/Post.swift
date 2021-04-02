@@ -319,30 +319,15 @@ class PostView: UIView {
         softButton.cornerRadius = 50
         
         let label = UILabel()
-        //label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.init(name: "Georgia", size: 60)
         label.text =  "\u{2672}"
-       // label.frame = CGRect(x: -3, y: self.frame.height - 97, width: 100, height: 100)
+        
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         label.textAlignment = .center
         label.textColor = .darkText
         softButton.setContentView(label)
         softButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
-        
-        
-        
         self.addSubview(softButton)
-    //    settingsButton.backgroundColor = .blue
-     //   settingsButton.translatesAutoresizingMaskIntoConstraints = false
-      //  self.leadingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -20).isActive = true
-       // self.trailingAnchor.constraint(equalTo: settingsButton.trailingAnchor, constant: 20).isActive = true
-       // settingsButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-      //  settingsButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
-     //   settingsButton.titleLabel?.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)!
-     //   settingsButton.setTitle("Reset Beta Test?", for: .normal)
-       // settingsButton.layer.cornerRadius = 10.0
-      //  settingsButton.layer.borderWidth = 1.0
-       // settingsButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
     }
 
     

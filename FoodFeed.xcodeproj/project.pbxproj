@@ -39,6 +39,7 @@
 		44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B189F125F5333800A94028 /* commentTableViewController.swift */; };
 		44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F225F5333800A94028 /* commentTableViewController.xib */; };
 		44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftyGif */; };
+		44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B32ED0261106AA0030C88C /* uiTestViewController.swift */; };
 		44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BCE16425CDEB4F00760142 /* InteractionViewController.swift */; };
 		44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */; };
 		44C3DEB42520B76000D317DA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEB32520B76000D317DA /* Feed.swift */; };
@@ -120,6 +121,8 @@
 		44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataInput.swift; sourceTree = "<group>"; };
 		44B189F125F5333800A94028 /* commentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewController.swift; sourceTree = "<group>"; };
 		44B189F225F5333800A94028 /* commentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewController.xib; sourceTree = "<group>"; };
+		44B32ED0261106AA0030C88C /* uiTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiTestViewController.swift; sourceTree = "<group>"; };
+		44B32EDB2611AF3B0030C88C /* cucumberflower.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cucumberflower.MP4; sourceTree = "<group>"; };
 		44BCE16425CDEB4F00760142 /* InteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewController.swift; sourceTree = "<group>"; };
 		44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
 		44C3DEB32520B76000D317DA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
@@ -342,8 +345,10 @@
 				44D66C7C2533700A00C81C41 /* View */,
 				44C3DF052520DEF400D317DA /* Util */,
 				65D07A2924F816C2004CA3E9 /* Main.storyboard */,
+				44B32ED0261106AA0030C88C /* uiTestViewController.swift */,
 				4473EDA7260251E400CFF919 /* Onboarding */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
+				44B32EDB2611AF3B0030C88C /* cucumberflower.MP4 */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
 				65D07A3124F816C5004CA3E9 /* LaunchScreen.storyboard */,
 				65D07A3424F816C5004CA3E9 /* Info.plist */,
@@ -549,6 +554,7 @@
 				65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */,
 				4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */,
 				44D66C892534556E00C81C41 /* FeedViewLayout.swift in Sources */,
+				44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */,
 				44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */,
 				44C3DF0C2520DEF400D317DA /* Connection.swift in Sources */,
 				65D07A2424F816C2004CA3E9 /* SceneDelegate.swift in Sources */,
