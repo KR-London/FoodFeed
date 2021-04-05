@@ -30,7 +30,7 @@ struct botUser{
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"), personalQualities: nil)
     static var human = User(name: "Buddy", profilePic: UIImage(named:"U.jpeg"), personalQualities: nil){
         didSet{
-            print("I changed something about human")
+          //  print("I changed something about human")
             humanAvatar.imageView.image = human.profilePic
             humanAvatar.reloadInputViews()
             
@@ -197,7 +197,7 @@ class TimedComments: CommentProvider {
     }
     
     func userComment(userComment: String){
-        print(userComment)
+       // print(userComment)
         let newComment = Comment(user: botUser.human, comment: userComment, liked: false)
         self.storedComments.append(newComment)
         timer?.invalidate()

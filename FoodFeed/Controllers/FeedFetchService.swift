@@ -68,10 +68,10 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         let request: NSFetchRequest<PostData> = PostData.fetchRequest()
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
-        //let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
-        let day = 0
+       let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
+        //let day = 1
         request.predicate = NSPredicate(format: "day == %i", day)
-        
+        request.returnsObjectsAsFaults = false
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
         let dayString = "Day " + String(day)
         var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "") )]
@@ -137,6 +137,20 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         
         
         print(newFeedArray.flatMap({$0.id}))
+        
+        // data validation
+        if newFeedArray.flatMap({$0.id}).min() ?? 1  > 0 {
+            print("This data will not show up at all - because the first post is numbered bigger than zero ")
+        }
+        
+        for x in newFeedArray.flatMap({$0.id}){
+            if x < newFeedArray.flatMap({$0.id}).max() ?? 0{
+                if newFeedArray.flatMap({$0.id}).filter({$0 == x + 1}) == nil {
+                    print("Data after position \(x) will not show up, because id indeces are not sequential")
+                }
+            }
+        }
+        
 //        newFeedArray = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
        // newFeedArray = Array(newFeedArray.dropFirst())
         

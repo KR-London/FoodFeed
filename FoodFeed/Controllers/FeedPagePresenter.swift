@@ -43,6 +43,8 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
        // configureAudioSession()
 
         fetchFeeds()
+      //  print("feed = ")
+      //  print(feeds)
         let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n<<<<<<<", caption: "", hashtag: "") )
         view.presentInitialFeed(initialFeed)
     }

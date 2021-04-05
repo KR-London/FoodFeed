@@ -49,7 +49,6 @@ class MainView: UIView {
         switch feed.state {
             case .text(let text):
                 print(text)
-                print("December 8")
             default:
                 print("default")
         }

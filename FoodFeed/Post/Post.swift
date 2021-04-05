@@ -311,7 +311,7 @@ class PostView: UIView {
 //        bigTextView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
 //        bigTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 //    }
-    
+//
     func setUpResetButtons()
     {
         
@@ -436,6 +436,7 @@ extension UILabel {
 
 final class InteractionView: UIView, UITableViewDelegate{
     
+    var hiddens = true
     
     /// I deleted the refactor code because I got completely lost in what the point was.
     /// but at some point will i be limited by not being able to pass pictuers in  ... ?
@@ -479,11 +480,25 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+//        switch feed.state {
+//            case .question(let captionText):
+//                setup()
+//            default:
+//                print("I am hidden")
+//    }
         setup()
-    }
+}
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+   
+//
+//        switch feed.state {
+//            case .question(let captionText):
+//                setup()
+//            default:
+//                print("I am hidden")
+//        }
         setup()
         //setupRightView()
     }
@@ -728,6 +743,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
                 answerInput.isHidden = true
+                sayCard.isHidden = true
         }
         
         reloadHumanAvatar()

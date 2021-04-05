@@ -673,9 +673,9 @@ extension profileCreatorViewController{
             for item in parsedData {
                 let newPost = PostData(context: context)
                 
-                print(item)
+               // print(item)
                 for (category, value) in item{
-                    print(value)
+                  //  print(value)
                     switch category{
                         case "day": newPost.day = value as! Int16
                         case "id": newPost.id = value as! Int32
@@ -696,6 +696,7 @@ extension profileCreatorViewController{
             }
         }
         
+        whereIsMySQLite()
         //  decoder.decode(newPost.self, from: textContent )
         //
     }
