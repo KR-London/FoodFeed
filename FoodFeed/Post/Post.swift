@@ -436,7 +436,7 @@ extension UILabel {
 
 final class InteractionView: UIView, UITableViewDelegate{
     
-    var hiddens = true
+   // var hiddens = true
     
     /// I deleted the refactor code because I got completely lost in what the point was.
     /// but at some point will i be limited by not being able to pass pictuers in  ... ?
@@ -457,6 +457,11 @@ final class InteractionView: UIView, UITableViewDelegate{
         }
     }
     
+    let screenRect = UIScreen.main.bounds
+    let widthLayoutUnit = UIScreen.main.bounds.width - 40
+   // var heightLayoutUnit = 0.9*( UIScreen.main.bounds.width / 3)
+   // var thirdScreenHeight = UIScreen.main.bounds.height / 3
+    
     let caption = UILabel()
     let voteAbutton = UIButton()
     let voteBbutton = UIButton()
@@ -465,6 +470,9 @@ final class InteractionView: UIView, UITableViewDelegate{
     var thirdScreenHeight = CGFloat(100.0)
     var heightLayoutUnit = CGFloat(100.0)
     var sayCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
+    var descriptiveLabel = UILabel()
+    var userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: 20, width: 100, height: 100), user: botUser.human)
+    let descriptiveLabel2 = UILabel()
     
 //    let humanAvatar = AvatarView()
     
@@ -513,13 +521,16 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func setup() {
+        
+        
         let screenRect = UIScreen.main.bounds
         let widthLayoutUnit = screenRect.size.width - 40
         heightLayoutUnit = 0.9*(screenRect.size.width / 3)
         thirdScreenHeight = screenRect.size.height / 3
         
         
-        backgroundColor = .postBackground
+       // backgroundColor = .postBackground
+        backgroundColor = .clear
         
         self.isUserInteractionEnabled = true
 
@@ -560,7 +571,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         // voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
-        let descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
+        descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
         let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 18)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
@@ -573,13 +584,13 @@ final class InteractionView: UIView, UITableViewDelegate{
         sayCard = chatBubbleView(frame:  CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
         self.addSubview(sayCard)
         
-        let userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.human)
+        userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.human)
         self.addSubview(userAnswerCard)
         
 //        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
 //        self.addSubview(botCommentCard)
 //
-        let descriptiveLabel2 = UILabel()
+    
         descriptiveLabel2.textAlignment = .right
         self.addSubview(descriptiveLabel2)
         descriptiveLabel2.translatesAutoresizingMaskIntoConstraints = false
@@ -744,6 +755,10 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteBbutton.isHidden = true
                 answerInput.isHidden = true
                 sayCard.isHidden = true
+                descriptiveLabel.isHidden = true
+                descriptiveLabel2.isHidden = true
+                userAnswerCard.isHidden = true
+                backgroundImage.isHidden = true
         }
         
         reloadHumanAvatar()
