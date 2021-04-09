@@ -119,7 +119,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                         }
                     case "Question":
                         if let caption = $0.caption{
-                            let newFeedItem = Feed(id: Int($0.id) - 1, state: .question(caption: caption, hashtag: $0.hashtag) )
+                            let newFeedItem = Feed(id: Int($0.id), state: .question(caption: caption, hashtag: $0.hashtag) )
                             newFeedArray = newFeedArray.filter{ Int($0.id) != Int(newFeedItem.id)}
                             newFeedArray.append(newFeedItem)
                         }

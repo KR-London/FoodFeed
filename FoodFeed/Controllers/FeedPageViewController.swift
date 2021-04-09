@@ -113,9 +113,16 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
             previousViewController.pause()
             //viewController.play()
             commentsDriver.stop()
-            viewController.commentsDriver = commentsDriver
-           
-            viewController.triggerCommentsView()
+           // if let post == viewController.feedView as PostView() {
+                if viewController.feedView.interactionView.descriptiveLabel.isHidden == false{
+                    viewController.commentsDriver = commentsDriver
+                    
+                    viewController.triggerCommentsView()
+                }
+           // }
+//            viewController.commentsDriver = commentsDriver
+//
+//            viewController.triggerCommentsView()
             presenter.updateFeedIndex(fromIndex: viewController.index)
             if previousViewController.index < viewController.index{
                 presenter.updateFeed( index:  viewController.index as Int, increasing: true )

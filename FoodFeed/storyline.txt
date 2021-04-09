@@ -2,7 +2,7 @@
     {
         "day": 1,
         "id": 0,
-        "bigtext": "HELLO!",
+        "bigtext": "Howdy ",
         "user": "Guy",
         "type": "Text"
     },
@@ -22,7 +22,6 @@
         "user": "Guy",
         "votea": "Very Cherry?",
         "voteb": "Raspberry ?",
-        "image": "<Red jelly beans >",
         "type": "Vote"
     },
     {
@@ -40,7 +39,6 @@
         "caption": "Dream pet … ?",
         "hashtag": "chat",
         "user": "Guy",
-        "gif": "parrotheadstroke.gif",
         "textbox": true,
         "type": "Question"
     },
@@ -75,7 +73,6 @@
         "user": "Guy",
         "votea": "Very Cherry?",
         "voteb": "Raspberry ?",
-        "image": "<Red jelly beans >",
         "type": "Vote"
     },
     {
@@ -93,7 +90,6 @@
         "caption": "Dream pet … ?",
         "hashtag": "chat",
         "user": "Guy",
-        "gif": "parrotheadstroke.gif",
         "textbox": true,
         "type": "Question"
     },
@@ -128,7 +124,6 @@
         "user": "Guy",
         "votea": "Very Cherry?",
         "voteb": "Raspberry ?",
-        "image": "<Red jelly beans >",
         "type": "Vote"
     },
     {
@@ -146,7 +141,6 @@
         "caption": "Dream pet … ?",
         "hashtag": "chat",
         "user": "Guy",
-        "gif": "parrotheadstroke.gif",
         "textbox": true,
         "type": "Question"
     },
@@ -181,7 +175,6 @@
         "user": "Guy",
         "votea": "Very Cherry?",
         "voteb": "Raspberry ?",
-        "image": "<Red jelly beans >",
         "type": "Vote"
     },
     {
@@ -199,7 +192,6 @@
         "caption": "Dream pet … ?",
         "hashtag": "chat",
         "user": "Guy",
-        "gif": "parrotheadstroke.gif",
         "textbox": true,
         "type": "Question"
     },
@@ -234,7 +226,6 @@
         "user": "Guy",
         "votea": "Very Cherry?",
         "voteb": "Raspberry ?",
-        "image": "<Red jelly beans >",
         "type": "Vote"
     },
     {
@@ -252,7 +243,6 @@
         "caption": "Dream pet … ?",
         "hashtag": "chat",
         "user": "Guy",
-        "gif": "parrotheadstroke.gif",
         "textbox": true,
         "type": "Question"
     },

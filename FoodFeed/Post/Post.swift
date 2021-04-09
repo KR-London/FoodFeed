@@ -4,6 +4,8 @@ import AVKit
 import UIKit
 import Speech
 import SoftUIView
+import SwiftyGif
+import CoreData
 
 let humanAvatar = AvatarView()
 
@@ -405,6 +407,61 @@ class PostView: UIView {
     @objc func resetUserDefaults(sender: UIButton!) {
         UserDefaults.standard.removeObject(forKey: "loginRecord")
         UserDefaults.standard.removeObject(forKey: "following")
+        
+        /// delete database
+        
+        clearAllCoreData()
+        
+//        let path = FileManager
+//            .default
+//            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+//            .last?
+//            .absoluteString
+//            .replacingOccurrences(of: "file://", with: "")
+//            .removingPercentEncoding
+//
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        //let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+////        let persistentStoreURL =
+//
+//        do {
+//            try context.persistentStoreCoordinator.destroyPersistentStoreAtURL(path + "FoodFeed.sql", withType: NSSQLiteStoreType, options: nil)
+//
+//        } catch {
+//            // Error Handling
+//        }
+        
+//        do{
+//            try print(container.description)
+//            try container.persistentStoreCoordinator.destroyPersistentStore(at: <#T##URL#>, ofType: <#T##String#>, options: <#T##[AnyHashable : Any]?#>)
+//        }
+        
+
+        
+   //     let container = NSPersistentContainer(name: "FoodFeed")
+        
+   //     container.
+    }
+}
+
+public func clearAllCoreData() {
+    let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+    let entities = container.managedObjectModel.entities
+    entities.flatMap({ $0.name }).forEach(clearDeepObjectEntity)
+}
+
+private func clearDeepObjectEntity(_ entity: String) {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //let context = persistentContainer.viewContext
+    
+    let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+    
+    do {
+        try context.execute(deleteRequest)
+        try context.save()
+    } catch {
+        print ("There was an error")
     }
 }
 
@@ -744,6 +801,14 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteBbutton.setTitle(voteb, for: .normal)
                 voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
+                commentsDriver?.stop()
+                
+                answerInput.isHidden = true
+                sayCard.label.text = captionText
+                descriptiveLabel.isHidden = true
+                descriptiveLabel2.isHidden = true
+                userAnswerCard.isHidden = true
+                backgroundImage.isHidden = true
             case .question(let captionText):
                 caption.text = "Q:" + captionText
                 sayCard.label.text = captionText
@@ -759,6 +824,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 descriptiveLabel2.isHidden = true
                 userAnswerCard.isHidden = true
                 backgroundImage.isHidden = true
+                commentsDriver?.stop()
         }
         
         reloadHumanAvatar()
@@ -865,14 +931,14 @@ final class MediaView: UIView {
                 self = .video(video: filename.lowercased(), caption: captionText ?? "" )
             case "jpeg", ".jpg", ".png":
                 self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-  //          case ".gif", ".GIF":
-                //FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-//                if let gif = try? UIImage(gifName: filename.lowercased()){
-//                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
-//                }
-//                else{
-//                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
-//                }
+            case ".gif", ".GIF":
+               // FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
+                if let gif = try? UIImage(gifName: filename.lowercased()){
+                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
+                }
+                else{
+                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
+                }
             default:
                 self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
             }
@@ -891,6 +957,7 @@ final class MediaView: UIView {
     let label = UILabel()
     let caption = UILabel()
     var player : AVPlayer?
+    var labelCard = SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
    
     
     override init(frame: CGRect) {
@@ -932,7 +999,7 @@ final class MediaView: UIView {
         let yCoord = (screenRect.size.height - widthLayoutUnit)/2
      
         
-        let labelCard = SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
+        labelCard = SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
         label.frame = CGRect(x: 0, y: 0, width: widthLayoutUnit, height: widthLayoutUnit)
         labelCard.setContentView(label)
         self.addSubview(labelCard)
@@ -979,21 +1046,25 @@ final class MediaView: UIView {
     func update(state: State) {
 
         switch state {
-            case .gifImage(  _, let captionText):
-              //  imageView.setGifImage(gifImage, loopCount: -1)
+            case .gifImage(let gifImage, let captionText):
+                imageView.setGifImage(gifImage, loopCount: -1)
                 imageView.isHidden = false
                 label.isHidden = true
                 videoController.view.isHidden = true
-                if captionText == "" {
-                    caption.isHidden = true
-
-                }
-                else{
-                    caption.text = captionText
-                }
-            case .stillImage(_, let captionText):
-              //  imageView.setImage(image)
+                labelCard.isHidden = true
+                caption.isHidden = true
+//                if captionText == "" {
+//                    caption.isHidden = true
+//
+//                }
+//                else{
+//                    caption.text = captionText
+//                }
+            case .stillImage(let image, let captionText):
+                imageView.image = image
+                backgroundColor = .clear
                 imageView.isHidden = false
+                labelCard.isHidden = true
                 label.isHidden = true
                 if captionText == "" {
                     caption.isHidden = true
@@ -1023,6 +1094,7 @@ final class MediaView: UIView {
                     caption.text = captionText
                 }
             case .video(let video, let captionText):
+                labelCard.isHidden = true
                 imageView.isHidden = true
                 label.isHidden = true
                 if captionText == "" {
@@ -1044,6 +1116,7 @@ final class MediaView: UIView {
                 label.isHidden = true
                 caption.isHidden = true
                 videoController.view.isHidden = true
+                labelCard.isHidden = true
         }
     }
     

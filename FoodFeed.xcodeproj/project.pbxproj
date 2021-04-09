@@ -158,6 +158,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44386690261F44A100507975 /* guy_side_headphones.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guy_side_headphones.jpeg; sourceTree = "<group>"; };
+		44386694261F44B400507975 /* guy_side_headphones.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = guy_side_headphones.jpeg; path = FoodFeed/Post/guy_side_headphones.jpeg; sourceTree = SOURCE_ROOT; };
+		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
 		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
 		446540662604B7E5004B202B /* chatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatBubbleView.swift; sourceTree = "<group>"; };
@@ -482,6 +485,7 @@
 				4471EBB3261A045A00D23E01 /* friends.jpeg */,
 				4471EBB4261A045A00D23E01 /* redjuice.MP4 */,
 				4471EBB5261A045A00D23E01 /* guy_side_headphones.jpeg */,
+				44386694261F44B400507975 /* guy_side_headphones.jpeg */,
 				4471EBB6261A045A00D23E01 /* catwatermelon.mp4 */,
 				4471EBB7261A045A00D23E01 /* parrotheadstroke.gif */,
 			);
@@ -603,6 +607,7 @@
 				44B189F125F5333800A94028 /* commentTableViewController.swift */,
 				44B189F225F5333800A94028 /* commentTableViewController.xib */,
 				44BCE16425CDEB4F00760142 /* InteractionViewController.swift */,
+				44386690261F44A100507975 /* guy_side_headphones.jpeg */,
 				6536A647256185B3006D7297 /* Post.swift */,
 				4465406E2605F0AC004B202B /* userAnswerView.swift */,
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
@@ -660,6 +665,7 @@
 				44B32ED0261106AA0030C88C /* uiTestViewController.swift */,
 				4473EDA7260251E400CFF919 /* Onboarding */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
+				44386698261F625500507975 /* 200-9.gif */,
 				4471EB7F261A045A00D23E01 /* Assets_for_prototype */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
 				65D07A3124F816C5004CA3E9 /* LaunchScreen.storyboard */,
