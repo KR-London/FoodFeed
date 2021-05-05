@@ -544,6 +544,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     var descriptiveLabel = UILabel()
     var userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: 20, width: 100, height: 100), user: botUser.human)
     let descriptiveLabel2 = UILabel()
+    let buttonStack = UIStackView()
     
 //    let humanAvatar = AvatarView()
     
@@ -619,34 +620,68 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         ///TODO: May 5th Add a title feeding from hashtag
         
+        let dunno = UIButton()
+        dunno.setTitle("Don't know", for: .normal)
+        dunno.backgroundColor = .blue
         
-        self.addSubview(voteAbutton)
-        voteAbutton.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
-        voteAbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+    buttonStack.addArrangedSubview(voteAbutton)
+    buttonStack.addArrangedSubview(voteBbutton)
+    buttonStack.addArrangedSubview(voteCbutton)
+    buttonStack.addArrangedSubview(dunno)
+       // buttonStack.frame = CGRect(x: 100,y: 100,width: 100,height: 100)
+        
+        buttonStack.backgroundColor = .green
+        buttonStack.axis = .vertical
+        
+        buttonStack.distribution = .equalSpacing
+        voteAbutton.setContentHuggingPriority(.required, for: .horizontal)
+        voteBbutton.setContentHuggingPriority(.required, for: .horizontal)
+        self.addSubview(buttonStack)
+        buttonStack.translatesAutoresizingMaskIntoConstraints = false
+        buttonStack.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
+        buttonStack.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -20).isActive = true
+        buttonStack.heightAnchor.constraint(equalToConstant: 2*heightLayoutUnit).isActive = true
+        buttonStack.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor).isActive = true
+      
+        buttonStack.isHidden = false
+ //self.addSubview(voteAbutton)
+       // voteAbutton.translatesAutoresizingMaskIntoConstraints = false
+      //  self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
+       // voteAbutton.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
+      //  voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       // voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         voteAbutton.backgroundColor = .blue
         voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteAbutton.tag = 0
-        //  voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
         ///TODO: May 5th show c button
         
         ///TODO: May 5th don't know button
         
         
-        self.addSubview(voteBbutton)
-        voteBbutton.translatesAutoresizingMaskIntoConstraints = false
-        self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
-        voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+//        self.addSubview(voteBbutton)
+       // voteBbutton.translatesAutoresizingMaskIntoConstraints = false
+       // self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
+        //voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+       // voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       // voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         voteBbutton.backgroundColor = .blue
         voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteBbutton.tag = 1
-        // voteBbutton.isUserInteractionEnabled = true
+        voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        voteCbutton.backgroundColor = .blue
+        voteCbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteCbutton.tag = 2
+        voteCbutton.isUserInteractionEnabled = true
+        voteCbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        dunno.titleLabel?.lineBreakMode = .byWordWrapping
+        dunno.tag = 3
+        dunno.isUserInteractionEnabled = true
+        dunno.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
         descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
         let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
@@ -737,6 +772,7 @@ final class InteractionView: UIView, UITableViewDelegate{
        // bringSubviewToFront(voteBbutton)
         
         bringSubviewToFront(answerInput)
+        bringSubviewToFront(buttonStack)
         
     }
     
@@ -819,8 +855,8 @@ final class InteractionView: UIView, UITableViewDelegate{
                 caption.text = captionText
                 voteAbutton.setTitle(votea, for: .normal)
                 voteBbutton.setTitle(voteb, for: .normal)
-                voteBbutton.setTitle(votec, for: .normal)
-                voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+                voteCbutton.setTitle(votec, for: .normal)
+               // voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
                 commentsDriver?.stop()
                 
