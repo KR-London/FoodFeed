@@ -51,7 +51,7 @@ class UserProfileCard: UIView{
 //        let profileStack = UIStackView()
 //        profileStack.axis = .vertical
         
-        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                           NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
                           NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
@@ -89,7 +89,7 @@ class UserProfileCard: UIView{
         profilePicture.layer.cornerRadius = layoutUnit/2
         profilePicture.clipsToBounds = true
         
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]

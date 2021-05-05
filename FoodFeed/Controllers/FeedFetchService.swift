@@ -116,7 +116,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                         if let votea = $0.votea{
                             if let voteb = $0.voteb{
                                 if let votec = $0.votec{
-                                    let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb, votec: votec, hashtag: $0.hashtag) )
+                                    let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb, votec: votec, hashtag: ($0.hashtag ?? "Getting to know") + " " + botUser.human.name) )
                                     newFeedArray.append(newFeedItem)
                                 }
                             }

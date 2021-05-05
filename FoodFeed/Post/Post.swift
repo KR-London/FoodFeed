@@ -116,7 +116,7 @@ class PostView: UIView {
     
     let stackView = UIStackView()
     let controlsStack = UIStackView()
-    let tagLabel = UILabel.tagLabel()
+    let pageTitleHashtag = UILabel.titleLabel()
     let avatarView = AvatarView()
     let mediaView = MediaView()
    // let bigTextView = BigTextView()
@@ -150,7 +150,13 @@ class PostView: UIView {
                     tag: hashtag
                 ))
                 if let tag = hashtag{
-                    tagLabel.text = "#" + tag
+                    pageTitleHashtag.text = tag
+//                    if tag == "Getting to know "{
+//                        pageTitle.text = tag + botUser.human.name
+//                    }
+//                    else{
+//                        pageTitle.text = tag
+//                    }
                 }
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag):
@@ -160,7 +166,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-                tagLabel.text = hashtag
+                pageTitleHashtag.text = hashtag
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
@@ -168,7 +174,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-                tagLabel.text = hashtag
+                pageTitleHashtag.text = hashtag
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
@@ -176,16 +182,19 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-                tagLabel.text = hashtag
+                pageTitleHashtag.text = hashtag
             case .poll(let caption, let votea, let voteb, let votec, let hashtag):
+//                if let tag = hashtag{
+//                 pageTitleHashtag.text = tag + botUser.human.name
+//                }
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
-                    tag: hashtag
+                    tag: hashtag ?? "Getting to know " + botUser.human.name
                 ))
-                tagLabel.text = hashtag
+        
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
               
@@ -385,18 +394,21 @@ class PostView: UIView {
         textStack.axis = .vertical
         let xxx = UILabel.usernameLabel()
         //xxx.text = T
-        textStack.addArrangedSubview(tagLabel)
+        textStack.addArrangedSubview(pageTitleHashtag)
         textStack.addArrangedSubview(xxx)
         addSubview(textStack)
         textStack.translatesAutoresizingMaskIntoConstraints = false
-        textStack.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: 16).isActive = true
-        textStack.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
+        //textStack.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: 16).isActive = true
+       // textStack.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
+        textStack.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 16).isActive = true
+        textStack.centerXAnchor.constraint(equalTo: self.layoutMarginsGuide.centerXAnchor).isActive = true
+        textStack.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func update(state: State) {
         if let tag = state.tag{
-            tagLabel.text = "#" + tag
-            tagLabel.textColor = .blue
+            pageTitleHashtag.text = tag
+            pageTitleHashtag.textColor = .textTint
         }
         avatarView.update(state: state.avatar)
         mediaView.update(state: state.media)
@@ -466,9 +478,10 @@ private func clearDeepObjectEntity(_ entity: String) {
 }
 
 extension UILabel {
-    static func tagLabel() -> UILabel {
+    static func titleLabel() -> UILabel {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .textTint
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
         return label
     }
 }
@@ -604,6 +617,8 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
         self.sendSubviewToBack(backgroundImage)
         
+        ///TODO: May 5th Add a title feeding from hashtag
+        
         
         self.addSubview(voteAbutton)
         voteAbutton.translatesAutoresizingMaskIntoConstraints = false
@@ -615,6 +630,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteAbutton.tag = 0
         //  voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        ///TODO: May 5th show c button
+        
+        ///TODO: May 5th don't know button
         
         
         self.addSubview(voteBbutton)
@@ -630,7 +649,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
         descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
-        let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+        let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 18)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
@@ -1082,7 +1101,7 @@ final class MediaView: UIView {
                 imageView.isHidden = true
                 label.isHidden = false
             
-                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                              NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                              NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
                 ]

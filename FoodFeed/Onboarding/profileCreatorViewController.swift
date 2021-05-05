@@ -234,7 +234,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         ])
         
         
-        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                           NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
                           NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
