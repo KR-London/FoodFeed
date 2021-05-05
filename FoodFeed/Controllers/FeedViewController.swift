@@ -25,8 +25,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     var feedView = PostView()
     
     
+    // not currently implemented
     fileprivate var isPlaying: Bool!
-    
     let reasons = ["Not for me", "Wrong", "Upsetting", "Too loud", "Seems rude", "Boring", "Pushy"]
     var reason = String()
     
@@ -41,25 +41,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         viewController.isPlaying = isPlaying
         return viewController
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        
-//        if UserDefaults.standard.object(forKey: "following") == nil
-//        {
-//            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "profileSetter")
-//                        self.present(newViewController, animated: true, completion: nil)
-//            }
-//        
-//        //commentsDriver?.start()
-//        
-////        commentsDriver = TimedComments()
-////        if let caption = feedView.interactionView.caption.text
-////        {
-////            commentsDriver?.currentCaption = caption
-////        }
-////        //commentsDriver?.currentCaption = f
-//    }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         print("I've changed page.")

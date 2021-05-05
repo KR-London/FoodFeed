@@ -82,6 +82,7 @@ class PostDataInput: UIViewController {
                         case "hashtag": newPost.hashtag = value as? String
                         case "votea": newPost.votea = value as? String
                         case "voteb": newPost.voteb = value as? String
+                        case "votec": newPost.votec = value as? String
                         default: break
                     }
                  

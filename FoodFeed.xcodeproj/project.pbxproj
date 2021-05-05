@@ -131,7 +131,6 @@
 		659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F112A2562A4BA00E5C8B1 /* Backend.swift */; };
 		65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2124F816C2004CA3E9 /* AppDelegate.swift */; };
 		65D07A2424F816C2004CA3E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2324F816C2004CA3E9 /* SceneDelegate.swift */; };
-		65D07A2824F816C2004CA3E9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2724F816C2004CA3E9 /* SecondViewController.swift */; };
 		65D07A2B24F816C2004CA3E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D07A2924F816C2004CA3E9 /* Main.storyboard */; };
 		65D07A2E24F816C2004CA3E9 /* FoodFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2C24F816C2004CA3E9 /* FoodFeed.xcdatamodeld */; };
 		65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65D07A2F24F816C5004CA3E9 /* Assets.xcassets */; };
@@ -284,7 +283,6 @@
 		65D07A1E24F816C2004CA3E9 /* FoodFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D07A2124F816C2004CA3E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D07A2324F816C2004CA3E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		65D07A2724F816C2004CA3E9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		65D07A2A24F816C2004CA3E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65D07A2D24F816C2004CA3E9 /* FoodFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodFeed.xcdatamodel; sourceTree = "<group>"; };
 		65D07A2F24F816C5004CA3E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -546,7 +544,6 @@
 				44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */,
 				44F1918724F8CF7300DC5718 /* FeedViewController.swift */,
 				44C3DECD2520C30700D317DA /* FeedPagePresenter.swift */,
-				65D07A2724F816C2004CA3E9 /* SecondViewController.swift */,
 				44C3DED22520C3AE00D317DA /* FeedFetchService.swift */,
 			);
 			path = Controllers;
@@ -933,7 +930,6 @@
 				659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */,
 				44C3DEB42520B76000D317DA /* Feed.swift in Sources */,
 				446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */,
-				65D07A2824F816C2004CA3E9 /* SecondViewController.swift in Sources */,
 				44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */,
 				44C3DEC32520C15600D317DA /* Protocols.swift in Sources */,
 				65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */,

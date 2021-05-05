@@ -64,6 +64,8 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
 
     func fetchFeeds() {
 
+        /// call on coreData to get info on what i should show
+        
         
         let request: NSFetchRequest<PostData> = PostData.fetchRequest()
        // NSPredicate(format: "name == %@", "Python")
@@ -113,8 +115,10 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                         
                         if let votea = $0.votea{
                             if let voteb = $0.voteb{
-                                let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb, hashtag: $0.hashtag) )
-                                newFeedArray.append(newFeedItem)
+                                if let votec = $0.votec{
+                                    let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb, votec: votec, hashtag: $0.hashtag) )
+                                    newFeedArray.append(newFeedItem)
+                                }
                             }
                         }
                     case "Question":

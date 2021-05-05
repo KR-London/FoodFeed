@@ -206,10 +206,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1030"
-            endingLineNumber = "1030"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1034"
+            endingLineNumber = "1034"
+            landmarkName = "setup()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "DE4D8184-93BA-44F3-9265-56463F9340E0 - 969e9c97f73f485d"
@@ -556,10 +556,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "965"
-            endingLineNumber = "965"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "969"
+            endingLineNumber = "969"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -572,10 +572,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1059"
-            endingLineNumber = "1059"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1063"
+            endingLineNumber = "1063"
+            landmarkName = "update(state:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -646,14 +646,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A9CD34B5-7A98-4284-8947-751D8E70A268"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodFeed/Controllers/FeedFetchService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "fetchFeeds()"
             landmarkType = "7">
          </BreakpointContent>
@@ -668,10 +668,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "571"
+            endingLineNumber = "571"
+            landmarkName = "InteractionView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -684,10 +684,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "638"
+            endingLineNumber = "638"
+            landmarkName = "setup()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -702,8 +702,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
             endingLineNumber = "181"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "init(frame:feed:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -716,10 +716,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "853"
-            endingLineNumber = "853"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "857"
+            endingLineNumber = "857"
+            landmarkName = "voted(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -732,10 +732,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "709"
-            endingLineNumber = "709"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "710"
+            endingLineNumber = "710"
+            landmarkName = "setup()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1004,10 +1004,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "840"
-            endingLineNumber = "840"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "844"
+            endingLineNumber = "844"
+            landmarkName = "update(state:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1020,10 +1020,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "813"
-            endingLineNumber = "813"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "815"
+            endingLineNumber = "815"
+            landmarkName = "update(state:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1036,10 +1036,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1129"
-            endingLineNumber = "1129"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "1133"
+            endingLineNumber = "1133"
+            landmarkName = "pause()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1052,10 +1052,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "724"
-            endingLineNumber = "724"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "725"
+            endingLineNumber = "725"
+            landmarkName = "pause()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1068,10 +1068,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "839"
-            endingLineNumber = "839"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "843"
+            endingLineNumber = "843"
+            landmarkName = "update(state:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1084,10 +1084,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "757"
-            endingLineNumber = "757"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "758"
+            endingLineNumber = "758"
+            landmarkName = "triggerCommentsView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1118,8 +1118,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "299"
             endingLineNumber = "299"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "setupInteractionView()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1180,8 +1180,8 @@
             filePath = "FoodFeed/Onboarding/profileCreatorViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "699"
-            endingLineNumber = "699"
+            startingLineNumber = "700"
+            endingLineNumber = "700"
             landmarkName = "loadJSON()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1196,8 +1196,8 @@
             filePath = "FoodFeed/Onboarding/profileCreatorViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "695"
-            endingLineNumber = "695"
+            startingLineNumber = "696"
+            endingLineNumber = "696"
             landmarkName = "loadJSON()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1212,74 +1212,10 @@
             filePath = "FoodFeed/Post/Post.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "919"
-            endingLineNumber = "919"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8706B4FC-25CA-4A5A-B81E-58B2F73E5185"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Post/Post.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EACA5A42-1EE2-46FE-9385-F62389BCF47B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Post/Post.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1050"
-            endingLineNumber = "1050"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CBFE215F-7F5F-4073-9FE9-E73B86CCAC29"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Controllers/FeedFetchService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "fetchFeeds()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E514E0ED-8C68-4CCF-93A0-24365E833069"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Controllers/FeedPageViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "viewDidAppear(_:)"
-            landmarkType = "7">
+            startingLineNumber = "923"
+            endingLineNumber = "923"
+            landmarkName = "State"
+            landmarkType = "13">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1294,72 +1230,56 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "409"
             endingLineNumber = "409"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "89B552D4-163A-407E-BDC4-DBAF93FB27AB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Controllers/FeedFetchService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "fetchFeeds()"
+            landmarkName = "resetUserDefaults(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C099FC2B-41E8-4C74-AECB-E542269586EF"
+            uuid = "FBBFC677-25E9-4162-B59E-EEB85637624E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodFeed/Controllers/FeedFetchService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "fetchFeeds()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "50D889F7-D4C0-42DA-8169-88D55306FA55"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Controllers/FeedFetchService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "fetchFeeds()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4236B4BE-9EA9-4A28-94FB-2599C0918491"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FoodFeed/Controllers/FeedFetchService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "fetchFeeds()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FBBFC677-25E9-4162-B59E-EEB85637624E - 324bf2ebaaa5fb3a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodFeed.CoreDataFeedFetcher.fetchFeeds() -&gt; ()"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Controllers/FeedFetchService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "2481">
+               </Location>
+               <Location
+                  uuid = "FBBFC677-25E9-4162-B59E-EEB85637624E - 6d8fd84b55f057f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (FoodFeed.Feed) -&gt; Swift.Optional&lt;Swift.Int&gt; in FoodFeed.CoreDataFeedFetcher.fetchFeeds() -&gt; ()"
+                  moduleName = "FoodFeed"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kate/Documents/FoodFeed/FoodFeed/Controllers/FeedFetchService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

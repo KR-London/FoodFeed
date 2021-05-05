@@ -43,7 +43,12 @@ let botAnswers = [
                                     "Keep your distance!",
                                     "Cover your nose", "Masks come in handy!",
                                     "Switch seats",
-                                    "Check it out with a distant sniff", "Some smells "]
+                                    "Check it out with a distant sniff", "Some smells "],
+    "The big question: what is the best breakfast ever?" : ["Cereal", "Eggs on toast", "No really into breakfast", "Last night's pizza", "Ramen noodles. Best breakfast lunch and dinner"],
+    "I'm so stressed right now. How can I calm down before I do something I regret ...?" : ["Breathe in through your nose and out through your mouth", "Count to ten backwards", "I like to shut my eyes and imagine I'm on the beach"],
+    "Aaaah - I want to say 'no' - but how can I do that without upsetting Frank?" : ["Just be honest", "NO. That works", "Nopedy nopedy nopedy no bleurgh bleurgh bleugh", "Tell him the real reason", "Change your name and leave the country", "Get your more polite friend to talk to him for you"],
+    "My head is full of worry about how I will eat on this trip. What makes a meal fun for you?": ["Nothing is ever perfect", "I only like being on my own in my room in front of the TV", "I like to choose myself what goes on my plate.", "I like it when everyone is relaxed and chatty", "Eating with my friends is more fun than eating with my family because we chat.", "Takeaway pizza in the park", "A bag of M&Ms playing a board game", "Buffets are nice. I try a little bit, then come back for more if it's good"],
+    "I feel like everyone else is doing better than me. Have you people ever felt like you don’t really fit in?": ["Oh - all the time.", "I look confident on the outside - but on the inside I worry", "My words get muddled. I worry people will laugh at me, so I just don't talk", "I don't fit in. I am one of a kind?", "Who wants to fit in when you can stand out?"]
     //,
  //   "llo": ["FudFid is a game to help you know yourself better", "Make friends with some cute characters", "Swipe to get started!"]
 ]
@@ -90,7 +95,12 @@ func botAnswersToHuman(userComment: String, key: String) -> String{
     "How do you deal with smell?":  ["I do \(userComment) too!",
                                      "Great thinking \(botUser.human.name)!" ,
                                      "What happens when you do that?",
-                                     "Does that help?"]
+                                     "Does that help?"],
+        "What is the best breakfast ever?" : ["\(userComment) on toast?", "I know a great cafe that serves only \(userComment)", "Have you tried sprinkling cheese on top of \(userComment)? Everything tastes better with cheese.", "@Guy - did you see what \(botUser.human.name) said?", "That's  \(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased())"],
+        "[I'm so stressed right now. How can I calm down before I do something I regret ...?" : ["@Guy - do you think \(userComment) would help?", "\(botUser.human.name), you know a lot!","\(botUser.human.name), that's an interesting idea.", " \(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased())"],
+        "Aaaah - I want to say 'no' - but how can I do that without upsetting Frank?" : ["@Guy - have you tried \(userComment)?", "Guy - your new buddy \(botUser.human.name) is smart!", "\(userComment)?!?! Nice idea - but what if Frank still gets upset", "\(userComment) - ha! Never thought of that!", "\(userComment) [lovehearteyes]", "\(botUser.human.name), I'm glad you're here"],
+        "My head is full of worry about how I will eat on this trip. What makes a meal fun for you?": [" \(userComment) sounds perfect!", "\(botUser.human.name) - you are fun!", "\(userComment)?!?! Sweet!", "\(userComment) - ha! Never thought of that!", "\(userComment) [lovehearteyes]", "@Guy - do you think the meals on the trip might be \(userComment)?"],
+        "I feel like everyone else is doing better than me. Have you people ever felt like you don’t really fit in?":["Thank you \(botUser.human.name)", "@Guy - you see - even \(botUser.human.name) - and they look so confident", "\(userComment)? I understand.", "\(botUser.human.name), you are doing great."]
 ]
     
     return botAnswer[String(key.dropFirst().dropFirst())]?.randomElement() ?? "Good answer"

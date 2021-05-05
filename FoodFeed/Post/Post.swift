@@ -177,12 +177,12 @@ class PostView: UIView {
                     tag: hashtag
                 ))
                 tagLabel.text = hashtag
-            case .poll(let caption, let votea, let voteb, let hashtag):
+            case .poll(let caption, let votea, let voteb, let votec, let hashtag):
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
-                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb),
+                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
                     tag: hashtag
                 ))
                 tagLabel.text = hashtag
@@ -498,11 +498,11 @@ final class InteractionView: UIView, UITableViewDelegate{
     /// I deleted the refactor code because I got completely lost in what the point was.
     /// but at some point will i be limited by not being able to pass pictuers in  ... ?
     enum State {
-        case poll(captionText: String, votea: String, voteb: String)
+        case poll(captionText: String, votea: String, voteb: String, votec: String)
         case question(captionText: String)
         case hidden
-        init(caption: String, votea: String, voteb: String) {
-            self = .poll(captionText: caption, votea: votea, voteb: voteb)
+        init(caption: String, votea: String, voteb: String, votec: String) {
+            self = .poll(captionText: caption, votea: votea, voteb: voteb, votec: votec)
         }
         
         init(caption: String) {
@@ -522,6 +522,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     let caption = UILabel()
     let voteAbutton = UIButton()
     let voteBbutton = UIButton()
+    let voteCbutton = UIButton()
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
@@ -795,10 +796,11 @@ final class InteractionView: UIView, UITableViewDelegate{
     func update(state: State) {
      
         switch state {
-            case .poll(let captionText, let votea, let voteb):
+            case .poll(let captionText, let votea, let voteb, let votec):
                 caption.text = captionText
                 voteAbutton.setTitle(votea, for: .normal)
                 voteBbutton.setTitle(voteb, for: .normal)
+                voteBbutton.setTitle(votec, for: .normal)
                 voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
                 commentsDriver?.stop()
@@ -814,10 +816,12 @@ final class InteractionView: UIView, UITableViewDelegate{
                 sayCard.label.text = captionText
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
+                voteCbutton.isHidden = true
             case .hidden:
                 caption.isHidden = true
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
+                voteCbutton.isHidden = true
                 answerInput.isHidden = true
                 sayCard.isHidden = true
                 descriptiveLabel.isHidden = true
