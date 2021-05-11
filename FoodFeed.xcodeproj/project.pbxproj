@@ -126,6 +126,9 @@
 		44D66C68253316B300C81C41 /* TimedComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C67253316B300C81C41 /* TimedComments.swift */; };
 		44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C7725336FF100C81C41 /* CommentsView.swift */; };
 		44D66C892534556E00C81C41 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C882534556E00C81C41 /* FeedViewLayout.swift */; };
+		44E768EA264AB40F00AD75FE /* Day6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44E768E9264AB40E00AD75FE /* Day6.txt */; };
+		44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768F6264ABD6800AD75FE /* fed_up.gif */; };
+		44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */; };
 		44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1918724F8CF7300DC5718 /* FeedViewController.swift */; };
 		6536A648256185B3006D7297 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536A647256185B3006D7297 /* Post.swift */; };
 		659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F112A2562A4BA00E5C8B1 /* Backend.swift */; };
@@ -277,6 +280,9 @@
 		44D66C67253316B300C81C41 /* TimedComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedComments.swift; sourceTree = "<group>"; };
 		44D66C7725336FF100C81C41 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		44D66C882534556E00C81C41 /* FeedViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewLayout.swift; sourceTree = "<group>"; };
+		44E768E9264AB40E00AD75FE /* Day6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day6.txt; sourceTree = "<group>"; };
+		44E768F6264ABD6800AD75FE /* fed_up.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fed_up.gif; sourceTree = "<group>"; };
+		44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frustrated_stone_kick.gif; sourceTree = "<group>"; };
 		44F1918724F8CF7300DC5718 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		6536A647256185B3006D7297 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		659F112A2562A4BA00E5C8B1 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
@@ -347,6 +353,7 @@
 		4471EB7F261A045A00D23E01 /* Assets_for_prototype */ = {
 			isa = PBXGroup;
 			children = (
+				44E768EE264ABC6E00AD75FE /* Gifs  */,
 				4471EB80261A045A00D23E01 /* cucumberflower.MP4 */,
 				4471EB81261A045A00D23E01 /* sassyfox.gif */,
 				4471EB83261A045A00D23E01 /* hotchoc.MP4 */,
@@ -598,6 +605,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		44E768EE264ABC6E00AD75FE /* Gifs  */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Gifs ";
+			sourceTree = "<group>";
+		};
+		44E768EF264ABC7600AD75FE /* Gifs  */ = {
+			isa = PBXGroup;
+			children = (
+				44E768F0264ABC7C00AD75FE /* Day6  */,
+			);
+			path = "Gifs ";
+			sourceTree = "<group>";
+		};
+		44E768F0264ABC7C00AD75FE /* Day6  */ = {
+			isa = PBXGroup;
+			children = (
+				44E768F6264ABD6800AD75FE /* fed_up.gif */,
+				44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */,
+			);
+			path = "Day6 ";
+			sourceTree = "<group>";
+		};
 		6536A64625618597006D7297 /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,6 +681,7 @@
 			children = (
 				44A8131A25838E0700685A0E /* 07891284.ttf */,
 				4471EC1A261A04AC00D23E01 /* storyline.txt */,
+				44E768E9264AB40E00AD75FE /* Day6.txt */,
 				659F11292562A49300E5C8B1 /* Service */,
 				6536A64625618597006D7297 /* Post */,
 				65D07A2124F816C2004CA3E9 /* AppDelegate.swift */,
@@ -663,6 +695,7 @@
 				4473EDA7260251E400CFF919 /* Onboarding */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
 				44386698261F625500507975 /* 200-9.gif */,
+				44E768EF264ABC7600AD75FE /* Gifs  */,
 				4471EB7F261A045A00D23E01 /* Assets_for_prototype */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
 				65D07A3124F816C5004CA3E9 /* LaunchScreen.storyboard */,
@@ -833,6 +866,7 @@
 				4471EBD5261A045A00D23E01 /* hotchoc.MP4 in Resources */,
 				4471EBD2261A045A00D23E01 /* cucumberflower.MP4 in Resources */,
 				4471EBE3261A045A00D23E01 /* v09044b10000bsa3o28h3nflv6m1o8j0.mp4 in Resources */,
+				44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */,
 				4471EC04261A045A00D23E01 /* Reel .mov in Resources */,
 				4471EC05261A045A00D23E01 /* v09044030000blnsldfdgse6emlj0lo0.mp4 in Resources */,
 				4471EBE9261A045A00D23E01 /* minidogcake.gif in Resources */,
@@ -853,6 +887,7 @@
 				4471EBDA261A045A00D23E01 /* v07025db0000bu6lh79u0sobgpo574dg.mp4 in Resources */,
 				4471EBF9261A045A00D23E01 /* strawberry.mp4 in Resources */,
 				4471EBD9261A045A00D23E01 /* onboardingBackground.mov in Resources */,
+				44E768EA264AB40F00AD75FE /* Day6.txt in Resources */,
 				4471EBF0261A045A00D23E01 /* ExtraTutorials.m4v in Resources */,
 				4471EBF5261A045A00D23E01 /* Untitled 2.mov in Resources */,
 				4471EBFD261A045A00D23E01 /* guy_side_headphones.jpeg in Resources */,
@@ -890,6 +925,7 @@
 				44C3DF212521D99000D317DA /* three.jpeg in Resources */,
 				4471EBDD261A045A00D23E01 /* tomatosauce.MP4 in Resources */,
 				65D07A2B24F816C2004CA3E9 /* Main.storyboard in Resources */,
+				44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */,
 				4471EC03261A045A00D23E01 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 in Resources */,
 				4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */,
 			);

@@ -536,6 +536,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     let voteAbutton = UIButton()
     let voteBbutton = UIButton()
     let voteCbutton = UIButton()
+    let dunno = UIButton()
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
@@ -620,7 +621,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         ///TODO: May 5th Add a title feeding from hashtag
         
-        let dunno = UIButton()
+     
         dunno.setTitle("Don't know", for: .normal)
         dunno.backgroundColor = .blue
         
@@ -872,11 +873,13 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
                 voteCbutton.isHidden = true
+                dunno.isHidden = true
             case .hidden:
                 caption.isHidden = true
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
                 voteCbutton.isHidden = true
+                dunno.isHidden = true
                 answerInput.isHidden = true
                 sayCard.isHidden = true
                 descriptiveLabel.isHidden = true
@@ -904,9 +907,28 @@ final class InteractionView: UIView, UITableViewDelegate{
         print("button Pressed")
         if sender.tag == 0 {
             caption.text = (String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
+           // caption.reloadInputViews()
+            voteBbutton.isHidden = true
+            voteCbutton.isHidden = true
+            dunno.isHidden = true
         }
         if sender.tag == 1 {
             caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            voteAbutton.isHidden = true
+            voteCbutton.isHidden = true
+            dunno.isHidden = true
+        }
+        if sender.tag == 2 {
+            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            voteAbutton.isHidden = true
+            voteBbutton.isHidden = true
+            dunno.isHidden = true
+        }
+        if sender.tag == 3 {
+            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            voteAbutton.isHidden = true
+            voteBbutton.isHidden = true
+            voteCbutton.isHidden = true
         }
         
         // Reads out the label in a random Anglophone voice
@@ -919,9 +941,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             utterance.voice =  language.first!!
           //  synthesizer.speak(utterance)
         }
-        
-        voteBbutton.isHidden = true
-        voteAbutton.isHidden = true
+
         //caption.isHidden = true
         //sendSubviewToBack(self)
        // reloadInputViews()
@@ -999,7 +1019,13 @@ final class MediaView: UIView {
                     self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
                 }
             default:
-                self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
+                if let assetImage = UIImage(named: filename.lowercased()){
+                    self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                }
+                else
+                {
+                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
+                }
             }
         }
         

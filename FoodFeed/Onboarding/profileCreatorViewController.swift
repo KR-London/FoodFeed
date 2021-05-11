@@ -664,7 +664,9 @@ extension profileCreatorViewController{
     func loadJSON(){
         
         let filePath = Bundle.main.resourcePath!
-        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+//        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+//                               encoding: String.Encoding.utf8).data(using: .utf8)
+        let data = try! String(contentsOfFile: filePath + "/Day6.txt",
                                encoding: String.Encoding.utf8).data(using: .utf8)
         
         //  let decoder = JSONDecoder()

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 class FeedPageViewController:
@@ -25,6 +26,10 @@ class FeedPageViewController:
     }
     override func viewDidAppear(_ animated: Bool) {
         
+    
+        
+        // DEBUG: this is a debugging toggle to stop the profile setting launching everytime I reload the data
+
         if UserDefaults.standard.object(forKey: "following") == nil
         {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
