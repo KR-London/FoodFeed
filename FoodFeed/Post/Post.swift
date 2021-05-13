@@ -142,10 +142,10 @@ class PostView: UIView {
        backgroundColor = .postBackground
         
         switch feed.state{
-            case .text(let bigText, let caption, let hashtag):
+            case .text(let bigText, let caption, let hashtag, let votea, let voteb):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: bigText, captionText: caption),
+                    media: MediaView.State(filename: bigText, captionText: caption, votea: votea ?? "", voteb: voteb ?? ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -162,7 +162,7 @@ class PostView: UIView {
             case .gif(let gifName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: gifName, captionText: caption),
+                    media: MediaView.State(filename: gifName, captionText: caption, votea: "", voteb: ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -170,7 +170,7 @@ class PostView: UIView {
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: imageName,captionText: caption),
+                    media: MediaView.State(filename: imageName,captionText: caption, votea: "", voteb: ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -178,7 +178,7 @@ class PostView: UIView {
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: videoName, captionText: nil),
+                    media: MediaView.State(filename: videoName, captionText: nil, votea: "",voteb: ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -907,40 +907,44 @@ final class InteractionView: UIView, UITableViewDelegate{
     @objc func voted(_ sender: UIButton) {
         print("button Pressed")
         if sender.tag == 0 {
-            caption.text = (String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
+            sayCard.label.text = "Yes - exactly like that!"
+                ///(String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
            // caption.reloadInputViews()
             voteBbutton.isHidden = true
             voteCbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 1 {
-            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            sayCard.label.text = "Yes - exactly like that!"
+                //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteCbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 2 {
-            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            sayCard.label.text = "Yes - exactly like that!"
+                //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteBbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 3 {
-            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            sayCard.label.text = "It feels lousy \(botUser.human.name), it feels LOUSY."
+                ///(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteBbutton.isHidden = true
             voteCbutton.isHidden = true
         }
         
         // Reads out the label in a random Anglophone voice
-        if let say = caption.text
+        if let say = sayCard.label.text
         {
             utterance = AVSpeechUtterance(string: say)
             //utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
             //utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-          //  synthesizer.speak(utterance)
+            synthesizer.speak(utterance)
         }
 
         //caption.isHidden = true
@@ -999,10 +1003,10 @@ final class MediaView: UIView {
         case gifImage(gifImage: UIImage, caption: String)
         case video(video: String, caption: String)
         case stillImage(image: UIImage, caption: String)
-        case text(bigText: String, caption: String)
+        case text(bigText: String, caption: String, votea: String?, voteb: String?)
         case hidden
         
-        init(filename: String, captionText: String?) {
+        init(filename: String, captionText: String?, votea: String, voteb: String) {
             
            
 
@@ -1017,7 +1021,7 @@ final class MediaView: UIView {
                     self = .gifImage(gifImage: gif, caption: captionText ?? "")
                 }
                 else{
-                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
+                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
                 }
             default:
                 if let assetImage = UIImage(named: filename.lowercased()){
@@ -1025,7 +1029,7 @@ final class MediaView: UIView {
                 }
                 else
                 {
-                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
+                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
                 }
             }
         }
@@ -1202,7 +1206,7 @@ final class MediaView: UIView {
                 
                 
                 videoController.view.isHidden = true
-            case .text(let bigText, let captionText):
+            case .text(let bigText, let captionText, let votea, let voteb):
                 imageView.isHidden = true
                 label.isHidden = false
             
@@ -1221,6 +1225,8 @@ final class MediaView: UIView {
                 else{
                     caption.text = captionText
                 }
+                
+                
             case .video(let video, let captionText):
 //                labelCard.isHidden = true
 //                                imageView.isHidden = true
@@ -1359,7 +1365,7 @@ extension PostView.State {
     static let mock: Self = PostView.State(
        // tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
-        media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" ),
+        media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" , votea: "", voteb: ""),
         interaction: InteractionView.State()
     )
 }

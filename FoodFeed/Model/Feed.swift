@@ -13,7 +13,7 @@ struct Feed: Decodable{
     
     enum State : Decodable {
         
-        case text(bigText: String, caption: String?, hashtag: String?)
+        case text(bigText: String, caption: String?, hashtag: String?, votea: String?, voteb: String?)
         case image(imageName: String, caption: String?, hashtag: String?)
         case gif(gifName: String, caption: String?, hashtag: String?)
         case video(videoName: String, hashtag: String?)
@@ -25,7 +25,7 @@ struct Feed: Decodable{
         case photoPrompt(caption: String, hashtag: String?)
         
         init(from decoder: Decoder) throws {
-            self = .text(bigText: "Keep Going!", caption: nil, hashtag: nil)
+            self = .text(bigText: "Keep Going!", caption: nil, hashtag: nil, votea: "I will!", voteb: "I'm digging in!")
         }
     }
     

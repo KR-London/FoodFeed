@@ -70,6 +70,9 @@ var window: UIWindow?
             }
             
             UserDefaults.standard.set( ["Guy"],  forKey: "following")
+            
+            
+            
         }
         
 //        if launchedBefore{

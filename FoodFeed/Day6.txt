@@ -1,10 +1,11 @@
 [
   {
     "user": "Guy",
-    "id": 11,
+    "id": 10,
     "type": "Text",
     "day": 6,
-    "bigtext": "Hiiiii!"
+    "votea": "Hi back at you!",
+    "voteb": "How are you doing?",
   },
   {
     "hashtag": "Live feed",
@@ -49,7 +50,7 @@
   },
   {
     "bigtext": "How does my tummy feel?",
-    "votea": "Like a hurricane in a teacup/",
+    "votea": "Like a hurricane in a teacup",
     "voteb": "Like a seasick chicken?",
     "votec": "Like a sad bowling ball?",
     "dunno": "How on earth do I know how your tummy feels?",
@@ -85,14 +86,14 @@
     "user": "Guy"
   },
   {
-    "id": 10,
+    "id": 0,
     "hashtag": "Support",
     "day": 6,
-    "caption": "Who can help me feel more confident?",
+    "caption":  "Who makes you feel more confident?",
     "type": "Question"
   },
   {
-    "id": 0,
+    "id": 11,
     "hashtag": "Confidence",
     "caption": "about being more confident?",
     "day": 6,

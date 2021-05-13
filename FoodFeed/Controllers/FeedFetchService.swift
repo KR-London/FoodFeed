@@ -76,7 +76,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         request.returnsObjectsAsFaults = false
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
         let dayString = "Day " + String(day)
-        var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "") )]
+        var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "", votea: nil, voteb: nil) )]
        // var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "") )]
 
         do{
@@ -86,7 +86,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
             fetchedPosts.forEach({
                 switch $0.type {
                     case "Text":
-                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: $0.bigtext ?? "Error - no text stored in text post", caption: $0.caption ?? "", hashtag: $0.hashtag ))
+                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: $0.bigtext ?? "Error - no text stored in text post", caption: $0.caption ?? "", hashtag: $0.hashtag, votea: $0.votea, voteb: $0.voteb ))
                         newFeedArray.append(newFeedItem)
                     case "Image":
                         if let imageName = $0.image{
@@ -103,7 +103,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                             print("Inconsistently formatted gif record \($0)")
                         }
                     case "PhotoPrompt":
-                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "PhotoPrompt", caption: $0.caption ?? "" , hashtag: $0.hashtag) )
+                        let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "PhotoPrompt", caption: $0.caption ?? "" , hashtag: $0.hashtag, votea: $0.votea, voteb: $0.voteb) )
                         newFeedArray.append(newFeedItem)
                     case "Video":
                         if let videoName = $0.video{
@@ -128,7 +128,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                             newFeedArray.append(newFeedItem)
                         }
 
-                    default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here", caption: $0.caption ?? "" , hashtag: $0.hashtag) )
+                    default:  let newFeedItem = Feed(id: Int($0.id), state: .text(bigText: "I couldn't find actionable content here", caption: $0.caption ?? "" , hashtag: $0.hashtag, votea: $0.votea, voteb: $0.voteb) )
                         newFeedArray.append(newFeedItem)
                 }
 

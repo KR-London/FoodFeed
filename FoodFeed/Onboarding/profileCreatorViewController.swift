@@ -269,39 +269,39 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         ])
         
 
-        let string3 = NSAttributedString(string: "Pick your personality", attributes: attrs)
-        describe.attributedText = string3
-        
-    
-        
-        let adjectiveStack = UIStackView()
-        adjectiveStack.axis = .vertical
-        adjectiveStack.alignment = .leading
-        adjectiveStack.addArrangedSubview(describe)
-        adjectiveStack.addArrangedSubview(describePicker)
-        
-       
-       // adjectiveStack.addArrangedSubview(nextButton)
-        view.addSubview(adjectiveStack)
-        if #available(iOS 14.0, *) {
-            describePicker.translatesAutoresizingMaskIntoConstraints = false
-            describePicker.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        }
-
-        adjectiveStack.translatesAutoresizingMaskIntoConstraints = false
-
-        adjectiveStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        adjectiveStack.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        adjectiveStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 3*layoutUnit).isActive = true
-        
-        describe.translatesAutoresizingMaskIntoConstraints = false
-        describe.leadingAnchor.constraint(equalTo: adjectiveStack.leadingAnchor, constant: 20).isActive = true
-        
-       // adjectiveStack.topAnchor.constraint(equalTo: softUIViewNameEntry.bottomAnchor) = true
-       // adjectiveStack.topAnchor.constraint(equalToConstant: 2.5*layoutUnit).isActive = true
-        
-        
-        adjectiveStack.alignment = .center
+//        let string3 = NSAttributedString(string: "Pick your personality", attributes: attrs)
+//        describe.attributedText = string3
+//        
+//    
+//        
+//        let adjectiveStack = UIStackView()
+//        adjectiveStack.axis = .vertical
+//        adjectiveStack.alignment = .leading
+//        adjectiveStack.addArrangedSubview(describe)
+//        adjectiveStack.addArrangedSubview(describePicker)
+//        
+//       
+//       // adjectiveStack.addArrangedSubview(nextButton)
+//        view.addSubview(adjectiveStack)
+//        if #available(iOS 14.0, *) {
+//            describePicker.translatesAutoresizingMaskIntoConstraints = false
+//            describePicker.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+//        }
+//
+//        adjectiveStack.translatesAutoresizingMaskIntoConstraints = false
+//
+//        adjectiveStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        adjectiveStack.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        adjectiveStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 3*layoutUnit).isActive = true
+//        
+//        describe.translatesAutoresizingMaskIntoConstraints = false
+//        describe.leadingAnchor.constraint(equalTo: adjectiveStack.leadingAnchor, constant: 20).isActive = true
+//        
+//       // adjectiveStack.topAnchor.constraint(equalTo: softUIViewNameEntry.bottomAnchor) = true
+//       // adjectiveStack.topAnchor.constraint(equalToConstant: 2.5*layoutUnit).isActive = true
+//        
+//        
+//        adjectiveStack.alignment = .center
 
 
         let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.5*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
