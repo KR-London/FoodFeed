@@ -1075,7 +1075,7 @@ final class MediaView: UIView {
         self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = .postBackground
         
         self.addSubview(videoView!)
         videoView!.translatesAutoresizingMaskIntoConstraints = false
@@ -1155,7 +1155,7 @@ final class MediaView: UIView {
         //label.isHidden = true
         caption.lineBreakMode = .byWordWrapping
         caption.numberOfLines = 0
-        caption.backgroundColor = .purple
+        caption.backgroundColor =  .postBackground
         caption.textAlignment = .center
         caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 24)
         
@@ -1187,13 +1187,20 @@ final class MediaView: UIView {
                 imageView.isHidden = false
                 labelCard.isHidden = true
                 label.isHidden = true
+                
                 if captionText == "" {
                     caption.isHidden = true
                     
                 }
-                else{
-                    caption.text = captionText
-                }
+                //TO DO: fix the concept clash between caption and hashtag
+//                else{
+//                    caption.text = captionText
+//                }
+//
+                
+                
+                
+                
                 videoController.view.isHidden = true
             case .text(let bigText, let captionText):
                 imageView.isHidden = true
