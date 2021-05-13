@@ -49,14 +49,17 @@ class chatBubbleView: UIView {
         
        
         label.textAlignment = .center
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
-                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-        ]
-
-        let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
-        label.attributedText = bigTextStyled
+//        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+//                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+//                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+//        ]
+//
+//        let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
+//        label.attributedText = bigTextStyled
         addSubview(label)
+      //  label.font = UIFont( frog
+        label.textColor = .textTint
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false

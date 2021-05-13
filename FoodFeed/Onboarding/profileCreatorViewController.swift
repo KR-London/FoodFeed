@@ -234,7 +234,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         ])
         
         
-        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+        let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                           NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
                           NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
@@ -664,7 +664,9 @@ extension profileCreatorViewController{
     func loadJSON(){
         
         let filePath = Bundle.main.resourcePath!
-        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+//        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+//                               encoding: String.Encoding.utf8).data(using: .utf8)
+        let data = try! String(contentsOfFile: filePath + "/Day6.txt",
                                encoding: String.Encoding.utf8).data(using: .utf8)
         
         //  let decoder = JSONDecoder()
@@ -688,6 +690,7 @@ extension profileCreatorViewController{
                         case "hashtag": newPost.hashtag = value as? String
                         case "votea": newPost.votea = value as? String
                         case "voteb": newPost.voteb = value as? String
+                        case "votec": newPost.votec = value as? String
                         default: break
                     }
                     

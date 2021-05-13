@@ -116,7 +116,7 @@ class PostView: UIView {
     
     let stackView = UIStackView()
     let controlsStack = UIStackView()
-    let tagLabel = UILabel.tagLabel()
+    let pageTitleHashtag = UILabel.titleLabel()
     let avatarView = AvatarView()
     let mediaView = MediaView()
    // let bigTextView = BigTextView()
@@ -150,7 +150,13 @@ class PostView: UIView {
                     tag: hashtag
                 ))
                 if let tag = hashtag{
-                    tagLabel.text = "#" + tag
+                    pageTitleHashtag.text = tag
+//                    if tag == "Getting to know "{
+//                        pageTitle.text = tag + botUser.human.name
+//                    }
+//                    else{
+//                        pageTitle.text = tag
+//                    }
                 }
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag):
@@ -160,7 +166,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-                tagLabel.text = hashtag
+                pageTitleHashtag.text = hashtag
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
@@ -168,7 +174,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-                tagLabel.text = hashtag
+                pageTitleHashtag.text = hashtag
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
@@ -176,16 +182,20 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-                tagLabel.text = hashtag
-            case .poll(let caption, let votea, let voteb, let hashtag):
+               self.bringSubviewToFront(mediaView)
+                pageTitleHashtag.text = hashtag
+            case .poll(let caption, let votea, let voteb, let votec, let hashtag):
+//                if let tag = hashtag{
+//                 pageTitleHashtag.text = tag + botUser.human.name
+//                }
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
                     media: MediaView.State(),
-                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb),
-                    tag: hashtag
+                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
+                    tag: hashtag ?? "Getting to know " + botUser.human.name
                 ))
-                tagLabel.text = hashtag
+        
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
               
@@ -385,18 +395,21 @@ class PostView: UIView {
         textStack.axis = .vertical
         let xxx = UILabel.usernameLabel()
         //xxx.text = T
-        textStack.addArrangedSubview(tagLabel)
+        textStack.addArrangedSubview(pageTitleHashtag)
         textStack.addArrangedSubview(xxx)
         addSubview(textStack)
         textStack.translatesAutoresizingMaskIntoConstraints = false
-        textStack.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: 16).isActive = true
-        textStack.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
+        //textStack.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: 16).isActive = true
+       // textStack.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
+        textStack.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 16).isActive = true
+        textStack.centerXAnchor.constraint(equalTo: self.layoutMarginsGuide.centerXAnchor).isActive = true
+        textStack.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func update(state: State) {
         if let tag = state.tag{
-            tagLabel.text = "#" + tag
-            tagLabel.textColor = .blue
+            pageTitleHashtag.text = tag
+            pageTitleHashtag.textColor = .textTint
         }
         avatarView.update(state: state.avatar)
         mediaView.update(state: state.media)
@@ -466,9 +479,10 @@ private func clearDeepObjectEntity(_ entity: String) {
 }
 
 extension UILabel {
-    static func tagLabel() -> UILabel {
+    static func titleLabel() -> UILabel {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .textTint
+        label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
         return label
     }
 }
@@ -498,11 +512,11 @@ final class InteractionView: UIView, UITableViewDelegate{
     /// I deleted the refactor code because I got completely lost in what the point was.
     /// but at some point will i be limited by not being able to pass pictuers in  ... ?
     enum State {
-        case poll(captionText: String, votea: String, voteb: String)
+        case poll(captionText: String, votea: String, voteb: String, votec: String)
         case question(captionText: String)
         case hidden
-        init(caption: String, votea: String, voteb: String) {
-            self = .poll(captionText: caption, votea: votea, voteb: voteb)
+        init(caption: String, votea: String, voteb: String, votec: String) {
+            self = .poll(captionText: caption, votea: votea, voteb: voteb, votec: votec)
         }
         
         init(caption: String) {
@@ -522,6 +536,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     let caption = UILabel()
     let voteAbutton = UIButton()
     let voteBbutton = UIButton()
+    let voteCbutton = UIButton()
+    let dunno = UIButton()
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
@@ -530,6 +546,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     var descriptiveLabel = UILabel()
     var userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: 20, width: 100, height: 100), user: botUser.human)
     let descriptiveLabel2 = UILabel()
+    let buttonStack = UIStackView()
     
 //    let humanAvatar = AvatarView()
     
@@ -603,33 +620,73 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
         self.sendSubviewToBack(backgroundImage)
         
+        ///TODO: May 5th Add a title feeding from hashtag
         
-        self.addSubview(voteAbutton)
-        voteAbutton.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
-        voteAbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+     
+        dunno.setTitle("Don't know", for: .normal)
+        dunno.backgroundColor = .blue
+        
+    buttonStack.addArrangedSubview(voteAbutton)
+    buttonStack.addArrangedSubview(voteBbutton)
+    buttonStack.addArrangedSubview(voteCbutton)
+    buttonStack.addArrangedSubview(dunno)
+       // buttonStack.frame = CGRect(x: 100,y: 100,width: 100,height: 100)
+        
+        buttonStack.backgroundColor = .green
+        buttonStack.axis = .vertical
+        
+        buttonStack.distribution = .equalSpacing
+        voteAbutton.setContentHuggingPriority(.required, for: .horizontal)
+        voteBbutton.setContentHuggingPriority(.required, for: .horizontal)
+        self.addSubview(buttonStack)
+        buttonStack.translatesAutoresizingMaskIntoConstraints = false
+        buttonStack.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
+        buttonStack.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -20).isActive = true
+        buttonStack.heightAnchor.constraint(equalToConstant: 2*heightLayoutUnit).isActive = true
+        buttonStack.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor).isActive = true
+      
+        buttonStack.isHidden = false
+ //self.addSubview(voteAbutton)
+       // voteAbutton.translatesAutoresizingMaskIntoConstraints = false
+      //  self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
+       // voteAbutton.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
+      //  voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       // voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         voteAbutton.backgroundColor = .blue
         voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteAbutton.tag = 0
-        //  voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        ///TODO: May 5th show c button
+        
+        ///TODO: May 5th don't know button
         
         
-        self.addSubview(voteBbutton)
-        voteBbutton.translatesAutoresizingMaskIntoConstraints = false
-        self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
-        voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
+//        self.addSubview(voteBbutton)
+       // voteBbutton.translatesAutoresizingMaskIntoConstraints = false
+       // self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
+        //voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+       // voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       // voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         voteBbutton.backgroundColor = .blue
         voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteBbutton.tag = 1
-        // voteBbutton.isUserInteractionEnabled = true
+        voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
+        voteCbutton.backgroundColor = .blue
+        voteCbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteCbutton.tag = 2
+        voteCbutton.isUserInteractionEnabled = true
+        voteCbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        dunno.titleLabel?.lineBreakMode = .byWordWrapping
+        dunno.tag = 3
+        dunno.isUserInteractionEnabled = true
+        dunno.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
         descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
-        let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+        let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 18)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
@@ -717,6 +774,7 @@ final class InteractionView: UIView, UITableViewDelegate{
        // bringSubviewToFront(voteBbutton)
         
         bringSubviewToFront(answerInput)
+        bringSubviewToFront(buttonStack)
         
     }
     
@@ -795,11 +853,12 @@ final class InteractionView: UIView, UITableViewDelegate{
     func update(state: State) {
      
         switch state {
-            case .poll(let captionText, let votea, let voteb):
+            case .poll(let captionText, let votea, let voteb, let votec):
                 caption.text = captionText
                 voteAbutton.setTitle(votea, for: .normal)
                 voteBbutton.setTitle(voteb, for: .normal)
-                voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+                voteCbutton.setTitle(votec, for: .normal)
+               // voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
                 commentsDriver?.stop()
                 
@@ -814,10 +873,14 @@ final class InteractionView: UIView, UITableViewDelegate{
                 sayCard.label.text = captionText
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
+                voteCbutton.isHidden = true
+                dunno.isHidden = true
             case .hidden:
                 caption.isHidden = true
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
+                voteCbutton.isHidden = true
+                dunno.isHidden = true
                 answerInput.isHidden = true
                 sayCard.isHidden = true
                 descriptiveLabel.isHidden = true
@@ -845,9 +908,28 @@ final class InteractionView: UIView, UITableViewDelegate{
         print("button Pressed")
         if sender.tag == 0 {
             caption.text = (String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
+           // caption.reloadInputViews()
+            voteBbutton.isHidden = true
+            voteCbutton.isHidden = true
+            dunno.isHidden = true
         }
         if sender.tag == 1 {
             caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            voteAbutton.isHidden = true
+            voteCbutton.isHidden = true
+            dunno.isHidden = true
+        }
+        if sender.tag == 2 {
+            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            voteAbutton.isHidden = true
+            voteBbutton.isHidden = true
+            dunno.isHidden = true
+        }
+        if sender.tag == 3 {
+            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            voteAbutton.isHidden = true
+            voteBbutton.isHidden = true
+            voteCbutton.isHidden = true
         }
         
         // Reads out the label in a random Anglophone voice
@@ -860,9 +942,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             utterance.voice =  language.first!!
           //  synthesizer.speak(utterance)
         }
-        
-        voteBbutton.isHidden = true
-        voteAbutton.isHidden = true
+
         //caption.isHidden = true
         //sendSubviewToBack(self)
        // reloadInputViews()
@@ -940,7 +1020,13 @@ final class MediaView: UIView {
                     self = .text(bigText: "gif filename is wrong", caption: captionText ?? "" )
                 }
             default:
-                self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
+                if let assetImage = UIImage(named: filename.lowercased()){
+                    self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                }
+                else
+                {
+                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "" )
+                }
             }
         }
         
@@ -958,6 +1044,10 @@ final class MediaView: UIView {
     let caption = UILabel()
     var player : AVPlayer?
     var labelCard = SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
+    let stack = UIStackView()
+    
+    let yesButton = MediaButton()
+    let noButton = MediaButton()
    
     
     override init(frame: CGRect) {
@@ -1004,6 +1094,38 @@ final class MediaView: UIView {
         labelCard.setContentView(label)
         self.addSubview(labelCard)
         
+        yesButton.isHidden = true
+        noButton.isHidden = true
+        yesButton.tag = 1
+        yesButton.isUserInteractionEnabled = true
+        yesButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+        
+        noButton.tag = 0
+        noButton.isUserInteractionEnabled = true
+        noButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+        
+       
+        stack.isUserInteractionEnabled = true
+        self.addSubview(stack)
+        yesButton.setTitle("Yes", for: .normal)
+        noButton.setTitle("No", for: .normal)
+        yesButton.backgroundColor = .option1
+        noButton.backgroundColor = .option3
+
+        stack.axis = .vertical
+        stack.backgroundColor = .yellow
+        stack.addArrangedSubview(yesButton)
+        stack.addArrangedSubview(noButton)
+        stack.distribution = .equalSpacing
+       // stack.spacing = 50.0
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        stack.topAnchor.constraint(equalTo: labelCard.bottomAnchor, constant: 50).isActive = true
+        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        stack.widthAnchor.constraint(equalTo: labelCard.widthAnchor).isActive = true
+        
+       
        
        // labelCard.translatesAutoresizingMaskIntoConstraints = false
        // labelCard.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -1037,9 +1159,8 @@ final class MediaView: UIView {
         caption.textAlignment = .center
         caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 24)
         
-        
-        
-        
+        self.bringSubviewToFront(stack)
+ 
     }
     
     
@@ -1078,7 +1199,7 @@ final class MediaView: UIView {
                 imageView.isHidden = true
                 label.isHidden = false
             
-                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
+                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                              NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                              NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
                 ]
@@ -1094,23 +1215,45 @@ final class MediaView: UIView {
                     caption.text = captionText
                 }
             case .video(let video, let captionText):
-                labelCard.isHidden = true
+//                labelCard.isHidden = true
+//                                imageView.isHidden = true
+//                                label.isHidden = true
+//                                yesButton.isHidden = true
+//                                noButton.isHidden = true
+//
+                labelCard.isHidden = false
                 imageView.isHidden = true
-                label.isHidden = true
+                label.isHidden = false
+                yesButton.isHidden = false
+                noButton.isHidden = false
+                yesButton.isEnabled = true
+                noButton.isEnabled = true
+
+                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+                ]
+
+
+               videoController.view.isHidden = true
                 if captionText == "" {
-                    caption.isHidden = true
-                    
+                    let bigTextStyled = NSAttributedString(string: "Do you want to see a video?", attributes: attrs)
+                    label.attributedText = bigTextStyled
+
                 }
                 else{
-                    caption.text = captionText
+                    let bigTextStyled = NSAttributedString(string: "Do you want to see a video about \(captionText)", attributes: attrs)
+                    label.attributedText = bigTextStyled
                 }
-              
-                if let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".mp4"){
-                    print(urlPath)
-                    player = AVPlayer(url: urlPath)
-                    videoController.player = player
-                    player?.play()
-                }
+
+                yesButton.video = video
+
+//                if let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".MP4"){
+//                    print(urlPath)
+//                    player = AVPlayer(url: urlPath)
+//                    videoController.player = player
+//                    player?.play()
+//                }
             case .hidden:
                 imageView.isHidden = true
                 label.isHidden = true
@@ -1133,8 +1276,62 @@ final class MediaView: UIView {
 
     // Pauses video playback on tap
     //FIXME: pause gifs and voice
+    
+    @objc func videoPreferenceStated(_ sender: MediaButton) {
+        
+        print("video preference stated")
+        yesButton.isHidden = true
+       
+      
+//        if sender.titleLabel?.text = ("Yes")
+//        {
+//ƒƒ
+//        }
+        if sender.tag == 0 {
+            noButton.backgroundColor = .gray
+            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+                         NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                         NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+            ]
+            let bigTextStyled = NSAttributedString(string: "That's cool - let's skip it.", attributes: attrs)
+            label.attributedText = bigTextStyled
 
+        }
+        if sender.tag == 1 {
+            labelCard.isHidden = true
+            noButton.isHidden = true
+            videoController.view.isHidden =  false
+            if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".MP4") {
+                                print(urlPath)
+                                player = AVPlayer(url: urlPath)
+                                videoController.player = player
+                                player?.play()
+                            }
+            else {
+                if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".mp4") {
+                    print(urlPath)
+                    player = AVPlayer(url: urlPath)
+                    videoController.player = player
+                    player?.play()
+                }
+            }
+        }
+//        if sender.tag == 2 {
+//            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+//            voteAbutton.isHidden = true
+//            voteBbutton.isHidden = true
+//            dunno.isHidden = true
+//        }
+//        if sender.tag == 3 {
+//            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+//            voteAbutton.isHidden = true
+//            voteBbutton.isHidden = true
+//            voteCbutton.isHidden = true
+//        }
+        
+    }
 
+    
 
 }
 

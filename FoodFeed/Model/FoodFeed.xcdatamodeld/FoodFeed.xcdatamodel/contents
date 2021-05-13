@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="PostData" representedClassName="PostData" syncable="YES" codeGenerationType="class">
         <attribute name="bigtext" optional="YES" attributeType="String"/>
         <attribute name="caption" optional="YES" attributeType="String"/>
@@ -13,8 +13,9 @@
         <attribute name="video" optional="YES" attributeType="String"/>
         <attribute name="votea" optional="YES" attributeType="String"/>
         <attribute name="voteb" optional="YES" attributeType="String"/>
+        <attribute name="votec" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="PostData" positionX="-63" positionY="-18" width="128" height="223"/>
+        <element name="PostData" positionX="-63" positionY="-18" width="128" height="238"/>
     </elements>
 </model>

@@ -64,12 +64,14 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
 
     func fetchFeeds() {
 
+        /// call on coreData to get info on what i should show
+        
         
         let request: NSFetchRequest<PostData> = PostData.fetchRequest()
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
-       let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
-        //let day = 1
+      // let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
+       let day = 6
         request.predicate = NSPredicate(format: "day == %i", day)
         request.returnsObjectsAsFaults = false
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
@@ -113,8 +115,10 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                         
                         if let votea = $0.votea{
                             if let voteb = $0.voteb{
-                                let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb, hashtag: $0.hashtag) )
-                                newFeedArray.append(newFeedItem)
+                                if let votec = $0.votec{
+                                    let newFeedItem = Feed(id: Int($0.id), state: .poll(caption: caption, votea: votea, voteb: voteb, votec: votec, hashtag: ($0.hashtag ?? "Getting to know") + " " + botUser.human.name) )
+                                    newFeedArray.append(newFeedItem)
+                                }
                             }
                         }
                     case "Question":

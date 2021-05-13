@@ -55,11 +55,10 @@ class PostDataInput: UIViewController {
     func loadJSON(){
         
         let filePath = Bundle.main.resourcePath!
-        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
-                                      encoding: String.Encoding.utf8).data(using: .utf8)
+     //   let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+     //                                 encoding: String.Encoding.utf8).data(using: .utf8)
         
-       
-        
+        let data = try! String(contentsOfFile: filePath + "/Day6.txt", encoding: String.Encoding.utf8).data(using: .utf8)
         
       //  let decoder = JSONDecoder()
         
@@ -82,6 +81,7 @@ class PostDataInput: UIViewController {
                         case "hashtag": newPost.hashtag = value as? String
                         case "votea": newPost.votea = value as? String
                         case "voteb": newPost.voteb = value as? String
+                        case "votec": newPost.votec = value as? String
                         default: break
                     }
                  

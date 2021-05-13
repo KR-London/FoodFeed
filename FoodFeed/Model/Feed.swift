@@ -17,8 +17,11 @@ struct Feed: Decodable{
         case image(imageName: String, caption: String?, hashtag: String?)
         case gif(gifName: String, caption: String?, hashtag: String?)
         case video(videoName: String, hashtag: String?)
-        case poll(caption: String, votea: String, voteb: String, hashtag: String?)
+        
+        case poll(caption: String, votea: String, voteb: String, votec: String, hashtag: String?)
+        
         case question(caption: String, hashtag: String?)
+        
         case photoPrompt(caption: String, hashtag: String?)
         
         init(from decoder: Decoder) throws {
