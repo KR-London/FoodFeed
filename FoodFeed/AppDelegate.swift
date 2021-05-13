@@ -21,7 +21,7 @@ var window: UIWindow?
         // Override point for customization after application launch.
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         doIPlaceANewDatestamp()
-        
+        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
         
         if storyLoading == true{

@@ -182,6 +182,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
+               self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
             case .poll(let caption, let votea, let voteb, let votec, let hashtag):
 //                if let tag = hashtag{
@@ -1043,6 +1044,10 @@ final class MediaView: UIView {
     let caption = UILabel()
     var player : AVPlayer?
     var labelCard = SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
+    let stack = UIStackView()
+    
+    let yesButton = MediaButton()
+    let noButton = MediaButton()
    
     
     override init(frame: CGRect) {
@@ -1089,6 +1094,38 @@ final class MediaView: UIView {
         labelCard.setContentView(label)
         self.addSubview(labelCard)
         
+        yesButton.isHidden = true
+        noButton.isHidden = true
+        yesButton.tag = 1
+        yesButton.isUserInteractionEnabled = true
+        yesButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+        
+        noButton.tag = 0
+        noButton.isUserInteractionEnabled = true
+        noButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+        
+       
+        stack.isUserInteractionEnabled = true
+        self.addSubview(stack)
+        yesButton.setTitle("Yes", for: .normal)
+        noButton.setTitle("No", for: .normal)
+        yesButton.backgroundColor = .option1
+        noButton.backgroundColor = .option3
+
+        stack.axis = .vertical
+        stack.backgroundColor = .yellow
+        stack.addArrangedSubview(yesButton)
+        stack.addArrangedSubview(noButton)
+        stack.distribution = .equalSpacing
+       // stack.spacing = 50.0
+        
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        stack.topAnchor.constraint(equalTo: labelCard.bottomAnchor, constant: 50).isActive = true
+        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        stack.widthAnchor.constraint(equalTo: labelCard.widthAnchor).isActive = true
+        
+       
        
        // labelCard.translatesAutoresizingMaskIntoConstraints = false
        // labelCard.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -1122,9 +1159,8 @@ final class MediaView: UIView {
         caption.textAlignment = .center
         caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 24)
         
-        
-        
-        
+        self.bringSubviewToFront(stack)
+ 
     }
     
     
@@ -1179,23 +1215,45 @@ final class MediaView: UIView {
                     caption.text = captionText
                 }
             case .video(let video, let captionText):
-                labelCard.isHidden = true
+//                labelCard.isHidden = true
+//                                imageView.isHidden = true
+//                                label.isHidden = true
+//                                yesButton.isHidden = true
+//                                noButton.isHidden = true
+//
+                labelCard.isHidden = false
                 imageView.isHidden = true
-                label.isHidden = true
+                label.isHidden = false
+                yesButton.isHidden = false
+                noButton.isHidden = false
+                yesButton.isEnabled = true
+                noButton.isEnabled = true
+
+                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+                ]
+
+
+               videoController.view.isHidden = true
                 if captionText == "" {
-                    caption.isHidden = true
-                    
+                    let bigTextStyled = NSAttributedString(string: "Do you want to see a video?", attributes: attrs)
+                    label.attributedText = bigTextStyled
+
                 }
                 else{
-                    caption.text = captionText
+                    let bigTextStyled = NSAttributedString(string: "Do you want to see a video about \(captionText)", attributes: attrs)
+                    label.attributedText = bigTextStyled
                 }
-              
-                if let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".mp4"){
-                    print(urlPath)
-                    player = AVPlayer(url: urlPath)
-                    videoController.player = player
-                    player?.play()
-                }
+
+                yesButton.video = video
+
+//                if let urlPath = Bundle.main.url(forResource: String(video.dropLast(4)), withExtension: ".MP4"){
+//                    print(urlPath)
+//                    player = AVPlayer(url: urlPath)
+//                    videoController.player = player
+//                    player?.play()
+//                }
             case .hidden:
                 imageView.isHidden = true
                 label.isHidden = true
@@ -1218,8 +1276,62 @@ final class MediaView: UIView {
 
     // Pauses video playback on tap
     //FIXME: pause gifs and voice
+    
+    @objc func videoPreferenceStated(_ sender: MediaButton) {
+        
+        print("video preference stated")
+        yesButton.isHidden = true
+       
+      
+//        if sender.titleLabel?.text = ("Yes")
+//        {
+//ƒƒ
+//        }
+        if sender.tag == 0 {
+            noButton.backgroundColor = .gray
+            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+                         NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                         NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+            ]
+            let bigTextStyled = NSAttributedString(string: "That's cool - let's skip it.", attributes: attrs)
+            label.attributedText = bigTextStyled
 
+        }
+        if sender.tag == 1 {
+            labelCard.isHidden = true
+            noButton.isHidden = true
+            videoController.view.isHidden =  false
+            if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".MP4") {
+                                print(urlPath)
+                                player = AVPlayer(url: urlPath)
+                                videoController.player = player
+                                player?.play()
+                            }
+            else {
+                if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".mp4") {
+                    print(urlPath)
+                    player = AVPlayer(url: urlPath)
+                    videoController.player = player
+                    player?.play()
+                }
+            }
+        }
+//        if sender.tag == 2 {
+//            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+//            voteAbutton.isHidden = true
+//            voteBbutton.isHidden = true
+//            dunno.isHidden = true
+//        }
+//        if sender.tag == 3 {
+//            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+//            voteAbutton.isHidden = true
+//            voteBbutton.isHidden = true
+//            voteCbutton.isHidden = true
+//        }
+        
+    }
 
+    
 
 }
 
