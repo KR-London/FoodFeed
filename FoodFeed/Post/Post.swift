@@ -145,7 +145,7 @@ class PostView: UIView {
             case .text(let bigText, let caption, let hashtag, let votea, let voteb):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
-                    media: MediaView.State(filename: bigText, captionText: caption, votea: votea ?? "", voteb: voteb ?? ""),
+                    media: MediaView.State(filename: bigText, captionText: caption, votea: votea , voteb: voteb),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -158,6 +158,7 @@ class PostView: UIView {
 //                        pageTitle.text = tag
 //                    }
                 }
+                self.bringSubviewToFront(mediaView)
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag):
                 self.update(state: PostView.State(
@@ -167,6 +168,7 @@ class PostView: UIView {
                     tag: hashtag
                 ))
                 pageTitleHashtag.text = hashtag
+                self.bringSubviewToFront(mediaView)
             case .image(let imageName, let caption, let hashtag):
                 self.update(state: PostView.State(
                     avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
@@ -174,6 +176,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
+                self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
             case .video(let videoName, let hashtag):
                 self.update(state: PostView.State(
@@ -195,6 +198,8 @@ class PostView: UIView {
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
                     tag: hashtag ?? "Getting to know " + botUser.human.name
                 ))
+                // QUESTION: Why did I not need to do this here?
+                //self.bringSubviewToFront(mediaView)
         
             case .question(caption: let caption, hashtag: let hashtag):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
@@ -908,29 +913,29 @@ final class InteractionView: UIView, UITableViewDelegate{
         print("button Pressed")
         if sender.tag == 0 {
             sayCard.label.text = "Yes - exactly like that!"
-                ///(String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
-           // caption.reloadInputViews()
+            //(String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
+            // caption.reloadInputViews()
             voteBbutton.isHidden = true
             voteCbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 1 {
             sayCard.label.text = "Yes - exactly like that!"
-                //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteCbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 2 {
             sayCard.label.text = "Yes - exactly like that!"
-                //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteBbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 3 {
             sayCard.label.text = "It feels lousy \(botUser.human.name), it feels LOUSY."
-                ///(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteBbutton.isHidden = true
             voteCbutton.isHidden = true
@@ -1006,7 +1011,7 @@ final class MediaView: UIView {
         case text(bigText: String, caption: String, votea: String?, voteb: String?)
         case hidden
         
-        init(filename: String, captionText: String?, votea: String, voteb: String) {
+        init(filename: String, captionText: String?, votea: String?, voteb: String?) {
             
            
 
@@ -1021,7 +1026,8 @@ final class MediaView: UIView {
                     self = .gifImage(gifImage: gif, caption: captionText ?? "")
                 }
                 else{
-                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
+                    //self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
+                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
                 }
             default:
                 if let assetImage = UIImage(named: filename.lowercased()){
@@ -1029,7 +1035,8 @@ final class MediaView: UIView {
                 }
                 else
                 {
-                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
+                   // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
+                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
                 }
             }
         }
@@ -1102,12 +1109,11 @@ final class MediaView: UIView {
         noButton.isHidden = true
         yesButton.tag = 1
         yesButton.isUserInteractionEnabled = true
-        yesButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
-        
         noButton.tag = 0
         noButton.isUserInteractionEnabled = true
-        noButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
         
+        
+
        
         stack.isUserInteractionEnabled = true
         self.addSubview(stack)
@@ -1226,6 +1232,22 @@ final class MediaView: UIView {
                     caption.text = captionText
                 }
                 
+                if votea != nil && voteb != nil {
+                    yesButton.isHidden = false
+                    noButton.isHidden = false
+                    
+                    let voteBQ = voteb?.components(separatedBy: "^answer^").first ?? ""
+                    let voteBA = voteb?.components(separatedBy: "^answer^").dropFirst().first ?? ""
+                    
+                    yesButton.setTitle(votea, for: .normal)
+                    noButton.setTitle(String(voteBQ), for: .normal)
+                    
+                    noButton.answer = String(voteBA)
+                    
+                    yesButton.addTarget(self, action: #selector(textChatBack), for: .touchUpInside)
+                    noButton.addTarget(self, action: #selector(textChatBack), for: .touchUpInside)
+                }
+                
                 
             case .video(let video, let captionText):
 //                labelCard.isHidden = true
@@ -1239,8 +1261,9 @@ final class MediaView: UIView {
                 label.isHidden = false
                 yesButton.isHidden = false
                 noButton.isHidden = false
-                yesButton.isEnabled = true
-                noButton.isEnabled = true
+                yesButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+                noButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+                
 
                 let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                              NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
@@ -1343,6 +1366,45 @@ final class MediaView: UIView {
 //        }
         
     }
+    
+    @objc func  textChatBack(_ sender: MediaButton) {
+        
+        print("text chat back")
+        yesButton.isHidden = true
+        
+        
+        //        if sender.titleLabel?.text = ("Yes")
+        //        {
+        //ƒƒ
+        //        }
+        if sender.tag == 0 {
+            noButton.backgroundColor = .gray
+            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+                         NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                         NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+            ]
+            let bigTextStyled = NSAttributedString(string: sender.answer, attributes: attrs)
+            label.attributedText = bigTextStyled
+            
+        }
+        if sender.tag == 1 {
+            /// load next screen?
+        }
+        //        if sender.tag == 2 {
+        //            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+        //            voteAbutton.isHidden = true
+        //            voteBbutton.isHidden = true
+        //            dunno.isHidden = true
+        //        }
+        //        if sender.tag == 3 {
+        //            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+        //            voteAbutton.isHidden = true
+        //            voteBbutton.isHidden = true
+        //            voteCbutton.isHidden = true
+        //        }
+        
+    }
+
 
     
 

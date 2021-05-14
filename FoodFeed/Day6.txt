@@ -1,11 +1,12 @@
 [
   {
     "user": "Guy",
-    "id": 10,
+    "id": 0,
     "type": "Text",
     "day": 6,
+    "bigtext": "Hiiii",
     "votea": "Hi back at you!",
-    "voteb": "How are you doing?",
+    "voteb": "How are you doing? ^answer^ I'm doing great - thanks for asking!",
   },
   {
     "hashtag": "Live feed",
@@ -86,7 +87,7 @@
     "user": "Guy"
   },
   {
-    "id": 0,
+    "id": 10,
     "hashtag": "Support",
     "day": 6,
     "caption":  "Who makes you feel more confident?",

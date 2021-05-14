@@ -61,6 +61,8 @@ var window: UIWindow?
                     }
                     do{
                         
+                        print(newPost)
+                        
                         try  context.save()
                         
                     } catch {

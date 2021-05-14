@@ -24,12 +24,15 @@ import UIKit
 
 class MediaButton:UIButton {
     var video:String = ""
-
+    var answer:String = ""
     
     convenience init(video: String) {
         self.init()
         self.video = video
+        self.answer = answer
     }}
+
+
 
 extension UITextField {
     func setLeftPaddingPoints(_ amount:CGFloat){
