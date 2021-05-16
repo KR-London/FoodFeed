@@ -124,9 +124,8 @@ class PostView: UIView {
     let settingsButton = UIButton()
     var didPause = false
     
-
-    
     var delegate : FeedViewInteractionDelegate?
+    weak var pageAdvanceDelegate : FeedPagePresenterProtocol?
   
     override init(frame: CGRect) {
         super.init(frame: frame)

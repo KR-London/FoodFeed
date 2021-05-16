@@ -34,7 +34,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     
     let defaults = UserDefaults.standard
 
-    static func instantiate(feed: Feed, andIndex index: Int, isPlaying: Bool = false) -> UIViewController{
+    static func instantiate(feed: Feed, andIndex index: Int, isPlaying: Bool = false, presenter: FeedPagePresenterProtocol?) -> UIViewController{
         let viewController = FeedItemViewController.instantiate ( )
         viewController.feed = feed
         viewController.index = index
@@ -56,8 +56,9 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     override func viewDidLoad() {
         feedView = PostView(frame: self.view.frame, feed: feed)
         feedView.delegate = self
+     //   feedView.pageAdvanceDelegate = 
       
-        view = feedView
+       // view = feedView
       
         
         ///FIXME: Put back - but not when I;m voting 

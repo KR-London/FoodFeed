@@ -17,7 +17,7 @@ class FeedPageViewController:
     var commentsDriver = TimedComments()
     
     func presentInitialFeed(_ feed: Feed) {
-        let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
+        let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true, presenter: nil) as! FeedItemViewController
         
      
 //
@@ -69,7 +69,7 @@ class FeedPageViewController:
         }
     }
     
-    fileprivate var presenter: FeedPagePresenterProtocol!
+    var presenter: FeedPagePresenterProtocol!
     
  
     override func viewDidLoad() {
@@ -98,7 +98,7 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
             return nil
         }
         /// return a feed screen which realisies the information in the next item in the feed.
-        return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
+        return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index, presenter: presenter)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -106,7 +106,7 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         guard let indexedFeed = presenter.fetchNextFeed() else {
             return nil
         }
-        return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
+        return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index, presenter: presenter)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
