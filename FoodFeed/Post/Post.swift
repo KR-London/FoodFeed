@@ -6,6 +6,8 @@ import Speech
 import SoftUIView
 import SwiftyGif
 import CoreData
+import youtube_ios_player_helper
+
 
 let humanAvatar = AvatarView()
 
@@ -637,7 +639,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     buttonStack.addArrangedSubview(dunno)
        // buttonStack.frame = CGRect(x: 100,y: 100,width: 100,height: 100)
         
-        buttonStack.backgroundColor = .green
+       // buttonStack.backgroundColor = .green
         buttonStack.axis = .vertical
         
         buttonStack.distribution = .equalSpacing
@@ -900,12 +902,12 @@ final class InteractionView: UIView, UITableViewDelegate{
         if let say = caption.text
         {
             commentsDriver?.currentCaption = say
-          //  utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
-           // utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-           // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-         //   let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-          //  utterance.voice =  language.first!!
-           // synthesizer.speak(utterance)
+//            utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
+//            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+//            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+//            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+//            utterance.voice =  language.first!!
+//            synthesizer.speak(utterance)
         }
     }
     
@@ -1003,12 +1005,13 @@ extension InteractionView: UITableViewDataSource{
 }
 
 
-final class MediaView: UIView {
+final class MediaView: UIView, YTPlayerViewDelegate {
     enum State {
         case gifImage(gifImage: UIImage, caption: String)
         case video(video: String, caption: String)
         case stillImage(image: UIImage, caption: String)
         case text(bigText: String, caption: String, votea: String?, voteb: String?)
+       // case youTube(playlist: String, caption: String)
         case hidden
         
         init(filename: String, captionText: String?, votea: String?, voteb: String?) {
@@ -1030,13 +1033,19 @@ final class MediaView: UIView {
                     self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
                 }
             default:
-                if let assetImage = UIImage(named: filename.lowercased()){
-                    self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                
+                if filename.contains("youtu.be"){
+                    self = .video(video: filename.lowercased(), caption: captionText ?? "")
                 }
-                else
-                {
-                   // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
-                    self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+                else{
+                        if let assetImage = UIImage(named: filename.lowercased()){
+                        self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                    }
+                    else
+                    {
+                       // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
+                        self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+                    }
                 }
             }
         }
@@ -1123,7 +1132,7 @@ final class MediaView: UIView {
         noButton.backgroundColor = .option3
 
         stack.axis = .vertical
-        stack.backgroundColor = .yellow
+       // stack.backgroundColor = .yellow
         stack.addArrangedSubview(yesButton)
         stack.addArrangedSubview(noButton)
         stack.distribution = .equalSpacing
@@ -1201,12 +1210,11 @@ final class MediaView: UIView {
                 if captionText == "" {
                     caption.isHidden = true
                     
+                } //TO DO: fix the concept clash between caption and hashtag
+                else{
+                    caption.text = captionText
                 }
-                //TO DO: fix the concept clash between caption and hashtag
-//                else{
-//                    caption.text = captionText
-//                }
-//
+
                 
                 
                 
@@ -1280,6 +1288,9 @@ final class MediaView: UIView {
                 else{
                     let bigTextStyled = NSAttributedString(string: "Do you want to see a video about \(captionText)", attributes: attrs)
                     label.attributedText = bigTextStyled
+                    
+                    /// Page title
+                    caption.text = captionText
                 }
 
                 yesButton.video = video
@@ -1290,6 +1301,43 @@ final class MediaView: UIView {
 //                    videoController.player = player
 //                    player?.play()
 //                }
+//            case .youTube(let playlist, let caption ):
+//
+//                let playerVars = [ "rel" : 0, "loop" : 1]
+//                myView.load(withPlaylistId: "PLPCeSm8EDITr2z9Y6tnTrP3ZsWZKDdMYi", playerVars: playerVars)
+//
+//                labelCard.isHidden = false
+//                imageView.isHidden = true
+//                label.isHidden = false
+//                yesButton.isHidden = false
+//                noButton.isHidden = false
+//                yesButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+//                noButton.addTarget(self, action: #selector(videoPreferenceStated), for: .touchUpInside)
+//
+//
+//                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+//                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+//                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+//                ]
+//
+//
+//                videoController.view.isHidden = true
+//                if captionText == "" {
+//                    let bigTextStyled = NSAttributedString(string: "Do you want to see a video?", attributes: attrs)
+//                    label.attributedText = bigTextStyled
+//
+//                }
+//                else{
+//                    let bigTextStyled = NSAttributedString(string: "Do you want to see a video about \(captionText)", attributes: attrs)
+//                    label.attributedText = bigTextStyled
+//
+//                    /// Page title
+//                    caption.text = captionText
+//                }
+//
+//                yesButton.video = video
+                
+                
             case .hidden:
                 imageView.isHidden = true
                 label.isHidden = true
@@ -1337,20 +1385,52 @@ final class MediaView: UIView {
             labelCard.isHidden = true
             noButton.isHidden = true
             videoController.view.isHidden =  false
-            if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".MP4") {
-                                print(urlPath)
-                                player = AVPlayer(url: urlPath)
-                                videoController.player = player
-                                player?.play()
-                            }
-            else {
-                if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".mp4") {
-                    print(urlPath)
-                    player = AVPlayer(url: urlPath)
-                    videoController.player = player
-                    player?.play()
+            
+            if sender.video.last == "4"
+           {
+                    if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".MP4") {
+                                    print(urlPath)
+                                    player = AVPlayer(url: urlPath)
+                                    videoController.player = player
+                                    player?.play()
+                                }
+                else {
+                    if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".mp4") {
+                        print(urlPath)
+                        player = AVPlayer(url: urlPath)
+                        videoController.player = player
+                        player?.play()
+                    }
                 }
             }
+            
+            if sender.video.contains("youtu.be")
+            {
+                videoController.view.isHidden = true
+                let myView = YTPlayerView()
+                myView.delegate = self
+                self.addSubview(myView)
+                
+                myView.translatesAutoresizingMaskIntoConstraints = false
+                self.leadingAnchor.constraint(equalTo: myView.leadingAnchor).isActive = true
+                self.trailingAnchor.constraint(equalTo: myView.trailingAnchor).isActive = true
+                self.centerYAnchor.constraint(equalTo: myView.centerYAnchor).isActive = true
+                myView.heightAnchor.constraint(equalToConstant: bounds.width*(9/16)).isActive = true
+                
+              
+             //   let swipeGestureRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
+                
+                // Configure Swipe Gesture Recognizer
+              //  swipeGestureRecognizerLeft.direction = .left
+                
+              //  myView.addGestureRecognizer(swipeGestureRecognizerLeft)
+                
+                let playerVars = [ "rel" : 0, "loop" : 1, "playinline" : 1, "autoplay" : 0, "autohide": 1, "showinfo": 1, "modestbranding": 1]
+                //myView.load(withVideoId: "l_NYrWqUR40", playerVars: playerVars)
+                myView.load(withPlaylistId: "PLPCeSm8EDITr2z9Y6tnTrP3ZsWZKDdMYi", playerVars: playerVars)
+            }
+            
+            
         }
 //        if sender.tag == 2 {
 //            caption.text = (String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
@@ -1367,6 +1447,10 @@ final class MediaView: UIView {
         
     }
     
+    @objc func  didSwipe(_ sender: UISwipeGestureRecognizer){
+        print("Swiped")
+    }
+   
     @objc func  textChatBack(_ sender: MediaButton) {
         
         print("text chat back")

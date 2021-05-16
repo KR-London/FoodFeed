@@ -1,12 +1,20 @@
 [
   {
+    "id": 11,
+    "hashtag": "Confidence",
+    "caption": "about being more confident?",
+    "day": 6,
+    "video": "https://youtu.be/l_NYrWqUR40",
+    "type": "Video"
+  },
+  {
     "user": "Guy",
     "id": 0,
     "type": "Text",
     "day": 6,
     "bigtext": "Hiiii",
     "votea": "Hi back at you!",
-    "voteb": "How are you doing? ^answer^ I'm doing great - thanks for asking!",
+    "voteb": "How are you doing? ^answer^ I'm doing great - thanks for asking!"
   },
   {
     "hashtag": "Live feed",
@@ -90,16 +98,8 @@
     "id": 10,
     "hashtag": "Support",
     "day": 6,
-    "caption":  "Who makes you feel more confident?",
+    "caption": "Who makes you feel more confident?",
     "type": "Question"
-  },
-  {
-    "id": 11,
-    "hashtag": "Confidence",
-    "caption": "about being more confident?",
-    "day": 6,
-    "video": "wireflower.MP4",
-    "type": "Video"
   },
   {
     "user": "Guy",
@@ -114,14 +114,14 @@
     "id": 13,
     "type": "Image",
     "day": 6,
-    "image": "map.jpeg"
+    "image": "map"
   },
   {
     "user": "Guy",
     "id": 14,
     "type": "Image",
     "day": 6,
-    "image": "street_sign.jpeg"
+    "image": "streetSign"
   },
   {
     "user": "Guy",
@@ -153,7 +153,7 @@
     "hashtag": "My grandparent's place",
     "type": "Image",
     "day": 6,
-    "image": "bungalow.jpeg"
+    "image": "bungalow"
   },
   {
     "user": "Guy",
@@ -169,7 +169,7 @@
     "hashtag": "'Just so'",
     "type": "Image",
     "day": 6,
-    "image": "doily_and_flowers.jpeg"
+    "image": "doily"
   },
   {
     "user": "Guy",
@@ -182,25 +182,93 @@
   {
     "user": "Guy",
     "id": 22,
-    "hashtag": "'Just so'",
+    "hashtag": "Nana's Guy...",
     "type": "Image",
     "day": 6,
-    "image": "guy.jpeg"
+    "image": "guyBooks"
   },
   {
     "user": "Guy",
     "id": 23,
+    "hashtag": "... real Guy",
+    "type": "Image",
+    "day": 6,
+    "image": "guyphone"
+  },
+  {
+    "user": "Guy",
+    "id": 24,
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
-    "bigtext": "She likes that picture ... but that time I turned up with ripped jeans at her birthday party"
+    "bigtext": "...that time I turned up with ripped jeans at her birthday party!"
   },
   {
-    "id": 24,
+    "id": 25,
     "hashtag": "Mood",
     "type": "Gif",
     "day": 6,
     "image": "exploded_head.gif",
+    "user": "Guy"
+  },
+  {
+    "user": "Guy",
+    "id": 26,
+    "hashtag": "About me",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "... truth is .... "
+  },
+  {
+    "id": 27,
+    "hashtag": "Mood",
+    "type": "Gif",
+    "day": 6,
+    "image": "awkward.gif",
+    "user": "Guy"
+  },
+  {
+    "user": "Guy",
+    "id": 28,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "I feel a bit guilty being here "
+  },
+  {
+    "user": "Guy",
+    "id": 29,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "Not just for being the only messy thing in Grandma's house ... "
+  },
+  {
+    "user": "Guy",
+    "id": 30,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "... but me and Grandpa ... so many memories .... "
+  },
+  {
+    "user": "Guy",
+    "id": 14,
+    "type": "Image",
+    "day": 6,
+    "image": "grandpa"
+  },
+  {
+    "bigtext": "Do you want to see some photos from my camera roll?",
+    "votea": "When Grandpa took me to the beach",
+    "voteb": "When Grandpa and I went fishing",
+    "votec": "When Grandpa taught me to ride a bike",
+    "dunno": "No thanks ",
+    "id": 31,
+    "day": 6,
+    "image": "",
+    "hashtag": "Mood",
+    "type": "Vote",
     "user": "Guy"
   }
 ]
