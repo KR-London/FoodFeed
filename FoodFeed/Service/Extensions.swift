@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SoftUIView
 
 //// Put this piece of code anywhere you like
 //extension UIViewController {
@@ -22,15 +23,51 @@ import UIKit
 //    }
 //}
 
-class MediaButton:UIButton {
+
+/// TODO: When this is subclassed from UI Button ( as per the version in 'main' it works nicely to have buttons popping up periodically to make the app more interactive.
+//// I want the 'look' of these buttons to match the UI slide deck. Plan was to subclass SoftUIView - as per the examples in the documentation of making this like a button - and then add the colour outlines etc. It doesn't work though!!! No button shows up! Help! 
+class MediaButton: SoftUIView {
     var video:String = ""
     var answer:String = ""
+    var titleLabel = UILabel()
     
     convenience init(video: String) {
         self.init()
         self.video = video
         self.answer = answer
-    }}
+    }
+    
+    convenience init() {
+        self.init(frame: .init(x: 100, y: 100, width: 200, height: 200))
+        type = .pushButton
+    }
+    
+    
+    func laurenFormat(position: Int){
+        self.mainColor = UIColor.brown.cgColor
+        self.cornerRadius = 50
+        self.darkShadowColor = UIColor.black.cgColor
+        self.lightShadowColor = UIColor.yellow.cgColor
+        self.shadowOpacity = 0.5
+        self.shadowOffset = .init(width: -6, height: 6)
+        self.shadowRadius = 10
+    }
+    
+    func setTitle(text: String) {
+      //  subtitleView.type = .normal
+   
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = .darkText
+       // titleLabelfont = UIFont.init(name: "AvenirNext-Regular", size: 16)
+        
+        titleLabel.text = text
+        
+        self.setContentView(titleLabel)
+        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    }
+    
+}
 
 
 

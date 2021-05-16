@@ -539,10 +539,10 @@ final class InteractionView: UIView, UITableViewDelegate{
    // var thirdScreenHeight = UIScreen.main.bounds.height / 3
     
     let caption = UILabel()
-    let voteAbutton = UIButton()
-    let voteBbutton = UIButton()
-    let voteCbutton = UIButton()
-    let dunno = UIButton()
+    let voteAbutton = MediaButton(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
+    let voteBbutton = MediaButton(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
+    let voteCbutton = MediaButton(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
+    let dunno = MediaButton(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
@@ -628,7 +628,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         ///TODO: May 5th Add a title feeding from hashtag
         
      
-        dunno.setTitle("Don't know", for: .normal)
+        dunno.setTitle(text: "Don't know")
         dunno.backgroundColor = .blue
         
     buttonStack.addArrangedSubview(voteAbutton)
@@ -658,7 +658,7 @@ final class InteractionView: UIView, UITableViewDelegate{
       //  voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
        // voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         voteAbutton.backgroundColor = .blue
-        voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteAbutton.titleLabel.lineBreakMode = .byWordWrapping
         voteAbutton.tag = 0
         voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
@@ -674,21 +674,26 @@ final class InteractionView: UIView, UITableViewDelegate{
        // voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
        // voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         voteBbutton.backgroundColor = .blue
-        voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteBbutton.titleLabel.lineBreakMode = .byWordWrapping
         voteBbutton.tag = 1
         voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
         voteCbutton.backgroundColor = .blue
-        voteCbutton.titleLabel?.lineBreakMode = .byWordWrapping
+        voteCbutton.titleLabel.lineBreakMode = .byWordWrapping
         voteCbutton.tag = 2
         voteCbutton.isUserInteractionEnabled = true
         voteCbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
-        dunno.titleLabel?.lineBreakMode = .byWordWrapping
+        dunno.titleLabel.lineBreakMode = .byWordWrapping
         dunno.tag = 3
         dunno.isUserInteractionEnabled = true
         dunno.addTarget(self, action: #selector(voted), for: .touchUpInside)
+        
+        voteAbutton.laurenFormat(position: 1)
+        voteAbutton.laurenFormat(position: 2)
+        voteAbutton.laurenFormat(position: 3)
+        voteAbutton.laurenFormat(position: 0)
         
         descriptiveLabel = UILabel(frame: CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/4 + 25, width: widthLayoutUnit, height: heightLayoutUnit/4))
         let subtitleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
@@ -860,9 +865,9 @@ final class InteractionView: UIView, UITableViewDelegate{
         switch state {
             case .poll(let captionText, let votea, let voteb, let votec):
                 caption.text = captionText
-                voteAbutton.setTitle(votea, for: .normal)
-                voteBbutton.setTitle(voteb, for: .normal)
-                voteCbutton.setTitle(votec, for: .normal)
+                voteAbutton.setTitle(text: votea)
+                voteBbutton.setTitle(text: voteb)
+                voteCbutton.setTitle(text: votec)
                // voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
                 commentsDriver?.stop()
@@ -1117,8 +1122,8 @@ final class MediaView: UIView {
        
         stack.isUserInteractionEnabled = true
         self.addSubview(stack)
-        yesButton.setTitle("Yes", for: .normal)
-        noButton.setTitle("No", for: .normal)
+        yesButton.setTitle(text: "Yes")
+        noButton.setTitle(text: "No")
         yesButton.backgroundColor = .option1
         noButton.backgroundColor = .option3
 
@@ -1239,8 +1244,8 @@ final class MediaView: UIView {
                     let voteBQ = voteb?.components(separatedBy: "^answer^").first ?? ""
                     let voteBA = voteb?.components(separatedBy: "^answer^").dropFirst().first ?? ""
                     
-                    yesButton.setTitle(votea, for: .normal)
-                    noButton.setTitle(String(voteBQ), for: .normal)
+                    yesButton.setTitle(text: votea!)
+                    noButton.setTitle(text: String(voteBQ))
                     
                     noButton.answer = String(voteBA)
                     
