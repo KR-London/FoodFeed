@@ -1388,6 +1388,13 @@ final class MediaView: UIView {
             
         }
         if sender.tag == 1 {
+            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+                         NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
+                         NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+            ]
+            let bigTextStyled = NSAttributedString(string: "This should automatically advance but it is not working yet ", attributes: attrs)
+            label.attributedText = bigTextStyled
+            noButton.isHidden = true
             /// load next screen?
         }
         //        if sender.tag == 2 {
