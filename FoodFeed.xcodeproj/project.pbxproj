@@ -23,7 +23,10 @@
 		446540972606110A004B202B /* bot3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 446540912606110A004B202B /* bot3.jpeg */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
 		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
-		446CAE8626513B3000F9081D /* YTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CAE8526513B3000F9081D /* YTViewController.swift */; };
+		446CAE9826517B5300F9081D /* credits .swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CAE9726517B5300F9081D /* credits .swift */; };
+		446CAEA526517BE200F9081D /* lowiron.gif in Resources */ = {isa = PBXBuildFile; fileRef = 446CAEA426517BE200F9081D /* lowiron.gif */; };
+		446CAEAA26517D3000F9081D /* awkward.gif in Resources */ = {isa = PBXBuildFile; fileRef = 446CAEA926517D3000F9081D /* awkward.gif */; };
+		446CAEAF26517E3B00F9081D /* exploded_head.gif in Resources */ = {isa = PBXBuildFile; fileRef = 446CAEAE26517E3B00F9081D /* exploded_head.gif */; };
 		446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CDCC725CA910A0028B799 /* newCharacterViewController.swift */; };
 		446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CF03325FF9A470039C9A4 /* HardcodedData.swift */; };
 		446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */; };
@@ -185,7 +188,10 @@
 		446540912606110A004B202B /* bot3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot3.jpeg; sourceTree = "<group>"; };
 		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
-		446CAE8526513B3000F9081D /* YTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTViewController.swift; sourceTree = "<group>"; };
+		446CAE9726517B5300F9081D /* credits .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "credits .swift"; sourceTree = "<group>"; };
+		446CAEA426517BE200F9081D /* lowiron.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lowiron.gif; sourceTree = "<group>"; };
+		446CAEA926517D3000F9081D /* awkward.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = awkward.gif; sourceTree = "<group>"; };
+		446CAEAE26517E3B00F9081D /* exploded_head.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = exploded_head.gif; sourceTree = "<group>"; };
 		446CDCC725CA910A0028B799 /* newCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCharacterViewController.swift; sourceTree = "<group>"; };
 		446CF03325FF9A470039C9A4 /* HardcodedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedData.swift; sourceTree = "<group>"; };
 		446CF03825FFACEB0039C9A4 /* profileCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCreatorViewController.swift; sourceTree = "<group>"; };
@@ -663,8 +669,11 @@
 		44E768F0264ABC7C00AD75FE /* Day6  */ = {
 			isa = PBXGroup;
 			children = (
+				446CAEAE26517E3B00F9081D /* exploded_head.gif */,
+				446CAEA926517D3000F9081D /* awkward.gif */,
 				44E768F6264ABD6800AD75FE /* fed_up.gif */,
 				44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */,
+				446CAEA426517BE200F9081D /* lowiron.gif */,
 			);
 			path = "Day6 ";
 			sourceTree = "<group>";
@@ -733,11 +742,11 @@
 				44D66C7C2533700A00C81C41 /* View */,
 				44C3DF052520DEF400D317DA /* Util */,
 				65D07A2924F816C2004CA3E9 /* Main.storyboard */,
-				446CAE8526513B3000F9081D /* YTViewController.swift */,
 				44B32ED0261106AA0030C88C /* uiTestViewController.swift */,
 				4473EDA7260251E400CFF919 /* Onboarding */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
 				44386698261F625500507975 /* 200-9.gif */,
+				446CAE9726517B5300F9081D /* credits .swift */,
 				44E768EF264ABC7600AD75FE /* Gifs  */,
 				4471EB7F261A045A00D23E01 /* Assets_for_prototype */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
@@ -908,6 +917,7 @@
 				4471EC08261A045A00D23E01 /* wireflower.MP4 in Resources */,
 				4471EBEF261A045A00D23E01 /* v09044bd0000brogfeop685g27h318ig.mp4 in Resources */,
 				4471EBF7261A045A00D23E01 /* v09044140000bteecr019l167crjal30.mp4 in Resources */,
+				446CAEA526517BE200F9081D /* lowiron.gif in Resources */,
 				4471EBDF261A045A00D23E01 /* v07044a00000bu8aiu1u0so8eg4kba40.mp4 in Resources */,
 				44A813202583926D00685A0E /* 07891284.ttf in Resources */,
 				4471EC0C261A045A00D23E01 /* b64b89583face87797ef353effc4512cadbe5f53_00.gif in Resources */,
@@ -975,6 +985,8 @@
 				65D07A2B24F816C2004CA3E9 /* Main.storyboard in Resources */,
 				44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */,
 				4471EC03261A045A00D23E01 /* v09044aa0000bqbh3q3ucagpg9houai0.mp4 in Resources */,
+				446CAEAA26517D3000F9081D /* awkward.gif in Resources */,
+				446CAEAF26517E3B00F9081D /* exploded_head.gif in Resources */,
 				4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1130,7 +1142,6 @@
 				44C3DED32520C3AE00D317DA /* FeedFetchService.swift in Sources */,
 				44A766DF2608A1BC00EBC9AD /* testViewController.swift in Sources */,
 				446540672604B7E5004B202B /* chatBubbleView.swift in Sources */,
-				446CAE8626513B3000F9081D /* YTViewController.swift in Sources */,
 				44C3DF0E2520DEF400D317DA /* HTTPRequest.swift in Sources */,
 				44C3DF0D2520DEF400D317DA /* InteractionUtil.swift in Sources */,
 				6536A648256185B3006D7297 /* Post.swift in Sources */,
@@ -1139,6 +1150,7 @@
 				446540772605F107004B202B /* softCommentTableViewCell.swift in Sources */,
 				44C3DF0F2520DEF400D317DA /* HTTPError.swift in Sources */,
 				446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */,
+				446CAE9826517B5300F9081D /* credits .swift in Sources */,
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,
 				44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */,
 			);
@@ -1322,6 +1334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1345,6 +1358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

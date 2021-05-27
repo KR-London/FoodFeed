@@ -15,7 +15,7 @@ class chatBubbleView: UIView {
     //var width = 100.0
     
     var bigText = "Tips for trying new foods?"
-    let label = UILabel()
+    var label = UILabel()
     
     var mainViewController: profileCardViewController?
    

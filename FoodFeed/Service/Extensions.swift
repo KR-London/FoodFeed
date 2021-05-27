@@ -30,7 +30,8 @@ class MediaButton:UIButton {
         self.init()
         self.video = video
         self.answer = answer
-    }}
+    }
+}
 
 
 

@@ -541,9 +541,9 @@ final class InteractionView: UIView, UITableViewDelegate{
    // var thirdScreenHeight = UIScreen.main.bounds.height / 3
     
     let caption = UILabel()
-    let voteAbutton = UIButton()
-    let voteBbutton = UIButton()
-    let voteCbutton = UIButton()
+    let voteAbutton = MediaButton()
+    let voteBbutton = MediaButton()
+    let voteCbutton = MediaButton()
     let dunno = UIButton()
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
@@ -697,6 +697,8 @@ final class InteractionView: UIView, UITableViewDelegate{
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 18)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
+        
+
         
         let subtitleStyled = NSAttributedString(string: "Question:", attributes: subtitleAttrs)
         descriptiveLabel.attributedText = subtitleStyled
@@ -862,9 +864,25 @@ final class InteractionView: UIView, UITableViewDelegate{
         switch state {
             case .poll(let captionText, let votea, let voteb, let votec):
                 caption.text = captionText
-                voteAbutton.setTitle(votea, for: .normal)
-                voteBbutton.setTitle(voteb, for: .normal)
-                voteCbutton.setTitle(votec, for: .normal)
+                
+                
+                let voteAQ = votea.components(separatedBy: "^answer^").first ?? ""
+                let voteBQ = voteb.components(separatedBy: "^answer^").first ?? ""
+                let voteCQ = votec.components(separatedBy: "^answer^").first ?? ""
+               // let voteDQ = voteb?.components(separatedBy: "^answer^").dropFirst().first ?? ""
+            
+                let voteAA = votea.components(separatedBy: "^answer^").dropFirst().first ?? ""
+                let voteBA = voteb.components(separatedBy: "^answer^").dropFirst().first ?? ""
+                let voteCA = votec.components(separatedBy: "^answer^").dropFirst().first ?? ""
+                
+                voteAbutton.answer = voteAA
+                voteBbutton.answer = voteBA
+                voteCbutton.answer = voteCA
+                
+                
+                voteAbutton.setTitle(voteAQ, for: .normal)
+                voteBbutton.setTitle(voteBQ, for: .normal)
+                voteCbutton.setTitle(voteCQ, for: .normal)
                // voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
                 commentsDriver?.stop()
@@ -902,19 +920,34 @@ final class InteractionView: UIView, UITableViewDelegate{
         if let say = caption.text
         {
             commentsDriver?.currentCaption = say
-//            utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
-//            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-//            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-//            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-//            utterance.voice =  language.first!!
-//            synthesizer.speak(utterance)
+            utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
+            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+            utterance.voice =  language.first!!
+           // synthesizer.speak(utterance)
         }
     }
     
-    @objc func voted(_ sender: UIButton) {
+    @objc func voted(_ sender: MediaButton) {
         print("button Pressed")
         if sender.tag == 0 {
-            sayCard.label.text = "Yes - exactly like that!"
+            
+            
+            
+            if sender.answer != ""
+            {
+                if sender.answer.contains("^photo^") == true {
+                    
+                }
+                else{
+                    sayCard.label.text = sender.answer
+                }
+            }
+            else
+            {
+            sayCard.label.text =  "Yes - exactly like that!"
+            }
             //(String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
             // caption.reloadInputViews()
             voteBbutton.isHidden = true
@@ -922,21 +955,45 @@ final class InteractionView: UIView, UITableViewDelegate{
             dunno.isHidden = true
         }
         if sender.tag == 1 {
+            if sender.answer != ""
+            {
+                if sender.answer.contains("^photo^") == true {
+                    
+                }
+                else{
+                    sayCard.label.text = sender.answer
+                }
+            }
+            else
+            {
             sayCard.label.text = "Yes - exactly like that!"
+            }
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteCbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 2 {
+            if sender.answer != ""
+            {
+                if sender.answer.contains("^photo^") == true {
+                    
+                }
+                else{
+                    sayCard.label.text = sender.answer
+                }
+            }
+            else
+            {
             sayCard.label.text = "Yes - exactly like that!"
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
+            }
             voteAbutton.isHidden = true
             voteBbutton.isHidden = true
             dunno.isHidden = true
         }
         if sender.tag == 3 {
-            sayCard.label.text = "It feels lousy \(botUser.human.name), it feels LOUSY."
+            sayCard.label.text = "Mmm hmm"
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isHidden = true
             voteBbutton.isHidden = true
@@ -951,7 +1008,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             //utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-            synthesizer.speak(utterance)
+            //synthesizer.speak(utterance)
         }
 
         //caption.isHidden = true
@@ -1063,7 +1120,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     let label = UILabel()
     let caption = UILabel()
     var player : AVPlayer?
-    var labelCard = SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
+    var labelCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: botUser.guy)
+    //SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
     let stack = UIStackView()
     
     let yesButton = MediaButton()
@@ -1109,9 +1167,10 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         let yCoord = (screenRect.size.height - widthLayoutUnit)/2
      
         
-        labelCard = SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
+        labelCard = chatBubbleView(frame:  CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit), user: botUser.guy)
+            //SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
         label.frame = CGRect(x: 0, y: 0, width: widthLayoutUnit, height: widthLayoutUnit)
-        labelCard.setContentView(label)
+        labelCard.addSubview(label)
         self.addSubview(labelCard)
         
         yesButton.isHidden = true
@@ -1176,8 +1235,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         caption.numberOfLines = 0
         caption.backgroundColor =  .postBackground
         caption.textAlignment = .center
-        caption.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 24)
-        
+        caption.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
+        caption.textColor = .textTint
+       
         self.bringSubviewToFront(stack)
  
     }
@@ -1192,14 +1252,15 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 label.isHidden = true
                 videoController.view.isHidden = true
                 labelCard.isHidden = true
-                caption.isHidden = true
-//                if captionText == "" {
-//                    caption.isHidden = true
-//
-//                }
-//                else{
-//                    caption.text = captionText
-//                }
+                
+                if captionText == "" {
+                    caption.isHidden = true
+
+                }
+                else{
+                    caption.isHidden = false
+                    caption.text = captionText
+                }
             case .stillImage(let image, let captionText):
                 imageView.image = image
                 backgroundColor = .clear
@@ -1209,12 +1270,14 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 
                 if captionText == "" {
                     caption.isHidden = true
-                    
+
                 } //TO DO: fix the concept clash between caption and hashtag
                 else{
+                    caption.isHidden = false
                     caption.text = captionText
                 }
 
+             //   pageTitleHashtag.text = captionText
                 
                 
                 
@@ -1516,7 +1579,7 @@ class PostViewController: UIViewController {
 
 extension PostView.State {
     static let mock: Self = PostView.State(
-       // tag: Model.Tag(rawValue: "#this is tag"),
+        //tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
         media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" , votea: "", voteb: ""),
         interaction: InteractionView.State()

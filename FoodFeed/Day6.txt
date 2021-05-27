@@ -59,9 +59,9 @@
   },
   {
     "bigtext": "How does my tummy feel?",
-    "votea": "Like a hurricane in a teacup",
-    "voteb": "Like a seasick chicken?",
-    "votec": "Like a sad bowling ball?",
+    "votea": "Like a hurricane in a teacup ^answer^ Yes - churning. ",
+    "voteb": "Like a seasick chicken? ^answer^ Yes - queasy. ",
+    "votec": "Like a sad bowling ball? ^answer^ Yes - like I just want to roll away ",
     "dunno": "How on earth do I know how your tummy feels?",
     "id": 6,
     "day": 6,
@@ -113,12 +113,14 @@
     "user": "Guy",
     "id": 13,
     "type": "Image",
+      "hashtag": "Live Feed",
     "day": 6,
     "image": "map"
   },
   {
     "user": "Guy",
     "id": 14,
+      "hashtag": "Live Feed",
     "type": "Image",
     "day": 6,
     "image": "streetSign"
@@ -129,7 +131,9 @@
     "hashtag": "Live Feed",
     "type": "Text",
     "day": 6,
-    "bigtext": "This is where my grandparents live! Wow!"
+    "bigtext": "This is where my grandparents live!",
+     "votea": "Wow!",
+    "voteb": "Did you mean to visit them? ^answer^ No - I was just walking and thinking!"
   },
   {
     "user": "Guy",
@@ -150,14 +154,6 @@
   {
     "user": "Guy",
     "id": 18,
-    "hashtag": "My grandparent's place",
-    "type": "Image",
-    "day": 6,
-    "image": "bungalow"
-  },
-  {
-    "user": "Guy",
-    "id": 19,
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
@@ -165,15 +161,16 @@
   },
   {
     "user": "Guy",
-    "id": 20,
-    "hashtag": "'Just so'",
+    "id": 19,
+    "hashtag": "Just so",
+     "caption": "Just so",
     "type": "Image",
     "day": 6,
     "image": "doily"
   },
   {
     "user": "Guy",
-    "id": 21,
+    "id": 20,
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
@@ -181,55 +178,57 @@
   },
   {
     "user": "Guy",
-    "id": 22,
+    "id": 21,
     "hashtag": "Nana's Guy...",
+    "caption": "Nana's Guy...",
     "type": "Image",
     "day": 6,
     "image": "guyBooks"
   },
   {
     "user": "Guy",
-    "id": 23,
+    "id": 22,
     "hashtag": "... real Guy",
+    "caption": "... real Guy",
     "type": "Image",
     "day": 6,
     "image": "guyphone"
   },
   {
     "user": "Guy",
-    "id": 24,
+    "id": 23,
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
-    "bigtext": "...that time I turned up with ripped jeans at her birthday party!"
+    "bigtext": "...that time I turned up with ripped jeans!"
   },
   {
-    "id": 25,
+    "id": 24,
     "hashtag": "Mood",
     "type": "Gif",
     "day": 6,
-    "image": "exploded_head.gif",
+    "gif": "exploded_head.gif",
     "user": "Guy"
   },
   {
     "user": "Guy",
-    "id": 26,
+    "id": 25,
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
     "bigtext": "... truth is .... "
   },
   {
-    "id": 27,
+    "id": 26,
     "hashtag": "Mood",
     "type": "Gif",
     "day": 6,
-    "image": "awkward.gif",
+    "gif": "awkward.gif",
     "user": "Guy"
   },
   {
     "user": "Guy",
-    "id": 28,
+    "id": 27,
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
@@ -237,15 +236,15 @@
   },
   {
     "user": "Guy",
-    "id": 29,
+    "id": 28,
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "Not just for being the only messy thing in Grandma's house ... "
+    "bigtext": "Not just Grandma  ... "
   },
   {
     "user": "Guy",
-    "id": 30,
+    "id": 29,
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
@@ -253,22 +252,135 @@
   },
   {
     "user": "Guy",
-    "id": 14,
+    "id": 30,
     "type": "Image",
     "day": 6,
     "image": "grandpa"
   },
   {
     "bigtext": "Do you want to see some photos from my camera roll?",
-    "votea": "When Grandpa took me to the beach",
-    "voteb": "When Grandpa and I went fishing",
-    "votec": "When Grandpa taught me to ride a bike",
-    "dunno": "No thanks ",
+    "votea": "When Grandpa took me to the beach ^answer^ <photo beach goes here> ",
+    "voteb": "When Grandpa and I went fishing ^answer^ <photo beach goes here> ",
+    "votec": "When Grandpa taught me to ride a bike ^answer^ <photo beach goes here> ",
+    "dunno": "No thanks ^answer^ OK",
     "id": 31,
     "day": 6,
     "image": "",
     "hashtag": "Mood",
     "type": "Vote",
     "user": "Guy"
+  },
+  {
+    "user": "Guy",
+    "id": 32,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "... it feels like a long time ago now ... "
+  },
+  {
+    "user": "Guy",
+    "id": 33,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": ".. he doesn't want to go anywhere any more.. "
+  },
+  {
+    "user": "Guy",
+    "id": 34,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "... he just sits around kind of sad...."
+  },
+  {
+    "id": 35,
+    "hashtag": "My grandparent's place",
+    "type": "Image",
+    "day": 6,
+    "image": "bungalow",
+    "user": "Guy"
+  },
+  {
+    "user": "Guy",
+    "id": 36,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "I'm going in. They'll be happy to see me"
+  },
+  {
+    "user": "Guy",
+    "id": 37,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "Maybe they will make me feel better about going to Frank's party."
+  },
+  {
+    "user": "Guy",
+    "id": 38,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "... or maybe Grandma will tell me I'm too skinny... "
+  },
+  {
+    "user": "Guy",
+    "id": 39,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "... or maybe Grandma will peer into my eye and tell me I have low iron... "
+  },
+  {
+    "id": 40,
+    "hashtag": "Low iron ?!?",
+    "caption": "Low iron ?!?",
+    "type": "Gif",
+    "day": 6,
+    "gif": "lowiron.gif",
+    "user": "Guy"
+  },
+  {
+    "user": "Guy",
+    "id": 41,
+    "hashtag": "Reclaim healthy",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "Phew - Grandpa told her to give me a break. "
+  },
+  {
+    "user": "Guy",
+    "id": 42,
+      "hashtag": "Reclaim healthy",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "I am healthy. There is more than one way to be healthy. "
+  },
+  {
+    "user": "Guy",
+    "id": 43,
+      "hashtag": "Reclaim healthy",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "It wouldn't be very polite if I commented on Grandma's weight!"
+  },
+  {
+    "user": "Guy",
+    "id": 44,
+    "hashtag": "Family",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "I'm going to ask Grandpa to tell me his stories... "
+  },
+  {
+    "user": "Guy",
+    "id": 45,
+    "hashtag": "Stop here",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "End of Day"
   }
 ]

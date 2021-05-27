@@ -106,6 +106,9 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         guard let indexedFeed = presenter.fetchNextFeed() else {
             return nil
         }
+        
+        //if indexedFeed.index = indexedFeed.
+        
         return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
     }
     
