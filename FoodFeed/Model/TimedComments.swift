@@ -18,6 +18,11 @@ struct User{
     let name: String
     let profilePic: UIImage?
     let personalQualities : [ String]?
+    
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.name == rhs.name 
+    }
+    
 }
 
 
@@ -80,8 +85,7 @@ protocol CommentProviderDelegate {
     func didUpdate(comments: [Comment])
 }
 
-protocol CommentProvider
-{
+protocol CommentProvider {
     func comments(for id: Int) -> [Comment]
     var delegate: CommentProviderDelegate? { get set }
     var didUpdateComments: (([Comment]) -> Void)? { get set }

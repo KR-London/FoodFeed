@@ -40,57 +40,80 @@ class chatBubbleView: UIView {
     
     func setup(user: User?, frame: CGRect){
         
-        let softUIView = SoftUIView(frame: .init(x: 0 , y: 0, width: frame.width, height: frame.height ))
-        addSubview(softUIView)
+        if user ?? botUser.fred == botUser.human {
+           var softUIView = SoftUIView(frame: .init(x: -frame.width/24 , y: 0, width: (5/6)*frame.width, height: frame.height ))
+            softUIView.backgroundColor = .purple
+            addSubview(softUIView)
+            
+            softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
+            
+            label.textAlignment = .center
+            addSubview(label)
+            label.textColor = .textTint
+            label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            label.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                label.topAnchor.constraint(equalTo: softUIView.topAnchor),
+                label.heightAnchor.constraint(equalToConstant: frame.height),
+                label.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: 5),
+                label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -5)
+            ])
+            
+            let profilePicture = UIImageView()
+            profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+            addSubview(profilePicture)
+            profilePicture.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+                profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+                profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
+                profilePicture.leadingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -frame.width/24)
+            ])
+            profilePicture.contentMode = .scaleAspectFill
+            profilePicture.layer.cornerRadius = 10
+            profilePicture.clipsToBounds = true
+            
+        }
+        else{
+            let softUIView = SoftUIView(frame: .init(x: frame.width/6 , y: 0, width: (5/6)*frame.width, height: frame.height ))
+            addSubview(softUIView)
+            
+            softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
+
+            label.textAlignment = .center
+            addSubview(label)
+            label.textColor = .textTint
+            label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            label.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                label.topAnchor.constraint(equalTo: softUIView.topAnchor),
+                label.heightAnchor.constraint(equalToConstant: frame.height),
+                label.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: 5),
+                label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -5)
+            ])
         
-        softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
-        
-       
-        
-       
-        label.textAlignment = .center
-//        let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
-//                     NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-//                     NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-//        ]
-//
-//        let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
-//        label.attributedText = bigTextStyled
-        addSubview(label)
-      //  label.font = UIFont( frog
-        label.textColor = .textTint
-        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: softUIView.topAnchor),
-            label.heightAnchor.constraint(equalToConstant: frame.height),
-            label.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: 5),
-            label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -frame.width/4)
-        ])
-    
-//
-        
-        let profilePicture = UIImageView()
-        profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
-        addSubview(profilePicture)
-        profilePicture.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6 ),
-            profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6),
-            profilePicture.topAnchor.constraint(equalTo: softUIView.topAnchor, constant: 10),
-            profilePicture.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -10)
-        ])
-        profilePicture.contentMode = .scaleAspectFill
-        profilePicture.layer.cornerRadius = frame.width/12
-        profilePicture.clipsToBounds = true
+            let profilePicture = UIImageView()
+            profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+            addSubview(profilePicture)
+            profilePicture.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+                profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+                profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
+                profilePicture.trailingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: -frame.width/24)
+            ])
+            profilePicture.contentMode = .scaleAspectFill
+            profilePicture.layer.cornerRadius = 10
+            profilePicture.clipsToBounds = true
+        }
     }
     
     @objc func cardTapped(){
-        //mainViewController?.dismiss(animated: true, completion: nil)
         print("card Tapped")
     }
 }
-    
 

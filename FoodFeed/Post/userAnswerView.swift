@@ -37,7 +37,7 @@ class userAnswerView: UIView {
     func setup(user: User?, frame: CGRect){
         let humanPicDimensionUnit = frame.width*dimensionMultiplier
         
-        let softUIView = SoftUIView(frame: .init(x: humanPicDimensionUnit , y: frame.height/4, width: frame.width - humanPicDimensionUnit , height: frame.height/2))
+        let softUIView = SoftUIView(frame: .init(x: 0 , y: frame.height/4, width: frame.width - humanPicDimensionUnit , height: frame.height/2))
         addSubview(softUIView)
         
         softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
@@ -48,8 +48,8 @@ class userAnswerView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         
-        let softUIImageView = SoftUIView(frame: .init(x: 0 , y: frame.height/2 - humanPicDimensionUnit/2, width: humanPicDimensionUnit, height: humanPicDimensionUnit))
-        softUIImageView.cornerRadius = humanPicDimensionUnit/2
+        let softUIImageView = SoftUIView(frame: .init(x: frame.width - humanPicDimensionUnit , y: frame.height/2 - humanPicDimensionUnit/2, width: humanPicDimensionUnit, height: humanPicDimensionUnit))
+        softUIImageView.cornerRadius = 10
         addSubview(softUIImageView)
         
         let profilePicture = UIImageView()
@@ -63,7 +63,7 @@ class userAnswerView: UIView {
             profilePicture.leadingAnchor.constraint(equalTo: softUIImageView.leadingAnchor)
         ])
         profilePicture.contentMode = .scaleAspectFill
-        profilePicture.layer.cornerRadius = humanPicDimensionUnit/2
+        profilePicture.layer.cornerRadius = 10
         profilePicture.clipsToBounds = true
     }
     

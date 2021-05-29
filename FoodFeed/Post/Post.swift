@@ -560,6 +560,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     /// scaffolding for the comments feed
     static let reuseID = "CELL"
     let commentsView = commentTableViewController().view! as! UITableView
+    var scrollContainer = UIScrollView()
     var commentsDriver : TimedComments?
     var comments: [Comment] = []
     var commentButton = UIButton()
@@ -704,10 +705,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         descriptiveLabel.attributedText = subtitleStyled
         self.addSubview(descriptiveLabel)
         
-        sayCard = chatBubbleView(frame:  CGRect(x: 20, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.guy)
+        sayCard = chatBubbleView(frame:  CGRect(x: 40, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit - 20, height: heightLayoutUnit), user: botUser.guy)
         self.addSubview(sayCard)
         
-        userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.human)
+        userAnswerCard = userAnswerView(frame:  CGRect(x: 40, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit - 20, height: heightLayoutUnit), user: botUser.human)
         self.addSubview(userAnswerCard)
         
 //        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
@@ -759,21 +760,24 @@ final class InteractionView: UIView, UITableViewDelegate{
 //            //botUser.human.profilePic
 //
 //
+        self.addSubview(scrollContainer)
+        scrollContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
+        scrollContainer.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
+        scrollContainer.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        scrollContainer.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        scrollContainer.backgroundColor = .green
+        scrollContainer.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2000)
+        
         setUpCommentsView()
+        
         commentsView.backgroundColor = .clear
-        commentsView.translatesAutoresizingMaskIntoConstraints = false
-      //  commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
-        commentsView.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
-        //let topConstraint = commentsView.topAnchor.constraint(equalTo: answerInput.bottomAnchor, constant: 50)
-       // topConstraint.priority = UILayoutPriority(rawValue: 700)
-       // topConstraint.isActive = true
-        //  heightAnchor.constraint(equalTo: margins.heightAnchor, multiplier: 0.3)
-        //commentsView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        //commentsView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        // commentsView.widthAnchor.constraint(equalToConstant: 240).isActive = true
-        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+//        commentsView.translatesAutoresizingMaskIntoConstraints = false
+//        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
+//        commentsView.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
+//        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+//        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+       
 //
 //        bringSubviewToFront(answerInput)
 //        bringSubviewToFront(humanAvatar)
@@ -798,9 +802,17 @@ final class InteractionView: UIView, UITableViewDelegate{
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
     func setUpCommentsView(){
+      
+//        let scrollPlaceholder = UIScrollView()
+//        scrollPlaceholder.addSubview(commentsView)
+        scrollContainer.addSubview(commentsView)
         
+        commentsView.translatesAutoresizingMaskIntoConstraints = false
+        commentsView.topAnchor.constraint(equalTo: scrollContainer.topAnchor).isActive = true
+        commentsView.heightAnchor.constraint(equalTo: scrollContainer.heightAnchor).isActive = true
+        commentsView.widthAnchor.constraint(equalTo: scrollContainer.widthAnchor).isActive = true
+        commentsView.centerXAnchor.constraint(equalTo: scrollContainer.centerXAnchor).isActive = true
         
-        self.addSubview(commentsView)
         commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
         
 //        commentsDriver?.didUpdateComments =
@@ -1035,7 +1047,9 @@ extension InteractionView: UITableViewDataSource{
         //cell.awakeFromNib()
         cell.backgroundColor = UIColor.clear
         cell.indentationLevel = 2
-        if indexPath.row < comments.count {
+        let botAnswerView = chatBubbleView(frame: CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/4, width: self.frame.width - 40, height: heightLayoutUnit), user:comments.last!.user)
+        
+        if indexPath.row < comments.count  {
          //   cell.comment.text = comments[comments.count - indexPath.row - 1].comment
           //  cell.avatarView.imageView.image = comments[comments.count - indexPath.row - 1].avatar
             //[#imageLiteral(resourceName: "bot1.jpeg") ,#imageLiteral(resourceName: "bot2.jpeg") ,#imageLiteral(resourceName: "bot3.jpeg") , #imageLiteral(resourceName: "bot4.jpeg")].randomElement()
@@ -1047,13 +1061,17 @@ extension InteractionView: UITableViewDataSource{
            // let bot = [botUser.emery, botUser.fred, botUser.tony]
             //let comment = comments.last!.avatar
             
-            let botAnswerView = chatBubbleView(frame: CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/4, width: self.frame.width - 40, height: heightLayoutUnit), user:comments.last!.user)
+ 
         //    botAnswerView.bigText = "Wash it down with a big glass of water"
-            
-            
+//
+//            self.willRemoveSubview(self.subviews.last!)
+//
+//            for subviews in self.subviews{
+//                if sub
+//            }
+//
             botAnswerView.label.text = comments.last!.comment
             botAnswerView.reloadInputViews()
-            
             self.addSubview(botAnswerView)
             
         }
@@ -1167,9 +1185,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         let yCoord = (screenRect.size.height - widthLayoutUnit)/2
      
         
-        labelCard = chatBubbleView(frame:  CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit), user: botUser.guy)
+        labelCard = chatBubbleView(frame:  CGRect(x: (1/6)*widthLayoutUnit, y: yCoord, width: widthLayoutUnit, height: 0.67*widthLayoutUnit), user: botUser.guy)
             //SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
-        label.frame = CGRect(x: 0, y: 0, width: widthLayoutUnit, height: widthLayoutUnit)
+        label.frame = CGRect(x: frame.width/6 + (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
         labelCard.addSubview(label)
         self.addSubview(labelCard)
         
@@ -1198,12 +1216,13 @@ final class MediaView: UIView, YTPlayerViewDelegate {
        // stack.spacing = 50.0
         
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        stack.topAnchor.constraint(equalTo: labelCard.bottomAnchor, constant: 50).isActive = true
+      //  stack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+      //  stack.topAnchor.constraint(equalTo: labelCard.bottomAnchor, constant: 50).isActive = true
+        stack.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
         stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
-        stack.widthAnchor.constraint(equalTo: labelCard.widthAnchor).isActive = true
-        
-       
+       // stack.widthAnchor.constraint(equalTo: labelCard.widthAnchor).isActive = true
+        stack.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
+        stack.heightAnchor.constraint(equalToConstant: 0.4*widthLayoutUnit).isActive = true
        
        // labelCard.translatesAutoresizingMaskIntoConstraints = false
        // labelCard.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
