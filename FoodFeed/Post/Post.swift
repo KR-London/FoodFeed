@@ -559,7 +559,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     /// scaffolding for the comments feed
     static let reuseID = "CELL"
-    let commentsView = commentTableViewController().view! as! UITableView
+    var commentsView : chatBubbleView
+        ///commentTableViewController().view! as! UITableView
     var scrollContainer = UIScrollView()
     var commentsDriver : TimedComments?
     var comments: [Comment] = []
@@ -569,7 +570,14 @@ final class InteractionView: UIView, UITableViewDelegate{
     var utterance = AVSpeechUtterance()
     
     override init(frame: CGRect) {
+        let screenRect = UIScreen.main.bounds
+        let widthLayoutUnit = screenRect.size.width - 40
+        heightLayoutUnit = 0.9*(screenRect.size.width / 3)
+        thirdScreenHeight = screenRect.size.height / 3
+        commentsView =  chatBubbleView(frame:  CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 - 10 , width: widthLayoutUnit - 20, height: heightLayoutUnit), user: nil)
+            //chatBubbleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
         super.init(frame: frame)
+        
 //        switch feed.state {
 //            case .question(let captionText):
 //                setup()
@@ -580,7 +588,9 @@ final class InteractionView: UIView, UITableViewDelegate{
 }
     
     required init?(coder: NSCoder) {
+        commentsView = chatBubbleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
         super.init(coder: coder)
+       
    
 //
 //        switch feed.state {
@@ -805,15 +815,15 @@ final class InteractionView: UIView, UITableViewDelegate{
       
 //        let scrollPlaceholder = UIScrollView()
 //        scrollPlaceholder.addSubview(commentsView)
-        scrollContainer.addSubview(commentsView)
-        
-        commentsView.translatesAutoresizingMaskIntoConstraints = false
-        commentsView.topAnchor.constraint(equalTo: scrollContainer.topAnchor).isActive = true
-        commentsView.heightAnchor.constraint(equalTo: scrollContainer.heightAnchor).isActive = true
-        commentsView.widthAnchor.constraint(equalTo: scrollContainer.widthAnchor).isActive = true
-        commentsView.centerXAnchor.constraint(equalTo: scrollContainer.centerXAnchor).isActive = true
-        
-        commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
+       // scrollContainer.addSubview(commentsView)
+//        commentsView = chatBubbleView(frame: scrollContainer.frame, user: nil)
+       // commentsView.translatesAutoresizingMaskIntoConstraints = false
+      //  commentsView.topAnchor.constraint(equalTo: scrollContainer.topAnchor).isActive = true
+     //   commentsView.heightAnchor.constraint(equalTo: scrollContainer.heightAnchor).isActive = true
+     //   commentsView.widthAnchor.constraint(equalTo: scrollContainer.widthAnchor).isActive = true
+     //   commentsView.centerXAnchor.constraint(equalTo: scrollContainer.centerXAnchor).isActive = true
+        self.addSubview(commentsView)
+      //  commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
         
 //        commentsDriver?.didUpdateComments =
 //            { [self]
@@ -823,9 +833,9 @@ final class InteractionView: UIView, UITableViewDelegate{
 //            }
 //
        // commentsView.register(commentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
-        commentsView.register(softCommentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
-        commentsView.delegate = self
-        commentsView.dataSource = self
+     //   commentsView.register(softCommentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
+      //  commentsView.delegate = self
+     //   commentsView.dataSource = self
         
         
         
@@ -838,7 +848,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             { [self]
                 comments in
                 self.comments = comments
-                self.commentsView.reloadData()
+                self.commentsView.reloadData(comment: comments.last!)
                 
             }
         
