@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1721F46DF48FAF123BB2AA8B /* Pods_FoodFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C900D4B54BEA33AFB6F6C1 /* Pods_FoodFeed.framework */; };
+		2C48B634266D31460092D5E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B633266D31460092D5E1 /* Colors.swift */; };
+		2C48B636266D32F00092D5E1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B635266D32F00092D5E1 /* Fonts.swift */; };
+		2C48B683266D3B6E0092D5E1 /* CherryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B682266D3B6E0092D5E1 /* CherryButton.swift */; };
 		31CA2A8A15AAA1CF833C2597 /* Pods_FoodFeed_FoodFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */; };
 		375B9C20ACCCF72594BFCE29 /* Pods_FoodFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
@@ -104,6 +107,9 @@
 		0EF9A9275321D6C23D43CFE4 /* Pods-FoodFeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodFeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215E84DBD1B31738775EE115 /* Pods-FoodFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeed.release.xcconfig"; path = "Target Support Files/Pods-FoodFeed/Pods-FoodFeed.release.xcconfig"; sourceTree = "<group>"; };
+		2C48B633266D31460092D5E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2C48B635266D32F00092D5E1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		2C48B682266D3B6E0092D5E1 /* CherryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherryButton.swift; sourceTree = "<group>"; };
 		389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +243,24 @@
 				389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		2C48B5E9266D2FC00092D5E1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2C48B681266D3B560092D5E1 /* Buttons */,
+				2C48B633266D31460092D5E1 /* Colors.swift */,
+				2C48B635266D32F00092D5E1 /* Fonts.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2C48B681266D3B560092D5E1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2C48B682266D3B6E0092D5E1 /* CherryButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		4465407E26061032004B202B /* botUserResources  */ = {
@@ -405,6 +429,7 @@
 		65D07A2024F816C2004CA3E9 /* FoodFeed */ = {
 			isa = PBXGroup;
 			children = (
+				2C48B5E9266D2FC00092D5E1 /* UI */,
 				44A8131A25838E0700685A0E /* 07891284.ttf */,
 				4471EC1A261A04AC00D23E01 /* storyline.txt */,
 				44E768E9264AB40E00AD75FE /* Day6.txt */,
@@ -734,6 +759,7 @@
 				44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */,
 				447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */,
 				659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */,
+				2C48B683266D3B6E0092D5E1 /* CherryButton.swift in Sources */,
 				44C3DEB42520B76000D317DA /* Feed.swift in Sources */,
 				446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */,
 				44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */,
@@ -751,6 +777,7 @@
 				446540672604B7E5004B202B /* chatBubbleView.swift in Sources */,
 				44C3DF0E2520DEF400D317DA /* HTTPRequest.swift in Sources */,
 				44C3DF0D2520DEF400D317DA /* InteractionUtil.swift in Sources */,
+				2C48B634266D31460092D5E1 /* Colors.swift in Sources */,
 				6536A648256185B3006D7297 /* Post.swift in Sources */,
 				4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */,
 				4470BF7E2603DD2A002EE94E /* BotProfileViewController.swift in Sources */,
@@ -759,6 +786,7 @@
 				446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */,
 				446CAE9826517B5300F9081D /* credits .swift in Sources */,
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,
+				2C48B636266D32F00092D5E1 /* Fonts.swift in Sources */,
 				44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
