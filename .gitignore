@@ -1,4 +1,25 @@
+# Project files
+
 *.mlmodel
 *.xcworkspace
 *.xcbkptlist
 *.xcuserstate
+
+## Build generated
+
+.build
+build/*
+DerivedData/
+
+# CocoaPods
+
+Pods/
+
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+xcuserdata/
