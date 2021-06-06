@@ -11,6 +11,8 @@
 		2C48B634266D31460092D5E1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B633266D31460092D5E1 /* Colors.swift */; };
 		2C48B636266D32F00092D5E1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B635266D32F00092D5E1 /* Fonts.swift */; };
 		2C48B683266D3B6E0092D5E1 /* CherryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B682266D3B6E0092D5E1 /* CherryButton.swift */; };
+		2C48B687266D59A00092D5E1 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B686266D59A00092D5E1 /* OptionButton.swift */; };
+		2C48B689266D59BF0092D5E1 /* RaspberryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */; };
 		31CA2A8A15AAA1CF833C2597 /* Pods_FoodFeed_FoodFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */; };
 		375B9C20ACCCF72594BFCE29 /* Pods_FoodFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
@@ -110,6 +112,8 @@
 		2C48B633266D31460092D5E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2C48B635266D32F00092D5E1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		2C48B682266D3B6E0092D5E1 /* CherryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CherryButton.swift; sourceTree = "<group>"; };
+		2C48B686266D59A00092D5E1 /* OptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionButton.swift; sourceTree = "<group>"; };
+		2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryButton.swift; sourceTree = "<group>"; };
 		389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.release.xcconfig"; sourceTree = "<group>"; };
 		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +262,9 @@
 		2C48B681266D3B560092D5E1 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				2C48B686266D59A00092D5E1 /* OptionButton.swift */,
 				2C48B682266D3B6E0092D5E1 /* CherryButton.swift */,
+				2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -773,6 +779,7 @@
 				65D07A2424F816C2004CA3E9 /* SceneDelegate.swift in Sources */,
 				44C3DF0B2520DEF400D317DA /* Constant.swift in Sources */,
 				44C3DED32520C3AE00D317DA /* FeedFetchService.swift in Sources */,
+				2C48B687266D59A00092D5E1 /* OptionButton.swift in Sources */,
 				44A766DF2608A1BC00EBC9AD /* testViewController.swift in Sources */,
 				446540672604B7E5004B202B /* chatBubbleView.swift in Sources */,
 				44C3DF0E2520DEF400D317DA /* HTTPRequest.swift in Sources */,
@@ -784,6 +791,7 @@
 				446540772605F107004B202B /* softCommentTableViewCell.swift in Sources */,
 				44C3DF0F2520DEF400D317DA /* HTTPError.swift in Sources */,
 				446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */,
+				2C48B689266D59BF0092D5E1 /* RaspberryButton.swift in Sources */,
 				446CAE9826517B5300F9081D /* credits .swift in Sources */,
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,
 				2C48B636266D32F00092D5E1 /* Fonts.swift in Sources */,
