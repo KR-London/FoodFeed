@@ -51,12 +51,12 @@ public class OptionButton: UIButton {
             shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 5.0).cgPath
             shadowLayer.fillColor = UIColor.white.cgColor
 
-            shadowLayer.shadowColor = Colors.grey.cgColor
+            shadowLayer.shadowColor = #colorLiteral(red: 0.8745098039, green: 0.8745098039, blue: 0.8745098039, alpha: 1)
             shadowLayer.shadowPath = shadowLayer.path
-            shadowLayer.shadowOffset = CGSize(width: 10.0, height: 10.0)
-            shadowLayer.shadowOpacity = 0.3
+            shadowLayer.shadowOffset = CGSize(width: 5.0, height: 15.0)
+            shadowLayer.shadowOpacity = 0.4
             shadowLayer.shadowRadius = 5.0
-
+            
             layer.insertSublayer(shadowLayer, at: 0)
         }
     }
@@ -66,7 +66,7 @@ public class OptionButton: UIButton {
         
         clipsToBounds = true
         
-        layer.borderWidth = 2.0
+        layer.borderWidth = 1.0
         
         titleLabel?.alpha = 1.0
         
@@ -79,6 +79,10 @@ public class OptionButton: UIButton {
         setTitleColor(type.getColor(), for: .normal)
         setTitleColor(.white, for: .highlighted)
         setTitleColor(Colors.grey, for: .disabled)
+        
+        let attributedString = NSMutableAttributedString(string: currentTitle ?? "")
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedString.length))
+        setAttributedTitle(attributedString, for: .normal)
         
         if !isEnabled {
             backgroundColor = Colors.lightGrey
