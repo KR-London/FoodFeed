@@ -63,7 +63,7 @@
     "voteb": "Like a seasick chicken? ^answer^ Yes - queasy. ",
     "votec": "Like a sad bowling ball? ^answer^ Yes - like I just want to roll away ",
     "dunno": "How on earth do I know how your tummy feels?",
-    "id": 6,
+    "id": 0,
     "day": 6,
     "image": "",
     "hashtag": "Mood",
@@ -95,7 +95,7 @@
     "user": "Guy"
   },
   {
-    "id": 0,
+    "id": 6,
     "hashtag": "Support",
     "day": 6,
     "caption": "Who makes you feel more confident?",

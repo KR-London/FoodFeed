@@ -541,10 +541,10 @@ final class InteractionView: UIView, UITableViewDelegate{
    // var thirdScreenHeight = UIScreen.main.bounds.height / 3
     
     let caption = UILabel()
-    let voteAbutton = MediaButton()
-    let voteBbutton = MediaButton()
-    let voteCbutton = MediaButton()
-    let dunno = UIButton()
+    let voteAbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
+    let voteBbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .two)
+    let voteCbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
+    let dunno = NotSureButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10))
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
@@ -642,20 +642,16 @@ final class InteractionView: UIView, UITableViewDelegate{
         
      
         dunno.setTitle("Don't know", for: .normal)
-        dunno.backgroundColor = .blue
         
-    buttonStack.addArrangedSubview(voteAbutton)
-    buttonStack.addArrangedSubview(voteBbutton)
-    buttonStack.addArrangedSubview(voteCbutton)
-    buttonStack.addArrangedSubview(dunno)
-       // buttonStack.frame = CGRect(x: 100,y: 100,width: 100,height: 100)
-        
-       // buttonStack.backgroundColor = .green
+        buttonStack.addArrangedSubview(voteAbutton)
+        buttonStack.addArrangedSubview(voteBbutton)
+        buttonStack.addArrangedSubview(voteCbutton)
+        buttonStack.addArrangedSubview(dunno)
         buttonStack.axis = .vertical
         
         buttonStack.distribution = .equalSpacing
-        voteAbutton.setContentHuggingPriority(.required, for: .horizontal)
-        voteBbutton.setContentHuggingPriority(.required, for: .horizontal)
+        //voteAbutton.setContentHuggingPriority(.required, for: .horizontal)
+        //voteBbutton.setContentHuggingPriority(.required, for: .horizontal)
         self.addSubview(buttonStack)
         buttonStack.translatesAutoresizingMaskIntoConstraints = false
         buttonStack.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
@@ -664,16 +660,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         buttonStack.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor).isActive = true
       
         buttonStack.isHidden = false
- //self.addSubview(voteAbutton)
-       // voteAbutton.translatesAutoresizingMaskIntoConstraints = false
-      //  self.leadingAnchor.constraint(equalTo: voteAbutton.leadingAnchor, constant: -20).isActive = true
-       // voteAbutton.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
-      //  voteAbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       // voteAbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-        voteAbutton.backgroundColor = .blue
         voteAbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteAbutton.tag = 0
         voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
+
         
         ///TODO: May 5th show c button
         
@@ -686,13 +676,13 @@ final class InteractionView: UIView, UITableViewDelegate{
         //voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
        // voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
        // voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-        voteBbutton.backgroundColor = .blue
+     //   voteBbutton.backgroundColor = .blue
         voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteBbutton.tag = 1
         voteBbutton.isUserInteractionEnabled = true
         voteBbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
         
-        voteCbutton.backgroundColor = .blue
+      //  voteCbutton.backgroundColor = .blue
         voteCbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteCbutton.tag = 2
         voteCbutton.isUserInteractionEnabled = true
@@ -951,7 +941,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         }
     }
     
-    @objc func voted(_ sender: MediaButton) {
+    @objc func voted(_ sender: OptionButton) {
         print("button Pressed")
         if sender.tag == 0 {
             
@@ -972,9 +962,14 @@ final class InteractionView: UIView, UITableViewDelegate{
             }
             //(String((voteAbutton.currentTitle ?? "Sunshine ").dropLast()) ) + " is the best!"
             // caption.reloadInputViews()
-            voteBbutton.isHidden = true
-            voteCbutton.isHidden = true
-            dunno.isHidden = true
+//            voteBbutton.isEnabled = false
+//            voteCbutton.isEnabled = false
+//            dunno.isEnabled = false
+            
+            voteAbutton.isPicked = true
+            voteBbutton.isPicked = false
+            voteCbutton.isPicked = false
+            dunno.isPicked = false
         }
         if sender.tag == 1 {
             if sender.answer != ""
@@ -991,9 +986,10 @@ final class InteractionView: UIView, UITableViewDelegate{
             sayCard.label.text = "Yes - exactly like that!"
             }
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
-            voteAbutton.isHidden = true
-            voteCbutton.isHidden = true
-            dunno.isHidden = true
+            voteAbutton.isPicked = false
+            voteBbutton.isPicked = true
+            voteCbutton.isPicked = false
+            dunno.isPicked = false
         }
         if sender.tag == 2 {
             if sender.answer != ""
@@ -1010,16 +1006,27 @@ final class InteractionView: UIView, UITableViewDelegate{
             sayCard.label.text = "Yes - exactly like that!"
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             }
-            voteAbutton.isHidden = true
-            voteBbutton.isHidden = true
-            dunno.isHidden = true
+//            voteAbutton.isEnabled = false
+//
+//            voteBbutton.isEnabled = false
+//            dunno.isHidden = true
+            
+            voteAbutton.isPicked = false
+            voteBbutton.isPicked =  false
+            voteCbutton.isPicked = true
+            dunno.isPicked = false
         }
         if sender.tag == 3 {
             sayCard.label.text = "Mmm hmm"
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
-            voteAbutton.isHidden = true
-            voteBbutton.isHidden = true
-            voteCbutton.isHidden = true
+//            voteAbutton.isEnabled = false
+//            voteBbutton.isEnabled = false
+//            voteCbutton.isEnabled = false
+            
+            voteAbutton.isPicked = false
+            voteBbutton.isPicked = false
+            voteCbutton.isPicked = false
+            dunno.isPicked = true
         }
         
         // Reads out the label in a random Anglophone voice

@@ -18,14 +18,53 @@ public enum OptionType {
 public class OptionButton: UIButton {
     public var type: OptionType = .one
     
-    private var shadowLayer: CAShapeLayer!
+    var video:String = ""
+    var answer:String = ""
     
-    public override var isHighlighted: Bool {
+    convenience init(video: String) {
+        self.init(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
+        self.video = video
+        self.answer = answer
+    }
+    
+    private var shadowLayer: CAShapeLayer!
+//
+//    public override var isHighlighted: Bool {
+//        didSet {
+//            backgroundColor = isHighlighted ? type.getColor() : .white
+//            shadowLayer.fillColor = isHighlighted ? type.getColor().cgColor : UIColor.white.cgColor
+//
+//           // backgroundColor = isSelected ? type.getColor() : .white
+//          //  shadowLayer.fillColor = isSelected ? type.getColor().cgColor : UIColor.white.cgColor
+//        }
+//    }
+//
+        // Bool property
+    var isPicked: Bool = false {
         didSet {
-            backgroundColor = isHighlighted ? type.getColor() : .white
-            shadowLayer.fillColor = isHighlighted ? type.getColor().cgColor : UIColor.white.cgColor
+            if isPicked == true {
+                backgroundColor = type.getColor()
+                shadowLayer.fillColor =  type.getColor().cgColor
+
+            } else {
+                backgroundColor = .white
+                shadowLayer.fillColor = UIColor.white.cgColor
+
+            }
         }
     }
+    
+    
+
+//    public override var isSelected: Bool {
+//        didSet {
+//           // backgroundColor = isHighlighted ? type.getColor() : .white
+//           // shadowLayer.fillColor = isHighlighted ? type.getColor().cgColor : UIColor.white.cgColor
+//
+//               backgroundColor = isSelected ? type.getColor() : .white
+//               shadowLayer.fillColor = isSelected ? type.getColor().cgColor : UIColor.white.cgColor
+//        }
+//    }
     
     public override var isEnabled: Bool {
         didSet {
@@ -78,11 +117,13 @@ public class OptionButton: UIButton {
         
         setTitleColor(type.getColor(), for: .normal)
         setTitleColor(.white, for: .highlighted)
-        setTitleColor(Colors.grey, for: .disabled)
+        setTitleColor(.white, for: .selected)
+        setTitleColor(type.getColor(), for: .disabled)
+       // setTitleColor(Colors.grey, for: .disabled)
         
-        let attributedString = NSMutableAttributedString(string: currentTitle ?? "")
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedString.length))
-        setAttributedTitle(attributedString, for: .normal)
+//        let attributedString = NSMutableAttributedString(string: currentTitle ?? "")
+//        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedString.length))
+//        setAttributedTitle(attributedString, for: .normal)
         
         if !isEnabled {
             backgroundColor = Colors.lightGrey
