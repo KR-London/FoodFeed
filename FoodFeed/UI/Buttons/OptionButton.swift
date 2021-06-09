@@ -18,8 +18,8 @@ public enum OptionType {
 public class OptionButton: UIButton {
     public var type: OptionType = .one
     
-    var video:String = ""
-    var answer:String = ""
+    public var video:String = ""
+    public var answer:String = ""
     
     convenience init(video: String) {
         self.init(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
@@ -29,16 +29,17 @@ public class OptionButton: UIButton {
     
     private var shadowLayer: CAShapeLayer!
 //
-//    public override var isHighlighted: Bool {
-//        didSet {
-//            backgroundColor = isHighlighted ? type.getColor() : .white
-//            shadowLayer.fillColor = isHighlighted ? type.getColor().cgColor : UIColor.white.cgColor
-//
-//           // backgroundColor = isSelected ? type.getColor() : .white
-//          //  shadowLayer.fillColor = isSelected ? type.getColor().cgColor : UIColor.white.cgColor
-//        }
-//    }
-//
+    public override var isHighlighted: Bool {
+        didSet {
+            if isPicked == false{
+                backgroundColor = isHighlighted ? type.getColor() : .white
+                shadowLayer.fillColor = isHighlighted ? type.getColor().cgColor : UIColor.white.cgColor
+            }
+           // backgroundColor = isSelected ? type.getColor() : .white
+          //  shadowLayer.fillColor = isSelected ? type.getColor().cgColor : UIColor.white.cgColor
+        }
+    }
+
         // Bool property
     var isPicked: Bool = false {
         didSet {
@@ -53,18 +54,6 @@ public class OptionButton: UIButton {
             }
         }
     }
-    
-    
-
-//    public override var isSelected: Bool {
-//        didSet {
-//           // backgroundColor = isHighlighted ? type.getColor() : .white
-//           // shadowLayer.fillColor = isHighlighted ? type.getColor().cgColor : UIColor.white.cgColor
-//
-//               backgroundColor = isSelected ? type.getColor() : .white
-//               shadowLayer.fillColor = isSelected ? type.getColor().cgColor : UIColor.white.cgColor
-//        }
-//    }
     
     public override var isEnabled: Bool {
         didSet {

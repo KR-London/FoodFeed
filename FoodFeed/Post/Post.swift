@@ -541,10 +541,16 @@ final class InteractionView: UIView, UITableViewDelegate{
    // var thirdScreenHeight = UIScreen.main.bounds.height / 3
     
     let caption = UILabel()
-    let voteAbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
+  //  let voteAbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
+    let voteAbutton = RaspberryButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10) )
     let voteBbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .two)
     let voteCbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
     let dunno = NotSureButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10))
+    
+    
+    
+    
+    
     let answerInput = UITextField()
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
@@ -1159,8 +1165,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     //SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
     let stack = UIStackView()
     
-    let yesButton = MediaButton()
-    let noButton = MediaButton()
+    let yesButton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .two)
+    let noButton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
    
     
     override init(frame: CGRect) {
@@ -1222,8 +1228,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         self.addSubview(stack)
         yesButton.setTitle("Yes", for: .normal)
         noButton.setTitle("No", for: .normal)
-        yesButton.backgroundColor = .option1
-        noButton.backgroundColor = .option3
+        //yesButton.backgroundColor = .option1
+        //noButton.backgroundColor = .option3
 
         stack.axis = .vertical
        // stack.backgroundColor = .yellow
@@ -1471,7 +1477,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
 //ƒƒ
 //        }
         if sender.tag == 0 {
-            noButton.backgroundColor = .gray
+          //  noButton.backgroundColor = .gray
             let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                          NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                          NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
@@ -1550,10 +1556,10 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         print("Swiped")
     }
    
-    @objc func  textChatBack(_ sender: MediaButton) {
+    @objc func  textChatBack(_ sender: OptionButton) {
         
         print("text chat back")
-        yesButton.isHidden = true
+        yesButton.isEnabled = false
         
         
         //        if sender.titleLabel?.text = ("Yes")
@@ -1577,7 +1583,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             ]
             let bigTextStyled = NSAttributedString(string: "This should automatically advance but it is not working yet ", attributes: attrs)
             label.attributedText = bigTextStyled
-            noButton.isHidden = true
+            noButton.isEnabled = false
             /// load next screen?
         }
         //        if sender.tag == 2 {
