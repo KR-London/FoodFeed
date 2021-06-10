@@ -45,7 +45,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         fetchFeeds()
       //  print("feed = ")
       //  print(feeds)
-        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n<<<<<<<", caption: nil, hashtag: nil, votea: nil, voteb: nil) )
+        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n <<<<<< ", caption: nil, hashtag: nil, votea: nil, voteb: nil) )
         view.presentInitialFeed(initialFeed)
     }
     //"<<<<<<<<<< \n <<<<<<<<<< \n  <<<<<<<<<< \n Swipe! \n <<<<<<<<<<\n <<<<<<<<<<\n <<<<<<<<<< "

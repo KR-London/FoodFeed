@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9pv-A4-QxB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wdc-0x-ghK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -120,7 +120,7 @@
         <!--Profile Creator View Controller-->
         <scene sceneID="7uM-bD-9TA">
             <objects>
-                <viewController storyboardIdentifier="profileSetter" id="Wdc-0x-ghK" customClass="profileCreatorViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileSetter" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wdc-0x-ghK" customClass="profileCreatorViewController" customModule="FoodFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5An-Tq-V9W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z74-QX-0vh">
-                                <rect key="frame" x="20" y="298" width="374" height="177"/>
+                                <rect key="frame" x="20" y="655" width="374" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipy-P8-L9I" userLabel="Follow">
@@ -198,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIk-7I-vCT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3048" y="-1181"/>
+            <point key="canvasLocation" x="-3049.275362318841" y="-1181.25"/>
         </scene>
         <!--Profile Card View Controller-->
         <scene sceneID="2Ja-Hp-FOf">

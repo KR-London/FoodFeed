@@ -15,11 +15,11 @@ public enum OptionType {
     }
 }
 
-public class OptionButton: UIButton {
+class OptionButton: UIButton {
     public var type: OptionType = .one
     
-    public var video:String = ""
-    public var answer:String = ""
+    var video:String = ""
+    var answer:String = ""
     
     convenience init(video: String) {
         self.init(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
@@ -46,10 +46,15 @@ public class OptionButton: UIButton {
             if isPicked == true {
                 backgroundColor = type.getColor()
                 shadowLayer.fillColor =  type.getColor().cgColor
+                self.setTitleColor(.white, for: .normal)
+               // self.setTitleColor(.white, for: .selected)
+                
+                self.titleLabel?.textColor = .white
 
             } else {
                 backgroundColor = .white
                 shadowLayer.fillColor = UIColor.white.cgColor
+                self.setTitleColor( type.getColor() , for: .normal)
 
             }
         }
@@ -65,6 +70,7 @@ public class OptionButton: UIButton {
     public init(frame: CGRect, type: OptionType) {
         self.type = type
         super.init(frame: frame)
+        setupInitialState(with: type)
     }
     
     required init?(coder: NSCoder) {

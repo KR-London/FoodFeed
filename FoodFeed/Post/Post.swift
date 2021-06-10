@@ -1466,10 +1466,10 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     // Pauses video playback on tap
     //FIXME: pause gifs and voice
     
-    @objc func videoPreferenceStated(_ sender: MediaButton) {
+    @objc func videoPreferenceStated(_ sender: OptionButton) {
         
         print("video preference stated")
-        yesButton.isHidden = true
+      //  yesButton.isHidden = true
        
       
 //        if sender.titleLabel?.text = ("Yes")
@@ -1484,11 +1484,13 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             ]
             let bigTextStyled = NSAttributedString(string: "That's cool - let's skip it.", attributes: attrs)
             label.attributedText = bigTextStyled
+            yesButton.isEnabled = false
+            noButton.isPicked = true
 
         }
         if sender.tag == 1 {
             labelCard.isHidden = true
-            noButton.isHidden = true
+            noButton.isEnabled = false
             videoController.view.isHidden =  false
             
             if sender.video.last == "4"
@@ -1535,6 +1537,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 myView.load(withPlaylistId: "PLPCeSm8EDITr2z9Y6tnTrP3ZsWZKDdMYi", playerVars: playerVars)
             }
             
+            yesButton.isHidden = true
+            noButton.isHidden = true
             
         }
 //        if sender.tag == 2 {
@@ -1559,7 +1563,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     @objc func  textChatBack(_ sender: OptionButton) {
         
         print("text chat back")
-        yesButton.isEnabled = false
+       // yesButton.isEnabled = false
         
         
         //        if sender.titleLabel?.text = ("Yes")
@@ -1567,7 +1571,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         //ƒƒ
         //        }
         if sender.tag == 0 {
-            noButton.backgroundColor = .gray
+            //noButton.backgroundColor = .gray
+            noButton.isPicked = true
+            yesButton.isEnabled = false
             let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                          NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                          NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
@@ -1584,6 +1590,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             let bigTextStyled = NSAttributedString(string: "This should automatically advance but it is not working yet ", attributes: attrs)
             label.attributedText = bigTextStyled
             noButton.isEnabled = false
+            yesButton.isPicked = true
             /// load next screen?
         }
         //        if sender.tag == 2 {

@@ -19,7 +19,9 @@ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        //let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        let launchedBefore = false
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
@@ -77,55 +79,55 @@ var window: UIWindow?
             
         }
         
-//        if launchedBefore{
-//            self.window = UIWindow(frame: UIScreen.main.bounds)
+        if launchedBefore{
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+            self.window?.rootViewController = initialViewController
+
+            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
+            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
+            self.window?.makeKeyAndVisible()
+
+        }
+        else
+        {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
+            self.window?.rootViewController = initialViewController
+
+            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
+            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
+            self.window?.makeKeyAndVisible()
+
+//            if newTutorial{
+//                self.window = UIWindow(frame: UIScreen.main.bounds)
 //
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let storyboard = UIStoryboard(name: "ExtraTutorial", bundle: nil)
 //
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
-//            self.window?.rootViewController = initialViewController
+//                let initialViewController = storyboard.instantiateViewController(withIdentifier: "p1" )
+//                self.window?.rootViewController = initialViewController
+//            }
+//            else{
+//                // UserDefaults.standard.set(true, forKey: "launchedBefore")
+//                self.window = UIWindow(frame: UIScreen.main.bounds)
 //
-//            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
-//            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
-//            self.window?.makeKeyAndVisible()
+//                let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
 //
-//        }
-//        else
-//        {
-//            UserDefaults.standard.set(true, forKey: "launchedBefore")
-//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//                //let initialViewController = storyboard.instantiateViewController(withIdentifier: "o1" )
+//                let initialViewController = storyboard.instantiateViewController(withIdentifier: "o1" )
 //
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                self.window?.rootViewController = initialViewController
+//                self.window?.makeKeyAndVisible()
+//            }
 //
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "hello" )
-//            self.window?.rootViewController = initialViewController
-//
-//            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
-//            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
-//            self.window?.makeKeyAndVisible()
-//
-////            if newTutorial{
-////                self.window = UIWindow(frame: UIScreen.main.bounds)
-////
-////                let storyboard = UIStoryboard(name: "ExtraTutorial", bundle: nil)
-////
-////                let initialViewController = storyboard.instantiateViewController(withIdentifier: "p1" )
-////                self.window?.rootViewController = initialViewController
-////            }
-////            else{
-////                // UserDefaults.standard.set(true, forKey: "launchedBefore")
-////                self.window = UIWindow(frame: UIScreen.main.bounds)
-////
-////                let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-////
-////                //let initialViewController = storyboard.instantiateViewController(withIdentifier: "o1" )
-////                let initialViewController = storyboard.instantiateViewController(withIdentifier: "o1" )
-////
-////                self.window?.rootViewController = initialViewController
-////                self.window?.makeKeyAndVisible()
-////            }
-////
-//        }
+        }
         
         
         

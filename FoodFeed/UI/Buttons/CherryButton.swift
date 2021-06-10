@@ -1,8 +1,9 @@
 import UIKit
 
-public final class CherryButton: OptionButton {
+final class CherryButton: OptionButton {
     public init(frame: CGRect) {
         super.init(frame: frame, type: .one)
+        super.setupInitialState(with: .two)
     }
     
     required init?(coder: NSCoder) {

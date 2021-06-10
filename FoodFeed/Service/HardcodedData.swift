@@ -38,7 +38,7 @@ let botAnswers = [
                                                  "Tell my mum",
                                                  "Tell my best friend",
                                                  "I don’t like rewards - they stress me", "Celebration dance", "What do you think, \(botUser.human.name)?",
-                                                 "We need someone \(String(describing: botUser.human.personalQualities?.randomElement())) to help us figure this out!"],
+                                                 "We need someone smart to help us figure this out!"],
     "How do you deal with smell?": ["Fan to blow it away from me!",
                                     "Keep your distance!",
                                     "Cover your nose", "Masks come in handy!",
@@ -71,6 +71,8 @@ func botAnswersToHuman(userComment: String, key: String) -> String{
 //        }
 //    }
     
+    //\(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased())
+    
     let botAnswer = [
         "What makes a meal stressful for you?" :  ["Awww - I understand, \(botUser.human.name).",
                                                    "I hate \(userComment) too!",
@@ -82,11 +84,11 @@ func botAnswersToHuman(userComment: String, key: String) -> String{
                                         "That’s actually a great idea.",
                                         "Does that help?",
                                         "Win some, lose some - it’s still progress" ,
-                                        "You are \(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased()) friend \(botUser.human.name)."],
+                                        "You are a great friend \(botUser.human.name)."],
         "What in the world is hummus???": ["I never knew that, \(botUser.human.name)!" ,
                                         "Really?!?!",
                                         "Is that true???",
-                                        "You are \(String(describing: positiveWords.randomElement()!) )" ],
+                                        "You are brilliant" ],
         "How do you celebrate life's little wins?": ["I might try \(userComment) too!",
                                                     "That’s actually a great idea." ,
                                                     "Oh - that’s nice!",
@@ -97,8 +99,8 @@ func botAnswersToHuman(userComment: String, key: String) -> String{
                                      "Great thinking \(botUser.human.name)!" ,
                                      "What happens when you do that?",
                                      "Does that help?"],
-        "What is the best breakfast ever?" : ["\(userComment) on toast?", "I know a great cafe that serves only \(userComment)", "Have you tried sprinkling cheese on top of \(userComment)? Everything tastes better with cheese.", "@Guy - did you see what \(botUser.human.name) said?", "That's  \(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased())"],
-        "[I'm so stressed right now. How can I calm down before I do something I regret ...?" : ["@Guy - do you think \(userComment) would help?", "\(botUser.human.name), you know a lot!","\(botUser.human.name), that's an interesting idea.", " \(String(describing: botUser.human.personalQualities!.randomElement()!).lowercased())"],
+        "What is the best breakfast ever?" : ["\(userComment) on toast?", "I know a great cafe that serves only \(userComment)", "Have you tried sprinkling cheese on top of \(userComment)? Everything tastes better with cheese.", "@Guy - did you see what \(botUser.human.name) said?", "That's dope"],
+        "[I'm so stressed right now. How can I calm down before I do something I regret ...?" : ["@Guy - do you think \(userComment) would help?", "\(botUser.human.name), you know a lot!","\(botUser.human.name), that's an interesting idea.", " Radical!"],
         "Aaaah - I want to say 'no' - but how can I do that without upsetting Frank?" : ["@Guy - have you tried \(userComment)?", "Guy - your new buddy \(botUser.human.name) is smart!", "\(userComment)?!?! Nice idea - but what if Frank still gets upset", "\(userComment) - ha! Never thought of that!", "\(userComment) [lovehearteyes]", "\(botUser.human.name), I'm glad you're here"],
         "My head is full of worry about how I will eat on this trip. What makes a meal fun for you?": [" \(userComment) sounds perfect!", "\(botUser.human.name) - you are fun!", "\(userComment)?!?! Sweet!", "\(userComment) - ha! Never thought of that!", "\(userComment) [lovehearteyes]", "@Guy - do you think the meals on the trip might be \(userComment)?"],
         "I feel like everyone else is doing better than me. Have you people ever felt like you don’t really fit in?":["Thank you \(botUser.human.name)", "@Guy - you see - even \(botUser.human.name) - and they look so confident", "\(userComment)? I understand.", "\(botUser.human.name), you are doing great."],

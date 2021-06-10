@@ -12,7 +12,7 @@
     "id": 10,
     "type": "Text",
     "day": 6,
-    "bigtext": "Hiiii",
+    "bigtext": "Hi there!",
     "votea": "Hi back at you!",
     "voteb": "How are you doing? ^answer^ I'm doing great - thanks for asking!"
   },

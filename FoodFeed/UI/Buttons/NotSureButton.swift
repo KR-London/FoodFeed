@@ -1,6 +1,6 @@
 import UIKit
 
-public final class NotSureButton: OptionButton {
+final class NotSureButton: OptionButton {
     public init(frame: CGRect) {
         super.init(frame: frame, type: .notSure)
     }
