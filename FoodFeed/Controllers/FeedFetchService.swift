@@ -71,7 +71,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
       // let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
-       let day = 1
+       let day = 6
         request.predicate = NSPredicate(format: "day == %i", day)
         request.returnsObjectsAsFaults = false
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
