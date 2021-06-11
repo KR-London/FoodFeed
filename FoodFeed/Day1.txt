@@ -1,0 +1,569 @@
+[
+  {
+    "user": "Guy",
+    "id": 0,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Hello",
+    "votea": "Hello",
+    "voteb": "Who are you?!? ^answer^ I'm Guy"
+  },
+  {
+    "user": "Guy",
+    "id": 1,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "It's too early",
+    "votea": "Uh huh",
+    "voteb": "It's not early?!? ^answer^ It is in my timezone"
+  },
+    {
+    "user": "Guy",
+    "id": 2,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "It's too early",
+    "votea": "Uh huh",
+    "voteb": "It's not early?!? ^answer^ It is in my timezone"
+  },
+   {
+    "user": "Guy",
+    "id": 3,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I'm going to do something special today"
+  },  {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 4,
+    "type": "Image",
+    "day": 1,
+    "image": "big smile"
+  },
+    {
+    "user": "Guy",
+    "id": 5,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Are you new here",
+    "votea": "No",
+    "voteb": "Yes ^answer^ Welcome!"
+  },
+     {
+    "user": "Guy",
+    "id": 6,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Are you new here",
+    "votea": "No",
+    "voteb": "Yes ^answer^ Welcome!"
+  },
+  {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 7,
+    "type": "Image",
+    "day": 1,
+    "image": "Happy to have you!"
+  },
+   {
+    "user": "Guy",
+    "id": 8,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I post updates on my day",
+    "votea": "OK",
+    "voteb": "Like what?  ^answer^ Fun I have. Or things I worry about. "
+  },
+   {
+    "user": "Guy",
+    "id": 9,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Swipe left to change page"
+  },
+    {
+    "user": "Guy",
+    "id": 10,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I'd feel much braver today if you stayed to chat"
+  },
+    {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 11,
+    "type": "Image",
+    "caption" : "Me!",
+    "day": 1,
+    "image": "Me"
+  },
+      {
+    "user": "Guy",
+    "id": 12,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Did I tell you what today was",
+       "votea": "Yes!",
+    "voteb": "No?  ^answer^ My mum birthday"
+  },
+        {
+    "user": "Guy",
+    "id": 13,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "It's my Mum's birthday!",
+       "votea": "Yes!",
+    "voteb": "No?  ^answer^ My mum birthday"
+  },
+{
+  "id": 14,
+  "hashtag": "Mood",
+  "type": "Gif",
+  "day": 1,
+  "gif": "birthday.gif",
+  "user": "Guy"
+},
+{
+    "user": "Guy",
+    "id": 15,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "She does so much for me, I want to make it special"
+  },
+       {
+    "user": "Guy",
+    "id": 16,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Will you help me?",
+       "votea": "Yes!",
+    "voteb": "No!  ^answer^ OK - you can watch"
+  },
+  {
+    "user": "Guy",
+    "id": 17,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Let's make this awesome!"
+  },
+   {
+    "user": "Guy",
+    "id": 18,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Plan is breakfast",
+        "votea": "Ok…",
+    "voteb": "Yum  ^answer^ Are you hungry?"
+  },
+     {
+    "user": "Guy",
+    "id": 19,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I'm not super good with food"
+      },
+    {
+    "user": "Guy",
+    "id": 20,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I need your help",
+     "votea": "Ok…",
+    "voteb": "How? ^answer^ Brainstorm!"
+      },
+        {
+    "id": 21,
+    "hashtag": "Support",
+    "day": 1,
+    "caption": "Nice things to eat for breakfast? ",
+    "type": "Question"
+  },
+     {
+    "user": "Guy",
+    "id": 22,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Wow - so many interesting ideas!"
+      },
+       {
+    "user": "Guy",
+    "id": 23,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Does that mean I have to get up and cook …?"
+      },
+    {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 24,
+    "caption": "Waking up",
+    "type": "Image",
+    "day": 1,
+    "image": "camera light"
+  },
+        {
+    "user": "Guy",
+    "id": 25,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "The light hurts my eyes"
+      },
+ {
+    "user": "Guy",
+    "id": 26,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I need a plan .. "
+      },
+   {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 27,
+    "caption": "Walking ",
+    "type": "Image",
+    "day": 1,
+    "image": "Question mark"
+  },
+     {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 28,
+    "caption": "Walking ",
+    "type": "Image",
+    "day": 1,
+    "image": "Exclamation mark"
+  },
+  {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 29,
+    "caption": "Walking ",
+    "type": "Image",
+    "day": 1,
+    "image": "Egg"
+  },
+   {
+    "user": "Guy",
+    "id": 30,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Eggs are full of protein"
+      },
+    {
+    "bigtext": "How shall I cook the eggs",
+    "votea": "Fried  ^answer^ They are sticking to the pan! ",
+    "voteb": "Scrambled ^answer^ This looks a mess",
+    "votec": "Poached ^answer^ Have I just made egg soup?",
+    "dunno": "No idea ^answer^ I'm cooking them badly",
+    "id": 31,
+    "day": 1,
+    "image": "",
+    "hashtag": "Mood",
+    "type": "Vote",
+    "user": "Guy"
+  },
+   {
+    "user": "Guy",
+    "id": 32,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I don't know why I even try …"
+      },
+     {
+    "user": "Guy",
+    "id": 33,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I'm hopeless"
+      },
+      {
+    "user": "Guy",
+    "id": 32,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I really tried"
+      },
+    {
+    "user": "Guy",
+    "id": 32,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Look at all this waste and mess"
+      },
+  {
+  "user": "Guy",
+  "id": 33,
+  "hashtag": "Feelings",
+  "type": "Gif",
+  "day": 1,
+  "gif": "mess"
+},  {
+    "user": "Guy",
+    "id": 34,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "I need to cheer up"
+      },
+  {
+  "id": 35,
+  "hashtag": "Funny",
+  "caption": "some funny videos with me?",
+  "day": 1,
+  "video": "funny",
+  "type": "Video"
+},
+    {
+    "user": "Guy",
+    "id": 36,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "The video has made me feel better… "
+      },
+      {
+    "user": "Guy",
+    "id": 37,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "… but i still don't have a nice breakfast for Mum"
+      },
+        {
+    "user": "Guy",
+    "id": 38,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "… but i still don't have a nice breakfast for Mum"
+      },
+    {
+    "user": "Guy",
+    "id": 39,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Shall I get up?",
+    "votea": "Yes ",
+    "voteb": "No ^answer^ I gotta move"
+  },
+      {
+    "user": "Guy",
+    "id": 40,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Luckily I didn't use up all the eggs"
+  },
+    {
+  "id": 41,
+  "hashtag": "Funny",
+  "caption": "a recipe for pancakes?",
+  "day": 1,
+  "video": "pancakes",
+  "type": "Video"
+},
+   {
+    "user": "Guy",
+    "id": 42,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Mix up the batter"
+  },   {
+    "hashtag": "Birthday Breakfas",
+    "user": "Guy",
+    "id": 43,
+    "caption": "Pan on heat…",
+    "type": "Image",
+    "day": 1,
+    "image": "batter"
+  },
+        {
+    "user": "Guy",
+    "id": 44,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Pan on heat…"
+  },
+    {
+    "hashtag": "Birthday Breakfas",
+    "user": "Guy",
+    "id": 45,
+    "caption": "Pan on heat…",
+    "type": "Image",
+    "day": 1,
+    "image": "frying pan"
+  },
+          {
+    "user": "Guy",
+    "id": 46,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "A splash of oil…"
+  },
+   {
+    "user": "Guy",
+    "id": 47,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "… heat it up…"
+  },
+     {
+    "user": "Guy",
+    "id": 48,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "… don't burn myself…"
+  },
+       {
+    "user": "Guy",
+    "id": 49,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Well this one just doesn't look nice…"
+  },
+      {
+    "hashtag": "Birthday Breakfas",
+    "user": "Guy",
+    "id": 50,
+    "caption": "Pan on heat…",
+    "type": "Image",
+    "day": 1,
+    "image": "first pancake"
+  },
+  {
+    "user": "Guy",
+    "id": 51,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "This one is looking better"
+  },
+      {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 52,
+    "caption": "Pan on heat…",
+    "type": "Image",
+    "day": 1,
+    "image": "second pancake"
+  },
+    {
+    "user": "Guy",
+    "id": 53,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "I'm gonna flip it…"
+  },
+  {
+  "bigtext": "Coach me how to flip it",
+  "votea": "Nice and high! ^answer^ I will",
+  "voteb": "Don't throw it ^answer^ They did in the video",
+  "votec": " Carefully! ^answer^ Oh, oh - too much power",
+  "dunno": " Dunno ^answer^ I'm gonna throw it!",
+  "id": 54,
+  "day": 1,
+  "image": "",
+  "hashtag": "Mood",
+  "type": "Vote",
+  "user": "Guy"
+}, {
+    "user": "Guy",
+    "id": 55,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Pancake on the ceiling"
+  },
+ {
+    "user": "Guy",
+    "id": 56,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Mum's coming!"
+  },
+ {
+    "user": "Guy",
+    "id": 57,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Happy birthday Mum"
+  },
+ {
+    "user": "Guy",
+    "id": 58,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Here is your surprise"
+  },
+ {
+    "user": "Guy",
+    "id": 59,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "A delicious breakfast"
+  },
+ {
+    "user": "Guy",
+    "id": 60,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "On the ceiling!"
+  },
+  {
+  "id": 61,
+  "hashtag": "Mood",
+  "type": "Gif",
+  "day": 1,
+   "gif": "laugh.gif",
+   "user": "Guy"
+},
+ {
+    "user": "Guy",
+    "id": 62,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "You have to laugh!"
+  }
+]
+  

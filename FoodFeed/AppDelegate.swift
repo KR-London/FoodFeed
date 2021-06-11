@@ -19,9 +19,9 @@ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+       let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-        let launchedBefore = false
+       // let launchedBefore = false
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
