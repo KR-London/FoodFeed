@@ -77,6 +77,13 @@ class FeedPageViewController:
         self.dataSource = self
         self.delegate = self
         
+        NotificationCenter
+            .default
+            .addObserver(self,
+                         selector: #selector(loadNext(_:) ),
+                         name: .goForwardsNotification,
+                         object: nil )
+
      
         let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
         
@@ -88,6 +95,17 @@ class FeedPageViewController:
     
     required init?(coder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+    
+    @objc func loadNext(_ notification: NSNotification){
+        var nextFeed = Feed(id: 1, state: .text(bigText: "I moved!", caption: nil, hashtag: nil, votea: nil, voteb: nil))
+        
+        presenter.fetchNextFeed()
+        
+        let newVC = FeedItemViewController.instantiate(feed: nextFeed, andIndex: 1)
+        
+        setViewControllers([newVC], direction: .forward, animated: true, completion: nil)
+        
     }
 }
 

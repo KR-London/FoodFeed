@@ -541,6 +541,9 @@ final class InteractionView: UIView, UITableViewDelegate{
    // var thirdScreenHeight = UIScreen.main.bounds.height / 3
     
     let caption = UILabel()
+    
+ 
+    
   //  let voteAbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .one)
     let voteAbutton = RaspberryButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10) )
     let voteBbutton = OptionButton(frame: CGRect(x: 10, y: 10, width: 10, height: 10), type: .two)
@@ -655,14 +658,20 @@ final class InteractionView: UIView, UITableViewDelegate{
         buttonStack.addArrangedSubview(dunno)
         buttonStack.axis = .vertical
         
+        voteAbutton.heightAnchor.constraint(equalToConstant: 0.5*heightLayoutUnit).isActive = true
+        voteBbutton.heightAnchor.constraint(equalToConstant: 0.5*heightLayoutUnit).isActive = true
+        voteCbutton.heightAnchor.constraint(equalToConstant: 0.5*heightLayoutUnit).isActive = true
+        dunno.heightAnchor.constraint(equalToConstant: 0.5*heightLayoutUnit).isActive = true
+        
         buttonStack.distribution = .equalSpacing
+        buttonStack.spacing = 20
         //voteAbutton.setContentHuggingPriority(.required, for: .horizontal)
         //voteBbutton.setContentHuggingPriority(.required, for: .horizontal)
         self.addSubview(buttonStack)
         buttonStack.translatesAutoresizingMaskIntoConstraints = false
         buttonStack.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
         buttonStack.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: -20).isActive = true
-        buttonStack.heightAnchor.constraint(equalToConstant: 2*heightLayoutUnit).isActive = true
+        buttonStack.heightAnchor.constraint(equalToConstant: 3*heightLayoutUnit).isActive = true
         buttonStack.centerXAnchor.constraint(equalTo: backgroundImage.centerXAnchor).isActive = true
       
         buttonStack.isHidden = false
@@ -1211,6 +1220,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         labelCard = chatBubbleView(frame:  CGRect(x: (1/6)*widthLayoutUnit, y: yCoord, width: widthLayoutUnit, height: 0.67*widthLayoutUnit), user: botUser.guy)
             //SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
         label.frame = CGRect(x: frame.width/6 + (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
+        label.adjustsFontForContentSizeCategory = true
         labelCard.addSubview(label)
         self.addSubview(labelCard)
         
@@ -1231,6 +1241,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         //yesButton.backgroundColor = .option1
         //noButton.backgroundColor = .option3
 
+        yesButton.heightAnchor.constraint(equalToConstant: 0.2*widthLayoutUnit).isActive = true
+        noButton.heightAnchor.constraint(equalToConstant: 0.2*widthLayoutUnit).isActive = true
+        
         stack.axis = .vertical
        // stack.backgroundColor = .yellow
         stack.addArrangedSubview(yesButton)
@@ -1245,7 +1258,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
        // stack.widthAnchor.constraint(equalTo: labelCard.widthAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
-        stack.heightAnchor.constraint(equalToConstant: 0.4*widthLayoutUnit).isActive = true
+        stack.heightAnchor.constraint(equalToConstant: 0.6*widthLayoutUnit).isActive = true
        
        // labelCard.translatesAutoresizingMaskIntoConstraints = false
        // labelCard.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -1264,6 +1277,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
        // label.backgroundColor = .postBackground
         label.textAlignment = .center
         label.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
+        label.adjustsFontForContentSizeCategory = true
         
         self.addSubview(caption)
         caption.backgroundColor = .green
@@ -1591,6 +1605,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             label.attributedText = bigTextStyled
             noButton.isEnabled = false
             yesButton.isPicked = true
+            NotificationCenter.default.post(name: .goForwardsNotification, object: nil)
+
             /// load next screen?
         }
         //        if sender.tag == 2 {

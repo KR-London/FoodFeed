@@ -94,3 +94,9 @@ extension UIColor {
         return String(format:"#%06x", rgb)
     }
 }
+
+extension Notification.Name {
+    static let goForwardsNotification = Notification.Name("goForwards")
+        // any more notifications...
+}
+

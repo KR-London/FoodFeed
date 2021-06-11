@@ -109,6 +109,7 @@ class OptionButton: UIButton {
         layer.borderColor = type.getColor().cgColor
         
         titleLabel?.font = Fonts.defaultMediumFont
+        titleLabel?.adjustsFontForContentSizeCategory = true
         
         setTitleColor(type.getColor(), for: .normal)
         setTitleColor(.white, for: .highlighted)
