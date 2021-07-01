@@ -59,6 +59,10 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         return getFeed(atIndex: currentFeedIndex + 1)
     }
     
+    func fetchDoubleNextFeed() -> IndexedFeed? {
+        return getFeed(atIndex: currentFeedIndex + 2)
+    }
+    
     func fetchPreviousFeed() -> IndexedFeed? {
         return getFeed(atIndex: currentFeedIndex - 1)
     }

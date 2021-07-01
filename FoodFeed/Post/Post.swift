@@ -490,6 +490,7 @@ extension UILabel {
         let label = UILabel()
         label.textColor = .textTint
         label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }
 }
@@ -497,6 +498,7 @@ extension UILabel {
 extension UILabel {
     static func captionLabel() -> UILabel {
         let label = UILabel()
+        label.adjustsFontForContentSizeCategory = true
         return label
     }
 }
@@ -506,6 +508,7 @@ extension UILabel {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }
 }
@@ -1221,6 +1224,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             //SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
         label.frame = CGRect(x: frame.width/6 + (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
         label.adjustsFontForContentSizeCategory = true
+        
         labelCard.addSubview(label)
         self.addSubview(labelCard)
         
@@ -1601,8 +1605,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                          NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                          NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
             ]
-            let bigTextStyled = NSAttributedString(string: "This should automatically advance but it is not working yet ", attributes: attrs)
-            label.attributedText = bigTextStyled
+         //   let bigTextStyled = NSAttributedString(string: "This should automatically advance but it is not working yet ", attributes: attrs)
+           // label.attributedText = bigTextStyled
             noButton.isEnabled = false
             yesButton.isPicked = true
             NotificationCenter.default.post(name: .goForwardsNotification, object: nil)

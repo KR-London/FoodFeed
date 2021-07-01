@@ -16,6 +16,9 @@ class chatBubbleView: UIView {
     
     var bigText = "Tips for trying new foods?"
     var label = UILabel()
+    
+    
+    
     let profilePicture = UIImageView()
     
     var mainViewController: profileCardViewController?

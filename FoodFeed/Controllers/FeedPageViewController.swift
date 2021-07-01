@@ -98,11 +98,11 @@ class FeedPageViewController:
     }
     
     @objc func loadNext(_ notification: NSNotification){
-        var nextFeed = Feed(id: 1, state: .text(bigText: "I moved!", caption: nil, hashtag: nil, votea: nil, voteb: nil))
+        //var nextFeed = Feed(id: 1, state: .text(bigText: "I moved!", caption: nil, hashtag: nil, votea: nil, voteb: nil))
         
-        presenter.fetchNextFeed()
+        var nextFeed =  presenter.fetchNextFeed()!
         
-        let newVC = FeedItemViewController.instantiate(feed: nextFeed, andIndex: 1)
+        let newVC = FeedItemViewController.instantiate(feed: nextFeed.feed, andIndex: nextFeed.index.advanced(by: 1))
         
         setViewControllers([newVC], direction: .forward, animated: true, completion: nil)
         
