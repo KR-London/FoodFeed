@@ -38,15 +38,18 @@ var window: UIWindow?
             //  let decoder = JSONDecoder()
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+                var i = Int16(0)
                 for item in parsedData {
                     let newPost = PostData(context: context)
                     
+                    
                     // print(item)
                     for (category, value) in item{
+                        newPost.id = i as! Int16
                         //  print(value)
                         switch category{
                             case "day": newPost.day = value as! Int16
-                            case "id": newPost.id = value as! Int32
+                            //case "id": newPost.id = value as! Int32
                             case "bigtext": newPost.bigtext = value as? String
                             case "caption": newPost.caption = value as? String
                             case "type": newPost.type = value as? String
@@ -64,7 +67,7 @@ var window: UIWindow?
                     do{
                         
                         print(newPost)
-                        
+                        i = i + 1
                         try  context.save()
                         
                     } catch {

@@ -16,6 +16,9 @@
 		2C48B68B266D67DF0092D5E1 /* NotSureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B68A266D67DF0092D5E1 /* NotSureButton.swift */; };
 		31CA2A8A15AAA1CF833C2597 /* Pods_FoodFeed_FoodFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */; };
 		375B9C20ACCCF72594BFCE29 /* Pods_FoodFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */; };
+		440C3273268DBD27007D70C6 /* Day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3272268DBD27007D70C6 /* Day2.txt */; };
+		440C3278268DBD33007D70C6 /* Day4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3277268DBD33007D70C6 /* Day4.txt */; };
+		440C327D268DBD3B007D70C6 /* Day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C327C268DBD3B007D70C6 /* Day5.txt */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
 		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446540672604B7E5004B202B /* chatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540662604B7E5004B202B /* chatBubbleView.swift */; };
@@ -119,6 +122,9 @@
 		2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryButton.swift; sourceTree = "<group>"; };
 		2C48B68A266D67DF0092D5E1 /* NotSureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSureButton.swift; sourceTree = "<group>"; };
 		389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.release.xcconfig"; sourceTree = "<group>"; };
+		440C3272268DBD27007D70C6 /* Day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day2.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day2.txt"; sourceTree = "<group>"; };
+		440C3277268DBD33007D70C6 /* Day4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day4.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day4.txt"; sourceTree = "<group>"; };
+		440C327C268DBD3B007D70C6 /* Day5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day5.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day5.txt"; sourceTree = "<group>"; };
 		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
 		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
@@ -446,7 +452,10 @@
 				44A8131A25838E0700685A0E /* 07891284.ttf */,
 				4471EC1A261A04AC00D23E01 /* storyline.txt */,
 				4493EB1C2672D70100D8258A /* Day1.txt */,
+				440C3272268DBD27007D70C6 /* Day2.txt */,
 				4493EB1A2672B91C00D8258A /* Day3.txt */,
+				440C3277268DBD33007D70C6 /* Day4.txt */,
+				440C327C268DBD3B007D70C6 /* Day5.txt */,
 				44E768E9264AB40E00AD75FE /* Day6.txt */,
 				659F11292562A49300E5C8B1 /* Service */,
 				6536A64625618597006D7297 /* Post */,
@@ -612,9 +621,11 @@
 				4473ED9A2602343200CFF919 /* speechBubble.png in Resources */,
 				446CAEA526517BE200F9081D /* lowiron.gif in Resources */,
 				44A813202583926D00685A0E /* 07891284.ttf in Resources */,
+				440C327D268DBD3B007D70C6 /* Day5.txt in Resources */,
 				4493EB1D2672D70100D8258A /* Day1.txt in Resources */,
 				44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */,
 				44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */,
+				440C3278268DBD33007D70C6 /* Day4.txt in Resources */,
 				44C3DF1C2521D96100D317DA /* two.jpeg in Resources */,
 				4493EB1B2672B91C00D8258A /* Day3.txt in Resources */,
 				44C3DF47252A274100D317DA /* fieri.jpeg in Resources */,
@@ -627,6 +638,7 @@
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				446540942606110A004B202B /* U.jpeg in Resources */,
 				446540932606110A004B202B /* bot1.jpeg in Resources */,
+				440C3273268DBD27007D70C6 /* Day2.txt in Resources */,
 				44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */,
 				4473ED70260225CE00CFF919 /* heart_outline.png in Resources */,
 				446540972606110A004B202B /* bot3.jpeg in Resources */,

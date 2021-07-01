@@ -58,20 +58,21 @@ class PostDataInput: UIViewController {
      //   let data = try! String(contentsOfFile: filePath + "/storyline.txt",
      //                                 encoding: String.Encoding.utf8).data(using: .utf8)
         
-        let data = try! String(contentsOfFile: filePath + "/Day6.txt", encoding: String.Encoding.utf8).data(using: .utf8)
+        let data = try! String(contentsOfFile: filePath + "/Day5.txt", encoding: String.Encoding.utf8).data(using: .utf8)
         
       //  let decoder = JSONDecoder()
         
         if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+            var i = 0
             for item in parsedData {
                 let newPost = PostData(context: context)
-                
+                newPost.id = i as! Int16
                // print(item)
                 for (category, value) in item{
                     //print(value)
                     switch category{
                         case "day": newPost.day = value as! Int16
-                        case "id": newPost.id = value as! Int32
+                       // case "id": newPost.id = i as! Int32
                         case "bigtext": newPost.bigtext = value as? String
                         case "caption": newPost.caption = value as? String
                         case "type": newPost.type = value as? String
@@ -87,12 +88,55 @@ class PostDataInput: UIViewController {
                  
                 }
                 saveItems()
+                i = i + 1
             }
         }
         
       //  decoder.decode(newPost.self, from: textContent )
-//        
+//
     }
+    
+//    func loadJSON(){
+//
+//        let filePath = Bundle.main.resourcePath!
+//     //   let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+//     //                                 encoding: String.Encoding.utf8).data(using: .utf8)
+//
+//        let data = try! String(contentsOfFile: filePath + "/Day6.txt", encoding: String.Encoding.utf8).data(using: .utf8)
+//
+//      //  let decoder = JSONDecoder()
+//
+//        if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+//            for item in parsedData {
+//                let newPost = PostData(context: context)
+//
+//               // print(item)
+//                for (category, value) in item{
+//                    //print(value)
+//                    switch category{
+//                        case "day": newPost.day = value as! Int16
+//                        case "id": newPost.id = value as! Int32
+//                        case "bigtext": newPost.bigtext = value as? String
+//                        case "caption": newPost.caption = value as? String
+//                        case "type": newPost.type = value as? String
+//                        case "gif":  newPost.gif = value as? String
+//                        case "image": newPost.image = value as? String
+//                        case "video":  newPost.video = value as? String
+//                        case "hashtag": newPost.hashtag = value as? String
+//                        case "votea": newPost.votea = value as? String
+//                        case "voteb": newPost.voteb = value as? String
+//                        case "votec": newPost.votec = value as? String
+//                        default: break
+//                    }
+//
+//                }
+//                saveItems()
+//            }
+//        }
+//
+//      //  decoder.decode(newPost.self, from: textContent )
+////
+//    }
     
     func whereIsMySQLite() {
         let path = FileManager
