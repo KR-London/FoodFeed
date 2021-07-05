@@ -157,3 +157,73 @@ func postsFor(preferences: Preferences) -> [Backend.Post] {
     // construct feed of posts from preferences
     fatalError()
 }
+
+enum Personage: String{
+    case Guy
+    case DG
+    case Avery
+    case Unknown
+//    
+//    func dataConvert(user: String) -> Personage{
+//        
+//        let incomingUser = Personage(rawValue: user) ?? Personage.Unknown
+//        
+//        return incomingUser
+//        
+//    }
+    
+//    func profilePicture(who: Personage) -> UIImage{
+//        switch who {
+//        case .Guy:
+//            return UIImage(named: "guy_profile_pic.jpeg")!
+//        case .DG:
+//            return UIImage(named: "bot1.jpeg")!
+//        case .Avery:
+//            return UIImage(named: "bot2.jpeg")!
+//        default:
+//            return UIImage(named: "bot3.jpeg")!
+//        }
+//    }
+
+}
+func profilePicture(who: Personage) -> UIImage{
+    print(who)
+    switch who {
+    case .Guy:
+        return UIImage(named: "guy_profile_pic.jpeg")!
+    case .DG:
+        return UIImage(named: "bot1.jpeg")!
+    case .Avery:
+        return UIImage(named: "bot2.jpeg")!
+    default:
+        return UIImage(named: "bot3.jpeg")!
+    }
+}
+
+func profilePicture(who: String) -> UIImage{
+    print(who)
+    switch who {
+    case "Guy":
+        return UIImage(named: "guy_profile_pic.jpeg")!
+    case "DG":
+        return UIImage(named: "bot1.jpeg")!
+    case "Avery":
+        return UIImage(named: "bot2.jpeg")!
+    default:
+        return UIImage(named: "bot3.jpeg")!
+    }
+}
+
+func whoIsIt(name: String?) -> Personage{
+    print(name)
+    switch name {
+    case "Guy":
+        return .Guy
+    case "DG":
+        return .DG
+    case "Avery":
+        return .Avery
+    default:
+        return .Unknown
+    }
+}

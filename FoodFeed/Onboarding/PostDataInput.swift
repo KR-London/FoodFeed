@@ -76,6 +76,7 @@ class PostDataInput: UIViewController {
                         case "bigtext": newPost.bigtext = value as? String
                         case "caption": newPost.caption = value as? String
                         case "type": newPost.type = value as? String
+                        case "user": newPost.user = value as? String
                         case "gif":  newPost.gif = value as? String
                         case "image": newPost.image = value as? String
                         case "video":  newPost.video = value as? String
@@ -83,6 +84,7 @@ class PostDataInput: UIViewController {
                         case "votea": newPost.votea = value as? String
                         case "voteb": newPost.voteb = value as? String
                         case "votec": newPost.votec = value as? String
+                        case "user": newPost.user = value as? String
                         default: break
                     }
                  

@@ -19,10 +19,10 @@ class uiTestViewController: UIViewController, FeedViewInteractionDelegate {
         
         let frame = view.bounds
 
-        feedView  = PostView(frame: self.view.frame, feed: Feed(id: 99, state: .poll(caption: "Best jam?", votea: "Strawberry", voteb: "Raspberry", votec: "Cherry", hashtag: nil)    )    )
+        feedView  = PostView(frame: self.view.frame, feed: Feed(id: 99, state: .poll(caption: "Best jam?", votea: "Strawberry", voteb: "Raspberry", votec: "Cherry", hashtag: nil, who: .Guy)    )    )
         //feedView.interactionView.isHidden = true
         feedView.avatarView.isHidden = false
-        feedView.avatarView.imageView.image = botUser.guy.profilePic
+      //  feedView.avatarView.imageView.image = botUser.guy.profilePic
         feedView.delegate = self
         view = feedView
         

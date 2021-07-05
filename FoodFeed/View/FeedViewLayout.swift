@@ -90,7 +90,7 @@ class MainView: UIView {
         //FIXME: Refactor Layouts
         // FIX ME: i don't know how to deal with caption being optional - so I jsut set is an non=optonal but maybe ""
         switch feed.state {
-            case .text(let text, _ ,  _, _, _):
+            case .text(let text, _ ,  _, _, _, _):
                 backgroundColor = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)].randomElement()
 
                 characterQuipLabel!.text = text
@@ -203,7 +203,7 @@ class FeedItemView: UIView {
     func layout(){
         
         let margins = self.layoutMarginsGuide
-        let profilePic = UIImage(named: "guy.jpeg")
+       // let profilePic = UIImage(named: "guy.jpeg")
         
         mainView.contentMode = .scaleAspectFill
         mainView.translatesAutoresizingMaskIntoConstraints = false
@@ -215,25 +215,28 @@ class FeedItemView: UIView {
         ])
         
 
-        let pic = UIImageView()
-        pic.layer.cornerRadius = 20
-        pic.layer.masksToBounds = true
-        pic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        pic.layer.borderWidth = 2
-        pic.backgroundColor = .white
-        pic.contentMode = .scaleAspectFill
-        pic.image = profilePic
+//        let pic = UIImageView()
+//        pic.layer.cornerRadius = 20
+//        pic.layer.masksToBounds = true
+//        pic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        pic.layer.borderWidth = 2
+//        pic.backgroundColor = .white
+//        pic.contentMode = .scaleAspectFill
+//        //pic.image = profilePic
+//        
+//        
+//        self.addSubview(pic)
+//        bringSubviewToFront(pic)
+//        
+//        pic.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            pic.topAnchor.constraint(equalTo: margins.topAnchor),
+//            pic.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+//            pic.heightAnchor.constraint(equalToConstant: 60),
+//            pic.widthAnchor.constraint(equalToConstant: 60)
+//        ])
+//        
         
-        self.addSubview(pic)
-        bringSubviewToFront(pic)
-        
-        pic.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            pic.topAnchor.constraint(equalTo: margins.topAnchor),
-            pic.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-            pic.heightAnchor.constraint(equalToConstant: 60),
-            pic.widthAnchor.constraint(equalToConstant: 60)
-        ])
         
 //        if feed.text == nil{
 //            characterQuipLabel!.isHidden = true

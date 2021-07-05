@@ -45,7 +45,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         fetchFeeds()
       //  print("feed = ")
       //  print(feeds)
-        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n <<<<<< ", caption: nil, hashtag: nil, votea: nil, voteb: nil) )
+        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n <<<<<< ", caption: nil, hashtag: nil, votea: nil, voteb: nil, who: .Avery) )
         view.presentInitialFeed(initialFeed)
     }
     //"<<<<<<<<<< \n <<<<<<<<<< \n  <<<<<<<<<< \n Swipe! \n <<<<<<<<<<\n <<<<<<<<<<\n <<<<<<<<<< "
@@ -87,7 +87,7 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         //FIXME: This falls over if there is a missing record - can we handle this nicer?
         print("index is \(index)")
        
-        return (feeds.filter({$0.id == index    }).first ?? Feed(id: index, state: .text(bigText: "Come back again tomorrow!", caption: nil, hashtag: nil, votea: nil, voteb: nil)) , index  )
+        return (feeds.filter({$0.id == index    }).first ?? Feed(id: index, state: .text(bigText: "Come back again tomorrow!", caption: nil, hashtag: nil, votea: nil, voteb: nil, who: .Avery)) , index  )
     }
     
     func updateFeedIndex(fromIndex index: Int) {

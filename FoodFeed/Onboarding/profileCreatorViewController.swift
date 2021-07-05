@@ -692,6 +692,7 @@ extension profileCreatorViewController{
                         case "votea": newPost.votea = value as? String
                         case "voteb": newPost.voteb = value as? String
                         case "votec": newPost.votec = value as? String
+                        case "user": newPost.user = value as? String
                         default: break
                     }
                  

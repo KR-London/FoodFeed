@@ -19,9 +19,9 @@ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+      // let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-       // let launchedBefore = false
+       let launchedBefore = false
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
@@ -52,6 +52,7 @@ var window: UIWindow?
                             //case "id": newPost.id = value as! Int32
                             case "bigtext": newPost.bigtext = value as? String
                             case "caption": newPost.caption = value as? String
+                            case "user": newPost.caption = value as? String
                             case "type": newPost.type = value as? String
                             case "gif":  newPost.gif = value as? String
                             case "image": newPost.image = value as? String

@@ -13,11 +13,13 @@ let humanAvatar = AvatarView()
 
 @IBDesignable
 final class AvatarView: UIView {
-    private let margin: CGFloat = 2
+    private let margin: CGFloat = 0.5
+    // 2
     let imageView = UIImageView()
     
     struct State {
         let image: UIImage
+        let name: String
     }
         
     func setup() {
@@ -35,6 +37,7 @@ final class AvatarView: UIView {
             
         ])
         
+
 //        override func viewDidAppear(){
 //            imageView.reloadInputViews()
 //        }
@@ -45,8 +48,17 @@ final class AvatarView: UIView {
     // MARK: UIView
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.layer.cornerRadius = (imageView.frame.width) / 2
-        self.layer.cornerRadius =  self.frame.width / 2
+        imageView.layer.cornerRadius = 20  //(imageView.frame.width) / 2
+        self.layer.cornerRadius = 20 //self.frame.width / 2
+        
+        
+      
+        self.layer.masksToBounds = true
+       //self.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+       // self.layer.borderWidth = 2
+        self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.contentMode = .scaleAspectFill
+        
     }
     
     override init(frame: CGRect) {
@@ -64,27 +76,28 @@ final class AvatarView: UIView {
     
     func update(state: State) {
         imageView.image = state.image
+        print("Avatar loading" + state.name)
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-@available(iOS 13.0, *)
-struct AvatarViewPreview: PreviewProvider {
-    static var previews: some View {
-                UIViewPreview {
-                    let image = UIImage(named: "guy_profile_pic.jpeg")!
-                    let view = AvatarView()
-                    view.update(
-                        state: AvatarView.State(image: image)
-                    )
-                    return view
-                }
-                .previewLayout(.sizeThatFits)
-                .background(Color.black)
-    }
-}
-#endif
+//#if canImport(SwiftUI) && DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct AvatarViewPreview: PreviewProvider {
+//    static var previews: some View {
+//                UIViewPreview {
+//                    let image = UIImage(named: "guy_profile_pic.jpeg")!
+//                    let view = AvatarView()
+//                    view.update(
+//                        state: AvatarView.State(image: image)
+//                    )
+//                    return view
+//                }
+//                .previewLayout(.sizeThatFits)
+//                .background(Color.black)
+//    }
+//}
+//#endif
 
 final class LikeView: UIView {
     struct State {
@@ -144,9 +157,11 @@ class PostView: UIView {
        backgroundColor = .postBackground
         
         switch feed.state{
-            case .text(let bigText, let caption, let hashtag, let votea, let voteb):
+            case .text(let bigText, let caption, let hashtag, let votea, let voteb, let character):
+                
+                let profilePic = profilePicture(who: character)
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State( image: profilePic, name: character.rawValue),
                     media: MediaView.State(filename: bigText, captionText: caption, votea: votea , voteb: voteb),
                     interaction: InteractionView.State(),
                     tag: hashtag
@@ -162,40 +177,44 @@ class PostView: UIView {
                 }
                 self.bringSubviewToFront(mediaView)
               //  mediaView.isHidden == true
-            case .gif(let gifName, let caption, let hashtag):
+            case .gif(let gifName, let caption, let hashtag, let who):
+                let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State( image: profilePic, name: who.rawValue),
                     media: MediaView.State(filename: gifName, captionText: caption, votea: "", voteb: ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
                 pageTitleHashtag.text = hashtag
                 self.bringSubviewToFront(mediaView)
-            case .image(let imageName, let caption, let hashtag):
+            case .image(let imageName, let caption, let hashtag, let who):
+                let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State( image: profilePic, name: who.rawValue),
                     media: MediaView.State(filename: imageName,captionText: caption, votea: "", voteb: ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
                 self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
-            case .video(let videoName, let hashtag):
+            case .video(let videoName, let hashtag, let who):
+                let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
                     media: MediaView.State(filename: videoName, captionText: nil, votea: "",voteb: ""),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
                self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
-            case .poll(let caption, let votea, let voteb, let votec, let hashtag):
+            case .poll(let caption, let votea, let voteb, let votec, let hashtag, let who):
 //                if let tag = hashtag{
 //                 pageTitleHashtag.text = tag + botUser.human.name
 //                }
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
+                let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
                     tag: hashtag ?? "Getting to know " + botUser.human.name
@@ -203,11 +222,11 @@ class PostView: UIView {
                 // QUESTION: Why did I not need to do this here?
                 //self.bringSubviewToFront(mediaView)
         
-            case .question(caption: let caption, hashtag: let hashtag):
+            case .question(caption: let caption, hashtag: let hashtag, let who):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
-              
+                let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
-                    avatar: AvatarView.State(image: UIImage(named: "guy_profile_pic.jpeg")!),
+                    avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
                     media: MediaView.State(),
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
@@ -263,6 +282,7 @@ class PostView: UIView {
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
             addGestureRecognizer(tap)
             setupRightView()
+            setupAvatarView()
         }
         
        
@@ -310,6 +330,8 @@ class PostView: UIView {
         mediaView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         mediaView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
+    
+
     
     func setupInteractionView() {
         
@@ -367,6 +389,41 @@ class PostView: UIView {
         controlsStack.translatesAutoresizingMaskIntoConstraints = false
         controlsStack.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         controlsStack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+    }
+    
+    func setupAvatarView() {
+        
+        addSubview(avatarView)
+        bringSubviewToFront(avatarView)
+        
+        var thirdScreenHeight = UIScreen.main.bounds.height / 3
+//        avatarView.backgroundColor = .yellow
+//
+//        avatarView.layer.cornerRadius = 20
+//        avatarView.layer.masksToBounds = true
+//        avatarView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        avatarView.layer.borderWidth = 2
+//        avatarView.backgroundColor = .white
+//        avatarView.contentMode = .scaleAspectFill
+        //pic.image = profilePic
+        let margins = self.layoutMarginsGuide
+
+        
+        avatarView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            avatarView.bottomAnchor.constraint(equalTo: margins.topAnchor, constant: thirdScreenHeight),
+            avatarView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            avatarView.heightAnchor.constraint(equalToConstant: 60),
+            avatarView.widthAnchor.constraint(equalToConstant: 60)
+        ])
+        
+        
+        
+//        avatarView.translatesAutoresizingMaskIntoConstraints = false
+//        avatarView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        avatarView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+//        avatarView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        avatarView.bottomAnchor.constraint(equalTo:  .bottomAnchor).isActive = true
     }
     
     func likeView() -> UIView {
@@ -1222,7 +1279,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         
         labelCard = chatBubbleView(frame:  CGRect(x: (1/6)*widthLayoutUnit, y: yCoord, width: widthLayoutUnit, height: 0.67*widthLayoutUnit), user: botUser.guy)
             //SoftUIView(frame: CGRect(x: 50, y: yCoord, width: widthLayoutUnit, height: widthLayoutUnit))
-        label.frame = CGRect(x: frame.width/6 + (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
+        label.frame = CGRect(x: (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
+      //  label.frame = CGRect(x: frame.width/6 + (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
         label.adjustsFontForContentSizeCategory = true
         
         labelCard.addSubview(label)
@@ -1649,7 +1707,7 @@ class PostViewController: UIViewController {
 extension PostView.State {
     static let mock: Self = PostView.State(
         //tag: Model.Tag(rawValue: "#this is tag"),
-        avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!),
+        avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!, name: "Gyu"),
         media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" , votea: "", voteb: ""),
         interaction: InteractionView.State()
     )
