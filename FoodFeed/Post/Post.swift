@@ -1201,8 +1201,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 }
             default:
                 
-                if filename.contains("youtu.be"){
-                    self = .video(video: filename.lowercased(), caption: captionText ?? "")
+                if filename.contains("youtu"){
+                    self = .video(video: filename, caption: captionText ?? "")
                 }
                 else{
                         if let assetImage = UIImage(named: filename.lowercased()){
@@ -1292,9 +1292,6 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         yesButton.isUserInteractionEnabled = true
         noButton.tag = 0
         noButton.isUserInteractionEnabled = true
-        
-        
-
        
         stack.isUserInteractionEnabled = true
         self.addSubview(stack)
@@ -1587,7 +1584,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 }
             }
             
-            if sender.video.contains("youtu.be")
+            if sender.video.contains("youtu")
             {
                 videoController.view.isHidden = true
                 let myView = YTPlayerView()
@@ -1610,7 +1607,23 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 
                 let playerVars = [ "rel" : 0, "loop" : 1, "playinline" : 1, "autoplay" : 0, "autohide": 1, "showinfo": 1, "modestbranding": 1]
                 //myView.load(withVideoId: "l_NYrWqUR40", playerVars: playerVars)
-                myView.load(withPlaylistId: "PLPCeSm8EDITr2z9Y6tnTrP3ZsWZKDdMYi", playerVars: playerVars)
+                
+                
+                // M
+                
+                var playlistID = ""
+                
+                if sender.video.contains("="){
+                    playlistID = String(sender.video.split(separator: "=").last! )
+                }
+                else{
+                    playlistID = String( sender.video.split(separator: "/").last ?? "" )
+                }
+                
+//                let playlistID = String(sender.video.split(separator: "=").last ?? sender.video.split(separator: "/").last ?? "" )
+                
+                
+                myView.load(withPlaylistId: playlistID, playerVars: playerVars)
             }
             
             yesButton.isHidden = true

@@ -32,7 +32,10 @@ var window: UIWindow?
             let filePath = Bundle.main.resourcePath!
             //        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
             //                               encoding: String.Encoding.utf8).data(using: .utf8)
-            let data = try! String(contentsOfFile: filePath + "/Day3.txt",
+            
+            let sourceData = "/Day" + String(day) + ".txt"
+            
+            let data = try! String(contentsOfFile: filePath + sourceData,
                                    encoding: String.Encoding.utf8).data(using: .utf8)
             
             //  let decoder = JSONDecoder()

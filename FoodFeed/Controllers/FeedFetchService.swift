@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+let day = 5
+
 protocol FeedFetchDelegate: class {
     func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds feeds: [Feed], withError error: Error?)
 }
@@ -71,7 +73,7 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
        // NSPredicate(format: "name == %@", "Python")
         //request.propertiesToFetch = ["bigtext"]
       // let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
-       let day = 5
+       
         request.predicate = NSPredicate(format: "day == %i", day)
         request.returnsObjectsAsFaults = false
         //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]

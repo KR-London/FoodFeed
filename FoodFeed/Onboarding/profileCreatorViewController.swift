@@ -667,7 +667,9 @@ extension profileCreatorViewController{
      //   let data = try! String(contentsOfFile: filePath + "/storyline.txt",
      //                                 encoding: String.Encoding.utf8).data(using: .utf8)
         
-        let data = try! String(contentsOfFile: filePath + "/Day5.txt", encoding: String.Encoding.utf8).data(using: .utf8)
+        let sourceData = "/Day" + String(day) + ".txt"
+        
+        let data = try! String(contentsOfFile: filePath + sourceData , encoding: String.Encoding.utf8).data(using: .utf8)
         
       //  let decoder = JSONDecoder()
         
