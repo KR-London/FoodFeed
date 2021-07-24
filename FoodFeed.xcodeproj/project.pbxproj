@@ -19,6 +19,9 @@
 		440C3273268DBD27007D70C6 /* Day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3272268DBD27007D70C6 /* Day2.txt */; };
 		440C3278268DBD33007D70C6 /* Day4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3277268DBD33007D70C6 /* Day4.txt */; };
 		440C327D268DBD3B007D70C6 /* Day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C327C268DBD3B007D70C6 /* Day5.txt */; };
+		44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DAD26AC8A98006156B6 /* Alamofire */; };
+		44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DB026AC8C07006156B6 /* AlamofireImage */; };
+		44327DB326AC99C2006156B6 /* imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327DB226AC99C2006156B6 /* imageCache.swift */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
 		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446540672604B7E5004B202B /* chatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540662604B7E5004B202B /* chatBubbleView.swift */; };
@@ -81,6 +84,7 @@
 		44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768F6264ABD6800AD75FE /* fed_up.gif */; };
 		44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */; };
 		44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1918724F8CF7300DC5718 /* FeedViewController.swift */; };
+		44F7AD6326A495A900EF54FB /* UnsplashPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 44F7AD6226A495A900EF54FB /* UnsplashPhotoPicker */; };
 		6536A648256185B3006D7297 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536A647256185B3006D7297 /* Post.swift */; };
 		659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F112A2562A4BA00E5C8B1 /* Backend.swift */; };
 		65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2124F816C2004CA3E9 /* AppDelegate.swift */; };
@@ -125,6 +129,7 @@
 		440C3272268DBD27007D70C6 /* Day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day2.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day2.txt"; sourceTree = "<group>"; };
 		440C3277268DBD33007D70C6 /* Day4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day4.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day4.txt"; sourceTree = "<group>"; };
 		440C327C268DBD3B007D70C6 /* Day5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day5.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day5.txt"; sourceTree = "<group>"; };
+		44327DB226AC99C2006156B6 /* imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCache.swift; sourceTree = "<group>"; };
 		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
 		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
@@ -213,9 +218,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */,
 				44A76757260A284900EBC9AD /* SoftUIView in Frameworks */,
+				44F7AD6326A495A900EF54FB /* UnsplashPhotoPicker in Frameworks */,
 				44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */,
 				1721F46DF48FAF123BB2AA8B /* Pods_FoodFeed.framework in Frameworks */,
+				44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +355,7 @@
 				44C3DF082520DEF400D317DA /* InteractionUtil.swift */,
 				44C3DF092520DEF400D317DA /* HTTPRequest.swift */,
 				44C3DF0A2520DEF400D317DA /* HTTPError.swift */,
+				44327DB226AC99C2006156B6 /* imageCache.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -520,6 +529,9 @@
 			packageProductDependencies = (
 				44A76756260A284900EBC9AD /* SoftUIView */,
 				44B32EBC2610F0200030C88C /* SwiftyGif */,
+				44F7AD6226A495A900EF54FB /* UnsplashPhotoPicker */,
+				44327DAD26AC8A98006156B6 /* Alamofire */,
+				44327DB026AC8C07006156B6 /* AlamofireImage */,
 			);
 			productName = FoodFeed;
 			productReference = 65D07A1E24F816C2004CA3E9 /* FoodFeed.app */;
@@ -599,6 +611,9 @@
 			packageReferences = (
 				44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */,
 				44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				44F7AD6126A495A900EF54FB /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */,
+				44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 65D07A1F24F816C2004CA3E9 /* Products */;
 			projectDirPath = "";
@@ -798,6 +813,7 @@
 				4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */,
 				44D66C892534556E00C81C41 /* FeedViewLayout.swift in Sources */,
 				44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */,
+				44327DB326AC99C2006156B6 /* imageCache.swift in Sources */,
 				44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */,
 				44C3DF0C2520DEF400D317DA /* Connection.swift in Sources */,
 				65D07A2424F816C2004CA3E9 /* SceneDelegate.swift in Sources */,
@@ -1169,6 +1185,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/SoftUIView.git";
@@ -1185,9 +1217,27 @@
 				minimumVersion = 5.4.0;
 			};
 		};
+		44F7AD6126A495A900EF54FB /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/unsplash/unsplash-photopicker-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		44327DAD26AC8A98006156B6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		44327DB026AC8C07006156B6 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		44A76756260A284900EBC9AD /* SoftUIView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */;
@@ -1197,6 +1247,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
+		};
+		44F7AD6226A495A900EF54FB /* UnsplashPhotoPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 44F7AD6126A495A900EF54FB /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */;
+			productName = UnsplashPhotoPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 

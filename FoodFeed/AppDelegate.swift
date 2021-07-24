@@ -21,7 +21,7 @@ var window: UIWindow?
         // Override point for customization after application launch.
       // let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-       let launchedBefore = false
+       let launchedBefore = true
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
@@ -41,17 +41,17 @@ var window: UIWindow?
             //  let decoder = JSONDecoder()
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
-                var i = Int16(0)
+                var i = Int32(0)
                 for item in parsedData {
                     let newPost = PostData(context: context)
                     
                     
                     // print(item)
                     for (category, value) in item{
-                        newPost.id = i as! Int16
+                        newPost.id = i as! Int32
                         //  print(value)
                         switch category{
-                            case "day": newPost.day = value as! Int16
+                            case "day": newPost.day = value as! Int32
                             //case "id": newPost.id = value as! Int32
                             case "bigtext": newPost.bigtext = value as? String
                             case "caption": newPost.caption = value as? String

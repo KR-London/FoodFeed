@@ -67,12 +67,12 @@ class PostDataInput: UIViewController {
             var i = 0
             for item in parsedData {
                 let newPost = PostData(context: context)
-                newPost.id = i as! Int16
+                newPost.id = i as! Int32
                // print(item)
                 for (category, value) in item{
                     //print(value)
                     switch category{
-                        case "day": newPost.day = value as! Int16
+                        case "day": newPost.day = value as! Int32
                        // case "id": newPost.id = i as! Int32
                         case "bigtext": newPost.bigtext = value as? String
                         case "caption": newPost.caption = value as? String

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19141.11" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="PostData" representedClassName="PostData" syncable="YES" codeGenerationType="class">
         <attribute name="bigtext" optional="YES" attributeType="String"/>
         <attribute name="caption" optional="YES" attributeType="String"/>
-        <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="day" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="gif" optional="YES" attributeType="String"/>
         <attribute name="hashtag" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="user" optional="YES" attributeType="String"/>
@@ -16,6 +16,6 @@
         <attribute name="votec" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="PostData" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="PostData" positionX="-63" positionY="-18" width="128" height="224"/>
     </elements>
 </model>

@@ -7,6 +7,8 @@ import SoftUIView
 import SwiftyGif
 import CoreData
 import youtube_ios_player_helper
+import Alamofire
+import AlamofireImage
 
 
 let humanAvatar = AvatarView()
@@ -1201,17 +1203,58 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 }
             default:
                 
-                if filename.contains("youtu"){
-                    self = .video(video: filename, caption: captionText ?? "")
+                if filename.contains("unsplash"){
+                    
+                    let imageURL = URL(string: filename)!
+                    var downloadedImage : UIImage?
+                    
+
+//                    AF.request( "https://images.unsplash.com/photo-1529850494847-05b7e590e91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2554&q=80",method: .get).response{ response in
+//
+//                        switch response.result {
+//                            case .success(let responseData):
+//                                downloadedImage = UIImage(data: responseData!, scale:0.01)
+//
+//                            case .failure(let error):
+//                                print("error--->",error)
+//                        }
+//                    }
+                    
+                    
+//                    let task = URLSession.shared.dataTask(with: imageURL as URL) {(data, response, error) in
+//
+//                        guard error == nil else {
+//                            completion(error, nil)
+//                            return
+//                        }
+//
+//                        completion(nil, data)
+//                    }
+//                    task.resume()
+//
+                    
+                        // Fetch Image Data
+                    if let data = try? Data(contentsOf: imageURL) {
+                            // Create Image and Update Image View
+                        downloadedImage = UIImage(data: data)
+                        //imageView.image = UIImage(data: data)
+                    }
+                   self = .stillImage(image: downloadedImage ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                    
                 }
                 else{
-                        if let assetImage = UIImage(named: filename.lowercased()){
-                        self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                    if filename.contains("youtu"){
+                        self = .video(video: filename, caption: captionText ?? "")
                     }
-                    else
-                    {
-                       // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
-                        self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+                        else{
+                            if let assetImage = UIImage(named: filename.lowercased()){
+                            self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+                        }
+                        else
+                        {
+                            // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
+                            self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+                        }
                     }
                 }
             }
