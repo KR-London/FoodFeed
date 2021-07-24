@@ -570,8 +570,8 @@
     "caption": "Walking ",
     "type": "Image",
     "day": 3,
-    "image": "Fancy food ",
-       "creator_credit" : "",
+    "image": "https://unsplash.com/photos/-eKZLpj7U0E",
+       "creator_credit" : "https://unsplash.com/@ninjason",
     "source" : "unsplash"  },
   {
     "hashtag": "Live feed",
