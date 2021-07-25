@@ -9,6 +9,7 @@ import CoreData
 import youtube_ios_player_helper
 import Alamofire
 import AlamofireImage
+import GiphyUISDK
 
 
 let humanAvatar = AvatarView()
@@ -1176,7 +1177,8 @@ extension InteractionView: UITableViewDataSource{
 
 final class MediaView: UIView, YTPlayerViewDelegate {
     enum State {
-        case gifImage(gifImage: UIImage, caption: String)
+        case gifImage(gifImage: String, caption: String)
+       // case gifImage(gifImage: UIImage, caption: String)
         case video(video: String, caption: String)
         case stillImage(image: UIImage, caption: String)
         case text(bigText: String, caption: String, votea: String?, voteb: String?)
@@ -1186,88 +1188,153 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         init(filename: String, captionText: String?, votea: String?, voteb: String?) {
             
            
-
-        switch filename.suffix(4){
-            case ".mp4", ".MP4":
-                self = .video(video: filename.lowercased(), caption: captionText ?? "" )
-            case "jpeg", ".jpg", ".png":
-                self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-            case ".gif", ".GIF":
-               // FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-                if let gif = try? UIImage(gifName: filename.lowercased()){
-                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
-                }
-                else{
-                    //self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
-                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
-                }
-            default:
-                
-                if filename.contains("unsplash"){
-                    
-                    let imageURL = URL(string: filename)!
-                    var downloadedImage : UIImage?
-                    
-
-//                    AF.request( "https://images.unsplash.com/photo-1529850494847-05b7e590e91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2554&q=80",method: .get).response{ response in
+      switch (filename, filename.suffix(4)){
+              
+          case let (_, suffix) where [".mp4", "MP4"].contains(suffix) :
+              self = .video(video: filename.lowercased(), caption: captionText ?? "" )
+          case let (str, _ ) where str.contains("youtu"):
+              self = .video(video: filename, caption: captionText ?? "")
+              
+          case let (_, suffix) where ["jpeg", ".jpg", ".png"].contains(suffix):
+              self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+          case let (str, _ ) where str.contains("unsplash"):
+              let imageURL = URL(string: filename)!
+              var downloadedImage : UIImage?
+              if let data = try? Data(contentsOf: imageURL) {
+                  downloadedImage = UIImage(data: data)
+              }
+              self = .stillImage(image: downloadedImage ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+              
+              
+              
+//          case let (_, suffix) where [".gif", ".GIF"].contains(suffix):
+//              if let gif = try? UIImage(gifName: filename.lowercased()){
+//                  self = .gifImage(gifImage: gif, caption: captionText ?? "")
+//              }
+//              else{
+//                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
+//                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
+//              }
+          case let (str, _ ) where str.contains("giphy"):
+              self = .gifImage(gifImage: str, caption: captionText ?? "")
+              
+//              var gifView = GPHMedia()
+//              GiphyCore.shared.gifByID("Y1M0ZSlt5fDhvj4Zz5") { (response, error) in
+//                  if let media = response?.data {
 //
-//                        switch response.result {
-//                            case .success(let responseData):
-//                                downloadedImage = UIImage(data: responseData!, scale:0.01)
+//                }
+//              }
+              
+              //self = .stillImage( image: UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+              
+              //self = .gifImage(gifImage: UIImage(named: "bot1")!, caption: captionText ?? "")
+//              GiphyCore.shared.gifByID("Y1M0ZSlt5fDhvj4Zz5") { (response, error) in
+//                  if let media = response?.data {
+//                      self = .gifImage(gifImage: UIImage(named: "bot1")!, caption: captionText ?? "")
+////                      DispatchQueue.main.sync { [weak self] in
+////                          self?.mediaView.media = media
+////                      }
+//                  }
+//              }
+            
+          
+          
+          default:
+              if let assetImage = UIImage(named: filename.lowercased()){
+                  self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+              }
+              else
+              {
+                      // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
+                  self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+              }
+      }
+            
+            
+            
+//          //    case let str where str.suffix(4) == ".mp4":
+//           //     print("mp4 found")
 //
-//                            case .failure(let error):
-//                                print("error--->",error)
-//                        }
+//        switch filename.suffix(4){
+//            case ".mp4", ".MP4":
+//                self = .video(video: filename.lowercased(), caption: captionText ?? "" )
+//            case "jpeg", ".jpg", ".png":
+//                self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+//            case ".gif", ".GIF":
+//               // FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
+//                if let gif = try? UIImage(gifName: filename.lowercased()){
+//                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
+//                }
+//                else{
+//                    //self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
+//                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
+//                }
+//            default:
+//
+//                if filename.contains("unsplash"){
+//
+//                    let imageURL = URL(string: filename)!
+//                    var downloadedImage : UIImage?
+//
+//
+////                    AF.request( "https://images.unsplash.com/photo-1529850494847-05b7e590e91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2554&q=80",method: .get).response{ response in
+////
+////                        switch response.result {
+////                            case .success(let responseData):
+////                                downloadedImage = UIImage(data: responseData!, scale:0.01)
+////
+////                            case .failure(let error):
+////                                print("error--->",error)
+////                        }
+////                    }
+//
+//
+////                    let task = URLSession.shared.dataTask(with: imageURL as URL) {(data, response, error) in
+////
+////                        guard error == nil else {
+////                            completion(error, nil)
+////                            return
+////                        }
+////
+////                        completion(nil, data)
+////                    }
+////                    task.resume()
+////
+//
+//                        // Fetch Image Data
+//                    if let data = try? Data(contentsOf: imageURL) {
+//                            // Create Image and Update Image View
+//                        downloadedImage = UIImage(data: data)
+//                        //imageView.image = UIImage(data: data)
 //                    }
-                    
-                    
-//                    let task = URLSession.shared.dataTask(with: imageURL as URL) {(data, response, error) in
+//                   self = .stillImage(image: downloadedImage ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
 //
-//                        guard error == nil else {
-//                            completion(error, nil)
-//                            return
-//                        }
-//
-//                        completion(nil, data)
+//                }
+//                else{
+//                    if filename.contains("youtu"){
+//                        self = .video(video: filename, caption: captionText ?? "")
 //                    }
-//                    task.resume()
-//
-                    
-                        // Fetch Image Data
-                    if let data = try? Data(contentsOf: imageURL) {
-                            // Create Image and Update Image View
-                        downloadedImage = UIImage(data: data)
-                        //imageView.image = UIImage(data: data)
-                    }
-                   self = .stillImage(image: downloadedImage ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-                    
-                }
-                else{
-                    if filename.contains("youtu"){
-                        self = .video(video: filename, caption: captionText ?? "")
-                    }
-                        else{
-                            if let assetImage = UIImage(named: filename.lowercased()){
-                            self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-                        }
-                        else
-                        {
-                            // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
-                            self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
-                        }
-                    }
-                }
-            }
-        }
+//                        else{
+//                            if let assetImage = UIImage(named: filename.lowercased()){
+//                            self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+//                            }
+//                            else
+//                            {
+//                                    // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
+//                                self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+//                            }
+//                    }
+//                }
+//            }
+ }
         
         init() {
             self = .hidden
         }
     }
-    
-  
 
     let imageView = UIImageView()
+    var gifView = GPHMediaView()
     let videoController = AVPlayerViewController()
     let settingsButton = UIButton()
     let label = UILabel()
@@ -1294,6 +1361,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     
     /// THINKS: Is setting up views I won;t use inefficient? Or is it in fact better to do it asap so that the user doe not get a hang?
     func setup() {
+        Giphy.configure(apiKey: giphyAPIKey)
+        
         let screenRect = UIScreen.main.bounds
         let widthLayoutUnit = screenRect.size.width - 100
 
@@ -1314,6 +1383,17 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         self.trailingAnchor.constraint(equalTo: videoView!.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: videoView!.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: videoView!.bottomAnchor).isActive = true
+        
+        imageView.addSubview(gifView)
+        //imageView.bringSubviewToFront(gifView)
+        
+        gifView.translatesAutoresizingMaskIntoConstraints = false
+        
+        gifView.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
+        gifView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        
+        gifView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
+        gifView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         
         
         //self.addSubview(label)
@@ -1404,8 +1484,35 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     func update(state: State) {
 
         switch state {
-            case .gifImage(let gifImage, let captionText):
-                imageView.setGifImage(gifImage, loopCount: -1)
+//            case .gifImage(let gifImage, let captionText):
+//                imageView.setGifImage(gifImage, loopCount: -1)
+//                imageView.isHidden = false
+//                label.isHidden = true
+//                videoController.view.isHidden = true
+//                labelCard.isHidden = true
+//
+//                if captionText == "" {
+//                    caption.isHidden = true
+//
+//                }
+//                else{
+//                    caption.isHidden = false
+//                    caption.text = captionText
+//                }
+            case .gifImage(let giphy, let captionText):
+              
+                var id = giphy.components(separatedBy: "/").dropLast().last
+                print(id)
+                
+                GiphyCore.shared.gifByID(id ?? "") { (response, error) in
+                    if let media = response?.data {
+                        DispatchQueue.main.sync { [weak self] in
+                            self?.gifView.media = media
+                        }
+                    }
+                }
+                
+                
                 imageView.isHidden = false
                 label.isHidden = true
                 videoController.view.isHidden = true
@@ -1413,7 +1520,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 
                 if captionText == "" {
                     caption.isHidden = true
-
+                    
                 }
                 else{
                     caption.isHidden = false

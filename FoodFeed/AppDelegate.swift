@@ -92,10 +92,9 @@ var window: UIWindow?
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+           // let initialViewController = storyboard.instantiateViewController(withIdentifier: "GifFun" )
             self.window?.rootViewController = initialViewController
 
-            //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
-            //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
             self.window?.makeKeyAndVisible()
 
         }
