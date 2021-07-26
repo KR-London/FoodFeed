@@ -55,7 +55,7 @@ var window: UIWindow?
                             //case "id": newPost.id = value as! Int32
                             case "bigtext": newPost.bigtext = value as? String
                             case "caption": newPost.caption = value as? String
-                            case "user": newPost.caption = value as? String
+                            case "user": newPost.user = value as? String
                             case "type": newPost.type = value as? String
                             case "gif":  newPost.gif = value as? String
                             case "image": newPost.image = value as? String
