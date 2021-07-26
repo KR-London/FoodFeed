@@ -7,7 +7,7 @@
     "day": 3,
     "bigtext": "I'm stuck in detention",
     "votea": "Ugh that sucks",
-    "voteb": "What did you do?!? ^answer^ Ermm.. told the teacher she was unfair and mean"
+    "voteb": "What did you do?!? ^answer^ Ermm.. told the teacher he was unfair and mean"
   },
   {
     "user": "Guy",
@@ -15,7 +15,7 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "Maybe shouldn't have told the teacher she should never have become a teacher!",
+    "bigtext": "Maybe shouldn't have told the teacher he should never have become a teacher!",
     "votea": "She deserved it! ",
     "voteb": "That was kind of rude! ^answer^ I hate it when things are unfair!"
   },
