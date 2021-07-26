@@ -58,7 +58,7 @@
     "hashtag": "Mood",
     "type": "Gif",
     "day": 3,
-    "gif": "bored.gif",
+    "gif": "https://giphy.com/clips/originals-GilbjNrofi9wwMuwCz",
     "user": "Guy"
   },
   {
@@ -74,7 +74,7 @@
     "hashtag": "Mood",
     "type": "Gif",
     "day": 3,
-    "gif": "Embarassed.gif",
+    "gif": "https://media.giphy.com/media/H4oLWS4veh9kqxQ1z2/giphy.gif",
     "user": "Guy"
   },
   {
@@ -90,7 +90,7 @@
     "hashtag": "Mood",
     "type": "Gif",
     "day": 3,
-    "gif": "Worried.gif",
+    "gif": "https://media.giphy.com/media/dZRI96NcCiAvjWEKBR/giphy.gif",
     "user": "Guy"
   },
   {
@@ -160,13 +160,13 @@
     "day": 3,
     "bigtext": "He is so funny!"
   },
-  {
+ {
     "id": 19,
-    "hashtag": "Funny",
-    "caption": "a funny video Frank sent me",
+    "hashtag": "Funny Frank",
+    "type": "Gif",
     "day": 3,
-    "video": "funny",
-    "type": "Video"
+    "gif": "https://media.giphy.com/media/de9SDw6PGRsubN1o3X/giphy.gif",
+    "user": "Guy"
   },
   {
     "user": "Guy",
@@ -262,7 +262,7 @@
     "caption": "Walking ",
     "type": "Image",
     "day": 3,
-    "image": "https://images.unsplash.com/photo-1581349485608-9469926a8e5e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80",
+    "image": "https://images.unsplash.com/photo-1581349485608-9469926a8e5e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
        "creator_credit" : "@sebastiancoman",
     "source" : "unsplash"
   },
@@ -312,7 +312,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "squealing gif "
+    "gif": "https://media.giphy.com/media/xUOwGgO5FT9HczLrtm/giphy.gif"
   },
   {
     "user": "Guy",
@@ -327,7 +327,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "squealing gif "
+    "gif": "https://media.giphy.com/media/xT5LMSxfsothkMyt5C/giphy.gif"
   },
   {
     "user": "Guy",
@@ -335,7 +335,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "terrified screaming gif "
+    "gif": "https://media.giphy.com/media/3oz8xqZsDaOSHaqLCw/giphy.gif"
   },
   {
     "user": "Guy",
@@ -396,7 +396,8 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "road trip gif "
+    "gif": "https://media.giphy.com/media/UrWFgYpVCiBHFqoCBP/giphy.gif",
+    "alternateGif":"https://media.giphy.com/media/PqwqtOLfG19Ti/giphy.gif"
   },
   {
     "user": "Guy",
@@ -411,7 +412,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "road trip catastrophe gif "
+    "gif": "https://media.giphy.com/media/r3w4D1hjeRDMI/giphy.gif"
   },
   {
     "user": "Guy",
@@ -433,7 +434,14 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "comedy horror gif "
+    "gif": "https://media.giphy.com/media/WrNhOIbaIAj7jIiUfZ/giphy.gif"
+  },
+    {
+    "user": "Guy",
+    "id": 53,
+    "type": "Text",
+    "day": 3,
+    "bigtext": "The pandas have the right idea "
   },
   {
     "user": "Guy",
@@ -444,13 +452,6 @@
     "image": "https://images.unsplash.com/photo-1617910879258-2aff8026515d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
        "creator_credit" : "@peterburdon",
     "source" : "unsplash"
-  },
-  {
-    "user": "Guy",
-    "id": 53,
-    "type": "Text",
-    "day": 3,
-    "bigtext": "The pandas have the right idea "
   },
   {
     "user": "Guy",
@@ -465,7 +466,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "brains"
+    "gif": "https://media.giphy.com/media/6ed6UG9PcX6tq/giphy.gif"
   },
   {
     "user": "Guy",
@@ -612,6 +613,14 @@
     "day": 3,
     "bigtext": "... trapped in a chair with people putting bad food in front of me"
   },
+    {
+    "user": "Guy",
+    "id": 51,
+    "hashtag": "Feelings",
+    "type": "Gif",
+    "day": 3,
+    "gif": "https://media.giphy.com/media/91ZWDiiGwCeE8/giphy.gif"
+  },
   {
     "user": "Guy",
     "id": 73,
@@ -625,7 +634,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "awkward"
+    "gif": "https://media.giphy.com/media/kHZC0lHGShttiTiOrL/giphy.gif"
   },
   {
     "user": "Guy",
@@ -640,7 +649,7 @@
     "hashtag": "Feelings",
     "type": "Gif",
     "day": 3,
-    "gif": "NO"
+    "gif": "https://media.giphy.com/media/gnE4FFhtFoLKM/giphy.gif"
   },
   {
     "user": "Guy",

@@ -1389,9 +1389,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         
         gifView.translatesAutoresizingMaskIntoConstraints = false
         
-        gifView.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
-        gifView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        
+        gifView.widthAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        gifView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+        gifView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
         gifView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
         gifView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         
@@ -1501,7 +1501,16 @@ final class MediaView: UIView, YTPlayerViewDelegate {
 //                }
             case .gifImage(let giphy, let captionText):
               
-                var id = giphy.components(separatedBy: "/").dropLast().last
+                var id = ""
+                
+                if giphy.suffix(3) == "gif"{
+                    id = giphy.components(separatedBy: "/").dropLast().last!
+                }
+                else{
+                    id = giphy.components(separatedBy: "/").last!.components(separatedBy: "-").last!
+                }
+                
+                
                 print(id)
                 
                 GiphyCore.shared.gifByID(id ?? "") { (response, error) in
