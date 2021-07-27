@@ -49,6 +49,13 @@
 		4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */; };
 		4473ED9A2602343200CFF919 /* speechBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED992602343200CFF919 /* speechBubble.png */; };
 		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
+		448D701826B0158800DE2046 /* excitedfrank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 448D701726B0158800DE2046 /* excitedfrank.jpg */; };
+		448D701D26B01A4600DE2046 /* frank1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D701C26B01A4600DE2046 /* frank1.gif */; };
+		448D702326B01D4100DE2046 /* frank6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D701E26B01D4000DE2046 /* frank6.gif */; };
+		448D702426B01D4100DE2046 /* frank2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D701F26B01D4000DE2046 /* frank2.gif */; };
+		448D702526B01D4100DE2046 /* frank4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D702026B01D4000DE2046 /* frank4.gif */; };
+		448D702626B01D4100DE2046 /* frank3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D702126B01D4100DE2046 /* frank3.gif */; };
+		448D702726B01D4100DE2046 /* frank5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D702226B01D4100DE2046 /* frank5.gif */; };
 		448ED15C26ADDEB200E2D04E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 448ED15B26ADDEB200E2D04E /* .gitignore */; };
 		448ED15E26ADDF3F00E2D04E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448ED15D26ADDF3F00E2D04E /* Constants.swift */; };
 		4493EB1B2672B91C00D8258A /* Day3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4493EB1A2672B91C00D8258A /* Day3.txt */; };
@@ -162,6 +169,13 @@
 		4473ED992602343200CFF919 /* speechBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechBubble.png; sourceTree = "<group>"; };
 		4473EDB326032ED500CFF919 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		447B69D625FFFDBC003400A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		448D701726B0158800DE2046 /* excitedfrank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = excitedfrank.jpg; sourceTree = "<group>"; };
+		448D701C26B01A4600DE2046 /* frank1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frank1.gif; sourceTree = "<group>"; };
+		448D701E26B01D4000DE2046 /* frank6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frank6.gif; sourceTree = "<group>"; };
+		448D701F26B01D4000DE2046 /* frank2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frank2.gif; sourceTree = "<group>"; };
+		448D702026B01D4000DE2046 /* frank4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frank4.gif; sourceTree = "<group>"; };
+		448D702126B01D4100DE2046 /* frank3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frank3.gif; sourceTree = "<group>"; };
+		448D702226B01D4100DE2046 /* frank5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frank5.gif; sourceTree = "<group>"; };
 		448ED15B26ADDEB200E2D04E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		448ED15D26ADDF3F00E2D04E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4493EB1A2672B91C00D8258A /* Day3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day3.txt; sourceTree = "<group>"; };
@@ -331,6 +345,19 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		448D701B26B019F300DE2046 /* Day3 */ = {
+			isa = PBXGroup;
+			children = (
+				448D701F26B01D4000DE2046 /* frank2.gif */,
+				448D702126B01D4100DE2046 /* frank3.gif */,
+				448D702026B01D4000DE2046 /* frank4.gif */,
+				448D702226B01D4100DE2046 /* frank5.gif */,
+				448D701E26B01D4000DE2046 /* frank6.gif */,
+				448D701C26B01A4600DE2046 /* frank1.gif */,
+			);
+			path = Day3;
+			sourceTree = "<group>";
+		};
 		448ED15A26ADDE7F00E2D04E /* Git */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +432,7 @@
 		44E768EF264ABC7600AD75FE /* Gifs  */ = {
 			isa = PBXGroup;
 			children = (
+				448D701B26B019F300DE2046 /* Day3 */,
 				44E768F0264ABC7C00AD75FE /* Day6  */,
 			);
 			path = "Gifs ";
@@ -496,6 +524,7 @@
 				4473EDA7260251E400CFF919 /* Onboarding */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
 				44386698261F625500507975 /* 200-9.gif */,
+				448D701726B0158800DE2046 /* excitedfrank.jpg */,
 				446CAE9726517B5300F9081D /* credits .swift */,
 				44E768EF264ABC7600AD75FE /* Gifs  */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
@@ -650,9 +679,11 @@
 			files = (
 				44C3DF172521D94C00D317DA /* one.jpeg in Resources */,
 				446540952606110A004B202B /* bot4.jpeg in Resources */,
+				448D702426B01D4100DE2046 /* frank2.gif in Resources */,
 				4473ED9A2602343200CFF919 /* speechBubble.png in Resources */,
 				446CAEA526517BE200F9081D /* lowiron.gif in Resources */,
 				448ED15C26ADDEB200E2D04E /* .gitignore in Resources */,
+				448D701D26B01A4600DE2046 /* frank1.gif in Resources */,
 				44A813202583926D00685A0E /* 07891284.ttf in Resources */,
 				440C327D268DBD3B007D70C6 /* Day5.txt in Resources */,
 				4493EB1D2672D70100D8258A /* Day1.txt in Resources */,
@@ -663,10 +694,12 @@
 				4493EB1B2672B91C00D8258A /* Day3.txt in Resources */,
 				44C3DF47252A274100D317DA /* fieri.jpeg in Resources */,
 				44E768EA264AB40F00AD75FE /* Day6.txt in Resources */,
+				448D702526B01D4100DE2046 /* frank4.gif in Resources */,
 				4471EC1B261A04AC00D23E01 /* storyline.txt in Resources */,
 				446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */,
 				4473ED4626021E6C00CFF919 /* filled_favourite-512.png in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
+				448D702726B01D4100DE2046 /* frank5.gif in Resources */,
 				446540962606110A004B202B /* bot2.jpeg in Resources */,
 				65D07A3024F816C5004CA3E9 /* Assets.xcassets in Resources */,
 				446540942606110A004B202B /* U.jpeg in Resources */,
@@ -676,11 +709,14 @@
 				4473ED70260225CE00CFF919 /* heart_outline.png in Resources */,
 				446540972606110A004B202B /* bot3.jpeg in Resources */,
 				446540922606110A004B202B /* guy_profile_pic.jpeg in Resources */,
+				448D701826B0158800DE2046 /* excitedfrank.jpg in Resources */,
 				44C3DF212521D99000D317DA /* three.jpeg in Resources */,
 				65D07A2B24F816C2004CA3E9 /* Main.storyboard in Resources */,
 				44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */,
+				448D702626B01D4100DE2046 /* frank3.gif in Resources */,
 				446CAEAA26517D3000F9081D /* awkward.gif in Resources */,
 				446CAEAF26517E3B00F9081D /* exploded_head.gif in Resources */,
+				448D702326B01D4100DE2046 /* frank6.gif in Resources */,
 				4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

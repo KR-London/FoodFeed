@@ -16,7 +16,7 @@
     "type": "Text",
     "day": 3,
     "bigtext": "Maybe shouldn't have told the teacher he should never have become a teacher!",
-    "votea": "She deserved it! ",
+    "votea": "He deserved it! ",
     "voteb": "That was kind of rude! ^answer^ I hate it when things are unfair!"
   },
   {
@@ -35,7 +35,7 @@
     "day": 3,
     "bigtext": "2 WEEEKS?!?",
     "votea": "That's a bit OTT! ",
-    "voteb": "She must have been upset ^answer^ I was really upset too!"
+    "voteb": "He must have been upset ^answer^ I was really upset too!"
   },
   {
     "user": "Guy",
@@ -99,7 +99,7 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "But last laugh is on me - lady!"
+    "bigtext": "But last laugh is on me - Sir!"
   },
   {
     "user": "Guy",
@@ -182,7 +182,7 @@
     "caption": "Walking ",
     "type": "Image",
     "day": 3,
-    "image": "excited text messages ",
+    "image": "excitedFrank.jpg",
        "creator_credit" : "",
     "source" : "unsplash"
   },
@@ -196,10 +196,10 @@
   {
     "user": "Guy",
     "id": 23,
-    "hashtag": "Feelings",
+    "hashtag": "News",
     "type": "Gif",
     "day": 3,
-    "gif": "excited messages gif "
+    "gif": "frank1.gif"
   },
   {
     "user": "Guy",
@@ -209,15 +209,12 @@
     "bigtext": "SOMETHING must be going on ...  "
   },
   {
-    "hashtag": "Live feed",
     "user": "Guy",
-    "id": 25,
-    "caption": "",
-    "type": "Image",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
     "day": 3,
-    "image": "Basil exposition about the party",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "gif": "frank2.gif"
   },
   {
     "user": "Guy",
@@ -230,7 +227,7 @@
     "hashtag": "Live feed",
     "user": "Guy",
     "id": 27,
-    "caption": "Walking ",
+    "caption": "London",
     "type": "Image",
     "day": 3,
     "image": "https://images.unsplash.com/photo-1545073334-9cb53498f1dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
@@ -245,15 +242,12 @@
     "bigtext": "That's big!"
   },
   {
-    "hashtag": "Live feed",
     "user": "Guy",
-    "id": 29,
-    "caption": "Walking ",
-    "type": "Image",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
     "day": 3,
-    "image": "Basil exposition about Boyfriend being a chef ",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "gif": "frank3.gif"
   },
   {
     "hashtag": "Live feed",
@@ -267,15 +261,12 @@
     "source" : "unsplash"
   },
   {
-    "hashtag": "Live feed",
     "user": "Guy",
-    "id": 31,
-    "caption": "Walking ",
-    "type": "Image",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
     "day": 3,
-    "image": "Basil exposition about Not talking McDonalds - ha ha hah hahahhhaah!",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "gif": "frank4.gif"
   },
   {
     "hashtag": "Live feed",
@@ -289,15 +280,12 @@
     "source" : "unsplash"
   },
   {
-    "hashtag": "Live feed",
     "user": "Guy",
-    "id": 33,
-    "caption": "Walking ",
-    "type": "Image",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
     "day": 3,
-    "image": "Basil exposition about Guy - are you excited for me?",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "gif": "frank5.gif"
   },
   {
     "user": "Guy",
@@ -554,15 +542,20 @@
     "bigtext": "So Frank said:"
   },
   {
-    "hashtag": "Live feed",
     "user": "Guy",
-    "id": 66,
-    "caption": "Walking ",
-    "type": "Image",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
     "day": 3,
-    "image": "Basil exposition about Boyfriend being a chef ",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "gif": "frank4.gif"
+  },
+    {
+    "user": "Guy",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
+    "day": 3,
+    "gif": "frank5.gif"
   },
   {
     "hashtag": "Live feed",
@@ -575,15 +568,12 @@
        "creator_credit" : "https://unsplash.com/@ninjason",
     "source" : "unsplash"  },
   {
-    "hashtag": "Live feed",
     "user": "Guy",
-    "id": 68,
-    "caption": "Walking ",
-    "type": "Image",
+    "id": 23,
+    "hashtag": "News",
+    "type": "Gif",
     "day": 3,
-    "image": "Basil exposition about Not talking McDonalds - ha ha hah hahahhhaah!",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "gif": "frank6.gif"
   },
   {
     "user": "Guy",

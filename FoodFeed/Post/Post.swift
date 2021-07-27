@@ -245,6 +245,8 @@ class PostView: UIView {
             default: return
         }
         
+        bringSubviewToFront(avatarView)
+        
 //        self.update(state: PostView.State(
 //
 //            //FIXME: Refactor
@@ -311,6 +313,7 @@ class PostView: UIView {
         setupStackView()
         setupTag()
         setupRightView()
+        setupAvatarView()
     }
     
     func setupStackView() {
@@ -399,7 +402,7 @@ class PostView: UIView {
         addSubview(avatarView)
         bringSubviewToFront(avatarView)
         
-        var thirdScreenHeight = UIScreen.main.bounds.height / 3
+        let thirdScreenHeight = UIScreen.main.bounds.height / 3
 //        avatarView.backgroundColor = .yellow
 //
 //        avatarView.layer.cornerRadius = 20
@@ -413,13 +416,13 @@ class PostView: UIView {
 
         
         avatarView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            avatarView.bottomAnchor.constraint(equalTo: margins.topAnchor, constant: thirdScreenHeight),
-            avatarView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
-            avatarView.heightAnchor.constraint(equalToConstant: 60),
-            avatarView.widthAnchor.constraint(equalToConstant: 60)
-        ])
         
+        NSLayoutConstraint.activate([
+            avatarView.bottomAnchor.constraint(equalTo: mediaView.topAnchor, constant: thirdScreenHeight - 10),
+            avatarView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            avatarView.heightAnchor.constraint(equalToConstant: 80),
+            avatarView.widthAnchor.constraint(equalToConstant: 80)
+        ])
         
         
 //        avatarView.translatesAutoresizingMaskIntoConstraints = false
@@ -866,6 +869,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         bringSubviewToFront(answerInput)
         bringSubviewToFront(buttonStack)
+       
         
     }
     
@@ -1177,8 +1181,8 @@ extension InteractionView: UITableViewDataSource{
 
 final class MediaView: UIView, YTPlayerViewDelegate {
     enum State {
-        case gifImage(gifImage: String, caption: String)
-       // case gifImage(gifImage: UIImage, caption: String)
+        case giphyImage(gifImageURL: String, caption: String)
+        case gifImage(gifImage: UIImage, caption: String)
         case video(video: String, caption: String)
         case stillImage(image: UIImage, caption: String)
         case text(bigText: String, caption: String, votea: String?, voteb: String?)
@@ -1205,18 +1209,18 @@ final class MediaView: UIView, YTPlayerViewDelegate {
               }
               self = .stillImage(image: downloadedImage ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
               
-              
-              
-//          case let (_, suffix) where [".gif", ".GIF"].contains(suffix):
-//              if let gif = try? UIImage(gifName: filename.lowercased()){
-//                  self = .gifImage(gifImage: gif, caption: captionText ?? "")
-//              }
-//              else{
-//                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
-//                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
-//              }
           case let (str, _ ) where str.contains("giphy"):
-              self = .gifImage(gifImage: str, caption: captionText ?? "")
+              self = .giphyImage(gifImageURL: str, caption: captionText ?? "")
+              
+          case let (_, suffix) where [".gif", ".GIF"].contains(suffix):
+              if let gif = try? UIImage(gifName: filename.lowercased()){
+                  self = .gifImage(gifImage: gif, caption: captionText ?? "")
+              }
+              else{
+                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
+                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
+              }
+        
               
 //              var gifView = GPHMedia()
 //              GiphyCore.shared.gifByID("Y1M0ZSlt5fDhvj4Zz5") { (response, error) in
@@ -1375,7 +1379,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         self.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        imageView.backgroundColor = .postBackground
+        imageView.backgroundColor = .clear
         
         self.addSubview(videoView!)
         videoView!.translatesAutoresizingMaskIntoConstraints = false
@@ -1484,22 +1488,22 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     func update(state: State) {
 
         switch state {
-//            case .gifImage(let gifImage, let captionText):
-//                imageView.setGifImage(gifImage, loopCount: -1)
-//                imageView.isHidden = false
-//                label.isHidden = true
-//                videoController.view.isHidden = true
-//                labelCard.isHidden = true
-//
-//                if captionText == "" {
-//                    caption.isHidden = true
-//
-//                }
-//                else{
-//                    caption.isHidden = false
-//                    caption.text = captionText
-//                }
-            case .gifImage(let giphy, let captionText):
+            case .gifImage(let gifImage, let captionText):
+                imageView.setGifImage(gifImage, loopCount: -1)
+                imageView.isHidden = false
+                label.isHidden = true
+                videoController.view.isHidden = true
+                labelCard.isHidden = true
+
+                if captionText == "" {
+                    caption.isHidden = true
+
+                }
+                else{
+                    caption.isHidden = false
+                    caption.text = captionText
+                }
+            case .giphyImage(let giphy, let captionText):
               
                 var id = ""
                 
