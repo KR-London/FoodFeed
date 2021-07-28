@@ -25,17 +25,74 @@ var window: UIWindow?
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
+        day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
         
-        if storyLoading == true{
+        
+            //  clearAllCoreData()
+//
+//        let filePath = Bundle.main.resourcePath!
+//            //        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
+//            //                               encoding: String.Encoding.utf8).data(using: .utf8)
+//
+//        let sourceData = "/Day" + String(day) + ".txt"
+//
+//        let data = try! String(contentsOfFile: filePath + sourceData,
+//                               encoding: String.Encoding.utf8).data(using: .utf8)
+//
+//            //  let decoder = JSONDecoder()
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+//            var i = Int32(0)
+//            for item in parsedData {
+//                let newPost = PostData(context: context)
+//
+//
+//                    // print(item)
+//                for (category, value) in item{
+//                    newPost.id = i as! Int32
+//                        //  print(value)
+//                    switch category{
+//                        case "day": newPost.day = value as! Int32
+//                                //case "id": newPost.id = value as! Int32
+//                        case "bigtext": newPost.bigtext = value as? String
+//                        case "caption": newPost.caption = value as? String
+//                        case "user": newPost.user = value as? String
+//                        case "type": newPost.type = value as? String
+//                        case "gif":  newPost.gif = value as? String
+//                        case "image": newPost.image = value as? String
+//                        case "video":  newPost.video = value as? String
+//                        case "hashtag": newPost.hashtag = value as? String
+//                        case "votea": newPost.votea = value as? String
+//                        case "voteb": newPost.voteb = value as? String
+//                        case "votec": newPost.votec = value as? String
+//                        default: break
+//                    }
+//
+//                }
+//                do{
+//
+//                    print(newPost)
+//                    i = i + 1
+//                    try  context.save()
+//
+//                } catch {
+//                    print("Error saving context \(error)")
+//                }
+//            }
+            
+            
+            
+        
+    if storyLoading == true{
             clearAllCoreData()
             
             let filePath = Bundle.main.resourcePath!
             //        let data = try! String(contentsOfFile: filePath + "/storyline.txt",
             //                               encoding: String.Encoding.utf8).data(using: .utf8)
             
-            let sourceData = "/Day" + String(day) + ".txt"
+            let sourceData = "/Day" + String(day ) + ".txt"
             
-            let data = try! String(contentsOfFile: filePath + sourceData,
+           let data = try! String(contentsOfFile: filePath + sourceData,
                                    encoding: String.Encoding.utf8).data(using: .utf8)
             
             //  let decoder = JSONDecoder()
@@ -78,7 +135,7 @@ var window: UIWindow?
                         print("Error saving context \(error)")
                     }
                 }
-            }
+     }
             
             UserDefaults.standard.set( ["Guy"],  forKey: "following")
             

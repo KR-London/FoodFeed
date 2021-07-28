@@ -276,6 +276,14 @@ class PostView: UIView {
         setupMediaView()
         
         if feed.id  == -1 {
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 600))
+            label.center = CGPoint(x: 160, y: 285)
+            label.textAlignment = .center
+            label.numberOfLines = 0
+            label.text = "Thank you for testing FudFid. You are now on day \(day) on the storyline. Press the rest button below if you ever want to restart the testing."
+            addSubview(label)
+            
             setUpResetButtons()
         }
         else{
@@ -289,6 +297,7 @@ class PostView: UIView {
             setupRightView()
             setupAvatarView()
         }
+        
         
        
     }
@@ -375,6 +384,10 @@ class PostView: UIView {
         softButton.setContentView(label)
         softButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
         self.addSubview(softButton)
+        //softButton.isUserInteractionEnabled = true
+        self.bringSubviewToFront(softButton)
+        self.mediaView.isHidden = true
+        self.stackView.isHidden = true
     }
 
     

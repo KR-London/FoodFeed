@@ -22,6 +22,7 @@
 		44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DAD26AC8A98006156B6 /* Alamofire */; };
 		44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DB026AC8C07006156B6 /* AlamofireImage */; };
 		44327DB326AC99C2006156B6 /* imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327DB226AC99C2006156B6 /* imageCache.swift */; };
+		44539A1826B1BF0000642875 /* Day7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44539A1726B1BF0000642875 /* Day7.txt */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
 		446540592603ABA4004B202B /* userProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540582603ABA4004B202B /* userProfileCard.swift */; };
 		446540672604B7E5004B202B /* chatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446540662604B7E5004B202B /* chatBubbleView.swift */; };
@@ -141,6 +142,7 @@
 		440C327C268DBD3B007D70C6 /* Day5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day5.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day5.txt"; sourceTree = "<group>"; };
 		44327DB226AC99C2006156B6 /* imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCache.swift; sourceTree = "<group>"; };
 		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
+		44539A1726B1BF0000642875 /* Day7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day7.txt; sourceTree = "<group>"; };
 		4465404B2603A7B9004B202B /* profileCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileCardViewController.swift; sourceTree = "<group>"; };
 		446540582603ABA4004B202B /* userProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userProfileCard.swift; sourceTree = "<group>"; };
 		446540662604B7E5004B202B /* chatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatBubbleView.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				440C3277268DBD33007D70C6 /* Day4.txt */,
 				440C327C268DBD3B007D70C6 /* Day5.txt */,
 				44E768E9264AB40E00AD75FE /* Day6.txt */,
+				44539A1726B1BF0000642875 /* Day7.txt */,
 				659F11292562A49300E5C8B1 /* Service */,
 				6536A64625618597006D7297 /* Post */,
 				65D07A2124F816C2004CA3E9 /* AppDelegate.swift */,
@@ -688,6 +691,7 @@
 				440C327D268DBD3B007D70C6 /* Day5.txt in Resources */,
 				4493EB1D2672D70100D8258A /* Day1.txt in Resources */,
 				44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */,
+				44539A1826B1BF0000642875 /* Day7.txt in Resources */,
 				44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */,
 				440C3278268DBD33007D70C6 /* Day4.txt in Resources */,
 				44C3DF1C2521D96100D317DA /* two.jpeg in Resources */,
