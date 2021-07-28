@@ -664,6 +664,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     required init?(coder: NSCoder) {
         commentsView = chatBubbleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
+        commentsView.doYouWantProfilePicture = true
         super.init(coder: coder)
        
    
@@ -850,6 +851,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         scrollContainer.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2000)
         
         setUpCommentsView()
+        commentsView.doYouWantProfilePicture = true
         
         commentsView.backgroundColor = .clear
 //        commentsView.translatesAutoresizingMaskIntoConstraints = false

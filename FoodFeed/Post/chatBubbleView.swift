@@ -16,7 +16,7 @@ class chatBubbleView: UIView {
     
     var bigText = "Tips for trying new foods?"
     var label = UILabel()
-    
+    var doYouWantProfilePicture = false
     
     
     
@@ -72,9 +72,52 @@ class chatBubbleView: UIView {
             profilePicture.image = imageWith(name: comment.user?.name)
         }
         
+//        if doYouWantProfilePicture{
+//            setUpProfilePic(user: comment.user)
+//        }
+//
         self.reloadInputViews()
     
     }
+    
+//    func setUpProfilePic(user: User?){
+//
+//
+//            profilePicture.isHidden = false
+//
+//            switch realUser {
+//                case botUser.human :
+//
+//                    profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+//                    addSubview(profilePicture)
+//                    profilePicture.translatesAutoresizingMaskIntoConstraints = false
+//                    NSLayoutConstraint.activate([
+//                        profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+//                        profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+//                        profilePicture.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//                        profilePicture.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: frame.width/24)
+//                    ])
+//                    profilePicture.contentMode = .scaleAspectFill
+//                    profilePicture.layer.cornerRadius = 10
+//                    profilePicture.clipsToBounds = true
+//                    profilePicture.isHidden = false
+//
+//                default:
+//                    profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+//                    addSubview(profilePicture)
+//                    profilePicture.translatesAutoresizingMaskIntoConstraints = false
+//                    NSLayoutConstraint.activate([
+//                        profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+//                        profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+//                        profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
+//                        profilePicture.trailingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: -frame.width/24)
+//                    ])
+//                    profilePicture.contentMode = .scaleAspectFill
+//                    profilePicture.layer.cornerRadius = 10
+//                    profilePicture.clipsToBounds = true
+//                    profilePicture.isHidden = false
+//            }
+//    }
     
     func imageWith(name: String?) -> UIImage? {
         let frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -140,25 +183,25 @@ class chatBubbleView: UIView {
                                 label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -5)
                             ])
             
-//                          profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
-//
-//                            addSubview(profilePicture)
-//                            profilePicture.translatesAutoresizingMaskIntoConstraints = false
-//                            NSLayoutConstraint.activate([
-//                                profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
-//                                profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
-//                                profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
-//                                profilePicture.trailingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: -frame.width/24)
-//                            ])
-//                            profilePicture.contentMode = .scaleAspectFill
-//                            profilePicture.layer.cornerRadius = 10
-//                            profilePicture.clipsToBounds = true
-                            //profilePicture.isHidden = true
+                          profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+
+                            addSubview(profilePicture)
+                            profilePicture.translatesAutoresizingMaskIntoConstraints = false
+                            NSLayoutConstraint.activate([
+                                profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+                                profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+                                profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
+                                profilePicture.trailingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: -frame.width/24)
+                            ])
+                            profilePicture.contentMode = .scaleAspectFill
+                            profilePicture.layer.cornerRadius = 10
+                            profilePicture.clipsToBounds = true
+                            profilePicture.isHidden = !doYouWantProfilePicture
             return
         
         }
         
-        profilePicture.isHidden = false
+        profilePicture.isHidden = !doYouWantProfilePicture
         
 switch realUser {
             case botUser.human :
@@ -187,20 +230,20 @@ switch realUser {
                 ])
                 
                 
-//                profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
-//                addSubview(profilePicture)
-//                profilePicture.translatesAutoresizingMaskIntoConstraints = false
-//                NSLayoutConstraint.activate([
-//                    profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
-//                    profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
-//                    profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
-//                    profilePicture.leadingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: frame.width/24)
-//                ])
-//                profilePicture.contentMode = .scaleAspectFill
-//                profilePicture.layer.cornerRadius = 10
-//                profilePicture.clipsToBounds = true
-//                profilePicture.isHidden = false
-//            case nil:
+                profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+                addSubview(profilePicture)
+                profilePicture.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+                    profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+                    profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
+                    profilePicture.leadingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: frame.width/24)
+                ])
+                profilePicture.contentMode = .scaleAspectFill
+                profilePicture.layer.cornerRadius = 10
+                profilePicture.clipsToBounds = true
+                profilePicture.isHidden =  !doYouWantProfilePicture
+        //    case nil:
 
                 
             default:
@@ -224,19 +267,19 @@ switch realUser {
                     label.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor, constant: -5)
                 ])
                 
-//                profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
-//                addSubview(profilePicture)
-//                profilePicture.translatesAutoresizingMaskIntoConstraints = false
-//                NSLayoutConstraint.activate([
-//                    profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
-//                    profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
-//                    profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
-//                    profilePicture.trailingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: -frame.width/24)
-//                ])
-//                profilePicture.contentMode = .scaleAspectFill
-//                profilePicture.layer.cornerRadius = 10
-//                profilePicture.clipsToBounds = true
-//                profilePicture.isHidden = false
+                profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
+                addSubview(profilePicture)
+                profilePicture.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    profilePicture.heightAnchor.constraint(equalToConstant: frame.width/6  ),
+                    profilePicture.widthAnchor.constraint(equalToConstant: frame.width/6  ),
+                    profilePicture.bottomAnchor.constraint(equalTo: softUIView.bottomAnchor),
+                    profilePicture.trailingAnchor.constraint(equalTo: softUIView.leadingAnchor, constant: -frame.width/24)
+                ])
+                profilePicture.contentMode = .scaleAspectFill
+                profilePicture.layer.cornerRadius = 10
+                profilePicture.clipsToBounds = true
+                profilePicture.isHidden = !doYouWantProfilePicture
         }
         
     }
