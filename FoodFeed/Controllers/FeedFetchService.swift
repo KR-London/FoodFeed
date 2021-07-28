@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-let day = 6
+let day = 4
 
 protocol FeedFetchDelegate: class {
     func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds feeds: [Feed], withError error: Error?)
