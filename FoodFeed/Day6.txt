@@ -1,21 +1,4 @@
-[  {
-    "user": "Guy",
-    "id": 0,
-    "hashtag": "Live Feed",
-    "type": "Text",
-    "day": 6,
-    "bigtext": "This is where my grandparents live!",
-     "votea": "Wow!",
-    "voteb": "Did you mean to visit them? ^answer^ No - I was just walking and thinking!"
-  },
-  {
-    "id": 11,
-    "hashtag": "Confidence",
-    "caption": "about being more confident?",
-    "day": 6,
-    "video": "https://youtu.be/l_NYrWqUR40",
-    "type": "Video"
-  },
+[
   {
     "user": "Guy",
     "id": 10,
@@ -192,7 +175,7 @@
     "caption": "Nana's Guy...",
     "type": "Image",
     "day": 6,
-    "image": "guyBooks"
+    "image": "guybooks"
   },
   {
     "user": "Guy",
@@ -317,7 +300,15 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "I'm going in. They'll be happy to see me"
+    "bigtext": "I'm going in."
+  },
+    {
+    "user": "Avery",
+    "id": 36,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "day": 6,
+    "bigtext": "They'll be happy to see you"
   },
   {
     "user": "Guy",
@@ -347,7 +338,7 @@
     "id": 40,
     "hashtag": "Low iron ?!?",
     "caption": "Low iron ?!?",
-    "type": "Gif",
+    "type": "Avery",
     "day": 6,
     "gif": "lowiron.gif",
     "user": "Guy"
@@ -361,12 +352,12 @@
     "bigtext": "Phew - Grandpa told her to give me a break. "
   },
   {
-    "user": "Guy",
+    "user": "Avery",
     "id": 42,
       "hashtag": "Reclaim healthy",
     "type": "Text",
     "day": 6,
-    "bigtext": "I am healthy. There is more than one way to be healthy. "
+    "bigtext": "There is more than one way to be healthy."
   },
   {
     "user": "Guy",
