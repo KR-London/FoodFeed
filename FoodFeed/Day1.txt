@@ -36,13 +36,6 @@
     "type": "Text",
     "day": 1,
     "bigtext": "I'm going to do something special today"
-  },  {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 3,
-    "type": "Image",
-    "day": 1,
-    "image": "big smile"
   },
     {
     "user": "Guy",
@@ -65,12 +58,20 @@
     "voteb": "Yes ^answer^ Welcome!"
   },
   {
-    "hashtag": "Birthday Breakfast",
     "user": "Guy",
-    "id": 6,
+    "id": 10,
     "type": "Image",
+    "caption" : "This is me!",
     "day": 1,
-    "image": "Happy to have you!"
+    "image": "guybookspark.jpeg"
+  },
+       {
+    "user": "Guy",
+    "id": 5,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "My name is Guy"
   },
    {
     "user": "Guy",
@@ -82,14 +83,6 @@
     "votea": "OK",
     "voteb": "Like what?  ^answer^ Fun I have. Or things I worry about. "
   },
-   {
-    "user": "Guy",
-    "id": 8,
-    "hashtag": "Birthday Breakfast",
-    "type": "Text",
-    "day": 1,
-    "bigtext": "Swipe left to change page"
-  },
     {
     "user": "Guy",
     "id": 9,
@@ -97,15 +90,6 @@
     "type": "Text",
     "day": 1,
     "bigtext": "I'd feel much braver today if you stayed to chat"
-  },
-    {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 10,
-    "type": "Image",
-    "caption" : "Me!",
-    "day": 1,
-    "image": "Me"
   },
       {
     "user": "Guy",
@@ -132,7 +116,7 @@
   "hashtag": "Mood",
   "type": "Gif",
   "day": 1,
-  "gif": "birthday.gif",
+  "gif": "https://media.giphy.com/media/IFjSbBHETzzr6GJdwW/giphy.gif",
   "user": "Guy"
 },
 {
@@ -213,18 +197,19 @@
     "bigtext": "Does that mean I have to get up and cook …?"
       },
     {
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Mum Birthday",
     "user": "Guy",
     "id": 23,
     "caption": "Waking up",
     "type": "Image",
     "day": 1,
-    "image": "camera light"
+    "image": "https://images.unsplash.com/photo-1556703588-6eae2585e025?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
+    "creator credit": "https://unsplash.com/@dyuha"
   },
         {
     "user": "Guy",
     "id": 24,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Mum Birthday",
     "type": "Text",
     "day": 1,
     "bigtext": "The light hurts my eyes"
@@ -232,37 +217,47 @@
  {
     "user": "Guy",
     "id": 25,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Mum Birthday",
     "type": "Text",
     "day": 1,
     "bigtext": "I need a plan .. "
       },
    {
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Mum Birthday",
     "user": "Guy",
     "id": 26,
-    "caption": "Walking ",
+    "caption": "Mum Birthday",
     "type": "Image",
     "day": 1,
-    "image": "Question mark"
+    "image": "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80",
+    "creator credit": "https://unsplash.com/@simonesecci"
   },
      {
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Birthday",
     "user": "Guy",
     "id": 27,
-    "caption": "Walking ",
-    "type": "Image",
+    "caption": "Birthday Breakfast",
+    "type": "Gif",
     "day": 1,
-    "image": "Exclamation mark"
-  },
+    "gif": "https://media.giphy.com/media/RJo3cWQCtYWCdaMBP4/giphy.gif",
+    "creator credit": "https://giphy.com/channel/Sigruncom"
+  }, {
+    "user": "Guy",
+    "id": 24,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Eggs on toast!"
+      },
   {
     "hashtag": "Birthday Breakfast",
     "user": "Guy",
     "id": 28,
-    "caption": "Walking ",
+    "caption": "Birthday Breakfast",
     "type": "Image",
     "day": 1,
-    "image": "Egg"
+    "image": "https://images.unsplash.com/photo-1617054240991-b0ffce6600da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80",
+    "creator credit": "https://unsplash.com/@priscilladupreez"
   },
    {
     "user": "Guy",
@@ -284,6 +279,47 @@
     "hashtag": "Mood",
     "type": "Vote",
     "user": "Guy"
+  },
+     {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 28,
+    "caption": "Birthday Breakfast",
+    "type": "Image",
+    "day": 1,
+    "image": "https://images.unsplash.com/photo-1551185618-e4af39c51a99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2686&q=80",
+    "creator credit": "https://unsplash.com/@alphabetania"
+  },
+    {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 28,
+    "caption": "Birthday Breakfast",
+    "type": "Gif",
+    "day": 1,
+    "gif": "https://media.giphy.com/media/25PkdXYzOj4cmRshNH/giphy.gif",
+    "creator credit": "https://giphy.com/channel/CBeebiesHQ"
+  }
+  ,
+    {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 28,
+    "caption": "Birthday Breakfast",
+    "type": "Image",
+    "day": 1,
+    "image": "https://images.unsplash.com/photo-1617054221164-6b91d54c536d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=80",
+    "creator credit": "https://unsplash.com/@priscilladupreez"
+  },
+    {
+    "hashtag": "Birthday Breakfast",
+    "user": "Guy",
+    "id": 28,
+    "caption": "Birthday Breakfast",
+    "type": "Image",
+    "day": 1,
+    "image": "https://images.unsplash.com/photo-1591506317034-7169164238a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2530&q=80",
+    "creator credit": "https://unsplash.com/@karngraphya"
   },
    {
     "user": "Guy",
@@ -321,9 +357,9 @@
   "user": "Guy",
   "id": 35,
   "hashtag": "Feelings",
-  "type": "Gif",
+  "type": "Image",
   "day": 1,
-  "gif": "mess"
+  "image": "grumpy_guy.jpeg"
 },  {
     "user": "Guy",
     "id": 36,
@@ -332,12 +368,29 @@
     "day": 1,
     "bigtext": "I need to cheer up"
       },
+       {
+    "user": "Avery",
+    "id": 36,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "You look like you need cheering up"
+      },
+      {
+    "user": "Guy",
+    "id": 36,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Hi Avery!"
+      },
   {
   "id": 37,
-  "hashtag": "Funny",
-  "caption": "some funny videos with me?",
+  "user": "Avery",
+  "hashtag": "Cute animals eating",
+  "caption": "some cute animals?",
   "day": 1,
-  "video": "funny",
+  "video": "https://youtube.com/playlist?list=PLPCeSm8EDIToaYq-opBi8juSZG22K6ltR",
   "type": "Video"
 },
     {
@@ -356,21 +409,13 @@
     "day": 1,
     "bigtext": "… but i still don't have a nice breakfast for Mum"
       },
-        {
-    "user": "Guy",
-    "id": 40,
-    "hashtag": "Birthday Breakfast",
-    "type": "Text",
-    "day": 1,
-    "bigtext": "… but i still don't have a nice breakfast for Mum"
-      },
     {
     "user": "Guy",
     "id": 41,
     "hashtag": "Birthday Breakfast",
     "type": "Text",
     "day":1,
-    "bigtext": "Shall I get up?",
+    "bigtext": "Shall I try again?",
     "votea": "Yes ",
     "voteb": "No ^answer^ I gotta move"
   },
@@ -384,10 +429,11 @@
   },
     {
   "id": 43,
-  "hashtag": "Funny",
-  "caption": "a recipe for pancakes?",
+  "user": "Avery",
+  "hashtag": "Pancake recipe",
+  "caption": "with a recipe",
   "day": 1,
-  "video": "pancakes",
+  "video": "https://youtube.com/playlist?list=PLPCeSm8EDITqdosaXtpSXohEHO8poaiq_",
   "type": "Video"
 },
    {
@@ -404,7 +450,8 @@
     "caption": "Pan on heat…",
     "type": "Image",
     "day": 1,
-    "image": "batter"
+    "image": "https://images.unsplash.com/photo-1593143305531-206b4ca09233?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+    "creator credit": "https://unsplash.com/@donovan_valdivia"
   },
         {
     "user": "Guy",
@@ -421,7 +468,8 @@
     "caption": "Pan on heat…",
     "type": "Image",
     "day": 1,
-    "image": "frying pan"
+    "image": "https://images.unsplash.com/photo-1592156328757-ae2941276b2c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80",
+    "creator credit": "https://unsplash.com/@cookerking"
   },
           {
     "user": "Guy",
@@ -455,15 +503,6 @@
     "day":1,
     "bigtext": "Well this one just doesn't look nice…"
   },
-      {
-    "hashtag": "Birthday Breakfas",
-    "user": "Guy",
-    "id": 52,
-    "caption": "Pan on heat…",
-    "type": "Image",
-    "day": 1,
-    "image": "first pancake"
-  },
   {
     "user": "Guy",
     "id": 53,
@@ -476,10 +515,11 @@
     "hashtag": "Birthday Breakfast",
     "user": "Guy",
     "id": 54,
-    "caption": "Pan on heat…",
-    "type": "Image",
+    "caption": "Birthday Breakfast",
+    "type": "Gif",
     "day": 1,
-    "image": "second pancake"
+    "gif": "https://media.giphy.com/media/a3lZcbkBdySqY/giphy.gif",
+    "creator credit": "https://www.reddit.com/r/oddlysatisfying/comments/6j0qhd/flipping_a_pancake/"
   },
     {
     "user": "Guy",
@@ -554,7 +594,7 @@
   "hashtag": "Mood",
   "type": "Gif",
   "day": 1,
-   "gif": "laugh.gif",
+   "gif": "https://media.giphy.com/media/ff0dv4KMGxjna/giphy.gif",
    "user": "Guy"
 },
  {
@@ -564,6 +604,24 @@
     "type": "Text",
     "day":1,
     "bigtext": "You have to laugh!"
+  },
+ {
+    "user": "Guy",
+    "id": 64,
+    "hashtag": "Birthday Breakfast",
+    "type": "Gif",
+    "day":1,
+    "gif": "https://media.giphy.com/media/8lHo1afMq2tUO8N4YY/giphy.gif",
+    "creator credit": "https://www.reddit.com/r/HighQualityGifs/comments/7yvkj3/my_team_at_work_made_this_pancake_loop_last_week/"
+  }
+  ,
+ {
+    "user": "Guy",
+    "id": 64,
+    "hashtag": "Birthday Breakfast",
+    "type": "Text",
+    "day":1,
+    "bigtext": "Come back again tomorrow!"
   }
 ]
   
