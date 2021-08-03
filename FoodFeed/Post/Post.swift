@@ -503,9 +503,10 @@ class PostView: UIView {
     @objc func resetUserDefaults(sender: UIButton!) {
         UserDefaults.standard.removeObject(forKey: "loginRecord")
         UserDefaults.standard.removeObject(forKey: "following")
+        UserDefaults.standard.removeObject(forKey: "launchedBefore")
         
         /// delete database
-        
+        day = 0 
         clearAllCoreData()
         
 //        let path = FileManager

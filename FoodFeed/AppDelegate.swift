@@ -19,13 +19,13 @@ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-      // let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
-       let launchedBefore = true
+       //let launchedBefore = true
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
-        day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
+       // day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
         
         
             //  clearAllCoreData()
@@ -143,6 +143,9 @@ var window: UIWindow?
             
         }
         
+    
+        if #available(iOS 13.0, *) {}
+        else{
         if launchedBefore{
             self.window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -168,7 +171,7 @@ var window: UIWindow?
             //   let nextViewController = storyboard.instantiateViewController(withIdentifier: "newDataInputViewController" )
             //self.window?.rootViewController!.push(nextViewController, animated: true, completion: nil)
             self.window?.makeKeyAndVisible()
-
+//
 //            if newTutorial{
 //                self.window = UIWindow(frame: UIScreen.main.bounds)
 //
@@ -189,14 +192,12 @@ var window: UIWindow?
 //                self.window?.rootViewController = initialViewController
 //                self.window?.makeKeyAndVisible()
 //            }
-//
+
+            }
         }
-        
-        
         
         return true
     }
-
     // Lock the orientation to Portrait mode
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)
