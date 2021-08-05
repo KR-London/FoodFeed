@@ -83,25 +83,6 @@ final class AvatarView: UIView {
     }
 }
 
-//#if canImport(SwiftUI) && DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct AvatarViewPreview: PreviewProvider {
-//    static var previews: some View {
-//                UIViewPreview {
-//                    let image = UIImage(named: "guy_profile_pic.jpeg")!
-//                    let view = AvatarView()
-//                    view.update(
-//                        state: AvatarView.State(image: image)
-//                    )
-//                    return view
-//                }
-//                .previewLayout(.sizeThatFits)
-//                .background(Color.black)
-//    }
-//}
-//#endif
-
 final class LikeView: UIView {
     struct State {
         
@@ -143,6 +124,7 @@ class PostView: UIView {
     var didPause = false
     
     var say = ""
+    var author = Personage.Unknown
     
     var delegate : FeedViewInteractionDelegate?
   
@@ -173,6 +155,7 @@ class PostView: UIView {
                     pageTitleHashtag.text = tag
                 }
                 say = bigText
+                author = character
                 self.bringSubviewToFront(mediaView)
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag, let who):
@@ -214,6 +197,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
                     tag: hashtag ?? "Getting to know " + botUser.human.name
                 ))
+                say = caption
             case .question(caption: let caption, hashtag: let hashtag, let who):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 let profilePic = profilePicture(who: who)
@@ -223,6 +207,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
                 ))
+                say = caption
             default: return
         }
         
@@ -278,8 +263,8 @@ class PostView: UIView {
         mediaView.pause()
     }
     
-    func voiceOver() -> String{
-        return say
+    func voiceOver() -> (String, Personage) {
+        return (say, author)
     }
     
     func setup() {
@@ -437,7 +422,7 @@ class PostView: UIView {
         UserDefaults.standard.removeObject(forKey: "launchedBefore")
         
         /// delete database
-        day = 0 
+       day = 0 
         clearAllCoreData()
 
     }
@@ -496,10 +481,6 @@ extension UILabel {
 
 final class InteractionView: UIView, UITableViewDelegate{
     
-   // var hiddens = true
-    
-    /// I deleted the refactor code because I got completely lost in what the point was.
-    /// but at some point will i be limited by not being able to pass pictuers in  ... ?
     enum State {
         case poll(captionText: String, votea: String, voteb: String, votec: String)
         case question(captionText: String)
@@ -556,6 +537,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     var commentsDriver : TimedComments?
     var comments: [Comment] = []
     var commentButton = UIButton()
+    var author = Personage.Unknown
     
     let synthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
@@ -775,7 +757,7 @@ final class InteractionView: UIView, UITableViewDelegate{
 //    }
 //
     func update(state: State) {
-     
+        // FIXME: I am not picking up which character triggered the interaction?
         switch state {
             case .poll(let captionText, let votea, let voteb, let votec):
                 caption.text = captionText
@@ -831,17 +813,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         }
         
         reloadHumanAvatar()
-        // Reads out the label in a random Anglophone voice
-        if let say = caption.text
-        {
-            commentsDriver?.currentCaption = say
-            utterance = AVSpeechUtterance(string: String(say.dropFirst().dropFirst()))
-            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-            utterance.voice =  language.first!!
-            synthesizer.speak(utterance)
-        }
     }
     
     @objc func voted(_ sender: OptionButton) {
@@ -934,14 +905,12 @@ final class InteractionView: UIView, UITableViewDelegate{
             dunno.isPicked = true
         }
         
-        // Reads out the label in a random Anglophone voice
+        ///FIXME: put author through to here
         if let say = sayCard.label.text
         {
             utterance = AVSpeechUtterance(string: say)
-            //utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-            //utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-            utterance.voice =  language.first!!
+            utterance = voice(who: .Unknown, saying: utterance)
+            
             synthesizer.speak(utterance)
         }
 

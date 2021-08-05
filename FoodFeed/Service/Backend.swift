@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import UIKit
+import AVFAudio
 
 enum Backend {
     struct Author: Identifiable {
@@ -162,6 +163,7 @@ enum Personage: String{
     case Guy
     case DG
     case Avery
+    case Brock
     case Unknown
 //    
 //    func dataConvert(user: String) -> Personage{
@@ -221,9 +223,56 @@ func whoIsIt(name: String?) -> Personage{
         return .Guy
     case "DG":
         return .DG
+  case "Brock":
+        return .Brock
     case "Avery":
         return .Avery
     default:
         return .Unknown
     }
+
+}
+
+
+func voice(who: Personage, saying: AVSpeechUtterance) -> AVSpeechUtterance{
+    
+        //            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+        //            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+        //            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+        //            utterance.voice =  language.first!!
+    var utterance = saying
+    
+    switch who{
+        case .Guy:
+            utterance.pitchMultiplier = Float(0.9)
+            utterance.rate = Float(0.5)
+            let language = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.voice =  language
+            return utterance
+        case .DG:
+            utterance.pitchMultiplier = Float(0.7)
+            utterance.rate = Float(0.5)
+            let language = AVSpeechSynthesisVoice(language: "en-US")
+            utterance.voice =  language
+            return utterance
+        case .Avery:
+            utterance.pitchMultiplier = Float(1.1)
+            utterance.rate = Float(0.6)
+            let language = AVSpeechSynthesisVoice(language: "en-IE")
+            utterance.voice =  language
+            return utterance
+        case .Brock:
+            utterance.pitchMultiplier = Float(0.7)
+            utterance.rate = Float(0.5)
+            let language = AVSpeechSynthesisVoice(language: "en-AU")
+            utterance.voice =  language
+            return utterance
+        default:
+            print("Unknown voice")
+    }
+    
+    
+    
+    
+    return saying
 }

@@ -25,7 +25,7 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "2 WEEEKS DETENTION THOUGH?!?"
+    "bigtext": "2 WEEKS DETENTION THOUGH?!?"
   },
   {
     "user": "Guy",
@@ -33,7 +33,7 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "2 WEEEKS?!?",
+    "bigtext": "2 WEEKS?!?",
     "votea": "That's a bit OTT! ",
     "voteb": "He must have been upset ^answer^ I was really upset too!"
   },
