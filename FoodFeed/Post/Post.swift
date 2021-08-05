@@ -142,7 +142,7 @@ class PostView: UIView {
     let settingsButton = UIButton()
     var didPause = false
     
-
+    var say = ""
     
     var delegate : FeedViewInteractionDelegate?
   
@@ -171,13 +171,8 @@ class PostView: UIView {
                 ))
                 if let tag = hashtag{
                     pageTitleHashtag.text = tag
-//                    if tag == "Getting to know "{
-//                        pageTitle.text = tag + botUser.human.name
-//                    }
-//                    else{
-//                        pageTitle.text = tag
-//                    }
                 }
+                say = bigText
                 self.bringSubviewToFront(mediaView)
               //  mediaView.isHidden == true
             case .gif(let gifName, let caption, let hashtag, let who):
@@ -211,9 +206,6 @@ class PostView: UIView {
                self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
             case .poll(let caption, let votea, let voteb, let votec, let hashtag, let who):
-//                if let tag = hashtag{
-//                 pageTitleHashtag.text = tag + botUser.human.name
-//                }
                 print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
@@ -222,9 +214,6 @@ class PostView: UIView {
                     interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
                     tag: hashtag ?? "Getting to know " + botUser.human.name
                 ))
-                // QUESTION: Why did I not need to do this here?
-                //self.bringSubviewToFront(mediaView)
-        
             case .question(caption: let caption, hashtag: let hashtag, let who):
                 print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 let profilePic = profilePicture(who: who)
@@ -234,31 +223,10 @@ class PostView: UIView {
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
                 ))
-               // tagLabel.text = hashtag
-//            case .photoPrompt(caption: let caption):
-//                print("This is a photo prompt ")
-//                self.update(state: PostView.State(
-//                    avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-//                    media: MediaView.State(),
-//                    interaction: InteractionView.State(caption: caption)
-//                ))
             default: return
         }
         
         bringSubviewToFront(avatarView)
-        
-//        self.update(state: PostView.State(
-//
-//            //FIXME: Refactor
-//            // tag: Model.Tag(rawValue: "#this is tag"),
-//            avatar: AvatarView.State(image: try! UIImage(imageName: "guy_profile_pic.jpeg")!),
-//            media: MediaView.State(filename: feed.gif)
-//        ))
-        
-//
-//        if feed.state == .text(let bigText) { [self] in
-//            mediaView.isHidden == true
-//        }
     }
     
     required init?(coder: NSCoder) {
@@ -267,11 +235,7 @@ class PostView: UIView {
     }
     
     func setup(feed: Feed) {
-        
-//        if feed.state == .poll{
-//            setupMediaView()
-//        }
-        
+
         // MARK: Where views are placed
         setupMediaView()
         
@@ -297,9 +261,6 @@ class PostView: UIView {
             setupRightView()
             setupAvatarView()
         }
-        
-        
-       
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -315,6 +276,10 @@ class PostView: UIView {
     
     func pause(){
         mediaView.pause()
+    }
+    
+    func voiceOver() -> String{
+        return say
     }
     
     func setup() {
@@ -359,15 +324,6 @@ class PostView: UIView {
         interactionView.isUserInteractionEnabled = true
     }
     
-//    func setupBigTextView() {
-//        addSubview(bigTextView)
-//        bigTextView.translatesAutoresizingMaskIntoConstraints = false
-//        bigTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        bigTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-//        bigTextView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        bigTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//    }
-//
     func setUpResetButtons()
     {
         
@@ -384,7 +340,6 @@ class PostView: UIView {
         softButton.setContentView(label)
         softButton.addTarget(self, action: #selector(resetUserDefaults), for: .touchUpInside)
         self.addSubview(softButton)
-        //softButton.isUserInteractionEnabled = true
         self.bringSubviewToFront(softButton)
         self.mediaView.isHidden = true
         self.stackView.isHidden = true
@@ -395,12 +350,7 @@ class PostView: UIView {
         addSubview(controlsStack)
         controlsStack.axis = .vertical
 
-        //FIXME: Hiddne like button because i won't be able to do anything with it this time around 
-       // let lView = likeView()
-        //controlsStack.addArrangedSubview(avatarView)
-       // controlsStack.addArrangedSubview(lView)
-       // controlsStack.setCustomSpacing(36, after: lView)
-        //controlsStack.addArrangedSubview(commentView())
+        //FIXME: Hiddne like button because i won't be able to do anything with it this time around
         controlsStack.isLayoutMarginsRelativeArrangement = true
         controlsStack.spacing = 24
         controlsStack.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -416,18 +366,8 @@ class PostView: UIView {
         bringSubviewToFront(avatarView)
         
         let thirdScreenHeight = UIScreen.main.bounds.height / 3
-//        avatarView.backgroundColor = .yellow
-//
-//        avatarView.layer.cornerRadius = 20
-//        avatarView.layer.masksToBounds = true
-//        avatarView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-//        avatarView.layer.borderWidth = 2
-//        avatarView.backgroundColor = .white
-//        avatarView.contentMode = .scaleAspectFill
-        //pic.image = profilePic
         let margins = self.layoutMarginsGuide
 
-        
         avatarView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -436,13 +376,6 @@ class PostView: UIView {
             avatarView.heightAnchor.constraint(equalToConstant: 80),
             avatarView.widthAnchor.constraint(equalToConstant: 80)
         ])
-        
-        
-//        avatarView.translatesAutoresizingMaskIntoConstraints = false
-//        avatarView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-//        avatarView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-//        avatarView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        avatarView.bottomAnchor.constraint(equalTo:  .bottomAnchor).isActive = true
     }
     
     func likeView() -> UIView {
@@ -482,8 +415,6 @@ class PostView: UIView {
         textStack.addArrangedSubview(xxx)
         addSubview(textStack)
         textStack.translatesAutoresizingMaskIntoConstraints = false
-        //textStack.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: 16).isActive = true
-       // textStack.bottomAnchor.constraint(equalTo: self.layoutMarginsGuide.bottomAnchor).isActive = true
         textStack.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 16).isActive = true
         textStack.centerXAnchor.constraint(equalTo: self.layoutMarginsGuide.centerXAnchor).isActive = true
         textStack.heightAnchor.constraint(equalToConstant: 150).isActive = true
@@ -508,36 +439,7 @@ class PostView: UIView {
         /// delete database
         day = 0 
         clearAllCoreData()
-        
-//        let path = FileManager
-//            .default
-//            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
-//            .last?
-//            .absoluteString
-//            .replacingOccurrences(of: "file://", with: "")
-//            .removingPercentEncoding
-//
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        //let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-////        let persistentStoreURL =
-//
-//        do {
-//            try context.persistentStoreCoordinator.destroyPersistentStoreAtURL(path + "FoodFeed.sql", withType: NSSQLiteStoreType, options: nil)
-//
-//        } catch {
-//            // Error Handling
-//        }
-        
-//        do{
-//            try print(container.description)
-//            try container.persistentStoreCoordinator.destroyPersistentStore(at: <#T##URL#>, ofType: <#T##String#>, options: <#T##[AnyHashable : Any]?#>)
-//        }
-        
 
-        
-   //     let container = NSPersistentContainer(name: "FoodFeed")
-        
-   //     container.
     }
 }
 
@@ -664,15 +566,9 @@ final class InteractionView: UIView, UITableViewDelegate{
         heightLayoutUnit = 0.9*(screenRect.size.width / 3)
         thirdScreenHeight = screenRect.size.height / 3
         commentsView =  chatBubbleView(frame:  CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 - 10 , width: widthLayoutUnit - 20, height: heightLayoutUnit), user: nil)
-            //chatBubbleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
+
         super.init(frame: frame)
-        
-//        switch feed.state {
-//            case .question(let captionText):
-//                setup()
-//            default:
-//                print("I am hidden")
-//    }
+
         setup()
 }
     
@@ -681,16 +577,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         commentsView.doYouWantProfilePicture = true
         super.init(coder: coder)
        
-   
-//
-//        switch feed.state {
-//            case .question(let captionText):
-//                setup()
-//            default:
-//                print("I am hidden")
-//        }
         setup()
-        //setupRightView()
     }
     
     @objc func userAnswer(_ textField:UITextField ){
@@ -728,9 +615,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.bottomAnchor.constraint(equalTo: backgroundImage.bottomAnchor).isActive = true
         self.sendSubviewToBack(backgroundImage)
         
-        ///TODO: May 5th Add a title feeding from hashtag
-        
-     
         dunno.setTitle("Don't know", for: .normal)
         
         buttonStack.addArrangedSubview(voteAbutton)
@@ -746,8 +630,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         buttonStack.distribution = .equalSpacing
         buttonStack.spacing = 20
-        //voteAbutton.setContentHuggingPriority(.required, for: .horizontal)
-        //voteBbutton.setContentHuggingPriority(.required, for: .horizontal)
         self.addSubview(buttonStack)
         buttonStack.translatesAutoresizingMaskIntoConstraints = false
         buttonStack.widthAnchor.constraint(equalToConstant: widthLayoutUnit).isActive = true
@@ -760,19 +642,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         voteAbutton.tag = 0
         voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
 
-        
-        ///TODO: May 5th show c button
-        
-        ///TODO: May 5th don't know button
-        
-        
-//        self.addSubview(voteBbutton)
-       // voteBbutton.translatesAutoresizingMaskIntoConstraints = false
-       // self.trailingAnchor.constraint(equalTo: voteBbutton.trailingAnchor, constant: 20).isActive = true
-        //voteBbutton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-       // voteBbutton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       // voteBbutton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-     //   voteBbutton.backgroundColor = .blue
         voteBbutton.titleLabel?.lineBreakMode = .byWordWrapping
         voteBbutton.tag = 1
         voteBbutton.isUserInteractionEnabled = true
@@ -807,10 +676,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         userAnswerCard = userAnswerView(frame:  CGRect(x: 40, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit - 20, height: heightLayoutUnit), user: botUser.human)
         self.addSubview(userAnswerCard)
         
-//        let botCommentCard = chatBubbleView(frame:  CGRect(x: 20, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2, width: widthLayoutUnit, height: heightLayoutUnit), user: botUser.emery)
-//        self.addSubview(botCommentCard)
-//
-    
         descriptiveLabel2.textAlignment = .right
         self.addSubview(descriptiveLabel2)
         descriptiveLabel2.translatesAutoresizingMaskIntoConstraints = false
@@ -824,8 +689,6 @@ final class InteractionView: UIView, UITableViewDelegate{
 
 
         self.addSubview(answerInput)
-       // answerInput.frame = CGRect(x: 20, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25 + frame.height/2, width: widthLayoutUnit, height: heightLayoutUnit/2)
-        //answerInput= CGRect(x: 20, y: 20, width: 50, height: 50)
         answerInput.backgroundColor = .clear
         answerInput.placeholder = "What do you think?"
         answerInput.translatesAutoresizingMaskIntoConstraints = false
@@ -838,24 +701,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         answerInput.addTarget(self, action: #selector(userAnswer), for: UIControl.Event.editingDidEndOnExit)
         answerInput.isHidden = false
 
-//        self.addSubview(humanAvatar)
-//        humanAvatar.translatesAutoresizingMaskIntoConstraints = false
-//        humanAvatar.heightAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
-//        humanAvatar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor, constant: -10).isActive = true
-//        humanAvatar.widthAnchor.constraint(equalTo: answerInput.heightAnchor, multiplier: 1.5).isActive = true
-//        humanAvatar.centerYAnchor.constraint(equalTo: answerInput.centerYAnchor).isActive = true
-//
-//        humanAvatar.imageView.image = botUser.human.profilePic
-//
-//
-////        humanAvatar.imageView.image = human.profilePic{
-////            didSet{
-////                reloadInputViews()
-////            }
-////        }
-//            //botUser.human.profilePic
-//
-//
         self.addSubview(scrollContainer)
         scrollContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
         scrollContainer.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
@@ -868,20 +713,6 @@ final class InteractionView: UIView, UITableViewDelegate{
         commentsView.doYouWantProfilePicture = true
         
         commentsView.backgroundColor = .clear
-//        commentsView.translatesAutoresizingMaskIntoConstraints = false
-//        commentsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
-//        commentsView.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
-//        commentsView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-//        commentsView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-       
-//
-//        bringSubviewToFront(answerInput)
-//        bringSubviewToFront(humanAvatar)
-//        bringSubviewToFront(commentsView)
-        
-       // bringSubviewToFront(voteAbutton)
-       // bringSubviewToFront(voteBbutton)
         
         bringSubviewToFront(answerInput)
         bringSubviewToFront(buttonStack)
@@ -899,34 +730,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
-    func setUpCommentsView(){
-      
-//        let scrollPlaceholder = UIScrollView()
-//        scrollPlaceholder.addSubview(commentsView)
-       // scrollContainer.addSubview(commentsView)
-//        commentsView = chatBubbleView(frame: scrollContainer.frame, user: nil)
-       // commentsView.translatesAutoresizingMaskIntoConstraints = false
-      //  commentsView.topAnchor.constraint(equalTo: scrollContainer.topAnchor).isActive = true
-     //   commentsView.heightAnchor.constraint(equalTo: scrollContainer.heightAnchor).isActive = true
-     //   commentsView.widthAnchor.constraint(equalTo: scrollContainer.widthAnchor).isActive = true
-     //   commentsView.centerXAnchor.constraint(equalTo: scrollContainer.centerXAnchor).isActive = true
+        func setUpCommentsView(){
         self.addSubview(commentsView)
-      //  commentsView.setUpCommentsView(margins: self.layoutMarginsGuide)
-        
-//        commentsDriver?.didUpdateComments =
-//            { [self]
-//                comments in
-//                self.comments = comments
-//                self.commentsView.reloadData()
-//            }
-//
-       // commentsView.register(commentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
-     //   commentsView.register(softCommentTableViewCell.self, forCellReuseIdentifier: Self.reuseID)
-      //  commentsView.delegate = self
-     //   commentsView.dataSource = self
-        
-        
-        
     }
     
     func triggerCommentsView(){
@@ -1035,7 +840,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-           // synthesizer.speak(utterance)
+            synthesizer.speak(utterance)
         }
     }
     
@@ -1052,6 +857,8 @@ final class InteractionView: UIView, UITableViewDelegate{
                 }
                 else{
                     sayCard.label.text = sender.answer
+                    
+                  
                 }
             }
             else
@@ -1135,7 +942,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             //utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-            //synthesizer.speak(utterance)
+            synthesizer.speak(utterance)
         }
 
         //caption.isHidden = true
@@ -1196,6 +1003,9 @@ extension InteractionView: UITableViewDataSource{
 
 
 final class MediaView: UIView, YTPlayerViewDelegate {
+    
+ 
+    
     enum State {
         case giphyImage(gifImageURL: String, caption: String)
         case gifImage(gifImage: UIImage, caption: String)
@@ -1206,17 +1016,19 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         case hidden
         
         init(filename: String, captionText: String?, votea: String?, voteb: String?) {
-            
+       
            
       switch (filename, filename.suffix(4)){
               
           case let (_, suffix) where [".mp4", "MP4"].contains(suffix) :
               self = .video(video: filename.lowercased(), caption: captionText ?? "" )
+
           case let (str, _ ) where str.contains("youtu"):
               self = .video(video: filename, caption: captionText ?? "")
-              
+
           case let (_, suffix) where ["jpeg", ".jpg", ".png"].contains(suffix):
               self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
+
           case let (str, _ ) where str.contains("unsplash"):
               let imageURL = URL(string: filename)!
               var downloadedImage : UIImage?
@@ -1346,6 +1158,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
 //                    }
 //                }
 //            }
+            
+            
+           
  }
         
         init() {
@@ -1848,6 +1663,19 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             ]
             let bigTextStyled = NSAttributedString(string: sender.answer, attributes: attrs)
             label.attributedText = bigTextStyled
+            
+            let synthesizer = AVSpeechSynthesizer()
+            var utterance = AVSpeechUtterance()
+            
+            utterance = AVSpeechUtterance(string: sender.answer)
+                //            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+                //            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+                //            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+                //            utterance.voice =  language.first!!
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                synthesizer.speak(utterance)
+            }
+            
             
         }
         if sender.tag == 1 {

@@ -27,7 +27,7 @@ class BotProfileViewController: UIViewController {
                             
             utterance = AVSpeechUtterance(string: say)
             utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-            //synthesizer.speak(utterance)
+            synthesizer.speak(utterance)
         }
 
         func layoutSubviews(){

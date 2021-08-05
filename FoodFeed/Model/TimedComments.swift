@@ -131,7 +131,7 @@ class TimedComments: CommentProvider {
            // utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
             let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
-            //synthesizer.speak(utterance)
+            synthesizer.speak(utterance)
         
         timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
             if storedComments.count % 5 == 0  {
@@ -147,7 +147,7 @@ class TimedComments: CommentProvider {
                     
                     utterance = AVSpeechUtterance(string: say)
                     utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                   // synthesizer.speak(utterance)
+                    synthesizer.speak(utterance)
                 }
 
             }
@@ -182,7 +182,7 @@ class TimedComments: CommentProvider {
                         utterance.rate = Float(0.7)
                     default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
                 }
-              //synthesizer.speak(utterance)
+              synthesizer.speak(utterance)
             }
             i += 1
 
@@ -247,7 +247,7 @@ class TimedComments: CommentProvider {
                     utterance.rate = Float(0.7)
                 default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
             }
-          //synthesizer.speak(utterance)
+          synthesizer.speak(utterance)
         }
     }
     

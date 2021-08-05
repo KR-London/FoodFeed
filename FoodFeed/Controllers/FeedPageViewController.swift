@@ -8,13 +8,16 @@
 
 import UIKit
 import CoreData
+import AVFAudio
 
 
 class FeedPageViewController:
         UIPageViewController,
-        FeedPageView
+        FeedPageView, UIPageViewControllerDataSource, UIPageViewControllerDelegate
 {
     var commentsDriver = TimedComments()
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
     
     func presentInitialFeed(_ feed: Feed) {
         let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
@@ -107,9 +110,9 @@ class FeedPageViewController:
         setViewControllers([newVC], direction: .forward, animated: true, completion: nil)
         
     }
-}
-
-extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+//}
+//
+//extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let indexedFeed = presenter.fetchPreviousFeed() else {
@@ -149,6 +152,16 @@ extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewCont
 //            viewController.commentsDriver = commentsDriver
 //
 //            viewController.triggerCommentsView()
+            
+            let say = viewController.voiceOver()
+            
+            utterance = AVSpeechUtterance(string: say)
+//            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+//            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+//            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+//            utterance.voice =  language.first!!
+            synthesizer.speak(utterance)
+            
             presenter.updateFeedIndex(fromIndex: viewController.index)
             if previousViewController.index < viewController.index{
                 presenter.updateFeed( index:  viewController.index as Int, increasing: true )
