@@ -1,8 +1,16 @@
-[
+[  {
+    "user": "Avery",
+    "id": 6,
+    "hashtag": "Class",
+    "type": "Text",
+    "day": 1,
+    "bigtext": "Mr Brown! I can’t get over him! ",
+    "votea": "Mr Brown?"
+  },
   {
     "user": "Guy",
     "id": 0,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Hello",
     "type": "Text",
     "day": 1,
     "bigtext": "Hello",
@@ -12,45 +20,25 @@
   {
     "user": "Guy",
     "id": 1,
-    "hashtag": "Birthday Breakfast",
+     "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "It's too early",
+    "bigtext": "It's too early!",
     "votea": "Uh huh",
-    "voteb": "It's not early?!? ^answer^ It is in my timezone"
-  },
-    {
-    "user": "Guy",
-    "id": 2,
-    "hashtag": "Birthday Breakfast",
-    "type": "Text",
-    "day": 1,
-    "bigtext": "It's too early",
-    "votea": "Uh huh",
-    "voteb": "It's not early?!? ^answer^ It is in my timezone"
+    "voteb": "It's not early?!? ^answer^ It is where I am!"
   },
    {
     "user": "Guy",
     "id": 2,
-    "hashtag": "Birthday Breakfast",
+     "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "I'm going to do something special today"
+    "bigtext": "I'm going to do something wow today"
   },
     {
     "user": "Guy",
     "id": 4,
-    "hashtag": "Birthday Breakfast",
-    "type": "Text",
-    "day": 1,
-    "bigtext": "Are you new here",
-    "votea": "No",
-    "voteb": "Yes ^answer^ Welcome!"
-  },
-     {
-    "user": "Guy",
-    "id": 5,
-    "hashtag": "Birthday Breakfast",
+     "hashtag": "Hello",
     "type": "Text",
     "day": 1,
     "bigtext": "Are you new here",
@@ -61,14 +49,15 @@
     "user": "Guy",
     "id": 10,
     "type": "Image",
+     "hashtag": "Hello",
     "caption" : "This is me!",
     "day": 1,
     "image": "guybookspark.jpeg"
   },
-       {
+ {
     "user": "Guy",
     "id": 5,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Hello",
     "type": "Text",
     "day": 1,
     "bigtext": "My name is Guy"
@@ -76,44 +65,34 @@
    {
     "user": "Guy",
     "id": 7,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "I post updates on my day",
+    "bigtext": "I post about my day",
     "votea": "OK",
     "voteb": "Like what?  ^answer^ Fun I have. Or things I worry about. "
   },
     {
     "user": "Guy",
     "id": 9,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "I'd feel much braver today if you stayed to chat"
-  },
-      {
-    "user": "Guy",
-    "id": 11,
-    "hashtag": "Birthday Breakfast",
-    "type": "Text",
-    "day": 1,
-    "bigtext": "Did I tell you what today was",
-       "votea": "Yes!",
-    "voteb": "No?  ^answer^ My mum birthday"
+    "bigtext": "I'd feel much braver if you stayed to chat"
   },
         {
     "user": "Guy",
     "id": 12,
-    "hashtag": "Birthday Breakfast",
+      "hashtag": "Mum's Birthday",
     "type": "Text",
     "day": 1,
-    "bigtext": "It's my Mum's birthday!",
-       "votea": "Yes!",
-    "voteb": "No?  ^answer^ My mum birthday"
+    "bigtext": "It's my Mum's birthday today!",
+       "votea": "Yay!",
+    "voteb": "So?  ^answer^ Birthdays matter!"
   },
 {
   "id": 13,
-  "hashtag": "Mood",
+     "hashtag": "Mum's Birthday",
   "type": "Gif",
   "day": 1,
   "gif": "https://media.giphy.com/media/IFjSbBHETzzr6GJdwW/giphy.gif",
@@ -122,10 +101,10 @@
 {
     "user": "Guy",
     "id": 14,
-    "hashtag": "Birthday Breakfast",
+    "hashtag": "Mum's Birthday",
     "type": "Text",
     "day": 1,
-    "bigtext": "She does so much for me, I want to make it special"
+    "bigtext": "I want to make it special"
   },
        {
     "user": "Guy",
@@ -407,7 +386,7 @@
     "hashtag": "Birthday Breakfast",
     "type": "Text",
     "day": 1,
-    "bigtext": "… but i still don't have a nice breakfast for Mum"
+    "bigtext": "… but I still don't have a nice breakfast for Mum"
       },
     {
     "user": "Guy",
@@ -417,7 +396,7 @@
     "day":1,
     "bigtext": "Shall I try again?",
     "votea": "Yes ",
-    "voteb": "No ^answer^ I gotta move"
+    "voteb": "No ^answer^ I gotta try"
   },
       {
     "user": "Guy",

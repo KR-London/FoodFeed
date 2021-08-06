@@ -422,7 +422,7 @@ class PostView: UIView {
         UserDefaults.standard.removeObject(forKey: "launchedBefore")
         
         /// delete database
-       day = 0 
+       day = 3
         clearAllCoreData()
 
     }
@@ -1017,28 +1017,6 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                   self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
                   self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
               }
-        
-              
-//              var gifView = GPHMedia()
-//              GiphyCore.shared.gifByID("Y1M0ZSlt5fDhvj4Zz5") { (response, error) in
-//                  if let media = response?.data {
-//
-//                }
-//              }
-              
-              //self = .stillImage( image: UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-              
-              //self = .gifImage(gifImage: UIImage(named: "bot1")!, caption: captionText ?? "")
-//              GiphyCore.shared.gifByID("Y1M0ZSlt5fDhvj4Zz5") { (response, error) in
-//                  if let media = response?.data {
-//                      self = .gifImage(gifImage: UIImage(named: "bot1")!, caption: captionText ?? "")
-////                      DispatchQueue.main.sync { [weak self] in
-////                          self?.mediaView.media = media
-////                      }
-//                  }
-//              }
-            
-          
           
           default:
               if let assetImage = UIImage(named: filename.lowercased()){
@@ -1050,85 +1028,6 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                   self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
               }
       }
-            
-            
-            
-//          //    case let str where str.suffix(4) == ".mp4":
-//           //     print("mp4 found")
-//
-//        switch filename.suffix(4){
-//            case ".mp4", ".MP4":
-//                self = .video(video: filename.lowercased(), caption: captionText ?? "" )
-//            case "jpeg", ".jpg", ".png":
-//                self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-//            case ".gif", ".GIF":
-//               // FIXME: Is the try! robust....? Feels quite possible we will send some bad data in at some point
-//                if let gif = try? UIImage(gifName: filename.lowercased()){
-//                    self = .gifImage(gifImage: gif, caption: captionText ?? "")
-//                }
-//                else{
-//                    //self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
-//                    self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
-//                }
-//            default:
-//
-//                if filename.contains("unsplash"){
-//
-//                    let imageURL = URL(string: filename)!
-//                    var downloadedImage : UIImage?
-//
-//
-////                    AF.request( "https://images.unsplash.com/photo-1529850494847-05b7e590e91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2554&q=80",method: .get).response{ response in
-////
-////                        switch response.result {
-////                            case .success(let responseData):
-////                                downloadedImage = UIImage(data: responseData!, scale:0.01)
-////
-////                            case .failure(let error):
-////                                print("error--->",error)
-////                        }
-////                    }
-//
-//
-////                    let task = URLSession.shared.dataTask(with: imageURL as URL) {(data, response, error) in
-////
-////                        guard error == nil else {
-////                            completion(error, nil)
-////                            return
-////                        }
-////
-////                        completion(nil, data)
-////                    }
-////                    task.resume()
-////
-//
-//                        // Fetch Image Data
-//                    if let data = try? Data(contentsOf: imageURL) {
-//                            // Create Image and Update Image View
-//                        downloadedImage = UIImage(data: data)
-//                        //imageView.image = UIImage(data: data)
-//                    }
-//                   self = .stillImage(image: downloadedImage ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-//
-//                }
-//                else{
-//                    if filename.contains("youtu"){
-//                        self = .video(video: filename, caption: captionText ?? "")
-//                    }
-//                        else{
-//                            if let assetImage = UIImage(named: filename.lowercased()){
-//                            self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
-//                            }
-//                            else
-//                            {
-//                                    // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
-//                                self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
-//                            }
-//                    }
-//                }
-//            }
-            
-            
            
  }
         
@@ -1220,47 +1119,42 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         noButton.tag = 0
         noButton.isUserInteractionEnabled = true
        
-        stack.isUserInteractionEnabled = true
-        self.addSubview(stack)
+       
         yesButton.setTitle("Yes", for: .normal)
         noButton.setTitle("No", for: .normal)
+        self.addSubview(yesButton)
+        self.addSubview(noButton)
         //yesButton.backgroundColor = .option1
         //noButton.backgroundColor = .option3
 
+//        stack.isUserInteractionEnabled = true
+//        self.addSubview(stack)
+//        stack.axis = .vertical
+//       // stack.backgroundColor = .yellow
+//        stack.addArrangedSubview(yesButton)
+//        stack.addArrangedSubview(noButton)
+//        stack.distribution = .equalSpacing
+//
+//        stack.translatesAutoresizingMaskIntoConstraints = false
+//        stack.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
+//        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+//        stack.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
+//        stack.heightAnchor.constraint(equalToConstant: 0.6*widthLayoutUnit).isActive = true
+        
+        yesButton.translatesAutoresizingMaskIntoConstraints = false
+        noButton.translatesAutoresizingMaskIntoConstraints = false
+        yesButton.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
+        noButton.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
+        noButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
+        yesButton.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
+        noButton.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
+        yesButton.bottomAnchor.constraint(equalTo: noButton.topAnchor, constant: -50).isActive = true
+        
         yesButton.heightAnchor.constraint(equalToConstant: 0.2*widthLayoutUnit).isActive = true
         noButton.heightAnchor.constraint(equalToConstant: 0.2*widthLayoutUnit).isActive = true
-        
-        stack.axis = .vertical
-       // stack.backgroundColor = .yellow
-        stack.addArrangedSubview(yesButton)
-        stack.addArrangedSubview(noButton)
-        stack.distribution = .equalSpacing
-       // stack.spacing = 50.0
-        
-        stack.translatesAutoresizingMaskIntoConstraints = false
-      //  stack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-      //  stack.topAnchor.constraint(equalTo: labelCard.bottomAnchor, constant: 50).isActive = true
-        stack.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
-       // stack.widthAnchor.constraint(equalTo: labelCard.widthAnchor).isActive = true
-        stack.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
-        stack.heightAnchor.constraint(equalToConstant: 0.6*widthLayoutUnit).isActive = true
-       
-       // labelCard.translatesAutoresizingMaskIntoConstraints = false
-       // labelCard.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-       // labelCard.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-        
-       //label.translatesAutoresizingMaskIntoConstraints = false
-        //self.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
-        //self.trailingAnchor.constraint(equalTo: label.trailingAnchor).isActive = true
-        //self.topAnchor.constraint(equalTo: label.topAnchor).isActive = true
-        //self.bottomAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
-        //label.isHidden = true
+
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
-        //label.backgroundColor = .yellow
-       // label.backgroundColor = .postBackground
         label.textAlignment = .center
         label.font = UIFont(name: "Tw Cen MT Condensed Extra Bold", size: 40)
         label.adjustsFontForContentSizeCategory = true
@@ -1272,7 +1166,6 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         self.trailingAnchor.constraint(equalTo: caption.trailingAnchor).isActive = true
         self.topAnchor.constraint(equalTo: caption.topAnchor).isActive = true
         caption.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        //label.isHidden = true
         caption.lineBreakMode = .byWordWrapping
         caption.numberOfLines = 0
         caption.backgroundColor =  .postBackground
@@ -1381,19 +1274,25 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                     caption.text = captionText
                 }
                 
-                if votea != nil && voteb != nil {
+                if votea != nil {
                     yesButton.isHidden = false
+                    
+                    yesButton.setTitle(votea, for: .normal)
+                    
+                    yesButton.addTarget(self, action: #selector(textChatBack), for: .touchUpInside)
+                }
+                
+                if voteb != nil {
+                
                     noButton.isHidden = false
                     
                     let voteBQ = voteb?.components(separatedBy: "^answer^").first ?? ""
                     let voteBA = voteb?.components(separatedBy: "^answer^").dropFirst().first ?? ""
                     
-                    yesButton.setTitle(votea, for: .normal)
                     noButton.setTitle(String(voteBQ), for: .normal)
                     
                     noButton.answer = String(voteBA)
                     
-                    yesButton.addTarget(self, action: #selector(textChatBack), for: .touchUpInside)
                     noButton.addTarget(self, action: #selector(textChatBack), for: .touchUpInside)
                 }
                 

@@ -28,7 +28,7 @@ var window: UIWindow?
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
-        day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
+      //  day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
         
         
             //  clearAllCoreData()
