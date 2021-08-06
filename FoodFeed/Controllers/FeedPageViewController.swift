@@ -106,7 +106,7 @@ class FeedPageViewController:
         var nextFeed =  presenter.fetchNextFeed()!
         
         let newVC = FeedItemViewController.instantiate(feed: nextFeed.feed, andIndex: nextFeed.index.advanced(by: 1))
-        
+        presenter.updateFeedIndex(fromIndex: nextFeed.index.advanced(by: 1))
         setViewControllers([newVC], direction: .forward, animated: true, completion: nil)
         
     }
