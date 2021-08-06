@@ -110,9 +110,6 @@ class FeedPageViewController:
         setViewControllers([newVC], direction: .forward, animated: true, completion: nil)
         
     }
-//}
-//
-//extension FeedPageViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let indexedFeed = presenter.fetchPreviousFeed() else {
@@ -128,8 +125,6 @@ class FeedPageViewController:
             return nil
         }
         
-        //if indexedFeed.index = indexedFeed.
-        
         return FeedItemViewController.instantiate(feed: indexedFeed.feed, andIndex: indexedFeed.index)
     }
     
@@ -142,16 +137,12 @@ class FeedPageViewController:
             previousViewController.pause()
             //viewController.play()
             commentsDriver.stop()
-           // if let post == viewController.feedView as PostView() {
-                if viewController.feedView.interactionView.descriptiveLabel.isHidden == false{
-                    viewController.commentsDriver = commentsDriver
-                    
-                    viewController.triggerCommentsView()
-                }
-           // }
-//            viewController.commentsDriver = commentsDriver
-//
-//            viewController.triggerCommentsView()
+
+            
+            if viewController.feedView.interactionView.descriptiveLabel.isHidden == false{
+                viewController.commentsDriver = commentsDriver
+                viewController.triggerCommentsView()
+            }
             
             let say = viewController.voiceOver().0
             

@@ -2,10 +2,6 @@
 //  FeedPagePresenter.swift
 //  FoodFeed
 //
-//  Created by Kate Roberts on 27/09/2020.
-//  Copyright © 2020 Daniel Haight. All rights reserved.
-//
-
 import Foundation
 import CoreData
 
@@ -40,15 +36,12 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     
     func viewDidLoad() {
         fetcher.delegate = self
-       // configureAudioSession()
 
         fetchFeeds()
-      //  print("feed = ")
-      //  print(feeds)
+
         let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n <<<<<< ", caption: nil, hashtag: nil, votea: nil, voteb: nil, who: .Avery) )
         view.presentInitialFeed(initialFeed)
     }
-    //"<<<<<<<<<< \n <<<<<<<<<< \n  <<<<<<<<<< \n Swipe! \n <<<<<<<<<<\n <<<<<<<<<<\n <<<<<<<<<< "
     
     fileprivate func fetchFeeds() {
        // view.startLoading()
@@ -72,21 +65,14 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
         let min = feeds.map{$0.id}.min() ?? 0
         
         //FIXME: This was setting at 59?!?! That's weird
-        //let max = feeds.map{$0.id}.max() ?? 15
         let max = feeds.map{$0.id}.max() ?? 0
         
-    
         //FIXME: this is a hack - because when i came back after christmas this was falling over becaus the index was one more than in should have. i think the extra 'tick' comes from the onboarding - so i need to look at how it's counting. For now, just put in a floor value
-    
-        
         guard index >= min && index <= max else {
             return nil
         }
-        
-        // return (feed: feeds[index], index: index)
+
         //FIXME: This falls over if there is a missing record - can we handle this nicer?
-        print("index is \(index)")
-       
         return (feeds.filter({$0.id == index    }).first ?? Feed(id: index, state: .text(bigText: "Come back again tomorrow!", caption: nil, hashtag: nil, votea: nil, voteb: nil, who: .Avery)) , index  )
     }
     

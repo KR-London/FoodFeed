@@ -19,7 +19,6 @@ protocol  FeedPagePresenterProtocol: class {
     func updateFeed( index: Int, increasing: Bool) -> [Feed]
 }
 
-
 protocol FeedPageView: class{
     func presentInitialFeed(_ feed: Feed)
 }

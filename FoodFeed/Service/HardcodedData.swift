@@ -1,10 +1,3 @@
-//
-//  HardcodedData.swift
-//  FoodFeed
-//
-//  Created by Kate Roberts on 15/03/2021.
-//  Copyright © 2021 Daniel Haight. All rights reserved.
-//
 
 import Foundation
 

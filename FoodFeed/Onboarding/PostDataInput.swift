@@ -1,10 +1,6 @@
 //
 //  PostDataInput.swift
 //  FoodFeed
-//
-//  Created by Kate Roberts on 24/11/2020.
-//  Copyright © 2020 Daniel Haight. All rights reserved.
-//
 
 import UIKit
 
@@ -55,14 +51,10 @@ class PostDataInput: UIViewController {
     func loadJSON(){
         
         let filePath = Bundle.main.resourcePath!
-     //   let data = try! String(contentsOfFile: filePath + "/storyline.txt",
-     //                                 encoding: String.Encoding.utf8).data(using: .utf8)
         let sourceData = "/Day" + String(day) + ".txt"
         
         let data = try! String(contentsOfFile: filePath + sourceData , encoding: String.Encoding.utf8).data(using: .utf8)
-        
-      //  let decoder = JSONDecoder()
-        
+
         if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
             var i = 0
             for item in parsedData {
@@ -94,9 +86,6 @@ class PostDataInput: UIViewController {
                 i = i + 1
             }
         }
-        
-      //  decoder.decode(newPost.self, from: textContent )
-//
     }
     
     func whereIsMySQLite() {

@@ -2,10 +2,6 @@
 //  FeedFetchService.swift
 //  FoodFeed
 //
-//  Created by Kate Roberts on 27/09/2020.
-//  Copyright © 2020 Daniel Haight. All rights reserved.
-//
-
 import Foundation
 import CoreData
 
@@ -48,8 +44,6 @@ class FeedFetcher: FeedFetchProtocol {
 class MockFeedFetcher: FeedFetchProtocol{
     var delegate: FeedFetchDelegate?
     
- //let mockFeed = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
-    
     func fetchFeeds() {
   //      delegate?.feedFetchService(self, didFetchFeeds: mockFeed, withError: nil)
     }
@@ -66,31 +60,17 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
 
     func fetchFeeds() {
 
-        /// call on coreData to get info on what i should show
-        
-        
         let request: NSFetchRequest<PostData> = PostData.fetchRequest()
-       // NSPredicate(format: "name == %@", "Python")
-        //request.propertiesToFetch = ["bigtext"]
- 
-        
-        
-        
-        
-        
-        
-        
-       
+    
         request.predicate = NSPredicate(format: "day == %i", day)
         request.returnsObjectsAsFaults = false
-        //var newFeedArray = [ Feed(id: 0, bigtext: "Day 1", image: nil,  gifName: nil, originalFilename: "original1") ]
+
         let dayString = "Day " + String(day)
         var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "", votea: nil, voteb: nil, who: .Avery) )]
-       // var newFeedArray = [ Feed(id: 0, state: .text(bigText: dayString, caption: "", hashtag: "") )]
 
         do{
             let fetchedPosts = try context.fetch(request)
-                //as! [coreDataFeed]
+
             newFeedArray = newFeedArray.filter{$0.id != 0 }
             fetchedPosts.forEach({
                 switch $0.type {
@@ -142,14 +122,9 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                 }
 
             })
-            //delegate?.feedFetchService(self, didFetchFeeds: fetchedPosts, withError: nil)
-            
         } catch {
             fatalError("Couldn't fetch the posts \(error)")
         }
-        
-        
-        print(newFeedArray.flatMap({$0.id}))
         
         // data validation
         if newFeedArray.flatMap({$0.id}).min() ?? 1  > 0 {
@@ -163,10 +138,6 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
                 }
             }
         }
-        
-//        newFeedArray = [Feed(id: 1, bigtext: "Swipe!", image:nil, gifName: "giphy-13.gif", originalFilename: "original1"), Feed(id: 2, bigtext: nil, image: "one.jpeg", gifName: nil, originalFilename: "original2"), Feed(id: 3, bigtext: nil, image: "two.jpeg", gifName: nil, originalFilename: "original2")]
-       // newFeedArray = Array(newFeedArray.dropFirst())
-        
         delegate?.feedFetchService(self, didFetchFeeds: newFeedArray, withError: nil)
     }
     

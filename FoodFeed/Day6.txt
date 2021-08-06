@@ -111,14 +111,6 @@
   },
   {
     "user": "Guy",
-    "id": 14,
-      "hashtag": "Live Feed",
-    "type": "Image",
-    "day": 6,
-    "image": "streetSign"
-  },
-  {
-    "user": "Guy",
     "id": 15,
     "hashtag": "Live Feed",
     "type": "Text",
@@ -141,7 +133,7 @@
     "hashtag": "Live Feed",
     "type": "Text",
     "day": 6,
-    "bigtext": "Maybe this is exactly where I needed to be!"
+    "bigtext": "Maybe they can help me"
   },
   {
     "user": "Guy",
@@ -250,19 +242,6 @@
     "image": "grandpa"
   },
   {
-    "bigtext": "Do you want to see some photos from my camera roll?",
-    "votea": "When Grandpa took me to the beach ^answer^ <photo beach goes here> ",
-    "voteb": "When Grandpa and I went fishing ^answer^ <photo beach goes here> ",
-    "votec": "When Grandpa taught me to ride a bike ^answer^ <photo beach goes here> ",
-    "dunno": "No thanks ^answer^ OK",
-    "id": 31,
-    "day": 6,
-    "image": "",
-    "hashtag": "Mood",
-    "type": "Vote",
-    "user": "Guy"
-  },
-  {
     "user": "Guy",
     "id": 32,
     "hashtag": "Feelings",
@@ -316,7 +295,7 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "Maybe they will make me feel better about going to Frank's party."
+    "bigtext": "Maybe they will give me good advice about Frank's party."
   },
   {
     "user": "Guy",
@@ -366,6 +345,13 @@
     "type": "Text",
     "day": 6,
     "bigtext": "It wouldn't be very polite if I commented on Grandma's weight!"
+  },
+    {
+    "id": 6,
+    "hashtag": "Support",
+    "day": 6,
+    "caption": "How do you stop people making personal comments?",
+    "type": "Question"
   },
   {
     "user": "Guy",

@@ -2,13 +2,11 @@
 //  FeedViewController.swift
 //  FoodFeed
 //
-//  Created by Kate Roberts on 28/08/2020.
-
 
 import UIKit
 import AVKit
 import AVFoundation
-//import SwiftyGif
+
 
 class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDelegate {
 
@@ -44,12 +42,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
 
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("I've changed page.")
-       // commentsDriver?.stop()
-       // feedView.interactionView.stopTimedComments()
-        //feedView.interactionView.commentsDriver.timer?.invalidate()
-       // commentsDriver = nil
-        
+        feedView.mediaView.swipedAway = true
     }
     
 
@@ -58,17 +51,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         feedView.delegate = self
       
         view = feedView
-      
-        
-        ///FIXME: Put back - but not when I;m voting 
-//        if feed.id != 0 && feed.id != -1 {
-//                setUpCommentsView()
-//        }
-        
     }
-    
 
-    
     func pause(){
         feedView.pause()
     }
@@ -86,46 +70,20 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     
     
     func triggerCommentsView(){
-
-//        commentsDriver?.didUpdateComments =
-//        {
-//            comments in
-//            self.comments = comments
-//            self.commentsView.reloadData()
-//        }
-        
-     //   commentsView.register(UITableViewCell.self, forCellReuseIdentifier: Self.reuseID)
-       // commentsView.register(myTableViewCell , forCellReuseIdentifier: "commentCell" )
-//        commentsView.register(UINib.init(nibName: "commentTableViewCell", bundle: nil), forCellReuseIdentifier: "commentCell")
-//        commentsView.delegate = self
-//        commentsView.dataSource = self
-        
-    //    if let myView = feedView.interactionView
-     //   {
-            feedView.interactionView.commentsDriver = commentsDriver
-            feedView.interactionView.triggerCommentsView()
-      //  }
-
+        feedView.interactionView.commentsDriver = commentsDriver
+        feedView.interactionView.triggerCommentsView()
   }
     
     func setUpCommentsPipeline(){
         
     }
 
-    
     // Pauses video playback on tap
     //FIXME: pause gifs and voice
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         
-        // TODO: pause gifs
-        
-//        didPause = !didPause
-//        if didPause{
-//            pause()
-//        }
-//        else{
-//            play()
-//        }
+    // TODO: pause gifs
+    
     }
     }
 
@@ -148,21 +106,11 @@ extension FeedItemViewController: UIPickerViewDataSource {
 }
 
 extension FeedItemViewController: UITableViewDelegate, UITableViewDataSource{
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         comments.count
     }
 
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: Self.reuseID, for: indexPath)
-//        cell.backgroundColor = UIColor.clear
-//        if indexPath.row < comments.count {
-//            cell.textLabel?.text = comments[comments.count - indexPath.row - 1].comment
-//        }
-//        return cell
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
         cell.backgroundColor = UIColor.clear

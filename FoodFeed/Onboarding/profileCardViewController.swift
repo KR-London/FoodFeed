@@ -1,10 +1,6 @@
 //
 //  profileCardViewController.swift
 //  FoodFeed
-//
-//  Created by Kate Roberts on 18/03/2021.
-//  Copyright © 2021 Daniel Haight. All rights reserved.
-//
 
 import UIKit
 import SoftUIView
@@ -25,10 +21,6 @@ class profileCardViewController: UIViewController {
     func layoutSubviews(){
         
         let layoutUnit = 0.9*(self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/6
-       // let margins = view.layoutMarginsGuide
- 
-        
-        ///Title
         let pageTitle = UILabel()
         let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                           NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
@@ -47,7 +39,6 @@ class profileCardViewController: UIViewController {
         ])
         
         /// Little pop-out summary card
-        
         let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human) 
         
         card.mainViewController = self
@@ -67,13 +58,10 @@ class profileCardViewController: UIViewController {
 //        }
   
         // Segue button
-        
         let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.2*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
         view.addSubview(softUIViewButton)
         let okLabel = UILabel()
-        //okLabel.text = "OK"
         okLabel.attributedText = NSAttributedString(string: "OK", attributes: titleAttrs)
-        // softUIViewButton.setContentView(okLabel)
         
         softUIViewButton.addTarget(self, action: #selector(segueToFriend), for: .touchUpInside)
         
@@ -88,9 +76,7 @@ class profileCardViewController: UIViewController {
             okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
         ])
     }
-    
- 
-    
+
     @objc func segueToFriend(){
         performSegue(withIdentifier: "friendProfile", sender: self)
     }

@@ -137,11 +137,6 @@ class LocalBackendService: BackendService {
     }
     
     func vote(pollID: Backend.Poll.ID, selectedOption: Backend.Poll.Option) {
-        
-      //  self.preferences = new preferences based on vote
-        
-     //   self.posts = postsForPreferences etc.
-        
     }
     
     func updatePostsBasedOnSelection() {
@@ -155,7 +150,7 @@ struct Preferences {
 }
 
 func postsFor(preferences: Preferences) -> [Backend.Post] {
-    // construct feed of posts from preferences
+
     fatalError()
 }
 
@@ -165,28 +160,6 @@ enum Personage: String{
     case Avery
     case Brock
     case Unknown
-//    
-//    func dataConvert(user: String) -> Personage{
-//        
-//        let incomingUser = Personage(rawValue: user) ?? Personage.Unknown
-//        
-//        return incomingUser
-//        
-//    }
-    
-//    func profilePicture(who: Personage) -> UIImage{
-//        switch who {
-//        case .Guy:
-//            return UIImage(named: "guy_profile_pic.jpeg")!
-//        case .DG:
-//            return UIImage(named: "bot1.jpeg")!
-//        case .Avery:
-//            return UIImage(named: "bot2.jpeg")!
-//        default:
-//            return UIImage(named: "bot3.jpeg")!
-//        }
-//    }
-
 }
 func profilePicture(who: Personage) -> UIImage{
     print(who)
@@ -235,11 +208,7 @@ func whoIsIt(name: String?) -> Personage{
 
 
 func voice(who: Personage, saying: AVSpeechUtterance) -> AVSpeechUtterance{
-    
-        //            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-        //            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-        //            let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-        //            utterance.voice =  language.first!!
+
     var utterance = saying
     
     switch who{
@@ -269,10 +238,6 @@ func voice(who: Personage, saying: AVSpeechUtterance) -> AVSpeechUtterance{
             return utterance
         default:
             print("Unknown voice")
-    }
-    
-    
-    
-    
+    } 
     return saying
 }

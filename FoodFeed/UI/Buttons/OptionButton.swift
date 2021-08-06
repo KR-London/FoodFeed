@@ -115,12 +115,7 @@ class OptionButton: UIButton {
         setTitleColor(.white, for: .highlighted)
         setTitleColor(.white, for: .selected)
         setTitleColor(type.getColor(), for: .disabled)
-       // setTitleColor(Colors.grey, for: .disabled)
-        
-//        let attributedString = NSMutableAttributedString(string: currentTitle ?? "")
-//        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(1.0), range: NSRange(location: 0, length: attributedString.length))
-//        setAttributedTitle(attributedString, for: .normal)
-        
+
         if !isEnabled {
             backgroundColor = Colors.lightGrey
             layer.borderColor = Colors.grey.cgColor

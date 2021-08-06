@@ -1,11 +1,10 @@
 [  {
     "user": "Avery",
     "id": 6,
-    "hashtag": "Class",
+    "hashtag": "Swipe",
     "type": "Text",
     "day": 1,
-    "bigtext": "Mr Brown! I can’t get over him! ",
-    "votea": "Mr Brown?"
+    "bigtext": "Swipe Left to move! ",
   },
   {
     "user": "Guy",
@@ -33,7 +32,9 @@
      "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "I'm going to do something wow today"
+    "bigtext": "I'm going to do something wow today",
+     "votea": "Cool!",
+    "voteb": "What?!? ^answer^ You'll see!"
   },
     {
     "user": "Guy",

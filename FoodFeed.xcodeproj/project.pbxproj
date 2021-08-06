@@ -35,8 +35,6 @@
 		446540962606110A004B202B /* bot2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 446540902606110A004B202B /* bot2.jpeg */; };
 		446540972606110A004B202B /* bot3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 446540912606110A004B202B /* bot3.jpeg */; };
 		446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B298325F0BF9400379390 /* commentTableViewCell.swift */; };
-		446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B298425F0BF9400379390 /* commentTableViewCell.xib */; };
-		446CAE9826517B5300F9081D /* credits .swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CAE9726517B5300F9081D /* credits .swift */; };
 		446CAEA526517BE200F9081D /* lowiron.gif in Resources */ = {isa = PBXBuildFile; fileRef = 446CAEA426517BE200F9081D /* lowiron.gif */; };
 		446CAEAA26517D3000F9081D /* awkward.gif in Resources */ = {isa = PBXBuildFile; fileRef = 446CAEA926517D3000F9081D /* awkward.gif */; };
 		446CAEAF26517E3B00F9081D /* exploded_head.gif in Resources */ = {isa = PBXBuildFile; fileRef = 446CAEAE26517E3B00F9081D /* exploded_head.gif */; };
@@ -48,7 +46,6 @@
 		4473ED4626021E6C00CFF919 /* filled_favourite-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED4526021E6C00CFF919 /* filled_favourite-512.png */; };
 		4473ED70260225CE00CFF919 /* heart_outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED6F260225CE00CFF919 /* heart_outline.png */; };
 		4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */; };
-		4473ED9A2602343200CFF919 /* speechBubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 4473ED992602343200CFF919 /* speechBubble.png */; };
 		447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B69D625FFFDBC003400A0 /* Extensions.swift */; };
 		448D701826B0158800DE2046 /* excitedfrank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 448D701726B0158800DE2046 /* excitedfrank.jpg */; };
 		448D701D26B01A4600DE2046 /* frank1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 448D701C26B01A4600DE2046 /* frank1.gif */; };
@@ -72,7 +69,6 @@
 		44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F225F5333800A94028 /* commentTableViewController.xib */; };
 		44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftyGif */; };
 		44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B32ED0261106AA0030C88C /* uiTestViewController.swift */; };
-		44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BCE16425CDEB4F00760142 /* InteractionViewController.swift */; };
 		44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */; };
 		44C3DEB42520B76000D317DA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEB32520B76000D317DA /* Feed.swift */; };
 		44C3DEC32520C15600D317DA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEC22520C15600D317DA /* Protocols.swift */; };
@@ -155,8 +151,6 @@
 		446540902606110A004B202B /* bot2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot2.jpeg; sourceTree = "<group>"; };
 		446540912606110A004B202B /* bot3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bot3.jpeg; sourceTree = "<group>"; };
 		446B298325F0BF9400379390 /* commentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
-		446B298425F0BF9400379390 /* commentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewCell.xib; sourceTree = "<group>"; };
-		446CAE9726517B5300F9081D /* credits .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "credits .swift"; sourceTree = "<group>"; };
 		446CAEA426517BE200F9081D /* lowiron.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lowiron.gif; sourceTree = "<group>"; };
 		446CAEA926517D3000F9081D /* awkward.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = awkward.gif; sourceTree = "<group>"; };
 		446CAEAE26517E3B00F9081D /* exploded_head.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = exploded_head.gif; sourceTree = "<group>"; };
@@ -168,7 +162,6 @@
 		4473ED4526021E6C00CFF919 /* filled_favourite-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filled_favourite-512.png"; sourceTree = "<group>"; };
 		4473ED6F260225CE00CFF919 /* heart_outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_outline.png; sourceTree = "<group>"; };
 		4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "341-3417063_herz-clipart.png"; sourceTree = "<group>"; };
-		4473ED992602343200CFF919 /* speechBubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speechBubble.png; sourceTree = "<group>"; };
 		4473EDB326032ED500CFF919 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		447B69D625FFFDBC003400A0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		448D701726B0158800DE2046 /* excitedfrank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = excitedfrank.jpg; sourceTree = "<group>"; };
@@ -190,7 +183,6 @@
 		44B189F125F5333800A94028 /* commentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewController.swift; sourceTree = "<group>"; };
 		44B189F225F5333800A94028 /* commentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewController.xib; sourceTree = "<group>"; };
 		44B32ED0261106AA0030C88C /* uiTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiTestViewController.swift; sourceTree = "<group>"; };
-		44BCE16425CDEB4F00760142 /* InteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionViewController.swift; sourceTree = "<group>"; };
 		44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
 		44C3DEB32520B76000D317DA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		44C3DEC22520C15600D317DA /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -408,7 +400,6 @@
 		44C3DF2B2521E4E000D317DA /* PlaceholderAssets */ = {
 			isa = PBXGroup;
 			children = (
-				4473ED992602343200CFF919 /* speechBubble.png */,
 				4473ED74260226B700CFF919 /* 341-3417063_herz-clipart.png */,
 				4473ED6F260225CE00CFF919 /* heart_outline.png */,
 				4473ED4526021E6C00CFF919 /* filled_favourite-512.png */,
@@ -457,12 +448,10 @@
 			children = (
 				44B189F125F5333800A94028 /* commentTableViewController.swift */,
 				44B189F225F5333800A94028 /* commentTableViewController.xib */,
-				44BCE16425CDEB4F00760142 /* InteractionViewController.swift */,
 				6536A647256185B3006D7297 /* Post.swift */,
 				4465406E2605F0AC004B202B /* userAnswerView.swift */,
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
 				446540662604B7E5004B202B /* chatBubbleView.swift */,
-				446B298425F0BF9400379390 /* commentTableViewCell.xib */,
 				446540762605F107004B202B /* softCommentTableViewCell.swift */,
 			);
 			path = Post;
@@ -528,7 +517,6 @@
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
 				44386698261F625500507975 /* 200-9.gif */,
 				448D701726B0158800DE2046 /* excitedfrank.jpg */,
-				446CAE9726517B5300F9081D /* credits .swift */,
 				44E768EF264ABC7600AD75FE /* Gifs  */,
 				44C3DF2B2521E4E000D317DA /* PlaceholderAssets */,
 				65D07A3124F816C5004CA3E9 /* LaunchScreen.storyboard */,
@@ -683,7 +671,6 @@
 				44C3DF172521D94C00D317DA /* one.jpeg in Resources */,
 				446540952606110A004B202B /* bot4.jpeg in Resources */,
 				448D702426B01D4100DE2046 /* frank2.gif in Resources */,
-				4473ED9A2602343200CFF919 /* speechBubble.png in Resources */,
 				446CAEA526517BE200F9081D /* lowiron.gif in Resources */,
 				448ED15C26ADDEB200E2D04E /* .gitignore in Resources */,
 				448D701D26B01A4600DE2046 /* frank1.gif in Resources */,
@@ -700,7 +687,6 @@
 				44E768EA264AB40F00AD75FE /* Day6.txt in Resources */,
 				448D702526B01D4100DE2046 /* frank4.gif in Resources */,
 				4471EC1B261A04AC00D23E01 /* storyline.txt in Resources */,
-				446B298625F0BF9400379390 /* commentTableViewCell.xib in Resources */,
 				4473ED4626021E6C00CFF919 /* filled_favourite-512.png in Resources */,
 				65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */,
 				448D702726B01D4100DE2046 /* frank5.gif in Resources */,
@@ -864,7 +850,6 @@
 				2C48B683266D3B6E0092D5E1 /* CherryButton.swift in Sources */,
 				44C3DEB42520B76000D317DA /* Feed.swift in Sources */,
 				446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */,
-				44BCE16525CDEB4F00760142 /* InteractionViewController.swift in Sources */,
 				44C3DEC32520C15600D317DA /* Protocols.swift in Sources */,
 				65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */,
 				2C48B68B266D67DF0092D5E1 /* NotSureButton.swift in Sources */,
@@ -892,7 +877,6 @@
 				44C3DF0F2520DEF400D317DA /* HTTPError.swift in Sources */,
 				446CF03925FFACEB0039C9A4 /* profileCreatorViewController.swift in Sources */,
 				2C48B689266D59BF0092D5E1 /* RaspberryButton.swift in Sources */,
-				446CAE9826517B5300F9081D /* credits .swift in Sources */,
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,
 				2C48B636266D32F00092D5E1 /* Fonts.swift in Sources */,
 				44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */,

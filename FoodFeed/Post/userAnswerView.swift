@@ -1,29 +1,18 @@
 //
 //  chatBubbleView.swift
 //  FoodFeed
-//
-//  Created by Kate Roberts on 19/03/2021.
-//  Copyright © 2021 Daniel Haight. All rights reserved.
-//
+
 import UIKit
 import SoftUIView
 
 class userAnswerView: UIView {
-    
-    // var height = 100.0
-    //var width = 100.0
-    
+
     var bigText = "Q: Tips for trying new foods?"
     var dimensionMultiplier = 0.2 as CGFloat
-    
-    
-    //   var postView: postView?
     
     init(frame: CGRect, user: User?) {
         super.init(frame: frame)
         
-        //  layoutUnit = (frame.height)/3
-        //   width = Double(frame.width)
         backgroundColor = .mainBackground
         setup(user: user, frame: frame)
     }
@@ -32,7 +21,6 @@ class userAnswerView: UIView {
         super.init(coder: coder)
         // setup()
     }
-    
     
     func setup(user: User?, frame: CGRect){
         let humanPicDimensionUnit = frame.width*dimensionMultiplier

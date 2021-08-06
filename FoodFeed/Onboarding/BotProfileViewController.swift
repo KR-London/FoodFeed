@@ -2,9 +2,6 @@
 //  BotProfileViewController.swift
 //  FoodFeed
 //
-//  Created by Kate Roberts on 18/03/2021.
-//  Copyright © 2021 Daniel Haight. All rights reserved.
-//
 
 import UIKit
 import SoftUIView
@@ -63,9 +60,7 @@ class BotProfileViewController: UIViewController {
             let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.2*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
             view.addSubview(softUIViewButton)
             let okLabel = UILabel()
-            //okLabel.text = "OK"
             okLabel.attributedText = NSAttributedString(string: "OK", attributes: titleAttrs)
-            // softUIViewButton.setContentView(okLabel)
             
             softUIViewButton.addTarget(self, action: #selector(segueToMain), for: .touchUpInside)
             
@@ -79,9 +74,7 @@ class BotProfileViewController: UIViewController {
                 okLabel.leadingAnchor.constraint(equalTo: softUIViewButton.leadingAnchor),
                 okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
             ])
-            
-     
-            
+
         }
         
         @objc func segueToMain(){

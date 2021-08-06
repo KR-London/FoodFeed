@@ -51,7 +51,8 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "BORED"
+    "bigtext": "BORED",
+    "votea": "Show me"
   },
   {
     "id": 6,
@@ -67,7 +68,8 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "Embarassed"
+    "bigtext": "Embarassed",
+    "votea": "Show me"
   },
   {
     "id": 8,
@@ -83,7 +85,8 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "Worried"
+    "bigtext": "Worried",
+    "votea": "Show me"
   },
   {
     "id": 10,
@@ -99,7 +102,8 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "But last laugh is on me - Sir!"
+    "bigtext": "But last laugh is on me - Sir!",
+    "votea": "Why?"
   },
   {
     "user": "Guy",
@@ -107,7 +111,8 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "You are so busy doing whatever you are doing up there ... "
+    "bigtext": "You are so busy doing whatever you are doing up there ... ",
+    "votea": "Huh?"
   },
   {
     "user": "Guy",
@@ -115,7 +120,8 @@
     "hashtag": "Location: DETENTION",
     "type": "Text",
     "day": 3,
-    "bigtext": "... you can’t even see that I have my phone out under the desk!"
+    "bigtext": "... you can’t even see that I have my phone out under the desk!",
+    "votea": "Ha ha!"
   },
   {
     "user": "Guy",
@@ -429,7 +435,8 @@
     "id": 53,
     "type": "Text",
     "day": 3,
-    "bigtext": "The pandas have the right idea "
+    "bigtext": "The pandas have the right idea ",
+    "votea": "Pandas?"
   },
   {
     "user": "Guy",
@@ -472,17 +479,6 @@
     "day": 3,
     "image": "https://images.unsplash.com/photo-1529259266118-cf22737f713f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2549&q=80",
        "creator_credit" : "JC Gellidon@jcgellidon",
-    "source" : "unsplash"
-  },
-  {
-    "hashtag": "Live feed",
-    "user": "Guy",
-    "id": 58,
-    "caption": "Walking ",
-    "type": "Image",
-    "day": 3,
-    "image": "plain ham sandwich",
-       "creator_credit" : "",
     "source" : "unsplash"
   },
   {
@@ -587,7 +583,9 @@
     "id": 70,
     "type": "Text",
     "day": 3,
-    "bigtext": "That sounds awful."
+    "bigtext": "That sounds awful.",
+    "votea": "Really?",
+    "voteb": "It would worry me too ^answer^ You understand?"
   },
   {
     "user": "Guy",
@@ -601,7 +599,9 @@
     "id": 72,
     "type": "Text",
     "day": 3,
-    "bigtext": "... trapped in a chair with people putting bad food in front of me"
+    "bigtext": "... trapped in a chair with people putting bad food in front of me",
+    "votea": "Nightmare!",
+    "voteb": "What's the bug deal? ^answer^ It really stresses me."
   },
     {
     "user": "Guy",
@@ -653,28 +653,32 @@
     "id": 78,
     "type": "Text",
     "day": 3,
-    "bigtext": "NO NO NO NO NO NO NO NO NO NO NO NO NO "
+    "bigtext": "NO NO NO NO NO NO NO NO NO NO NO NO NO ",
+    "votea": "No!",
+    "voteb": "No? ^answer^ No!"
   },
   {
     "user": "Guy",
     "id": 79,
     "type": "Text",
     "day": 3,
-    "bigtext": "Oh dear - I have to just get out of it - don’t I? "
+    "bigtext": "Oh dear - I have to just get out of it! "
   },
   {
     "user": "Guy",
     "id": 80,
     "type": "Text",
     "day": 3,
-    "bigtext": "It’s a nice idea - but this kind of trip is just not for folk like me.  "
+    "bigtext": "It’s a nice idea - but just not for me.",
+    "votea": "You'll miss out!"
   },
   {
     "user": "Guy",
     "id": 81,
     "type": "Text",
     "day": 3,
-    "bigtext": "FudFid buddies - can you help out? "
+    "bigtext": "FudFid buddies - can you help out? ",
+    "votea": "I'll try..."
   },
   {
     "id": 82,
@@ -688,28 +692,30 @@
     "id": 83,
     "type": "Text",
     "day": 3,
-    "bigtext": "Ugh - so what do I say to Frank."
+    "bigtext": "Ugh - so what do I say to Frank.",
+    "votea": "Nothing?"
   },
   {
     "user": "Guy",
     "id": 84,
     "type": "Text",
     "day": 3,
-    "bigtext": "He is waiting for an answer.."
+    "bigtext": "He is waiting for an answer..",
+    "votea": "Uhhhh"
   },
   {
     "user": "Guy",
     "id": 85,
     "type": "Text",
     "day": 3,
-    "bigtext": "my silence is more rude than anything I could have said! "
+    "bigtext": "my silence is rude "
   },
   {
     "user": "Guy",
     "id": 86,
     "type": "Text",
     "day": 3,
-    "bigtext": "He knows I’ve read the messages - he’ll have the blue ticks there. "
+    "bigtext": "He knows I’ve read the messages. "
   },
   {
     "bigtext": "What shall I say?",
@@ -757,21 +763,21 @@
     "id": 92,
     "type": "Text",
     "day": 3,
-    "bigtext": "I pretended that my phone ran out of batteries because it got too awkward. "
+    "bigtext": "I pretended that my phone ran out of batteries. "
   },
   {
     "user": "Guy",
     "id": 93,
     "type": "Text",
     "day": 3,
-    "bigtext": "Teacher says that tomorrow she is too busy to have me in detention. "
+    "bigtext": "Teacher says that tomorrow she is busy. "
   },
     {
     "user": "Guy",
     "id": 94,
     "type": "Text",
     "day": 3,
-    "bigtext": "I have to join the Japanese art class next door. "
+    "bigtext": "So I have to join the Japanese art class next door. "
   },
   {
     "user": "Guy",

@@ -2,9 +2,6 @@
 //  AppDelegate.swift
 //  FoodFeed
 //
-//  Created by Daniel Haight on 27/08/2020.
-//  Copyright © 2020 Daniel Haight. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -28,7 +25,7 @@ var window: UIWindow?
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
-      //  day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
+        day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 0 ) % 7 + 1
         
         
             //  clearAllCoreData()

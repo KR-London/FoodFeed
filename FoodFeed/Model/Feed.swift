@@ -2,9 +2,6 @@
 //  Feed.swift
 //  FoodFeed
 //
-//  Created by Kate Roberts on 27/09/2020.
-//  Copyright © 2020 Daniel Haight. All rights reserved.
-//
 
 import Foundation
 
@@ -29,7 +26,7 @@ struct Feed: Decodable{
         }
     }
     
-    struct Author { // fix up model maybe, fine for now
+    struct Author { 
         let ID: UUID
         let avatar: URL
         let username: String

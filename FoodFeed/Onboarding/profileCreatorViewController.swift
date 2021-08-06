@@ -2,17 +2,13 @@
 //  profileCreatorViewController.swift
 //  FoodFeed
 //
-//  Created by Kate Roberts on 15/03/2021.
-//  Copyright © 2021 Daniel Haight. All rights reserved.
-//
 
 import UIKit
 import AVFoundation
 import SoftUIView
 
-let usingSimulator = true
+let usingSimulator = false
 
-/// <#Description#>
 class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -26,7 +22,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     var personalQualities = ["Nice", "Kind", "Brave"]
 
     @IBOutlet var pageTitle: UILabel!
-    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
         if let following = UserDefaults.standard.object(forKey: "following")
@@ -37,6 +32,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             UserDefaults.standard.set( ["Human"],  forKey: "following")
         }
     }
+    
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet var nickname: UILabel!
     @IBOutlet var nameEntry: UITextField!
@@ -44,12 +40,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     @IBOutlet var describe: UILabel!
     @IBOutlet var describePicker: UIPickerView!
  
-    
     @IBOutlet var nextButton: UIButton!
     
     lazy var previewView: UIImageView = {
         let imageView = UIImageView()
-        /// stretch
         return imageView
     }()
     
@@ -60,8 +54,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
          button.titleLabel?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
          button.titleLabel?.font = UIFont(name: "TwCenMT-CondensedExtraBold", size: 106 )
          button.titleLabel?.textAlignment = .center
-       //  button.layer.borderWidth = 5.0
-        // button.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
          button.addTarget(self, action: #selector(pictureInput), for: .touchUpInside)
          return button
      }()
@@ -70,20 +62,18 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     let haptic = UINotificationFeedbackGenerator()
     
     // MARK: AV init helpers
-        let imagePicker = UIImagePickerController()
-        var captureSession: AVCaptureSession!
-        var stillImageOutput: AVCapturePhotoOutput!
-        var videoPreviewLayer: AVCaptureVideoPreviewLayer!
-        var usedCamera = false
+    let imagePicker = UIImagePickerController()
+    var captureSession: AVCaptureSession!
+    var stillImageOutput: AVCapturePhotoOutput!
+    var videoPreviewLayer: AVCaptureVideoPreviewLayer!
+    var usedCamera = false
     
     // MARK: Picker Helper
-    
-    var goodAtPickerData  = ["Funny", "Curious", "Smart", "Generous", "Sassy", "Sporty", "Thoughtful", "Independent", "Stubborn", "Good friend", "Stylish", "Confident", "Organised", "Creative", "Calm", "Hardworking", "Team player", "Loyal", "Reliable", "Studious", "Ambitious", "Playful", "Helpful", "Animal lover", "Arty", "Musical", "Quirky"]
+     var goodAtPickerData  = ["Funny", "Curious", "Smart", "Generous", "Sassy", "Sporty", "Thoughtful", "Independent", "Stubborn", "Good friend", "Stylish", "Confident", "Organised", "Creative", "Calm", "Hardworking", "Team player", "Loyal", "Reliable", "Studious", "Ambitious", "Playful", "Helpful", "Animal lover", "Arty", "Musical", "Quirky"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
+
         view.backgroundColor = .mainBackground
         layoutSubviews()
         setUpPicker()
@@ -95,7 +85,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         nameEntry.delegate = self
         
         describePicker.delegate = self
-       //  view.addGestureRecognizer(tap)
     }
     
     override var modalPresentationStyle: UIModalPresentationStyle {
@@ -114,15 +103,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
            if usedCamera == true {
                self.captureSession?.stopRunning()
            }
-        
             saveProfile()
-//        if UserDefaults.standard.object(forKey: "following") != nil
-//        {
-//            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
-//        }
-//        else{
-//            UserDefaults.standard.set( ["Human"],  forKey: "following")
-//        }
        }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -141,19 +122,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             case 2: personalQualities[2] = goodAtPickerData[row]
             default: break
         }
+        
         return "Why do I have to return here?"
     }
-    
-//    func pickerView( pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//
-//
-//        switch component{
-//                   case 0 : personalQualities[0] = goodAtPickerData[row]
-//                   case 1: personalQualities[1] = goodAtPickerData[row]
-//                   case 2: personalQualities[2] = goodAtPickerData[row]
-//                   default: break
-//       }
-//    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component{
@@ -178,7 +149,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     }
     
     func setUpPicker(){
-   
 
         describePicker.delegate = self
         describePicker.dataSource = self
@@ -186,18 +156,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     }
     
     func layoutSubviews(){
-        
-        
-        //pageTitle.isHidden = true
-       // profilePictureImageView.isHidden = true
-       //nickname.isHidden = true
-       // nameEntry.isHidden = true
-       //describe.isHidden = true
-       //describePicker.isHidden = true
         nextButton.isHidden = true
         
         let layoutUnit = 0.9*(self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/6
-       // let margins = view.layoutMarginsGuide
         
         let softUIViewProfilePic = SoftUIView(frame: .init(x: self.view.frame.width - 20 - layoutUnit , y: layoutUnit, width: layoutUnit, height: layoutUnit))
         softUIViewProfilePic.cornerRadius = layoutUnit/2
@@ -218,10 +179,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         let softUIViewNameEntry = SoftUIView(frame: .init(x:  20 , y: 1.5*layoutUnit, width: self.view.frame.width - 60 - layoutUnit, height: layoutUnit/2))
         softUIViewNameEntry.isSelected = true
         nameEntry.translatesAutoresizingMaskIntoConstraints = false
-    //    softUIViewNameEntry.interaction = false
-        //softUIViewNameEntry.setContentView(nameEntry)
+
         view.addSubview(softUIViewNameEntry)
         nameEntry.backgroundColor = .clear
+
         
         view.addSubview(nameEntry)
         
@@ -246,13 +207,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         
         NSLayoutConstraint.activate([
             pageTitle.centerYAnchor.constraint(equalTo: nameEntry.centerYAnchor, constant: -layoutUnit),
-            // pageTitle.heightAnchor.constraint(equalToConstant: 0.75*layoutUnit),
             pageTitle.leadingAnchor.constraint(equalTo: nameEntry.leadingAnchor),
             pageTitle.trailingAnchor.constraint(equalTo: nameEntry.trailingAnchor, constant: 30 )
-        ])//
-        
-        
-        
+        ])
+
         let attrs = [NSAttributedString.Key.foregroundColor: UIColor.xeniaGreen,
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
@@ -267,49 +225,11 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             nickname.leadingAnchor.constraint(equalTo: softUIViewNameEntry.leadingAnchor),
             nickname.trailingAnchor.constraint(equalTo: softUIViewNameEntry.trailingAnchor, constant: -5)
         ])
-        
-
-//        let string3 = NSAttributedString(string: "Pick your personality", attributes: attrs)
-//        describe.attributedText = string3
-//        
-//    
-//        
-//        let adjectiveStack = UIStackView()
-//        adjectiveStack.axis = .vertical
-//        adjectiveStack.alignment = .leading
-//        adjectiveStack.addArrangedSubview(describe)
-//        adjectiveStack.addArrangedSubview(describePicker)
-//        
-//       
-//       // adjectiveStack.addArrangedSubview(nextButton)
-//        view.addSubview(adjectiveStack)
-//        if #available(iOS 14.0, *) {
-//            describePicker.translatesAutoresizingMaskIntoConstraints = false
-//            describePicker.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-//        }
-//
-//        adjectiveStack.translatesAutoresizingMaskIntoConstraints = false
-//
-//        adjectiveStack.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        adjectiveStack.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        adjectiveStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 3*layoutUnit).isActive = true
-//        
-//        describe.translatesAutoresizingMaskIntoConstraints = false
-//        describe.leadingAnchor.constraint(equalTo: adjectiveStack.leadingAnchor, constant: 20).isActive = true
-//        
-//       // adjectiveStack.topAnchor.constraint(equalTo: softUIViewNameEntry.bottomAnchor) = true
-//       // adjectiveStack.topAnchor.constraint(equalToConstant: 2.5*layoutUnit).isActive = true
-//        
-//        
-//        adjectiveStack.alignment = .center
-
-
+  
         let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.5*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
         view.addSubview(softUIViewButton)
         let okLabel = UILabel()
-        //okLabel.text = "OK"
         okLabel.attributedText = NSAttributedString(string: "OK", attributes: titleAttrs)
-       // softUIViewButton.setContentView(okLabel)
         
         softUIViewButton.addTarget(self, action: #selector(segueToSummary), for: .touchUpInside)
         
@@ -323,23 +243,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             okLabel.leadingAnchor.constraint(equalTo: softUIViewButton.leadingAnchor),
             okLabel.trailingAnchor.constraint(equalTo: softUIViewButton.trailingAnchor)
         ])
-        
-        
-        
-//        softUIView.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
-//        
-//        @objc func handleTap() {
-//            // code
-//        }
- //       nextButton.translatesAutoresizingMaskIntoConstraints = false
-//
-//        nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
-//        nextButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-//        nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-//        nextButton.topAnchor.constraint(equalTo: adjectiveStack.bottomAnchor, constant: 100).isActive = true
-//
-//        view.addSubview(nextButton)
-//
+
         view.addSubview(previewView)
                  previewView.isHidden = true
                  previewView.translatesAutoresizingMaskIntoConstraints = false
@@ -363,38 +267,28 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 
         previewView.layer.cornerRadius = layoutUnit/2
         addButton.layer.cornerRadius = layoutUnit/2
-
     }
     
     @objc func segueToSummary(){
         performSegue(withIdentifier: "summaryProfile", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-       if segue.identifier == "summaryProfile" {
+       if segue.identifier == "summaryProfile"
+        {
            if let destVC = segue.destination as? profileCardViewController {
-              
               
             let human = User(name: nameEntry.text ?? "Buddy", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
         
             destVC.human = human
             botUser.human = human
-          //  DispatchQueue.global(qos: .background).async { [self] in
-          //      saveProfile()
-          //  }
-           
-
            }
        }
     }
     
     func saveProfile(){
-        
-       // let human = User(name: nameEntry.text ?? "Buddy", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
-     //   botUser.human = human
-        
+
         if UserDefaults.standard.object(forKey: "following") != nil
         {
             UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
@@ -402,10 +296,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         else{
             UserDefaults.standard.set( ["Human"],  forKey: "following")
         }
-        
-        
-   //     UserDefaults.standard.set( human.name,  forKey: "humanName")
-        
     }
     
     @objc func pictureInput(){
@@ -428,7 +318,6 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             }
             else{
                 previewView.isHidden = true
-                
                 haptic.notificationOccurred(.success)
                 
                 if AVCaptureDevice.authorizationStatus(for: .video) != .denied
@@ -436,61 +325,46 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
                     let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
                     stillImageOutput.capturePhoto(with: settings, delegate: self)
                 }
-
             }
-          
-        }
+    }
     
     //MARK: Data Input Subroutines
-      
-      func launchCamera(){
+    func launchCamera(){
           previewView.isHidden = false
           recordTheFood()
-      }
+    }
       
-      func pickFromCameraRoll(){
+    func pickFromCameraRoll(){
           imagePicker.delegate = self
                 imagePicker.sourceType = .photoLibrary
                 profilePictureImageView.isHidden = false
                 present(imagePicker, animated: true, completion: nil)
-          
-      }
+    }
       
-      // MARK: Functions to manage the image input
-        func setupLivePreview() {
-         // let layoutUnit = (self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/8
+    // MARK: Functions to manage the image input
+    func setupLivePreview() {
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer.videoGravity = .resizeAspectFill
             videoPreviewLayer.connection?.videoOrientation = .portrait
-          //videoPreviewLayer.cornerRadius = 1.5*layoutUnit
             previewView.layer.addSublayer(videoPreviewLayer)
-        }
+    }
       
-        func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-              guard let imageData = photo.fileDataRepresentation()
-                else { return }
-             
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+            guard let imageData = photo.fileDataRepresentation()
+            else {
+                return
+            }
             saveAndDisplayImage(imageData: imageData)
-          
-        }
+    }
     
     func saveAndDisplayImage(imageData: Data){
         image = UIImage(data: imageData) ?? UIImage(named: "onejpg")!
         profilePictureImageView.image = image
         profilePictureImageView.layer.masksToBounds = true
-       // human = User(name: "Maxwell", profilePic: profilePictureImageView.image )
         botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
-        
-        
-        //            if let data = image!.jpegData(compressionQuality: 0.8) {
+
         let filename = getDocumentsDirectory().appendingPathComponent("U.jpeg")
         try! imageData.write(to: filename)
-        //}
-        /// performSegue(withIdentifier: presentState ?? "Undefined", sender: "dataInputViewController")
-        //passData(dvc1: nextViewController)
-        //nextViewController.formatImage()
-        // nextViewController.foodImage.image = image
-        
     }
     
     func getDocumentsDirectory() -> URL {
@@ -498,23 +372,22 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         return paths[0]
     }
         
-        func presentCameraSettings() {
-            let alertController = UIAlertController(title: "Error",
+    func presentCameraSettings() {
+        let alertController = UIAlertController(title: "Error",
                                                     message: "Camera access is denied",
                                                     preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
-            alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
-                if let url = URL(string: UIApplication.openSettingsURLString) {
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+        if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.open(url, options: [:], completionHandler: { _ in
                     })
                 }
             })
-            
             present(alertController, animated: true)
-        }
+    }
+
+    func checkCameraAccess() -> Bool {
         
-        
-        func checkCameraAccess() -> Bool {
             switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .denied:
                 print("Denied, request permission from settings")
@@ -538,20 +411,15 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             }
             
             return true
-        }
+    }
         
         
-        func recordTheFood() {
+    func recordTheFood() {
 
             if checkCameraAccess() == true {
                 captureSession = AVCaptureSession()
                 captureSession.sessionPreset = .medium
-            
-  //              guard let backCamera = AVCaptureDevice.devices().filter({ $0.position == .back })
-  //                  .first else {
-  //                      fatalError("No front facing camera found")
-  //                  }
-              
+
               guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front)
                   else{ fatalError("no camera")}
             
@@ -576,26 +444,20 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
                 DispatchQueue.main.async {
                     self.videoPreviewLayer.frame = self.previewView.bounds
                 }
-              
-              //nextViewController.presentState = .AddFoodViewController
             }
-        }
+    }
         
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
           
-            // Local variable inserted by Swift 4.2 migrator.
             let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             
             if let userPickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
                 profilePictureImageView.image = userPickedImage
-                //image = userPickedImage.scaleImage(toSize: CGSize(width: 150, height: 150)) ?? UIImage(named: "chaos.jpg")!
-                image = userPickedImage 
-                
+                image = userPickedImage
             }
             else {
                 if let userPickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
                 profilePictureImageView.image = userPickedImage
-                //image = userPickedImage.scaleImage(toSize: CGSize(width: 150, height: 150)) ?? UIImage(named: "chaos.jpg")!
                     image = userPickedImage
                 }
             }
@@ -603,18 +465,12 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             imagePicker.dismiss(animated: true){ [self] in profilePictureImageView.image = image
                 
                 botUser.human = User(name: nameEntry.text ?? "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
-                
-                
-                //            if let data = image!.jpegData(compressionQuality: 0.8) {
-              //  let filename = getDocumentsDirectory().appendingPathComponent("U.jpeg")
-               // try! imageData.write(to: filename)
             }
         }
         
-        // MARK: User interaction handlers
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+   // MARK: User interaction handlers
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
-        //  textField.endEditing(true)
             return true
         }
     
@@ -637,16 +493,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     @objc func dismissInteractions() {
         nameEntry.endEditing(true)
     }
-        
 }
-
-
-//extension profileCreatorViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder() // dismiss keyboard
-//        return true
-//    }
-//}
 
 extension profileCreatorViewController{
  
@@ -658,29 +505,20 @@ extension profileCreatorViewController{
         } catch {
             print("Error saving context \(error)")
         }
-        
     }
     
     func loadJSON(){
         
         let filePath = Bundle.main.resourcePath!
-     //   let data = try! String(contentsOfFile: filePath + "/storyline.txt",
-     //                                 encoding: String.Encoding.utf8).data(using: .utf8)
-        
         let sourceData = "/Day" + String(day) + ".txt"
-        
         let data = try! String(contentsOfFile: filePath + sourceData , encoding: String.Encoding.utf8).data(using: .utf8)
-        
-      //  let decoder = JSONDecoder()
-        
+
         if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
             var i = Int32(0)
             for item in parsedData {
                 let newPost = PostData(context: context)
                 newPost.id = i as! Int32
-               // print(item)
                 for (category, value) in item{
-                    //print(value)
                     switch category{
                         case "day": newPost.day = value as! Int32
                        // case "id": newPost.id = i as! Int32
@@ -697,15 +535,11 @@ extension profileCreatorViewController{
                         case "user": newPost.user = value as? String
                         default: break
                     }
-                 
                 }
                 saveItems()
                 i = i + 1
             }
         }
-        
-      //  decoder.decode(newPost.self, from: textContent )
-//
     }
     
     func whereIsMySQLite() {
@@ -718,7 +552,5 @@ extension profileCreatorViewController{
             .removingPercentEncoding
         
         print(path ?? "Not found")
-    }
-
-    
+    }  
 }

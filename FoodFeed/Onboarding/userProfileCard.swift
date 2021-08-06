@@ -1,24 +1,17 @@
 //
 //  userProfileCard.swift
 //  FoodFeed
-//
-//  Created by Kate Roberts on 18/03/2021.
-//  Copyright © 2021 Daniel Haight. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
 import SoftUIView
 
-//struct userProfile
-
-
 class UserProfileCard: UIView{
     
     var layoutUnit = CGFloat(100)
     var width = 100.0
-    
-   // var mainViewController: profileCardViewController?
+
     var mainViewController: UIViewController?
     
     init(frame: CGRect, user: User?) {
@@ -28,12 +21,7 @@ class UserProfileCard: UIView{
         width = Double(frame.width)
         backgroundColor = .mainBackground
         setup(user: user)
-//        if mainViewController is profileCreatorViewController{
-//            let profileMaker = mainViewController as! profileCreatorViewController
-////            DispatchQueue.global(qos: .background).async { [self] in
-////                profileMaker.saveProfile()
-////            }
-//        }
+
     }
     
     required init?(coder: NSCoder) {
@@ -47,10 +35,7 @@ class UserProfileCard: UIView{
         addSubview(softUIView)
         
         softUIView.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
-        
-//        let profileStack = UIStackView()
-//        profileStack.axis = .vertical
-        
+
         let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                           NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
                           NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
@@ -70,11 +55,7 @@ class UserProfileCard: UIView{
             nameLabel.leadingAnchor.constraint(equalTo: softUIView.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: softUIView.trailingAnchor)
         ])
-        
-        
-        //profileStack.addArrangedSubview(nameLabel)
-       // profileStack.distribution = .fillProportionally
-        
+
         let profilePicture = UIImageView()
         profilePicture.image = user?.profilePic ?? UIImage(named: "three.jpeg")
         addSubview(profilePicture)
