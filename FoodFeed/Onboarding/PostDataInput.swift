@@ -60,12 +60,9 @@ class PostDataInput: UIViewController {
             for item in parsedData {
                 let newPost = PostData(context: context)
                 newPost.id = i as! Int32
-               // print(item)
                 for (category, value) in item{
-                    //print(value)
                     switch category{
                         case "day": newPost.day = value as! Int32
-                       // case "id": newPost.id = i as! Int32
                         case "bigtext": newPost.bigtext = value as? String
                         case "caption": newPost.caption = value as? String
                         case "type": newPost.type = value as? String
@@ -80,7 +77,6 @@ class PostDataInput: UIViewController {
                         case "user": newPost.user = value as? String
                         default: break
                     }
-                 
                 }
                 saveItems()
                 i = i + 1

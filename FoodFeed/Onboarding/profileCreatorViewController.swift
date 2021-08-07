@@ -9,7 +9,7 @@ import SoftUIView
 
 let usingSimulator = false
 
-class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIWindowSceneDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -35,7 +35,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet var nickname: UILabel!
-    @IBOutlet var nameEntry: UITextField!
+   // @IBOutlet var nameEntry: UITextField!
+    
+    var nameEntry = UITextField()
     
     @IBOutlet var describe: UILabel!
     @IBOutlet var describePicker: UIPickerView!
@@ -85,6 +87,10 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         nameEntry.delegate = self
         
         describePicker.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("Editing")
     }
     
     override var modalPresentationStyle: UIModalPresentationStyle {
@@ -178,22 +184,23 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         
         let softUIViewNameEntry = SoftUIView(frame: .init(x:  20 , y: 1.5*layoutUnit, width: self.view.frame.width - 60 - layoutUnit, height: layoutUnit/2))
         softUIViewNameEntry.isSelected = true
-        nameEntry.translatesAutoresizingMaskIntoConstraints = false
-
         view.addSubview(softUIViewNameEntry)
+        
+        nameEntry = UITextField(frame: .init(x:  20 , y: 1.5*layoutUnit, width: self.view.frame.width - 60 - layoutUnit, height: layoutUnit/2))
         nameEntry.backgroundColor = .clear
-
+        nameEntry.placeholder = "Write name here"
+        nameEntry.delegate = self
         
         view.addSubview(nameEntry)
         
-        // FIXME: this brings in a subtle bug that the very edges will irrevocably select softUIVoew
+        // FIXME: this brings in a subtle bug that the very edges will irrevocably select softUIView
+        nameEntry.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameEntry.topAnchor.constraint(equalTo: softUIViewNameEntry.topAnchor),
             nameEntry.bottomAnchor.constraint(equalTo: softUIViewNameEntry.bottomAnchor),
             nameEntry.leadingAnchor.constraint(equalTo: softUIViewNameEntry.leadingAnchor, constant: 5),
             nameEntry.trailingAnchor.constraint(equalTo: softUIViewNameEntry.trailingAnchor, constant: -5)
         ])
-        
         
         let titleAttrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                           NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 36)!,
@@ -267,6 +274,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 
         previewView.layer.cornerRadius = layoutUnit/2
         addButton.layer.cornerRadius = layoutUnit/2
+        view.bringSubviewToFront(nameEntry)
     }
     
     @objc func segueToSummary(){

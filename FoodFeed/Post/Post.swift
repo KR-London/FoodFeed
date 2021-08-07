@@ -174,7 +174,6 @@ class PostView: UIView {
                self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
             case .poll(let caption, let votea, let voteb, let votec, let hashtag, let who):
-                print("This is a poll. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
@@ -184,7 +183,6 @@ class PostView: UIView {
                 ))
                 say = caption
             case .question(caption: let caption, hashtag: let hashtag, let who):
-                print("This is a question. I want to somehow swap out the media view for the interaction view ideally - or otherwise make a frankenstein Media view ")
                 let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
@@ -1238,14 +1236,12 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             if sender.video.last == "4"
            {
                     if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".MP4") {
-                                    print(urlPath)
                                     player = AVPlayer(url: urlPath)
                                     videoController.player = player
                                     player?.play()
                                 }
                 else {
                     if let urlPath = Bundle.main.url(forResource: String(sender.video.dropLast(4)), withExtension: ".mp4") {
-                        print(urlPath)
                         player = AVPlayer(url: urlPath)
                         videoController.player = player
                         player?.play()

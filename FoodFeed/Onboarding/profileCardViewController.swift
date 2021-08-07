@@ -40,23 +40,9 @@ class profileCardViewController: UIViewController {
         
         /// Little pop-out summary card
         let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human) 
-        
         card.mainViewController = self
-        
-        
         view.addSubview(card)
         
-//        if #available(iOS 13.0, *) {
-//            // use UIStackView
-//        } else {
-//            let hiddenButton = UIButton()
-//            hiddenButton.addTarget(self, action: #selector(cardTapped), for: .touchUpInside)
-//            hiddenButton.backgroundColor = .clear
-//            hiddenButton.frame = CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit)
-//            
-//            view.addSubview(hiddenButton)
-//        }
-  
         // Segue button
         let softUIViewButton = SoftUIView(frame: .init(x: 20, y: 5.2*layoutUnit, width: self.view.frame.width - 40 , height: 0.7*layoutUnit))
         view.addSubview(softUIViewButton)
