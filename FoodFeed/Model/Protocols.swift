@@ -11,7 +11,7 @@ import UIKit
 
 typealias IndexedFeed = (feed: Feed, index: Int)
 
-protocol  FeedPagePresenterProtocol: class {
+protocol  FeedPagePresenterProtocol: AnyObject {
     func viewDidLoad()
     func fetchNextFeed() -> IndexedFeed?
     func fetchPreviousFeed() -> IndexedFeed?
@@ -19,11 +19,11 @@ protocol  FeedPagePresenterProtocol: class {
     func updateFeed( index: Int, increasing: Bool) -> [Feed]
 }
 
-protocol FeedPageView: class{
+protocol FeedPageView: AnyObject{
     func presentInitialFeed(_ feed: Feed)
 }
 
-protocol StoryboardScene: class {
+protocol StoryboardScene: AnyObject {
     static var sceneStoryboard: UIStoryboard { get }
     static var sceneIdentifier: String { get }
 }

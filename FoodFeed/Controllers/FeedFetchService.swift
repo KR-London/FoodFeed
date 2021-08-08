@@ -7,11 +7,11 @@ import CoreData
 
 var day = 1
 
-protocol FeedFetchDelegate: class {
+protocol FeedFetchDelegate: AnyObject {
     func feedFetchService(_ service: FeedFetchProtocol, didFetchFeeds feeds: [Feed], withError error: Error?)
 }
 
-protocol FeedFetchProtocol: class {
+protocol FeedFetchProtocol: AnyObject {
     var delegate: FeedFetchDelegate? { get set }
     func fetchFeeds()
 }
@@ -127,17 +127,10 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         }
         
         // data validation
-        if newFeedArray.flatMap({$0.id}).min() ?? 1  > 0 {
+        if newFeedArray.compactMap({$0.id}).min() ?? 1  > 0 {
             print("This data will not show up at all - because the first post is numbered bigger than zero ")
         }
-        
-        for x in newFeedArray.flatMap({$0.id}){
-            if x < newFeedArray.flatMap({$0.id}).max() ?? 0{
-                if newFeedArray.flatMap({$0.id}).filter({$0 == x + 1}) == nil {
-                    print("Data after position \(x) will not show up, because id indeces are not sequential")
-                }
-            }
-        }
+
         delegate?.feedFetchService(self, didFetchFeeds: newFeedArray, withError: nil)
     }
     

@@ -19,18 +19,22 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         }
     }
     
+    // I used to do this on a picker - but it caused stress in testing.
+    // Now hard coded the personal qualities
+    // The testing suggestions were to integrate populating this into the main flow of the app with Buzzfeed style quizes
     var personalQualities = ["Nice", "Kind", "Brave"]
 
     @IBOutlet var pageTitle: UILabel!
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        
-        if let following = UserDefaults.standard.object(forKey: "following")
-        {
-            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
-        }
-        else{
-            UserDefaults.standard.set( ["Human"],  forKey: "following")
-        }
+    
+        /// This is for game progression - as we bring in extra characters
+//        if let following = UserDefaults.standard.object(forKey: "following")
+//        {
+//            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
+//        }
+//        else{
+//            UserDefaults.standard.set( ["Human"],  forKey: "following")
+//        }
     }
     
     @IBOutlet weak var profilePictureImageView: UIImageView!
@@ -85,6 +89,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 
         stopsInteractionWhenTappedAround()
         nameEntry.delegate = self
+        
         
         describePicker.delegate = self
     }
@@ -525,7 +530,7 @@ extension profileCreatorViewController{
             var i = Int32(0)
             for item in parsedData {
                 let newPost = PostData(context: context)
-                newPost.id = i as! Int32
+                newPost.id = i 
                 for (category, value) in item{
                     switch category{
                         case "day": newPost.day = value as! Int32

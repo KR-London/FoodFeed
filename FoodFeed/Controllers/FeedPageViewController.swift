@@ -103,7 +103,7 @@ class FeedPageViewController:
     @objc func loadNext(_ notification: NSNotification){
         //var nextFeed = Feed(id: 1, state: .text(bigText: "I moved!", caption: nil, hashtag: nil, votea: nil, voteb: nil))
         
-        var nextFeed =  presenter.fetchNextFeed()!
+        let nextFeed =  presenter.fetchNextFeed()!
         
         let newVC = FeedItemViewController.instantiate(feed: nextFeed.feed, andIndex: nextFeed.index.advanced(by: 1))
         presenter.updateFeedIndex(fromIndex: nextFeed.index.advanced(by: 1))
@@ -153,9 +153,6 @@ class FeedPageViewController:
             synthesizer.speak(utterance)
             
             presenter.updateFeedIndex(fromIndex: viewController.index)
-            if previousViewController.index < viewController.index{
-                presenter.updateFeed( index:  viewController.index as Int, increasing: true )
-            }
            
         }
     }

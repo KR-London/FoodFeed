@@ -3,6 +3,10 @@ import Combine
 import UIKit
 import AVFAudio
 
+protocol FeedViewInteractionDelegate: AnyObject {
+    var delegate: CommentProviderDelegate? { get set }
+}
+
 enum Backend {
     struct Author: Identifiable {
         var id: Int
@@ -190,7 +194,6 @@ func profilePicture(who: String) -> UIImage{
 }
 
 func whoIsIt(name: String?) -> Personage{
-    print(name)
     switch name {
     case "Guy":
         return .Guy

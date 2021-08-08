@@ -42,7 +42,7 @@ var window: UIWindow?
                 for item in parsedData {
                     let newPost = PostData(context: context)
                     for (category, value) in item{
-                        newPost.id = i as! Int32
+                        newPost.id = i 
                         switch category{
                             case "day": newPost.day = value as! Int32
                             case "bigtext": newPost.bigtext = value as? String

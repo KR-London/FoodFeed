@@ -64,7 +64,6 @@
 		44A813202583926D00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813242583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813252583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
-		44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */; };
 		44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B189F125F5333800A94028 /* commentTableViewController.swift */; };
 		44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F225F5333800A94028 /* commentTableViewController.xib */; };
 		44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftyGif */; };
@@ -86,7 +85,6 @@
 		44C3DF47252A274100D317DA /* fieri.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF46252A274100D317DA /* fieri.jpeg */; };
 		44D66C68253316B300C81C41 /* TimedComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C67253316B300C81C41 /* TimedComments.swift */; };
 		44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C7725336FF100C81C41 /* CommentsView.swift */; };
-		44D66C892534556E00C81C41 /* FeedViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C882534556E00C81C41 /* FeedViewLayout.swift */; };
 		44E768EA264AB40F00AD75FE /* Day6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44E768E9264AB40E00AD75FE /* Day6.txt */; };
 		44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768F6264ABD6800AD75FE /* fed_up.gif */; };
 		44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */; };
@@ -179,7 +177,6 @@
 		44A766DE2608A1BC00EBC9AD /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		44A8131A25838E0700685A0E /* 07891284.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07891284.ttf; sourceTree = "<group>"; };
 		44A8131F2583926B00685A0E /* 07891284.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07891284.ttf; sourceTree = "<group>"; };
-		44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDataInput.swift; sourceTree = "<group>"; };
 		44B189F125F5333800A94028 /* commentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewController.swift; sourceTree = "<group>"; };
 		44B189F225F5333800A94028 /* commentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewController.xib; sourceTree = "<group>"; };
 		44B32ED0261106AA0030C88C /* uiTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiTestViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +197,6 @@
 		44C3DF46252A274100D317DA /* fieri.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fieri.jpeg; sourceTree = "<group>"; };
 		44D66C67253316B300C81C41 /* TimedComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedComments.swift; sourceTree = "<group>"; };
 		44D66C7725336FF100C81C41 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
-		44D66C882534556E00C81C41 /* FeedViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewLayout.swift; sourceTree = "<group>"; };
 		44E768E9264AB40E00AD75FE /* Day6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day6.txt; sourceTree = "<group>"; };
 		44E768F6264ABD6800AD75FE /* fed_up.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fed_up.gif; sourceTree = "<group>"; };
 		44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frustrated_stone_kick.gif; sourceTree = "<group>"; };
@@ -334,7 +330,6 @@
 				446540582603ABA4004B202B /* userProfileCard.swift */,
 				4465404B2603A7B9004B202B /* profileCardViewController.swift */,
 				4470BF7D2603DD29002EE94E /* BotProfileViewController.swift */,
-				44AFA49D256D1F0000CC7A0A /* PostDataInput.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -417,7 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				44D66C7725336FF100C81C41 /* CommentsView.swift */,
-				44D66C882534556E00C81C41 /* FeedViewLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -844,7 +838,6 @@
 				44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */,
 				446B298525F0BF9400379390 /* commentTableViewCell.swift in Sources */,
 				65D07A2E24F816C2004CA3E9 /* FoodFeed.xcdatamodeld in Sources */,
-				44AFA49E256D1F0000CC7A0A /* PostDataInput.swift in Sources */,
 				447B69D725FFFDBC003400A0 /* Extensions.swift in Sources */,
 				659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */,
 				2C48B683266D3B6E0092D5E1 /* CherryButton.swift in Sources */,
@@ -854,7 +847,6 @@
 				65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */,
 				2C48B68B266D67DF0092D5E1 /* NotSureButton.swift in Sources */,
 				4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */,
-				44D66C892534556E00C81C41 /* FeedViewLayout.swift in Sources */,
 				44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */,
 				44327DB326AC99C2006156B6 /* imageCache.swift in Sources */,
 				44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */,
