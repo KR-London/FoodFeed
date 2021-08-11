@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wdc-0x-ghK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -181,9 +181,6 @@
                                 <state key="normal" title="Next ">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="nextButtonPressed:" destination="Wdc-0x-ghK" eventType="touchUpInside" id="GGZ-Vp-RGy"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-OE-DlF">
                                 <rect key="frame" x="254" y="94" width="140" height="128"/>
@@ -202,12 +199,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="describe" destination="E3o-Y9-LGE" id="eFE-m0-I7w"/>
-                        <outlet property="describePicker" destination="Z74-QX-0vh" id="09p-Sn-4Q3"/>
-                        <outlet property="nextButton" destination="ipy-P8-L9I" id="eHA-kd-0vv"/>
-                        <outlet property="nickname" destination="jqV-FJ-t1D" id="B5l-7e-Qfi"/>
-                        <outlet property="pageTitle" destination="IaI-lc-kVt" id="gS4-fJ-OKI"/>
-                        <outlet property="profilePictureImageView" destination="Z3e-OE-DlF" id="08c-kX-pco"/>
                         <segue destination="XoC-Ys-Vq6" kind="show" identifier="summaryProfile" id="DR0-vP-nS5"/>
                     </connections>
                 </viewController>

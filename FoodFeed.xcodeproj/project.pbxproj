@@ -89,7 +89,6 @@
 		44E768F7264ABD6800AD75FE /* fed_up.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768F6264ABD6800AD75FE /* fed_up.gif */; };
 		44E768FF264ABDEE00AD75FE /* frustrated_stone_kick.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */; };
 		44F1918824F8CF7300DC5718 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F1918724F8CF7300DC5718 /* FeedViewController.swift */; };
-		44F7AD6326A495A900EF54FB /* UnsplashPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 44F7AD6226A495A900EF54FB /* UnsplashPhotoPicker */; };
 		6536A648256185B3006D7297 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6536A647256185B3006D7297 /* Post.swift */; };
 		659F112B2562A4BA00E5C8B1 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659F112A2562A4BA00E5C8B1 /* Backend.swift */; };
 		65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A2124F816C2004CA3E9 /* AppDelegate.swift */; };
@@ -230,7 +229,6 @@
 			files = (
 				44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */,
 				44A76757260A284900EBC9AD /* SoftUIView in Frameworks */,
-				44F7AD6326A495A900EF54FB /* UnsplashPhotoPicker in Frameworks */,
 				44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */,
 				1721F46DF48FAF123BB2AA8B /* Pods_FoodFeed.framework in Frameworks */,
 				44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */,
@@ -560,7 +558,6 @@
 			packageProductDependencies = (
 				44A76756260A284900EBC9AD /* SoftUIView */,
 				44B32EBC2610F0200030C88C /* SwiftyGif */,
-				44F7AD6226A495A900EF54FB /* UnsplashPhotoPicker */,
 				44327DAD26AC8A98006156B6 /* Alamofire */,
 				44327DB026AC8C07006156B6 /* AlamofireImage */,
 			);
@@ -642,7 +639,6 @@
 			packageReferences = (
 				44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */,
 				44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
-				44F7AD6126A495A900EF54FB /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */,
 				44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
@@ -1253,14 +1249,6 @@
 				minimumVersion = 5.4.0;
 			};
 		};
-		44F7AD6126A495A900EF54FB /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/unsplash/unsplash-photopicker-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1283,11 +1271,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
-		};
-		44F7AD6226A495A900EF54FB /* UnsplashPhotoPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 44F7AD6126A495A900EF54FB /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */;
-			productName = UnsplashPhotoPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 

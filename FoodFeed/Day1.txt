@@ -61,7 +61,8 @@
     "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "My name is Guy"
+    "bigtext": "My name is Guy",
+    "votea": "Hello"
   },
    {
     "user": "Guy",
@@ -79,7 +80,8 @@
     "hashtag": "Hello",
     "type": "Text",
     "day": 1,
-    "bigtext": "I'd feel much braver if you stayed to chat"
+    "bigtext": "I'd feel much braver if you stayed to chat",
+    "votea": "OK"
   },
         {
     "user": "Guy",
@@ -105,7 +107,8 @@
     "hashtag": "Mum's Birthday",
     "type": "Text",
     "day": 1,
-    "bigtext": "I want to make it special"
+    "bigtext": "I want to make it special",
+    "votea": "OK"
   },
        {
     "user": "Guy",
@@ -123,7 +126,8 @@
     "hashtag": "Birthday Breakfast",
     "type": "Text",
     "day": 1,
-    "bigtext": "Let's make this awesome!"
+    "bigtext": "Let's make this awesome!",
+    "votea": "OK"
   },
    {
     "user": "Guy",
@@ -141,7 +145,9 @@
     "hashtag": "Birthday Breakfast",
     "type": "Text",
     "day": 1,
-    "bigtext": "I'm not super good with food"
+    "bigtext": "I'm not super good with food",
+    "votea": "Oh",
+    "voteb": "How? ^answer^ I'm quite a plain eater"
       },
     {
     "user": "Guy",
@@ -166,7 +172,8 @@
     "hashtag": "Birthday Breakfast",
     "type": "Text",
     "day": 1,
-    "bigtext": "Wow - so many interesting ideas!"
+    "bigtext": "Wow - so many interesting ideas!",
+    "votea": "Yeaahhh!"
       },
        {
     "user": "Guy",

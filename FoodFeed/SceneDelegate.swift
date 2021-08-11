@@ -17,17 +17,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
             // MARK: Toggle here if you want to test the onboarding without manually resetting
-       //let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-       let launchedBefore = false
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        // let launchedBefore = false
         
         if launchedBefore{
-            let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+          //  let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+         //   self.window = UIWindow(windowScene: windowScene)
+            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+//            self.window?.rootViewController = initialViewController
+            
+            guard let windowScene = (scene as? UIWindowScene) else { return }
             self.window = UIWindow(windowScene: windowScene)
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
-            self.window?.rootViewController = initialViewController
+            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window?.windowScene = windowScene
+            self.window?.rootViewController = FeedPageViewController(frame: windowScene.coordinateSpace.bounds)
             
             self.window?.makeKeyAndVisible()
             
@@ -35,14 +42,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else
         {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
-            let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+          
+            
+//            let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+//
+//            self.window = UIWindow(windowScene: windowScene)
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
+//            self.window?.rootViewController = initialViewController
+//
+            
+            guard let windowScene = (scene as? UIWindowScene) else { return }
             self.window = UIWindow(windowScene: windowScene)
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
-            self.window?.rootViewController = initialViewController
-            
+            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window?.windowScene = windowScene
+            self.window?.rootViewController = profileCreatorViewController(frame: windowScene.coordinateSpace.bounds)
             
             
             self.window?.makeKeyAndVisible()

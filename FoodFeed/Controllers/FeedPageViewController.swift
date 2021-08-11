@@ -100,6 +100,10 @@ class FeedPageViewController:
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
     
+    required init?(frame: CGRect) {
+        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    }
+    
     @objc func loadNext(_ notification: NSNotification){
         //var nextFeed = Feed(id: 1, state: .text(bigText: "I moved!", caption: nil, hashtag: nil, votea: nil, voteb: nil))
         

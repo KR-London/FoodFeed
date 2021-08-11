@@ -64,6 +64,7 @@ class profileCardViewController: UIViewController {
     }
 
     @objc func segueToFriend(){
-        performSegue(withIdentifier: "friendProfile", sender: self)
+        let nextViewController = BotProfileViewController()
+        present(nextViewController, animated: true, completion: nil)
     }
 }

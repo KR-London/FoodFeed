@@ -9,9 +9,10 @@ import SoftUIView
 
 let usingSimulator = false
 
-class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIWindowSceneDelegate {
+class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, UIWindowSceneDelegate {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var nextButton : CherryButton
     
     var profileSet = false {
         didSet{
@@ -19,40 +20,37 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         }
     }
     
+    
+    required init?(coder: NSCoder) {
+        fatalError("Storyboard are a pain")
+    }
+    
+    required init?(frame: CGRect) {
+        self.nextButton = CherryButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     // I used to do this on a picker - but it caused stress in testing.
     // Now hard coded the personal qualities
     // The testing suggestions were to integrate populating this into the main flow of the app with Buzzfeed style quizes
     var personalQualities = ["Nice", "Kind", "Brave"]
-
-    @IBOutlet var pageTitle: UILabel!
-    @IBAction func nextButtonPressed(_ sender: UIButton) {
-    
-        /// This is for game progression - as we bring in extra characters
-//        if let following = UserDefaults.standard.object(forKey: "following")
-//        {
-//            UserDefaults.standard.set( UserDefaults.standard.object(forKey: "following") as! Array<String> + ["Human"],  forKey: "following")
-//        }
-//        else{
-//            UserDefaults.standard.set( ["Human"],  forKey: "following")
-//        }
-    }
-    
-    @IBOutlet weak var profilePictureImageView: UIImageView!
-    @IBOutlet var nickname: UILabel!
+  
    // @IBOutlet var nameEntry: UITextField!
     
     var nameEntry = UITextField()
+    var profilePictureImageView =   UIImageView()
+    var nickname = UILabel()
+    var pageTitle = UILabel()
     
-    @IBOutlet var describe: UILabel!
-    @IBOutlet var describePicker: UIPickerView!
- 
-    @IBOutlet var nextButton: UIButton!
-    
+//    var describe = UILabel()
+//    var describePicker = UIPickerView()
+//
+//
     lazy var previewView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
-    
+
     lazy var addButton: UIButton = {
          let button = UIButton()
          button.backgroundColor = .xeniaGreen
@@ -82,16 +80,14 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
 
         view.backgroundColor = .mainBackground
         layoutSubviews()
-        setUpPicker()
+       // setUpPicker()
         
         whereIsMySQLite()
         loadJSON()
 
         stopsInteractionWhenTappedAround()
         nameEntry.delegate = self
-        
-        
-        describePicker.delegate = self
+        //describePicker.delegate = self
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -117,56 +113,57 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
             saveProfile()
        }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 3
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return goodAtPickerData.count - 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-
-        switch component{
-            case 0 : personalQualities[0] = goodAtPickerData[row]
-            case 1: personalQualities[1] = goodAtPickerData[row]
-            case 2: personalQualities[2] = goodAtPickerData[row]
-            default: break
-        }
-        
-        return "Why do I have to return here?"
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch component{
-                   case 0 : personalQualities[0] = goodAtPickerData[row]
-                   case 1: personalQualities[1] = goodAtPickerData[row]
-                   case 2: personalQualities[2] = goodAtPickerData[row]
-                   default: break
-       }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        
-        let pickerLabel = UILabel()
-        
-        pickerLabel.adjustsFontSizeToFitWidth = true
-        let titleData = goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
-        let myTitle = NSAttributedString(string: titleData , attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedString.Key.foregroundColor:UIColor.black])
-        pickerLabel.attributedText = myTitle
-        pickerLabel.textAlignment = NSTextAlignment.center
-  
-        return pickerLabel
-    }
-    
-    func setUpPicker(){
-
-        describePicker.delegate = self
-        describePicker.dataSource = self
-    
-    }
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 3
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return goodAtPickerData.count - 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//
+//        switch component{
+//            case 0 : personalQualities[0] = goodAtPickerData[row]
+//            case 1: personalQualities[1] = goodAtPickerData[row]
+//            case 2: personalQualities[2] = goodAtPickerData[row]
+//            default: break
+//        }
+//
+//        return "Why do I have to return here?"
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        switch component{
+//                   case 0 : personalQualities[0] = goodAtPickerData[row]
+//                   case 1: personalQualities[1] = goodAtPickerData[row]
+//                   case 2: personalQualities[2] = goodAtPickerData[row]
+//                   default: break
+//       }
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//
+//        let pickerLabel = UILabel()
+//
+//        pickerLabel.adjustsFontSizeToFitWidth = true
+//        let titleData = goodAtPickerData[ row % (goodAtPickerData.count - 1 )]
+//        let myTitle = NSAttributedString(string: titleData , attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 20.0)!,NSAttributedString.Key.foregroundColor:UIColor.black])
+//        pickerLabel.attributedText = myTitle
+//        pickerLabel.textAlignment = NSTextAlignment.center
+//
+//        return pickerLabel
+//    }
+//
+//    func setUpPicker(){
+//
+//        describePicker.delegate = self
+//        describePicker.dataSource = self
+//
+//    }
     
     func layoutSubviews(){
+ 
         nextButton.isHidden = true
         
         let layoutUnit = 0.9*(self.view.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0))/6
@@ -214,7 +211,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         
         let string = NSAttributedString(string: "YOU", attributes: titleAttrs)
         pageTitle.attributedText = string
-        
+        view.addSubview(pageTitle)
         pageTitle.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -230,6 +227,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         
         let string2 = NSAttributedString(string: "Nickname", attributes: attrs)
         nickname.attributedText = string2
+        view.addSubview(nickname)
         nickname.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nickname.topAnchor.constraint(equalTo: softUIViewProfilePic.topAnchor),
@@ -283,7 +281,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     }
     
     @objc func segueToSummary(){
-        performSegue(withIdentifier: "summaryProfile", sender: self)
+        
+        let nextViewController = profileCardViewController()
+        present(nextViewController, animated: true, completion: nil)      
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

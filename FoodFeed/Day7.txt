@@ -5,7 +5,8 @@
     "id": 10,
     "type": "Text",
     "day": 7,
-    "bigtext": "This is the end of the testing version"
+    "bigtext": "This is the end of the testing version",
+       "votea": "I did it!"
   },
 {
     "user": "Avery",
@@ -13,7 +14,8 @@
     "id": 10,
     "type": "Text",
     "day": 7,
-    "bigtext": "Thank you for your help"
+    "bigtext": "Thank you for your help",
+       "votea": "Cool!"
   },
 {
     "user": "Brock",
@@ -21,7 +23,8 @@
     "id": 10,
     "type": "Text",
     "day": 7,
-    "bigtext": "We'd love to know your thoughts"
+    "bigtext": "We'd love to know your thoughts",
+       "votea": "Sure"
   },
  {
     "user": "Guy",

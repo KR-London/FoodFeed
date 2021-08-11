@@ -130,7 +130,6 @@ class CoreDataFeedFetcher: FeedFetchProtocol{
         if newFeedArray.compactMap({$0.id}).min() ?? 1  > 0 {
             print("This data will not show up at all - because the first post is numbered bigger than zero ")
         }
-
         delegate?.feedFetchService(self, didFetchFeeds: newFeedArray, withError: nil)
     }
     

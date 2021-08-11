@@ -31,7 +31,9 @@
     "hashtag": "My news",
     "type": "Text",
     "caption": "",
-    "bigtext": "Frank has made this incredible plan for his birthday... "
+    "bigtext": "Frank has made this incredible plan for his birthday... ",
+    "votea": "I remember!",
+    "voteb": "What plan?"
   },
   {
     "user": "Guy",
@@ -47,7 +49,36 @@
     "day": 6,
     "hashtag": "Feelings",
     "type": "Text",
-    "bigtext": "Am I excited..? NOPE "
+    "bigtext": "Am I excited..? NOPE ",
+       "votea": "Why not?"
+  },  {
+    "user": "Guy",
+    "id": 5,
+    "day": 6,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "bigtext": "I am worried that if I go it will be awkward",
+       "votea": "Why?"
+  },
+  {
+    "user": "Guy",
+    "id": 5,
+    "day": 6,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "bigtext": "I only eat a few plain things",
+       "voteb": "Me too ^answer^ You too?!? ",
+       "votea": "So what? "
+  },
+    {
+    "user": "Guy",
+    "id": 5,
+    "day": 6,
+    "hashtag": "Feelings",
+    "type": "Text",
+    "bigtext": "I am worried about having to join in with meals if i go on the trip. ",
+       "voteb": "Is there any way around it? ^answer^ Don't know",
+       "votea": "Oh "
   },
   {
     "bigtext": "How does my tummy feel?",
@@ -68,7 +99,8 @@
     "hashtag": "Mood",
     "type": "Text",
     "day": 6,
-    "bigtext": "It feels lousy. I just feel sick. "
+    "bigtext": "It feels lousy. I just feel sick. ",
+       "votea": "Sounds sad"
   },
   {
     "user": "Guy",
@@ -76,7 +108,8 @@
     "hashtag": "Mood",
     "type": "Text",
     "day": 6,
-    "bigtext": "This is not how I wanted things to be"
+    "bigtext": "This is not how I wanted things to be",
+       "votea": "What a shame"
   },
   {
     "id": 9,
@@ -99,7 +132,9 @@
     "hashtag": "Live Feed",
     "type": "Text",
     "day": 6,
-    "bigtext": "Oh no! I'm lost - where am I?"
+    "bigtext": "Oh no! I'm lost - where am I?",
+       "votea": "Check the map?",
+       "voteb": "Stop daydreaming! ^answer^ I am just upset and worried"
   },
   {
     "user": "Guy",
@@ -125,7 +160,8 @@
     "hashtag": "Live Feed",
     "type": "Text",
     "day": 6,
-    "bigtext": "It's like I was on autopilot!"
+    "bigtext": "It's like I was on autopilot!",
+       "votea": "Odd!"
   },
   {
     "user": "Guy",
@@ -133,7 +169,8 @@
     "hashtag": "Live Feed",
     "type": "Text",
     "day": 6,
-    "bigtext": "Maybe they can help me"
+    "bigtext": "Maybe they can help me",
+       "votea": "Talk to them"
   },
   {
     "user": "Guy",
@@ -141,7 +178,8 @@
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
-    "bigtext": "Granny likes everything 'Just so'."
+    "bigtext": "Granny likes everything 'Just so'.",
+    "votea": "Just how?"
   },
   {
     "user": "Guy",
@@ -158,7 +196,8 @@
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
-    "bigtext": "Including me!"
+    "bigtext": "Including me!",
+    "votea": "You?"
   },
   {
     "user": "Guy",
@@ -184,7 +223,8 @@
     "hashtag": "About me",
     "type": "Text",
     "day": 6,
-    "bigtext": "...that time I turned up with ripped jeans!"
+    "bigtext": "...that time I turned up with ripped jeans!",
+       "votea": "What happened?"
   },
   {
     "id": 24,
@@ -243,27 +283,12 @@
   },
   {
     "user": "Guy",
-    "id": 32,
+    "id": 29,
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "... it feels like a long time ago now ... "
-  },
-  {
-    "user": "Guy",
-    "id": 33,
-    "hashtag": "Feelings",
-    "type": "Text",
-    "day": 6,
-    "bigtext": ".. he doesn't want to go anywhere any more.. "
-  },
-  {
-    "user": "Guy",
-    "id": 34,
-    "hashtag": "Feelings",
-    "type": "Text",
-    "day": 6,
-    "bigtext": "... he just sits around kind of sad...."
+    "bigtext": "I haven't visited for ages!",
+       "votea": "Go in!!"
   },
   {
     "id": 35,
@@ -279,7 +304,8 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "I'm going in."
+    "bigtext": "I'm going in.",
+       "votea": "Go for it!"
   },
     {
     "user": "Avery",
@@ -287,7 +313,8 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "They'll be happy to see you"
+    "bigtext": "They'll be happy to see you",,
+       "votea": "Yeah!"
   },
   {
     "user": "Guy",
@@ -295,7 +322,8 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "Maybe they will give me good advice about Frank's party."
+    "bigtext": "Maybe they will give me good advice about Frank's party.",
+       "votea": "I hope so!"
   },
   {
     "user": "Guy",
@@ -303,7 +331,8 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "... or maybe Grandma will tell me I'm too skinny... "
+    "bigtext": "... or maybe Grandma will tell me I'm too skinny... ",
+       "votea": "Oh ..."
   },
   {
     "user": "Guy",
@@ -311,7 +340,8 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "... or maybe Grandma will peer into my eye and tell me I have low iron... "
+    "bigtext": "... or maybe Grandma will peer into my eye and tell me I have low iron... ",
+       "votea": "What?"
   },
   {
     "id": 40,
@@ -328,7 +358,8 @@
     "hashtag": "Reclaim healthy",
     "type": "Text",
     "day": 6,
-    "bigtext": "Phew - Grandpa told her to give me a break. "
+    "bigtext": "Phew - Grandpa told her to give me a break. ",
+       "votea": "Hooray for Grandpa!"
   },
   {
     "user": "Avery",
@@ -336,7 +367,8 @@
       "hashtag": "Reclaim healthy",
     "type": "Text",
     "day": 6,
-    "bigtext": "There is more than one way to be healthy."
+    "bigtext": "There is more than one way to be healthy.",
+       "votea": "OK"
   },
   {
     "user": "Guy",
@@ -344,7 +376,8 @@
       "hashtag": "Reclaim healthy",
     "type": "Text",
     "day": 6,
-    "bigtext": "It wouldn't be very polite if I commented on Grandma's weight!"
+    "bigtext": "It wouldn't be very polite if I commented on Grandma's weight!",
+       "votea": "OK"
   },
     {
     "id": 6,
@@ -359,7 +392,8 @@
     "hashtag": "Family",
     "type": "Text",
     "day": 6,
-    "bigtext": "I'm going to ask Grandpa to tell me his stories... "
+    "bigtext": "I'm going to ask Grandpa to tell me his stories... ",
+       "votea": "OK"
   },
   {
     "user": "Guy",
