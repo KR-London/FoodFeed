@@ -4,7 +4,7 @@
     "hashtag": "Swipe",
     "type": "Text",
     "day": 1,
-    "bigtext": "Swipe Left to move! ",
+    "bigtext": "Swipe Left to move! "
   },
   {
     "user": "Guy",
@@ -163,7 +163,7 @@
     "id": 20,
     "hashtag": "Support",
     "day": 1,
-    "caption": "Nice things to eat for breakfast? ",
+    "caption": "What are nice things to eat for breakfast?",
     "type": "Question"
   },
      {

@@ -83,6 +83,7 @@
 		44C3DF212521D99000D317DA /* three.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF202521D99000D317DA /* three.jpeg */; };
 		44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF2C2521F1F300D317DA /* giphy-13.gif */; };
 		44C3DF47252A274100D317DA /* fieri.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF46252A274100D317DA /* fieri.jpeg */; };
+		44D6686826C5AA9D0060903D /* Snags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6686726C5AA9D0060903D /* Snags.swift */; };
 		44D66C68253316B300C81C41 /* TimedComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C67253316B300C81C41 /* TimedComments.swift */; };
 		44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C7725336FF100C81C41 /* CommentsView.swift */; };
 		44E768EA264AB40F00AD75FE /* Day6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44E768E9264AB40E00AD75FE /* Day6.txt */; };
@@ -130,9 +131,9 @@
 		2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryButton.swift; sourceTree = "<group>"; };
 		2C48B68A266D67DF0092D5E1 /* NotSureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSureButton.swift; sourceTree = "<group>"; };
 		389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.release.xcconfig"; sourceTree = "<group>"; };
-		440C3272268DBD27007D70C6 /* Day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day2.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day2.txt"; sourceTree = "<group>"; };
-		440C3277268DBD33007D70C6 /* Day4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day4.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day4.txt"; sourceTree = "<group>"; };
-		440C327C268DBD3B007D70C6 /* Day5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Day5.txt; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/FudFid /Day5.txt"; sourceTree = "<group>"; };
+		440C3272268DBD27007D70C6 /* Day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day2.txt; sourceTree = "<group>"; };
+		440C3277268DBD33007D70C6 /* Day4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day4.txt; sourceTree = "<group>"; };
+		440C327C268DBD3B007D70C6 /* Day5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day5.txt; sourceTree = "<group>"; };
 		44327DB226AC99C2006156B6 /* imageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCache.swift; sourceTree = "<group>"; };
 		44386698261F625500507975 /* 200-9.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "200-9.gif"; sourceTree = "<group>"; };
 		44539A1726B1BF0000642875 /* Day7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day7.txt; sourceTree = "<group>"; };
@@ -194,6 +195,7 @@
 		44C3DF202521D99000D317DA /* three.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = three.jpeg; sourceTree = "<group>"; };
 		44C3DF2C2521F1F300D317DA /* giphy-13.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy-13.gif"; sourceTree = "<group>"; };
 		44C3DF46252A274100D317DA /* fieri.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fieri.jpeg; sourceTree = "<group>"; };
+		44D6686726C5AA9D0060903D /* Snags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snags.swift; sourceTree = "<group>"; };
 		44D66C67253316B300C81C41 /* TimedComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedComments.swift; sourceTree = "<group>"; };
 		44D66C7725336FF100C81C41 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		44E768E9264AB40E00AD75FE /* Day6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day6.txt; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				659F112A2562A4BA00E5C8B1 /* Backend.swift */,
 				446CF03325FF9A470039C9A4 /* HardcodedData.swift */,
 				447B69D625FFFDBC003400A0 /* Extensions.swift */,
+				44D6686726C5AA9D0060903D /* Snags.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -841,6 +844,7 @@
 				446CF03425FF9A470039C9A4 /* HardcodedData.swift in Sources */,
 				44C3DEC32520C15600D317DA /* Protocols.swift in Sources */,
 				65D07A2224F816C2004CA3E9 /* AppDelegate.swift in Sources */,
+				44D6686826C5AA9D0060903D /* Snags.swift in Sources */,
 				2C48B68B266D67DF0092D5E1 /* NotSureButton.swift in Sources */,
 				4465406F2605F0AC004B202B /* userAnswerView.swift in Sources */,
 				44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */,

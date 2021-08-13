@@ -81,6 +81,14 @@
        "votea": "Oh "
   },
   {
+    "user": "Guy",
+    "id": 5,
+    "day": 6,
+    "hashtag": "Feelings",
+    "type": "Question",
+    "caption": "Who makes you feel more confident?"
+  },
+  {
     "bigtext": "How does my tummy feel?",
     "votea": "Like a hurricane in a teacup ^answer^ Yes - churning. ",
     "voteb": "Like a seasick chicken? ^answer^ Yes - queasy. ",
@@ -313,7 +321,7 @@
     "hashtag": "Feelings",
     "type": "Text",
     "day": 6,
-    "bigtext": "They'll be happy to see you",,
+    "bigtext": "They'll be happy to see you",
        "votea": "Yeah!"
   },
   {

@@ -21,14 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // let launchedBefore = false
         
         if launchedBefore{
-          //  let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-         //   self.window = UIWindow(windowScene: windowScene)
-            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
-//            self.window?.rootViewController = initialViewController
-            
             guard let windowScene = (scene as? UIWindowScene) else { return }
             self.window = UIWindow(windowScene: windowScene)
             
@@ -42,18 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else
         {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
-          
-            
-//            let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-//
-//            self.window = UIWindow(windowScene: windowScene)
-//
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
-//            self.window?.rootViewController = initialViewController
-//
-            
+  
             guard let windowScene = (scene as? UIWindowScene) else { return }
             self.window = UIWindow(windowScene: windowScene)
             

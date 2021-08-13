@@ -680,11 +680,19 @@
     "bigtext": "FudFid buddies - can you help out? ",
     "votea": "I'll try..."
   },
+    {
+    "user": "Guy",
+    "id": 81,
+    "type": "Text",
+    "day": 3,
+    "bigtext": "I want to say 'no' - but how can I do that without upsetting Frank? ",
+    "votea": "Let me think…"
+  },
   {
     "id": 82,
     "hashtag": "Support",
     "day": 3,
-    "caption": "How do you say ‘no’ without upsetting the person? ",
+    "caption": "How do you say ‘no’ without upsetting the person?",
     "type": "Question"
   },
   {

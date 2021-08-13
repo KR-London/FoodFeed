@@ -20,11 +20,14 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       
             // MARK: Toggle here if you want to test the onboarding without manually resetting
-        //let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        let launchedBefore = false
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        //let launchedBefore = false
         
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        
+     //   day = 1
+    //    UserDefaults.standard.set(day, forKey: "Day")
    
     if storyLoading == true{
             clearAllCoreData()
@@ -79,32 +82,32 @@ var window: UIWindow?
         }
         
     
-        if #available(iOS 13.0, *) {}
-        else{
-        if launchedBefore{
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
-            self.window?.rootViewController = initialViewController
-
-            self.window?.makeKeyAndVisible()
-
-        }
-        else
-        {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-
-            }
-        }
+//        if #available(iOS 13.0, *) {}
+//        else{
+//        if launchedBefore{
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+//            self.window?.rootViewController = initialViewController
+//
+//            self.window?.makeKeyAndVisible()
+//
+//        }
+//        else
+//        {
+//            UserDefaults.standard.set(true, forKey: "launchedBefore")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
+//            self.window?.rootViewController = initialViewController
+//            self.window?.makeKeyAndVisible()
+//
+//            }
+//        }
         
         return true
     }

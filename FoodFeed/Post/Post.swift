@@ -1289,7 +1289,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         if sender.tag == 0 {
 
             noButton.isPicked = true
-            yesButton.isEnabled = false
+            //yesButton.isEnabled = false
             let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
                          NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                          NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
@@ -1322,7 +1322,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                          NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
             ]
 
-            noButton.isEnabled = false
+            //noButton.isEnabled = false
             yesButton.isPicked = true
             
         /// load next screen
