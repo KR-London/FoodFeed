@@ -1,4 +1,5 @@
-[  {
+[
+{
     "user": "Avery",
     "id": 6,
     "hashtag": "Swipe",

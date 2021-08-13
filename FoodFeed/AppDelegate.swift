@@ -23,6 +23,8 @@ var window: UIWindow?
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         //let launchedBefore = false
         
+      let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
+        
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
@@ -209,7 +211,6 @@ var window: UIWindow?
     // FIXME: Step through this to make sure it's still valid
     func doIPlaceANewDatestamp(){
         let now = Date()
-        print(Date())
         var loginRecord = UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] ?? [ Date ]()
         
         loginRecord = loginRecord + [now]

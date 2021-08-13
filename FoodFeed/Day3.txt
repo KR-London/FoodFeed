@@ -353,17 +353,6 @@
     "bigtext": "Frank = awesome. Best Mate. Great guy. "
   },
   {
-    "hashtag": "Live feed",
-    "user": "Guy",
-    "id": 42,
-    "caption": "Walking ",
-    "type": "Image",
-    "day": 3,
-    "image": "Frank ",
-       "creator_credit" : "",
-    "source" : "unsplash"
-  },
-  {
     "user": "Guy",
     "id": 43,
     "type": "Text",
@@ -560,7 +549,7 @@
     "caption": "Walking ",
     "type": "Image",
     "day": 3,
-    "image": "https://unsplash.com/photos/-eKZLpj7U0E",
+    "image": "https://images.unsplash.com/photo-1572715376701-98568319fd0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3334&q=80",
        "creator_credit" : "https://unsplash.com/@ninjason",
     "source" : "unsplash"  },
   {
