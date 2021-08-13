@@ -1,0 +1,597 @@
+[ 
+{
+    "user": "Guy",
+    "hashtag": "Glum",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I need to find a way to fix it with Frank.",
+     "votea": "Yes - you do",
+    "voteb": "What happened ^answer^ It's been weird ever since he invited me for his birthday"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Glum",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Frank was so excited!",
+    "voteb": "He sent so many messages! ^answer^ Ha ha - so many!",
+    "votea": "He just loves birthdays "
+  },
+      {
+    "user": "Guy",
+    "hashtag": "Glum",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I rained on his fun",
+    "votea": "What a downer"
+  },
+   {
+    "id": 40,
+    "caption": "Rain on fun",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/1nPJ2FtjTegz4tYOf9/giphy.gif",
+    "user": "Guy",
+    "user" : "Guy",
+       "creator_credit" : "https://giphy.com/channel/asundayraine",
+    "source" : "giphy"
+  },
+        {
+    "user": "DG",
+    "hashtag": "Glum",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Frank was crushed",
+    "votea": "I would be sad too",
+    "voteb": "What's the fuss? ^answer^ Frank thought Guy didn't want to come because ... he didn't want to come."
+  },
+     {
+    "id": 40,
+    "caption": "Rain on fun",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/hhg7RsWI7rXik0rQkQ/giphy.gif",
+    "user": "DG",
+       "creator_credit" : "https://giphy.com/channel/davidkims",
+    "source" : ""
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Huh?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I don’t get it "
+  },
+     {
+    "id": 40,
+    "hashtag": "Huh",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/xT0xeuOy2Fcl9vDGiA/giphy.gif",
+    "user": "Avery",
+       "creator_credit" : "https://www.youtube.com/watch?v=3gV3cNaEIlM",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Huh?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "who wouldn’t like to go for a whole weekend in London"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Huh?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "who wouldn’t want fun with their friends?",
+    "votea": "Just go Guy"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "It’s not that simple",
+    "votea": "Why not?"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "One man’s treat ... ",
+    "votea": "Treat?"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "...  another man’s terror. ",
+    "votea": "Terror?"
+  },
+     {
+    "id": 40,
+    "hashtag": "Guy's worry",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/AhFV18ojkGxwI/giphy.gif",
+    "user": "Guy",
+       "creator_credit" : "",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "You mean like skydiving",
+    "votea": "Whoah - that's scary"
+  },
+  {
+    "hashtag": "Guy's worry",
+    "user": "Avery",
+    "id": 1,
+    "caption": "Guy's worry",
+    "type": "Image",
+    "day": 4,
+    "image": "https://images.unsplash.com/photo-1518765829116-c30081bc0cdd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80",
+       "creator_credit" : "https://unsplash.com/@colt10jordan",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I mean like hamburgers ",
+    "votea": "What?"
+  },
+  {
+    "hashtag": "Guy's worry",
+    "user": "Guy",
+    "id": 1,
+    "caption": "Guy's worry",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/5y2zBKjMF1TEI/giphy.gif",
+       "creator_credit" : "http://www.tumblr.com/tagged/food%20in%20space",
+    "source" : "giphy"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Hamburgers? ",
+    "votea": "I don't get it?"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "You're afraid of hamburgers? "
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "A lot of food worries me, to be honest "
+  },
+     {
+    "id": 40,
+    "hashtag": "Guy's worry",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/3orif4BovK4YYl8dpK/giphy.gif",
+    "user": "Guy",
+       "creator_credit" : "http://www.simpsonsworld.com/",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "There are some things I don’t like to eat too. "
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "It’s a big thing for me. "
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I eat so few things."
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "… and then I … "
+  },
+     {
+    "id": 40,
+    "hashtag": "Guy's worry",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/3orif4BovK4YYl8dpK/giphy.gif",
+    "user": "Guy",
+       "creator_credit" : "http://www.simpsonsworld.com/",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I'm worried there will be nothing for me to eat on this trip."
+  } ,
+  {
+    "user": "Guy",
+    "id": 13,
+    "type": "Image",
+      "hashtag": "Live Feed",
+    "day": 4,
+    "image": "https://images.unsplash.com/photo-1620191809417-deb98871c8b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80",
+       "creator_credit" : "https://unsplash.com/@siggi81p",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I don’t want to look weird"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "You are worried about not having any food you can eat on the trip?",
+    "votea": "That's what Guy said"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Sounds like you feel really awkward about it"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "But you also don’t want to hurt Frank's feelings"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "No"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Frank is my best friend"
+  }, 
+    {
+    "day" : 4,
+    "image" : "https://images.unsplash.com/photo-1515870672913-a4c298575776?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2208&q=80",
+    "hashtag" : "Dog House",
+    "type" : "Image",
+    "caption" : "best friends 4EVA",
+    "user" : "Guy",
+       "creator_credit" : "@repetaesmese",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "So what is your plan?"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "How are you going to fix this - Guy?"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "A plan!",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I’m going to just start eating all the things now"
+  },
+     {
+    "user": "Guy",
+    "hashtag": "A plan!",
+    "type": "Question",
+    "day": 4,
+    "caption": "Tips to explore new foods?"
+  },
+    {
+    "user": "DG",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Really??? Really???"
+  }, 
+    {
+    "day" : 4,
+    "gif" : "https://media.giphy.com/media/5b5OU7aUekfdSAER5I/giphy.gif",
+    "hashtag" : "A plan?",
+    "type" : "Gif",
+    "caption" : "Eat all the things?",
+    "user" : "DG",
+       "creator_credit" : "https://giphy.com/channel/snl",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "A plan!",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Yup"
+  },
+   {
+    "user": "Guy",
+    "hashtag": "A plan!",
+    "type": "Question",
+    "day": 4,
+    "caption": "What in the world is hummus???"
+  },
+    {
+    "user": "DG",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "You will fail."
+  },
+    {
+    "user": "DG",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Like you fail at everything. "
+  },
+    {
+    "user": "Avery",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Whoa - that’s not kind!"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Or helpful "
+    },
+    {
+    "user": "Guy",
+    "hashtag": "A plan?",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Or wrong"
+    },
+    {
+    "user": "Avery",
+    "hashtag": "Confidence",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Guy - there’s a video I want you to see: "
+    },
+     {
+     "user": "Avery",
+    "id": 11,
+    "hashtag": "Confidence",
+    "caption": "about all-or-nothing thinking?",
+    "day": 6,
+    "video": "https://youtube.com/playlist?list=PLPCeSm8EDITrm1oFl-e5Vx99ocSlkDGYU",
+    "type": "Video"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "A plan!",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Mmmm"
+    },
+    {
+    "user": "Guy",
+    "hashtag": "A plan!",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "It might take work to change how I think about myself"
+    },
+    {
+    "user": "Avery",
+    "hashtag": "Confidence",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Hard work never hurt anybody."
+    },
+    {
+    "user": "DG",
+    "hashtag": "Nah",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Are you kidding? "
+    },
+    {
+    "user": "DG",
+    "hashtag": "Nah",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Hard work will hurt it you fall off a ladder!"
+    },
+  {
+    "user": "DG",
+    "id": 4,
+    "hashtag": "Nah",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/SyuDLq9D9TOx2/giphy.gif",
+       "creator_credit" : "",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Confidence",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Be quiet DG"
+    },
+     {
+    "user": "Avery",
+    "hashtag": "Confidence",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Guy - you are doing great"
+    },
+  {
+    "user": "Avery",
+    "id": 4,
+    "hashtag": "Confidence",
+    "type": "Image",
+    "day": 4,
+    "image": "https://images.unsplash.com/photo-1507652955-f3dcef5a3be5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2208&q=80",
+       "creator_credit" : "https://unsplash.com/@srz",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Avery",
+    "hashtag": "Confidence",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Have you always found eating hard "
+    },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I guess. Kind of. "
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Food sometimes surprises me  "
+  },
+  {
+    "user": "DG",
+    "id": 4,
+    "hashtag": "Nah",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/muCMfKz4K3diisOuMu/giphy.gif",
+       "creator_credit" : "https://giphy.com/channel/simon_superrabbit",
+    "source" : "unsplash"
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Not in a good way"
+  },
+  {
+    "user": "DG",
+    "id": 4,
+    "hashtag": "Nah",
+    "type": "Gif",
+    "day": 4,
+    "gif": "https://media.giphy.com/media/L40sCqhtw5l7krAXYo/giphy.gif",
+       "creator_credit" : "https://giphy.com/channel/spongebob",
+    "source" : "unsplash"
+  },
+      {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Like if the texture is weird"
+  }, 
+   {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Or it smells odd."
+  },
+    {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Me and food need to make friends again"
+  },
+   {
+    "user": "Guy",
+    "hashtag": "Guy's worry",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "I don't know why it is such a big thing…"
+  },
+  {
+    "id": 82,
+    "hashtag": "Support",
+    "user": "Avery",
+    "day": 4,
+    "caption": "What makes a meal stressful for you?",
+    "type": "Question"
+  }, 
+   {
+    "user": "Avery",
+    "hashtag": "Support",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "What are you up to now? "
+  }, 
+   {
+    "user": "Guy",
+    "hashtag": "Support",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Avoiding family dinner."
+  }, 
+   {
+    "user": "Avery",
+    "hashtag": "Support",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Doesn't sound fun"
+  }, 
+   {
+    "user": "Avery",
+    "hashtag": "Support",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "You deserve better, Guy"
+  }
+    
+  
+  
+  
+]

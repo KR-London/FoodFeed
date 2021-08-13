@@ -1,0 +1,442 @@
+[
+  {
+    "user" : "Guy",
+    "id" : 0,
+    "day" : 5,
+    "hashtag" : "Live Feed",
+    "type" : "Text",
+    "bigtext" : "Detention again",
+    "votea": "Ugh!"
+  },
+   {
+    "user" : "Avery",
+    "id" : 0,
+    "day" : 5,
+    "hashtag" : "Live Feed",
+    "type" : "Text",
+    "bigtext" : "Oh man - you’re still in trouble",
+    "votea" : "Wowww yesterday was cringy",
+    "voteb" : "What happened? ^answer^ Guy YELLED at the teacher"
+  }, 
+     {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Live Feed",
+    "type" : "Text",
+    "bigtext" : "Teacher was just so unfair to Frank",
+    "votea": "Yeah",
+    "voteb": "How? ^answer^ Frank's project was a bit messy - and the teacher just got mean and shouty."
+    
+ },
+      {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "I’m in the dog house everywhere ",
+    "votea": "Sounds like it",
+    "voteb": "Dog house has treats ^answer^ No - I'm miserable."
+    
+ },
+     {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Things are weird between him and Frank",
+    "votea": "Yeah",
+    "voteb": "Why? ^answer^ Guy just got weird when Frank told him about his party"
+ },
+   {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "But Guy and Frank are best friends"}, 
+     {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Like ‘Best Friends Ever’ best friends"}, 
+    {
+    "day" : 5,
+    "image" : "https://images.unsplash.com/photo-1515870672913-a4c298575776?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2208&q=80",
+    "hashtag" : "Dog House",
+    "type" : "Image",
+    "caption" : "best friends 4EVA",
+    "user" : "Guy",
+       "creator_credit" : "@repetaesmese",
+    "source" : "unsplash"
+  },
+       {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "That’s why Frank is not happy that Guy is being all weird about his big trip"}, 
+     {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Oh man - I can’t wait!"}, 
+       {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "All of us - in London - going to all the nice places - hanging out "},
+{ "day" : 5,
+    "image" : "https://images.unsplash.com/photo-1529850494847-05b7e590e91f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2554&q=80",
+    "hashtag" : "Dog House",
+    "type" : "Image",
+    "caption" : "London",
+    "user" : "Avery",
+    "creator_credit" : "@sonance",
+    "source" : "unsplash"
+  },
+         {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Sounds pretty special - huh?"}, 
+       {
+    "day" : 5,
+    "image" : "https://images.unsplash.com/photo-1550085995-db99f0eb8b1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2554&q=80",
+    "hashtag" : "Dog House",
+    "type" : "Image",
+    "caption" : "London",
+    "user" : "Avery",
+    "creator_credit" : "@vavassoriluca",
+    "source" : "unsplash"
+  },
+           {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Shame that my main man Guy here can’t go. "}, 
+       {
+    "day" : 5,
+    "image" : "https://images.unsplash.com/photo-1512722328319-51c3d027c228?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80",
+    "hashtag" : "Dog House",
+    "type" : "Image",
+    "caption" : "London",
+    "user" : "Avery",
+      "creator_credit" : "@ryanstefan",
+    "source" : "unsplash"
+  },
+       {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Can’t go? Why? How? "},  
+         {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Is it money? I can lend you money..."},  
+             {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Not money. "}, 
+              {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Everything paid for. "},
+              {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "But Guy CAN”T GO"}, 
+           {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "I don’t understand"},  
+                {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Neither does Frank."}, 
+                   {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "I can go"}, 
+                  {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Guy can go "}, 
+                {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "So long as you guys are fine with Mc Donalds and Sandwiches every meal"}, 
+           {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Oh - Frank’s sister is a chef"},
+         {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "I’m sure the food will be a little better than sandwiches and McDonalds!"
+    ,
+    "votea": "Yeah",
+    "voteb": "I love sandwiches ^answer^ Sandwiches for every meal???"
+ },
+                  {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Exactly"}, 
+           {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "That’s why Guy can’t go."}, 
+           {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "Let’s change the subject"}, 
+             {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Dog House",
+    "type" : "Text",
+    "bigtext" : "This all makes me feel bad about myself "}, 
+  {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "I’m not in detention any more"}, 
+      {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Why?",
+    "type" : "Text",
+    "bigtext" : "Mr Brown let you off?"},
+      {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "Not quite"},
+       {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "He got bored"},
+     {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "He said we could both do the japanese pottery class next door instead."},
+          {
+    "day" : 5,
+    "image" : "https://images.unsplash.com/photo-1541689588306-8847082e1c1c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1318&q=80",
+    "hashtag" : "Wabi Sabi",
+    "type" : "Image",
+    "caption" : "",
+    "user" : "Guy",
+       "creator_credit" : "@anniespratt",
+    "source" : "unsplash"
+  }, 
+      {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "That sounds like a waste of time"},
+        {
+    "day" : 5,
+    "image" : "https://images.unsplash.com/photo-1609786891938-0f5f0c86dfa3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80",
+    "hashtag" : "Wabi Sabi 2",
+    "type" : "Image",
+    "caption" : "",
+    "user" : "Guy",
+       "creator_credit" : "@pechenie",
+    "source" : "unsplash"
+  }, 
+      {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "You might learn something!"},
+      {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "That’s what Mr Brown said!"},
+       {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "Wabi Sabi Your Life "},
+          {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "What even is Wabi Sabi?"},
+           {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "I got a video for that!"},
+     {
+    "hashtag" : "Wabi Sabi",
+    "caption" : "about perfectly imperfect?",
+    "day" : 5,
+    "video" : "https://youtube.com/playlist?list=PLPCeSm8EDITpTiQhtRn634NRc1zNxLPHG",
+    "type" : "Video"
+  },
+       {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "So things are beautiful because they are not perfect"},
+      {
+    "user" : "DG",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "That makes no sense "},
+       {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "The lady is showing me this pot - it’s a bit awkward "}, 
+     {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "Awkward how?"}, 
+      {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Wabi Sabi",
+    "type" : "Text",
+    "bigtext" : "Well - it’s chipped"}, 
+      {
+    "user" : "Guy",
+    "voteb" : "Assume the she doesn’t see very well ^answer^ Poor dear. ",
+    "dunno" : "How on earth do I know?",
+    "id" : 0,
+    "day" : 6,
+    "image" : "",
+    "votea" : "Tell her its broken ^answer^ She says she knows?",
+    "votec" : "Perfectly Imperfect ^answer^ But it's chipped",
+    "hashtag" : "Mood",
+    "type" : "Vote",
+    "bigtext" : "What do I do?"
+  },
+      {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "I can’t stop thinking about Frank’s birthday "}, 
+  {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "I feel I miss out on so much because I worry about sit down meals "},   
+    {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Chat",
+    "bigtext" : "What does a perfect meal look like for you?"},   
+  {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "The lady’s pot is not perfect - but it is still beautiful "},   
+     {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "Maybe it’s okay to find things hard sometimes"},    
+        {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "You’ve done hard things before "},  
+    {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Question",
+    "bigtext" : "What makes a meal fun for you?"}, 
+   {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "Saying my worries out loud makes them not feel so big."},  
+    {
+    "user" : "Avery",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "Guy - you get that this trip is about more than food - yes? "},  
+   {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "You’re right. I have to find a way to not miss out on making memories with my friends. "}, 
+    {
+    "user" : "Guy",
+    "day" : 5,
+    "hashtag" : "Sad",
+    "type" : "Text",
+    "bigtext" : "Will you come back tomorrow and help me try to figure this out?"} 
+  ]
+  
+  
+  
+  
+  
+  
+  
+  
+  
