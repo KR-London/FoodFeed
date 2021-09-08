@@ -401,11 +401,10 @@
     "bigtext": "Guy - there’s a video I want you to see: "
     },
      {
-     "user": "Avery",
-    "id": 11,
+    "user": "Avery",
     "hashtag": "Confidence",
     "caption": "about all-or-nothing thinking?",
-    "day": 6,
+    "day": 4,
     "video": "https://youtube.com/playlist?list=PLPCeSm8EDITrm1oFl-e5Vx99ocSlkDGYU",
     "type": "Video"
   },
@@ -589,7 +588,14 @@
     "type": "Text",
     "day": 4,
     "bigtext": "You deserve better, Guy"
-  }
+  },
+   {
+    "user": "Guy",
+    "hashtag": "",
+    "type": "Text",
+    "day": 4,
+    "bigtext": "Let's talk more tomorrow"
+  
     
   
   

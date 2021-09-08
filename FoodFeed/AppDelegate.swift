@@ -7,12 +7,10 @@ import UIKit
 import CoreData
 
 let storyLoading = true
+var day = Int()
 
 //@available(iOS 13.0, *)
 @UIApplicationMain
-
-
-
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 var window: UIWindow?
@@ -21,15 +19,16 @@ var window: UIWindow?
       
             // MARK: Toggle here if you want to test the onboarding without manually resetting
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        //let launchedBefore = false
+       // let launchedBefore = false
         
-      let day = ((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1 )
+      
+        day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
         
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
-     //   day = 1
-    //    UserDefaults.standard.set(day, forKey: "Day")
+        ///let day = 1
+        UserDefaults.standard.set(day, forKey: "Day")
    
     if storyLoading == true{
             clearAllCoreData()
@@ -86,29 +85,29 @@ var window: UIWindow?
     
 //        if #available(iOS 13.0, *) {}
 //        else{
-//        if launchedBefore{
-//            self.window = UIWindow(frame: UIScreen.main.bounds)
-//
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
-//            self.window?.rootViewController = initialViewController
-//
-//            self.window?.makeKeyAndVisible()
-//
-//        }
-//        else
-//        {
-//            UserDefaults.standard.set(true, forKey: "launchedBefore")
-//            self.window = UIWindow(frame: UIScreen.main.bounds)
-//
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
-//            self.window?.rootViewController = initialViewController
-//            self.window?.makeKeyAndVisible()
-//
-//            }
+        if launchedBefore{
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
+            self.window?.rootViewController = initialViewController
+
+            self.window?.makeKeyAndVisible()
+
+        }
+        else
+        {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+
+            }
 //        }
         
         return true
@@ -192,7 +191,6 @@ var window: UIWindow?
     }()
 
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -206,8 +204,6 @@ var window: UIWindow?
             }
         }
     }
-    
-    
     // FIXME: Step through this to make sure it's still valid
     func doIPlaceANewDatestamp(){
         let now = Date()

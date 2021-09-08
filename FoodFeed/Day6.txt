@@ -251,14 +251,6 @@
     "bigtext": "... truth is .... "
   },
   {
-    "id": 26,
-    "hashtag": "Mood",
-    "type": "Gif",
-    "day": 6,
-    "gif": "awkward.gif",
-    "user": "Guy"
-  },
-  {
     "user": "Guy",
     "id": 27,
     "hashtag": "Feelings",
@@ -350,15 +342,13 @@
     "day": 6,
     "bigtext": "... or maybe Grandma will peer into my eye and tell me I have low iron... ",
        "votea": "What?"
-  },
-  {
-    "id": 40,
-    "hashtag": "Low iron ?!?",
-    "caption": "Low iron ?!?",
-    "type": "Avery",
+  },  {
+    "user": "Guy",
+    "id": 4,
+    "hashtag": "Low iron?!?",
+    "type": "Gif",
     "day": 6,
-    "gif": "lowiron.gif",
-    "user": "Guy"
+    "gif": "https://media.giphy.com/media/OPOIcmwa6Ew2A/giphy.gif?cid=ecf05e4741y1oueun5neh6x32vrt4gdr02naqg1ept3zhhhh&rid=giphy.gif&ct=g"
   },
   {
     "user": "Guy",
@@ -409,6 +399,6 @@
     "hashtag": "Stop here",
     "type": "Text",
     "day": 6,
-    "bigtext": "End of Day"
+    "bigtext": "... to be continued ....."
   }
 ]

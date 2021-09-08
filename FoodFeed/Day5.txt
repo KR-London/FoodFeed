@@ -315,6 +315,7 @@
     "type" : "Text",
     "bigtext" : "I got a video for that!"},
      {
+    "user" : "Avery",
     "hashtag" : "Wabi Sabi",
     "caption" : "about perfectly imperfect?",
     "day" : 5,
@@ -356,7 +357,7 @@
     "voteb" : "Assume the she doesn’t see very well ^answer^ Poor dear. ",
     "dunno" : "How on earth do I know?",
     "id" : 0,
-    "day" : 6,
+    "day" : 5,
     "image" : "",
     "votea" : "Tell her its broken ^answer^ She says she knows?",
     "votec" : "Perfectly Imperfect ^answer^ But it's chipped",
@@ -375,12 +376,12 @@
     "day" : 5,
     "hashtag" : "Sad",
     "type" : "Text",
-    "bigtext" : "I feel I miss out on so much because I worry about sit down meals "},   
+    "bigtext" : "I feel I miss out on so much because I worry about sit down meals" },   
     {
     "user" : "Guy",
     "day" : 5,
     "hashtag" : "Sad",
-    "type" : "Chat",
+    "type" : "Question",
     "bigtext" : "What does a perfect meal look like for you?"},   
   {
     "user" : "Guy",

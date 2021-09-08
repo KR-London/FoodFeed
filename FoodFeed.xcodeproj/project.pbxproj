@@ -16,6 +16,8 @@
 		2C48B68B266D67DF0092D5E1 /* NotSureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B68A266D67DF0092D5E1 /* NotSureButton.swift */; };
 		31CA2A8A15AAA1CF833C2597 /* Pods_FoodFeed_FoodFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */; };
 		375B9C20ACCCF72594BFCE29 /* Pods_FoodFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */; };
+		4402B09326E3BA6A005504A4 /* rejectedScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402B09226E3BA6A005504A4 /* rejectedScript.swift */; };
+		4402B09526E3BE55005504A4 /* lowIron.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4402B09426E3BE55005504A4 /* lowIron.gif */; };
 		440C3273268DBD27007D70C6 /* Day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3272268DBD27007D70C6 /* Day2.txt */; };
 		440C3278268DBD33007D70C6 /* Day4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3277268DBD33007D70C6 /* Day4.txt */; };
 		440C327D268DBD3B007D70C6 /* Day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C327C268DBD3B007D70C6 /* Day5.txt */; };
@@ -131,6 +133,8 @@
 		2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspberryButton.swift; sourceTree = "<group>"; };
 		2C48B68A266D67DF0092D5E1 /* NotSureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotSureButton.swift; sourceTree = "<group>"; };
 		389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.release.xcconfig"; sourceTree = "<group>"; };
+		4402B09226E3BA6A005504A4 /* rejectedScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rejectedScript.swift; sourceTree = "<group>"; };
+		4402B09426E3BE55005504A4 /* lowIron.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = lowIron.gif; sourceTree = "<group>"; };
 		440C3272268DBD27007D70C6 /* Day2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day2.txt; sourceTree = "<group>"; };
 		440C3277268DBD33007D70C6 /* Day4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day4.txt; sourceTree = "<group>"; };
 		440C327C268DBD3B007D70C6 /* Day5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day5.txt; sourceTree = "<group>"; };
@@ -492,6 +496,7 @@
 				44A8131A25838E0700685A0E /* 07891284.ttf */,
 				4471EC1A261A04AC00D23E01 /* storyline.txt */,
 				4493EB1C2672D70100D8258A /* Day1.txt */,
+				4402B09226E3BA6A005504A4 /* rejectedScript.swift */,
 				440C3272268DBD27007D70C6 /* Day2.txt */,
 				4493EB1A2672B91C00D8258A /* Day3.txt */,
 				440C3277268DBD33007D70C6 /* Day4.txt */,
@@ -510,6 +515,7 @@
 				44B32ED0261106AA0030C88C /* uiTestViewController.swift */,
 				4473EDA7260251E400CFF919 /* Onboarding */,
 				65D07A2F24F816C5004CA3E9 /* Assets.xcassets */,
+				4402B09426E3BE55005504A4 /* lowIron.gif */,
 				44386698261F625500507975 /* 200-9.gif */,
 				448D701726B0158800DE2046 /* excitedfrank.jpg */,
 				44E768EF264ABC7600AD75FE /* Gifs  */,
@@ -663,6 +669,7 @@
 			files = (
 				44C3DF172521D94C00D317DA /* one.jpeg in Resources */,
 				446540952606110A004B202B /* bot4.jpeg in Resources */,
+				4402B09526E3BE55005504A4 /* lowIron.gif in Resources */,
 				448D702426B01D4100DE2046 /* frank2.gif in Resources */,
 				446CAEA526517BE200F9081D /* lowiron.gif in Resources */,
 				448ED15C26ADDEB200E2D04E /* .gitignore in Resources */,
@@ -872,6 +879,7 @@
 				446CDCC825CA910A0028B799 /* newCharacterViewController.swift in Sources */,
 				2C48B636266D32F00092D5E1 /* Fonts.swift in Sources */,
 				44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */,
+				4402B09326E3BA6A005504A4 /* rejectedScript.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1053,7 +1061,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1061,7 +1069,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 4.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.haight.FoodFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1077,14 +1085,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = DS9RJBMYKW;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 4.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saltformysquid.fudfid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1121,6 +1129,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E5MDC86ME;
 				INFOPLIST_FILE = FoodFeedTests/Info.plist;
@@ -1130,6 +1139,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.haight.FoodFeedTests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

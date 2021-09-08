@@ -255,19 +255,6 @@
     "day": 1,
     "bigtext": "Eggs are full of protein"
       },
-    {
-    "bigtext": "How shall I cook the eggs",
-    "votea": "Fried  ^answer^ They are sticking to the pan! ",
-    "voteb": "Scrambled ^answer^ This looks a mess",
-    "votec": "Poached ^answer^ Have I just made egg soup?",
-    "dunno": "No idea ^answer^ I'm cooking them badly",
-    "id": 30,
-    "day": 1,
-    "image": "",
-    "hashtag": "Mood",
-    "type": "Vote",
-    "user": "Guy"
-  },
      {
     "hashtag": "Birthday Breakfast",
     "user": "Guy",
