@@ -166,7 +166,6 @@ enum Personage: String{
     case Unknown
 }
 func profilePicture(who: Personage) -> UIImage{
-    print(who)
     switch who {
     case .Guy:
         return UIImage(named: "guy_profile_pic.jpeg")!
@@ -180,7 +179,6 @@ func profilePicture(who: Personage) -> UIImage{
 }
 
 func profilePicture(who: String) -> UIImage{
-    print(who)
     switch who {
     case "Guy":
         return UIImage(named: "guy_profile_pic.jpeg")!
@@ -212,7 +210,7 @@ func whoIsIt(name: String?) -> Personage{
 
 func voice(who: Personage, saying: AVSpeechUtterance) -> AVSpeechUtterance{
 
-    var utterance = saying
+    let utterance = saying
     
     switch who{
         case .Guy:

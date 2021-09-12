@@ -68,7 +68,6 @@ final class AvatarView: UIView {
     
     func update(state: State) {
         imageView.image = state.image
-        print("Avatar loading" + state.name)
     }
 }
 
@@ -505,7 +504,12 @@ final class InteractionView: UIView, UITableViewDelegate{
     var commentsView : chatBubbleView
 
     var scrollContainer = UIScrollView()
-    var commentsDriver : TimedComments?
+    
+    lazy var commentsDriver : TimedComments = {
+        let comments = TimedComments()
+        return comments
+    }()
+    
     var comments: [Comment] = []
     var commentButton = UIButton()
     var author = Personage.Unknown
@@ -535,7 +539,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     @objc func userAnswer(_ textField:UITextField ){
 
-        commentsDriver?.userComment(userComment: textField.text!)
+        commentsDriver.userComment(userComment: textField.text!)
         
         textField.placeholder =  textField.text!
         textField.text = ""
@@ -678,9 +682,9 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func triggerCommentsView(){
-        commentsDriver?.currentCaption = caption.text ?? ""
-        commentsDriver?.start()
-        commentsDriver?.didUpdateComments =
+        commentsDriver.currentCaption = caption.text ?? ""
+        commentsDriver.start()
+        commentsDriver.didUpdateComments =
             { [self]
                 comments in
                 self.comments = comments
@@ -689,7 +693,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func stopTimedComments(){
-        commentsDriver?.stop()
+        commentsDriver.stop()
     }
     
     func setUpCommentsPipeline(){
@@ -722,7 +726,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteCbutton.setTitle(voteCQ, for: .normal)
                // voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
-                commentsDriver?.stop()
+                commentsDriver.stop()
                 
                 answerInput.isHidden = true
                 sayCard.label.text = captionText
@@ -749,14 +753,13 @@ final class InteractionView: UIView, UITableViewDelegate{
                 descriptiveLabel2.isHidden = true
                 userAnswerCard.isHidden = true
                 backgroundImage.isHidden = true
-                commentsDriver?.stop()
+                commentsDriver.stop()
         }
         
         reloadHumanAvatar()
     }
     
     @objc func voted(_ sender: OptionButton) {
-        print("button Pressed")
         if sender.tag == 0 {
             
             if sender.answer != ""
@@ -1074,10 +1077,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 else{
                     id = giphy.components(separatedBy: "/").last!.components(separatedBy: "-").last!
                 }
-                
-                
-                print(id)
-                
+
                 GiphyCore.shared.gifByID(id ?? "") { (response, error) in
                     if let media = response?.data {
                         DispatchQueue.main.sync { [weak self] in
@@ -1214,8 +1214,6 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     
     @objc func videoPreferenceStated(_ sender: OptionButton) {
         
-        print("video preference stated")
-        
         if sender.tag == 0 {
           //  noButton.backgroundColor = .gray
             let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
@@ -1281,7 +1279,6 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     }
     
     @objc func  didSwipe(_ sender: UISwipeGestureRecognizer){
-        print("Swiped")
     }
    
     @objc func  textChatBack(_ sender: OptionButton) {

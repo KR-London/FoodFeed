@@ -57,7 +57,6 @@ class userAnswerView: UIView {
     
     @objc func cardTapped(){
         //mainViewController?.dismiss(animated: true, completion: nil)
-        print("card Tapped")
     }
 }
     

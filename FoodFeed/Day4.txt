@@ -594,10 +594,6 @@
     "hashtag": "",
     "type": "Text",
     "day": 4,
-    "bigtext": "Let's talk more tomorrow"
-  
-    
-  
-  
-  
+    "bigtext": "Let's talk more tomorrow" 
+    }
 ]

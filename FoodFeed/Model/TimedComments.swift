@@ -97,7 +97,6 @@ class TimedComments: CommentProvider {
     var currentCaption = ""
 
     init(){
-        print("I'm initing timed comments")
         start()
     }
     
@@ -180,7 +179,6 @@ class TimedComments: CommentProvider {
     }
     
     func userComment(userComment: String){
-       // print(userComment)
         let newComment = Comment(user: botUser.human, comment: userComment, liked: false)
         self.storedComments.append(newComment)
         timer?.invalidate()

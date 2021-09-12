@@ -22,12 +22,13 @@ var window: UIWindow?
        // let launchedBefore = false
         
       
-        day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
+       // day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
         
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
-        ///let day = 1
+      //  let day = 1
+        day = 1
         UserDefaults.standard.set(day, forKey: "Day")
    
     if storyLoading == true{
@@ -65,8 +66,6 @@ var window: UIWindow?
                         
                     }
                     do{
-                        
-                        print(newPost)
                         i = i + 1
                         try  context.save()
                         
@@ -92,7 +91,7 @@ var window: UIWindow?
 
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "Feed" ) as! FeedPageViewController
             self.window?.rootViewController = initialViewController
-
+            self.window?.isUserInteractionEnabled = true
             self.window?.makeKeyAndVisible()
 
         }
@@ -101,10 +100,11 @@ var window: UIWindow?
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             self.window = UIWindow(frame: UIScreen.main.bounds)
 
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            //let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
-            self.window?.rootViewController = initialViewController
+            //let initialViewController = storyboard.instantiateViewController(withIdentifier: "profileSetter" ) as! profileCreatorViewController
+            self.window?.rootViewController = profileCreatorViewController(frame: UIScreen.main.bounds)
+            self.window?.isUserInteractionEnabled = true
             self.window?.makeKeyAndVisible()
 
             }
@@ -112,6 +112,14 @@ var window: UIWindow?
         
         return true
     }
+    
+    
+
+ //   window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+///    window?.windowScene = windowScene
+ //   self.window?.rootViewController = profileCreatorViewController(frame: windowScene.coordinateSpace.bounds)
+    
+    
     // Lock the orientation to Portrait mode
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask(rawValue: UIInterfaceOrientationMask.portrait.rawValue)

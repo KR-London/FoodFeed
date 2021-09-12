@@ -70,7 +70,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     
     
     func triggerCommentsView(){
-        feedView.interactionView.commentsDriver = commentsDriver
+        feedView.interactionView.commentsDriver = commentsDriver!
         feedView.interactionView.triggerCommentsView()
   }
     
