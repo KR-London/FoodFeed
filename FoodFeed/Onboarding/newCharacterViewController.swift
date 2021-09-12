@@ -27,7 +27,10 @@ class newCharacterViewController: UIViewController {
                         
         utterance = AVSpeechUtterance(string: say)
         utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+       
+        if  #available(iOS 13.0, *){
         synthesizer.speak(utterance)
+        }
     }
 
 }

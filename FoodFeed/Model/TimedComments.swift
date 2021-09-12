@@ -107,7 +107,10 @@ class TimedComments: CommentProvider {
         utterance = AVSpeechUtterance(string: String(currentCaption.dropFirst().dropFirst()))
         let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
             utterance.voice =  language.first!!
+        
+        if  #available(iOS 13.0, *){
             synthesizer.speak(utterance)
+        }
         
         timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
             if storedComments.count % 5 == 0  {
@@ -123,7 +126,9 @@ class TimedComments: CommentProvider {
                     
                     utterance = AVSpeechUtterance(string: say)
                     utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+                    if  #available(iOS 13.0, *){
                     synthesizer.speak(utterance)
+                    }
                 }
 
             }
@@ -158,7 +163,9 @@ class TimedComments: CommentProvider {
                         utterance.rate = Float(0.7)
                     default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
                 }
-              synthesizer.speak(utterance)
+                if  #available(iOS 13.0, *){
+                    synthesizer.speak(utterance)
+                }
             }
             i += 1
         }
@@ -219,7 +226,9 @@ class TimedComments: CommentProvider {
                     utterance.rate = Float(0.7)
                 default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
             }
-          synthesizer.speak(utterance)
+            if  #available(iOS 13.0, *){
+                synthesizer.speak(utterance)
+            }
         }
     }
     

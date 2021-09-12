@@ -154,7 +154,9 @@ class FeedPageViewController:
 
             utterance = voice(who: viewController.voiceOver().1, saying: utterance)
             
-            synthesizer.speak(utterance)
+            if  #available(iOS 13.0, *){
+                synthesizer.speak(utterance)
+            }
             
             presenter.updateFeedIndex(fromIndex: viewController.index)
            

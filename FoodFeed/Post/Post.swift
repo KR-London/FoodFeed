@@ -832,6 +832,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             dunno.isPicked = true
         }
         
+        if  #available(iOS 13.0, *){
         ///FIXME: put author through to here
         if let say = sayCard.label.text
         {
@@ -839,6 +840,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             utterance = voice(who: .Unknown, saying: utterance)
             
             synthesizer.speak(utterance)
+        }
         }
     }
 }
@@ -1298,9 +1300,11 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             var utterance = AVSpeechUtterance()
             
             utterance = AVSpeechUtterance(string: sender.answer)
-
+            
+            if  #available(iOS 13.0, *){
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 synthesizer.speak(utterance)
+            }
             }
            
             //FIXME: don't trigger if user changed
