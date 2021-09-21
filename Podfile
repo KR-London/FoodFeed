@@ -7,6 +7,8 @@ target 'FoodFeed' do
   pod "youtube-ios-player-helper"
   pod 'Giphy' 
 
+  end
+  
   # Pods for FoodFeed
 
   target 'FoodFeedTests' do
@@ -18,4 +20,4 @@ target 'FoodFeed' do
     # Pods for testing
   end
 
-end
+

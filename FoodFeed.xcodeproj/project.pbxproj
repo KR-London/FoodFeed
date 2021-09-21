@@ -14,15 +14,14 @@
 		2C48B687266D59A00092D5E1 /* OptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B686266D59A00092D5E1 /* OptionButton.swift */; };
 		2C48B689266D59BF0092D5E1 /* RaspberryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B688266D59BF0092D5E1 /* RaspberryButton.swift */; };
 		2C48B68B266D67DF0092D5E1 /* NotSureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C48B68A266D67DF0092D5E1 /* NotSureButton.swift */; };
-		31CA2A8A15AAA1CF833C2597 /* Pods_FoodFeed_FoodFeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */; };
-		375B9C20ACCCF72594BFCE29 /* Pods_FoodFeedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */; };
+		32AF2AFE983970A84F5C6493 /* libPods-FoodFeedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7116F32C798521F535D07BE2 /* libPods-FoodFeedTests.a */; };
 		4402B09326E3BA6A005504A4 /* rejectedScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402B09226E3BA6A005504A4 /* rejectedScript.swift */; };
 		4402B09526E3BE55005504A4 /* lowIron.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4402B09426E3BE55005504A4 /* lowIron.gif */; };
 		440C3273268DBD27007D70C6 /* Day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3272268DBD27007D70C6 /* Day2.txt */; };
 		440C3278268DBD33007D70C6 /* Day4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3277268DBD33007D70C6 /* Day4.txt */; };
 		440C327D268DBD3B007D70C6 /* Day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C327C268DBD3B007D70C6 /* Day5.txt */; };
-		44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DAD26AC8A98006156B6 /* Alamofire */; };
-		44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DB026AC8C07006156B6 /* AlamofireImage */; };
+		44327DAE26AC8A98006156B6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DAD26AC8A98006156B6 /* SwiftPackageProductDependency */; };
+		44327DB126AC8C07006156B6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DB026AC8C07006156B6 /* SwiftPackageProductDependency */; };
 		44327DB326AC99C2006156B6 /* imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327DB226AC99C2006156B6 /* imageCache.swift */; };
 		44539A1826B1BF0000642875 /* Day7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44539A1726B1BF0000642875 /* Day7.txt */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
@@ -62,13 +61,13 @@
 		4493EB1D2672D70100D8258A /* Day1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4493EB1C2672D70100D8258A /* Day1.txt */; };
 		44A119F426ADE70F003961FB /* GifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A119F326ADE70F003961FB /* GifViewController.swift */; };
 		44A766DF2608A1BC00EBC9AD /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A766DE2608A1BC00EBC9AD /* testViewController.swift */; };
-		44A76757260A284900EBC9AD /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44A76756260A284900EBC9AD /* SoftUIView */; };
+		44A76757260A284900EBC9AD /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44A76756260A284900EBC9AD /* SwiftPackageProductDependency */; };
 		44A813202583926D00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813242583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813252583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B189F125F5333800A94028 /* commentTableViewController.swift */; };
 		44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F225F5333800A94028 /* commentTableViewController.xib */; };
-		44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftyGif */; };
+		44B32EBD2610F0200030C88C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftPackageProductDependency */; };
 		44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B32ED0261106AA0030C88C /* uiTestViewController.swift */; };
 		44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */; };
 		44C3DEB42520B76000D317DA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEB32520B76000D317DA /* Feed.swift */; };
@@ -102,6 +101,7 @@
 		65D07A3324F816C5004CA3E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D07A3124F816C5004CA3E9 /* LaunchScreen.storyboard */; };
 		65D07A3E24F816C5004CA3E9 /* FoodFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A3D24F816C5004CA3E9 /* FoodFeedTests.swift */; };
 		65D07A4924F816C5004CA3E9 /* FoodFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D07A4824F816C5004CA3E9 /* FoodFeedUITests.swift */; };
+		DFE29D99F47A7755719F60F1 /* libPods-FoodFeedUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D24C454D7F080046C40B0D /* libPods-FoodFeedUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,7 +124,6 @@
 /* Begin PBXFileReference section */
 		05FAA69704E3C1134E330262 /* Pods-FoodFeed-FoodFeedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeed-FoodFeedUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeed-FoodFeedUITests/Pods-FoodFeed-FoodFeedUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0EF9A9275321D6C23D43CFE4 /* Pods-FoodFeedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodFeedTests/Pods-FoodFeedTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodFeedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215E84DBD1B31738775EE115 /* Pods-FoodFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeed.release.xcconfig"; path = "Target Support Files/Pods-FoodFeed/Pods-FoodFeed.release.xcconfig"; sourceTree = "<group>"; };
 		2C48B633266D31460092D5E1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2C48B635266D32F00092D5E1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -206,6 +205,7 @@
 		44E768F6264ABD6800AD75FE /* fed_up.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fed_up.gif; sourceTree = "<group>"; };
 		44E768FE264ABDEE00AD75FE /* frustrated_stone_kick.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = frustrated_stone_kick.gif; sourceTree = "<group>"; };
 		44F1918724F8CF7300DC5718 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		552832F491041E49287D79E1 /* Pods-FoodFeedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodFeedUITests/Pods-FoodFeedUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6536A647256185B3006D7297 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		659F112A2562A4BA00E5C8B1 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		65D07A1E24F816C2004CA3E9 /* FoodFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,8 +223,10 @@
 		65D07A4824F816C5004CA3E9 /* FoodFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodFeedUITests.swift; sourceTree = "<group>"; };
 		65D07A4A24F816C5004CA3E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66C900D4B54BEA33AFB6F6C1 /* Pods_FoodFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodFeed_FoodFeedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7116F32C798521F535D07BE2 /* libPods-FoodFeedTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodFeedTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94D24C454D7F080046C40B0D /* libPods-FoodFeedUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodFeedUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C648C0FD76AAA3028724C2 /* Pods-FoodFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeed.debug.xcconfig"; path = "Target Support Files/Pods-FoodFeed/Pods-FoodFeed.debug.xcconfig"; sourceTree = "<group>"; };
+		E9159AD9E8826BCC342C355C /* Pods-FoodFeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeedUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodFeedUITests/Pods-FoodFeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA709B3D01B75633CBAF47FA /* Pods-FoodFeed-FoodFeedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodFeed-FoodFeedUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodFeed-FoodFeedUITests/Pods-FoodFeed-FoodFeedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,11 +235,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */,
-				44A76757260A284900EBC9AD /* SoftUIView in Frameworks */,
-				44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */,
+				44327DAE26AC8A98006156B6 /* BuildFile in Frameworks */,
+				44A76757260A284900EBC9AD /* BuildFile in Frameworks */,
+				44B32EBD2610F0200030C88C /* BuildFile in Frameworks */,
 				1721F46DF48FAF123BB2AA8B /* Pods_FoodFeed.framework in Frameworks */,
-				44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */,
+				44327DB126AC8C07006156B6 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +247,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				375B9C20ACCCF72594BFCE29 /* Pods_FoodFeedTests.framework in Frameworks */,
+				32AF2AFE983970A84F5C6493 /* libPods-FoodFeedTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31CA2A8A15AAA1CF833C2597 /* Pods_FoodFeed_FoodFeedUITests.framework in Frameworks */,
+				DFE29D99F47A7755719F60F1 /* libPods-FoodFeedUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,8 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				66C900D4B54BEA33AFB6F6C1 /* Pods_FoodFeed.framework */,
-				8721627DC83B350892C79754 /* Pods_FoodFeed_FoodFeedUITests.framework */,
-				1DEC3034C3958020CE08143F /* Pods_FoodFeedTests.framework */,
+				7116F32C798521F535D07BE2 /* libPods-FoodFeedTests.a */,
+				94D24C454D7F080046C40B0D /* libPods-FoodFeedUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,6 +281,8 @@
 				05FAA69704E3C1134E330262 /* Pods-FoodFeed-FoodFeedUITests.release.xcconfig */,
 				0EF9A9275321D6C23D43CFE4 /* Pods-FoodFeedTests.debug.xcconfig */,
 				389BAF189938748AB77F9D37 /* Pods-FoodFeedTests.release.xcconfig */,
+				E9159AD9E8826BCC342C355C /* Pods-FoodFeedUITests.debug.xcconfig */,
+				552832F491041E49287D79E1 /* Pods-FoodFeedUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -565,10 +569,10 @@
 			);
 			name = FoodFeed;
 			packageProductDependencies = (
-				44A76756260A284900EBC9AD /* SoftUIView */,
-				44B32EBC2610F0200030C88C /* SwiftyGif */,
-				44327DAD26AC8A98006156B6 /* Alamofire */,
-				44327DB026AC8C07006156B6 /* AlamofireImage */,
+				44A76756260A284900EBC9AD /* SwiftPackageProductDependency */,
+				44B32EBC2610F0200030C88C /* SwiftPackageProductDependency */,
+				44327DAD26AC8A98006156B6 /* SwiftPackageProductDependency */,
+				44327DB026AC8C07006156B6 /* SwiftPackageProductDependency */,
 			);
 			productName = FoodFeed;
 			productReference = 65D07A1E24F816C2004CA3E9 /* FoodFeed.app */;
@@ -601,7 +605,6 @@
 				65D07A4024F816C5004CA3E9 /* Sources */,
 				65D07A4124F816C5004CA3E9 /* Frameworks */,
 				65D07A4224F816C5004CA3E9 /* Resources */,
-				C4428F4A99B9B9B8501D7EDC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -646,10 +649,10 @@
 			);
 			mainGroup = 65D07A1524F816C2004CA3E9;
 			packageReferences = (
-				44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */,
-				44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
-				44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				44A76755260A284900EBC9AD /* RemoteSwiftPackageReference */,
+				44B32EBB2610F0200030C88C /* RemoteSwiftPackageReference */,
+				44327DAC26AC8A98006156B6 /* RemoteSwiftPackageReference */,
+				44327DAF26AC8C07006156B6 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 65D07A1F24F816C2004CA3E9 /* Products */;
 			projectDirPath = "";
@@ -767,7 +770,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodFeed-FoodFeedUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FoodFeedUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -811,23 +814,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodFeed/Pods-FoodFeed-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C4428F4A99B9B9B8501D7EDC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodFeed-FoodFeedUITests/Pods-FoodFeed-FoodFeedUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodFeed-FoodFeedUITests/Pods-FoodFeed-FoodFeedUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodFeed-FoodFeedUITests/Pods-FoodFeed-FoodFeedUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1149,7 +1135,7 @@
 		};
 		65D07A5424F816C5004CA3E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA709B3D01B75633CBAF47FA /* Pods-FoodFeed-FoodFeedUITests.debug.xcconfig */;
+			baseConfigurationReference = E9159AD9E8826BCC342C355C /* Pods-FoodFeedUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1170,7 +1156,7 @@
 		};
 		65D07A5524F816C5004CA3E9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05FAA69704E3C1134E330262 /* Pods-FoodFeed-FoodFeedUITests.release.xcconfig */;
+			baseConfigurationReference = 552832F491041E49287D79E1 /* Pods-FoodFeedUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1231,7 +1217,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		44327DAC26AC8A98006156B6 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1239,7 +1225,7 @@
 				minimumVersion = 5.4.0;
 			};
 		};
-		44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+		44327DAF26AC8C07006156B6 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
 			requirement = {
@@ -1247,7 +1233,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
+		44A76755260A284900EBC9AD /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/SoftUIView.git";
 			requirement = {
@@ -1255,7 +1241,7 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
+		44B32EBB2610F0200030C88C /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
 			requirement = {
@@ -1266,24 +1252,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		44327DAD26AC8A98006156B6 /* Alamofire */ = {
+		44327DAD26AC8A98006156B6 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 44327DAC26AC8A98006156B6 /* RemoteSwiftPackageReference */;
 			productName = Alamofire;
 		};
-		44327DB026AC8C07006156B6 /* AlamofireImage */ = {
+		44327DB026AC8C07006156B6 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			package = 44327DAF26AC8C07006156B6 /* RemoteSwiftPackageReference */;
 			productName = AlamofireImage;
 		};
-		44A76756260A284900EBC9AD /* SoftUIView */ = {
+		44A76756260A284900EBC9AD /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */;
+			package = 44A76755260A284900EBC9AD /* RemoteSwiftPackageReference */;
 			productName = SoftUIView;
 		};
-		44B32EBC2610F0200030C88C /* SwiftyGif */ = {
+		44B32EBC2610F0200030C88C /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			package = 44B32EBB2610F0200030C88C /* RemoteSwiftPackageReference */;
 			productName = SwiftyGif;
 		};
 /* End XCSwiftPackageProductDependency section */

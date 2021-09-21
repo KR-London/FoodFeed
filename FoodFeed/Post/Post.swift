@@ -2,7 +2,7 @@ import Foundation
 import AVFoundation
 import AVKit
 import UIKit
-import Speech
+//import Speech
 import SoftUIView
 import SwiftyGif
 import CoreData
@@ -514,8 +514,8 @@ final class InteractionView: UIView, UITableViewDelegate{
     var commentButton = UIButton()
     var author = Personage.Unknown
     
-    let synthesizer = AVSpeechSynthesizer()
-    var utterance = AVSpeechUtterance()
+    //let synthesizer = AVSpeechSynthesizer()
+   // var utterance = AVSpeechUtterance()
     
     override init(frame: CGRect) {
         let screenRect = UIScreen.main.bounds
@@ -667,10 +667,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         bringSubviewToFront(buttonStack)
     }
     
-    func pause(){
-        synthesizer.pauseSpeaking(at: .immediate)
-    }
-    
+//    func pause(){
+//        synthesizer.pauseSpeaking(at: .immediate)
+//    }
+//
     func reloadHumanAvatar(){
         humanAvatar.imageView.image = botUser.human.profilePic
     }
@@ -685,10 +685,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         commentsDriver.currentCaption = caption.text ?? ""
         commentsDriver.start()
         commentsDriver.didUpdateComments =
-            { [self]
+            { [weak self]
                 comments in
-                self.comments = comments
-                self.commentsView.reloadData(comment: comments.last!)
+                self?.comments = comments
+                self?.commentsView.reloadData(comment: comments.last!)
             }
     }
     
@@ -834,13 +834,13 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         if  #available(iOS 13.0, *){
         ///FIXME: put author through to here
-        if let say = sayCard.label.text
-        {
-            utterance = AVSpeechUtterance(string: say)
-            utterance = voice(who: .Unknown, saying: utterance)
-            
-            synthesizer.speak(utterance)
-        }
+//        if let say = sayCard.label.text
+//        {
+//            utterance = AVSpeechUtterance(string: say)
+//            utterance = voice(who: .Unknown, saying: utterance)
+//            
+//            synthesizer.speak(utterance)
+//        }
         }
     }
 }
@@ -1296,25 +1296,25 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             let bigTextStyled = NSAttributedString(string: sender.answer, attributes: attrs)
             label.attributedText = bigTextStyled
             
-            let synthesizer = AVSpeechSynthesizer()
-            var utterance = AVSpeechUtterance()
-            
-            utterance = AVSpeechUtterance(string: sender.answer)
-            
-            if  #available(iOS 13.0, *){
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                synthesizer.speak(utterance)
-            }
-            }
-           
-            //FIXME: don't trigger if user changed
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                
-                if self.swipedAway == false {
-                    NotificationCenter.default.post(name: .goForwardsNotification, object: nil)
-                }
-               
-            }
+//            let synthesizer = AVSpeechSynthesizer()
+//            var utterance = AVSpeechUtterance()
+//            
+//            utterance = AVSpeechUtterance(string: sender.answer)
+//            
+//            if  #available(iOS 13.0, *){
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                synthesizer.speak(utterance)
+//            }
+//            }
+//           
+//            //FIXME: don't trigger if user changed
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                
+//                if self.swipedAway == false {
+//                    NotificationCenter.default.post(name: .goForwardsNotification, object: nil)
+//                }
+//               
+//            }
             
         }
         if sender.tag == 1 {

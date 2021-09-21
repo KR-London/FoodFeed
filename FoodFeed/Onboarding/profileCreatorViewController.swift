@@ -475,9 +475,9 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
                 }
             }
             
-            imagePicker.dismiss(animated: true){ [self] in profilePictureImageView.image = image
+        imagePicker.dismiss(animated: true){ [weak self] in self?.profilePictureImageView.image = self?.image
                 
-                botUser.human = User(name: nameEntry.text ?? "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
+            botUser.human = User(name: self?.nameEntry.text ?? "Maxwell", profilePic: self?.profilePictureImageView.image, personalQualities: nil )
             }
         }
         

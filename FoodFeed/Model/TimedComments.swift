@@ -6,7 +6,7 @@
 
 import Foundation
 import UIKit
-import Speech
+//import Speech
 
 struct User{
     let name: String
@@ -91,8 +91,8 @@ class TimedComments: CommentProvider {
     var ladyBookComments = ["Large portions", "Pressure", "People watching", "Music", "Noise", "Food touching", "Hidden stuff in my food", "Nagging", "Smells", "Different plates"]
     var guyComments = ["Oh yes?", "More ideas?", "Ha ha!", "I feel understood!", "That drives me mad too!"]
     
-    let synthesizer = AVSpeechSynthesizer()
-    var utterance = AVSpeechUtterance()
+//    let synthesizer = AVSpeechSynthesizer()
+//    var utterance = AVSpeechUtterance()
     
     var currentCaption = ""
 
@@ -104,68 +104,68 @@ class TimedComments: CommentProvider {
     {
         stop()
         var i = 0
-        utterance = AVSpeechUtterance(string: String(currentCaption.dropFirst().dropFirst()))
-        let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-            utterance.voice =  language.first!!
-        
-        if  #available(iOS 13.0, *){
-            synthesizer.speak(utterance)
-        }
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
-            if storedComments.count % 5 == 0  {
-                if currentCaption.isEmpty {
+//        utterance = AVSpeechUtterance(string: String(currentCaption.dropFirst().dropFirst()))
+//        let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
+//            utterance.voice =  language.first!!
+//        
+//        if  #available(iOS 13.0, *){
+//            synthesizer.speak(utterance)
+//        }
+//        
+        timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [weak self] tim in
+            if self?.storedComments.count ?? 0  % 5 == 0  {
+                if self?.currentCaption.isEmpty ?? false {
                     print("")
                 }
                 else{
-                    let newComment = Comment(user: botUser.guy, comment: guyComments.randomElement()!, liked: false)
+                    let newComment = Comment(user: botUser.guy, comment: self?.guyComments.randomElement() ?? "", liked: false)
                     //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
-                    self.storedComments.append(newComment )
+                    self?.storedComments.append(newComment )
                     
-                    let say =  newComment.comment
-                    
-                    utterance = AVSpeechUtterance(string: say)
-                    utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                    if  #available(iOS 13.0, *){
-                    synthesizer.speak(utterance)
-                    }
+//                    let say =  newComment.comment
+//
+//                    self.utterance = AVSpeechUtterance(string: say)
+//                    utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+//                    if  #available(iOS 13.0, *){
+//                    synthesizer.speak(utterance)
+//                    }
                 }
 
             }
             else {
                 let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
 
-                let newComment = Comment(user: bot, comment: botAnswers[String(currentCaption.dropFirst().dropFirst())]?.randomElement()! ?? "", liked: false)
+                let newComment = Comment(user: bot, comment: botAnswers[String(self?.currentCaption.dropFirst().dropFirst() ?? "default answer")]?.randomElement()! ?? "", liked: false)
 
-                self.storedComments.append(newComment )
+                self?.storedComments.append(newComment )
 
-                let say =  newComment.comment
-
-                utterance = AVSpeechUtterance(string: say)
-                utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-                utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-
-                switch bot.name{
-                    case botUser.alexis.name:
-                        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                        utterance.pitchMultiplier = Float(1)
-                        utterance.rate = Float(0.5)
-                    case botUser.emery.name:
-                        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                        utterance.pitchMultiplier = Float(1.1)
-                        utterance.rate = Float(0.4)
-                    case botUser.fred.name:
-                        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-                        utterance.pitchMultiplier = Float(1.4)
-                        utterance.rate = Float(0.6)
-                    case botUser.tony.name: utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
-                        utterance.pitchMultiplier = Float(1.5)
-                        utterance.rate = Float(0.7)
-                    default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
-                }
-                if  #available(iOS 13.0, *){
-                    synthesizer.speak(utterance)
-                }
+//                let say =  newComment.comment
+//
+//                utterance = AVSpeechUtterance(string: say)
+//                utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+//                utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+//
+//                switch bot.name{
+//                    case botUser.alexis.name:
+//                        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+//                        utterance.pitchMultiplier = Float(1)
+//                        utterance.rate = Float(0.5)
+//                    case botUser.emery.name:
+//                        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//                        utterance.pitchMultiplier = Float(1.1)
+//                        utterance.rate = Float(0.4)
+//                    case botUser.fred.name:
+//                        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+//                        utterance.pitchMultiplier = Float(1.4)
+//                        utterance.rate = Float(0.6)
+//                    case botUser.tony.name: utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
+//                        utterance.pitchMultiplier = Float(1.5)
+//                        utterance.rate = Float(0.7)
+//                    default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
+//                }
+//                if  #available(iOS 13.0, *){
+//                    synthesizer.speak(utterance)
+//                }
             }
             i += 1
         }
@@ -195,40 +195,40 @@ class TimedComments: CommentProvider {
     func respondToUser(userComment: String){
         var i = 0
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [self] tim in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [weak self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
-            let newComment = Comment(user: bot, comment: botAnswersToHuman(userComment: userComment, key: currentCaption), liked: false)
+            let newComment = Comment(user: bot, comment: botAnswersToHuman(userComment: userComment, key: self?.currentCaption ?? "default value 2"), liked: false)
 
-            self.storedComments.append(newComment)
+            self?.storedComments.append(newComment)
             i += 1
             
-            let say =  newComment.comment
-            
-            utterance = AVSpeechUtterance(string: say)
-            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-            
-            switch bot.name{
-                case botUser.alexis.name:
-                    utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                    utterance.pitchMultiplier = Float(1)
-                    utterance.rate = Float(0.5)
-                case botUser.emery.name:
-                    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                    utterance.pitchMultiplier = Float(1.1)
-                    utterance.rate = Float(0.4)
-                case botUser.fred.name:
-                    utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-                    utterance.pitchMultiplier = Float(1.4)
-                    utterance.rate = Float(0.6)
-                case botUser.tony.name: utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
-                    utterance.pitchMultiplier = Float(1.5)
-                    utterance.rate = Float(0.7)
-                default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
-            }
-            if  #available(iOS 13.0, *){
-                synthesizer.speak(utterance)
-            }
+//            let say =  newComment.comment
+//
+//            utterance = AVSpeechUtterance(string: say)
+//            utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+//            utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+//
+//            switch bot.name{
+//                case botUser.alexis.name:
+//                    utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+//                    utterance.pitchMultiplier = Float(1)
+//                    utterance.rate = Float(0.5)
+//                case botUser.emery.name:
+//                    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//                    utterance.pitchMultiplier = Float(1.1)
+//                    utterance.rate = Float(0.4)
+//                case botUser.fred.name:
+//                    utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+//                    utterance.pitchMultiplier = Float(1.4)
+//                    utterance.rate = Float(0.6)
+//                case botUser.tony.name: utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
+//                    utterance.pitchMultiplier = Float(1.5)
+//                    utterance.rate = Float(0.7)
+//                default: utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
+//            }
+//            if  #available(iOS 13.0, *){
+//                synthesizer.speak(utterance)
+//            }
         }
     }
     

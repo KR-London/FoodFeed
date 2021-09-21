@@ -208,37 +208,37 @@ func whoIsIt(name: String?) -> Personage{
 }
 
 
-func voice(who: Personage, saying: AVSpeechUtterance) -> AVSpeechUtterance{
-
-    let utterance = saying
-    
-    switch who{
-        case .Guy:
-            utterance.pitchMultiplier = Float(0.9)
-            utterance.rate = Float(0.5)
-            let language = AVSpeechSynthesisVoice(language: "en-US")
-            utterance.voice =  language
-            return utterance
-        case .DG:
-            utterance.pitchMultiplier = Float(0.7)
-            utterance.rate = Float(0.5)
-            let language = AVSpeechSynthesisVoice(language: "en-US")
-            utterance.voice =  language
-            return utterance
-        case .Avery:
-            utterance.pitchMultiplier = Float(1.1)
-            utterance.rate = Float(0.6)
-            let language = AVSpeechSynthesisVoice(language: "en-IE")
-            utterance.voice =  language
-            return utterance
-        case .Brock:
-            utterance.pitchMultiplier = Float(0.7)
-            utterance.rate = Float(0.5)
-            let language = AVSpeechSynthesisVoice(language: "en-AU")
-            utterance.voice =  language
-            return utterance
-        default:
-            print("Unknown voice")
-    } 
-    return saying
-}
+//func voice(who: Personage, saying: AVSpeechUtterance) -> AVSpeechUtterance{
+//
+//    let utterance = saying
+//    
+//    switch who{
+//        case .Guy:
+//            utterance.pitchMultiplier = Float(0.9)
+//            utterance.rate = Float(0.5)
+//            let language = AVSpeechSynthesisVoice(language: "en-US")
+//            utterance.voice =  language
+//            return utterance
+//        case .DG:
+//            utterance.pitchMultiplier = Float(0.7)
+//            utterance.rate = Float(0.5)
+//            let language = AVSpeechSynthesisVoice(language: "en-US")
+//            utterance.voice =  language
+//            return utterance
+//        case .Avery:
+//            utterance.pitchMultiplier = Float(1.1)
+//            utterance.rate = Float(0.6)
+//            let language = AVSpeechSynthesisVoice(language: "en-IE")
+//            utterance.voice =  language
+//            return utterance
+//        case .Brock:
+//            utterance.pitchMultiplier = Float(0.7)
+//            utterance.rate = Float(0.5)
+//            let language = AVSpeechSynthesisVoice(language: "en-AU")
+//            utterance.voice =  language
+//            return utterance
+//        default:
+//            print("Unknown voice")
+//    } 
+//    return saying
+//}
