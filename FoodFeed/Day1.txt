@@ -1,10 +1,4 @@
-[       {
-    "id": 20,
-    "hashtag": "Support",
-    "day": 1,
-    "caption": "What are nice things to eat for breakfast?",
-    "type": "Question"
-  },
+[  
 {
     "user": "Avery",
     "id": 6,
@@ -101,14 +95,6 @@
     "voteb": "So?  ^answer^ Birthdays matter!"
   },
 {
-  "id": 13,
-     "hashtag": "Mum's Birthday",
-  "type": "Gif",
-  "day": 1,
-  "gif": "https://media.giphy.com/media/IFjSbBHETzzr6GJdwW/giphy.gif",
-  "user": "Guy"
-},
-{
     "user": "Guy",
     "id": 14,
     "hashtag": "Mum's Birthday",
@@ -190,16 +176,6 @@
     "day": 1,
     "bigtext": "Does that mean I have to get up and cook …?"
       },
-    {
-    "hashtag": "Mum Birthday",
-    "user": "Guy",
-    "id": 23,
-    "caption": "Waking up",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1556703588-6eae2585e025?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
-    "creator credit": "https://unsplash.com/@dyuha"
-  },
         {
     "user": "Guy",
     "id": 24,
@@ -216,26 +192,7 @@
     "day": 1,
     "bigtext": "I need a plan .. "
       },
-   {
-    "hashtag": "Mum Birthday",
-    "user": "Guy",
-    "id": 26,
-    "caption": "Mum Birthday",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1599508704512-2f19efd1e35f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80",
-    "creator credit": "https://unsplash.com/@simonesecci"
-  },
-     {
-    "hashtag": "Birthday",
-    "user": "Guy",
-    "id": 27,
-    "caption": "Birthday Breakfast",
-    "type": "Gif",
-    "day": 1,
-    "gif": "https://media.giphy.com/media/RJo3cWQCtYWCdaMBP4/giphy.gif",
-    "creator credit": "https://giphy.com/channel/Sigruncom"
-  }, {
+{
     "user": "Guy",
     "id": 24,
     "hashtag": "Birthday Breakfast",
@@ -243,16 +200,6 @@
     "day": 1,
     "bigtext": "Eggs on toast!"
       },
-  {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 28,
-    "caption": "Birthday Breakfast",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1617054240991-b0ffce6600da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80",
-    "creator credit": "https://unsplash.com/@priscilladupreez"
-  },
    {
     "user": "Guy",
     "id": 29,
@@ -261,48 +208,7 @@
     "day": 1,
     "bigtext": "Eggs are full of protein"
       },
-     {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 28,
-    "caption": "Birthday Breakfast",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1551185618-e4af39c51a99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2686&q=80",
-    "creator credit": "https://unsplash.com/@alphabetania"
-  },
-    {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 28,
-    "caption": "Birthday Breakfast",
-    "type": "Gif",
-    "day": 1,
-    "gif": "https://media.giphy.com/media/25PkdXYzOj4cmRshNH/giphy.gif",
-    "creator credit": "https://giphy.com/channel/CBeebiesHQ"
-  }
-  ,
-    {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 28,
-    "caption": "Birthday Breakfast",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1617054221164-6b91d54c536d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=80",
-    "creator credit": "https://unsplash.com/@priscilladupreez"
-  },
-    {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 28,
-    "caption": "Birthday Breakfast",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1591506317034-7169164238a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2530&q=80",
-    "creator credit": "https://unsplash.com/@karngraphya"
-  },
-   {
+         {
     "user": "Guy",
     "id": 31,
     "hashtag": "Birthday Breakfast",
@@ -424,15 +330,6 @@
     "type": "Text",
     "day":1,
     "bigtext": "Mix up the batter"
-  },   {
-    "hashtag": "Birthday Breakfas",
-    "user": "Guy",
-    "id": 45,
-    "caption": "Pan on heat…",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1593143305531-206b4ca09233?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
-    "creator credit": "https://unsplash.com/@donovan_valdivia"
   },
         {
     "user": "Guy",
@@ -441,16 +338,6 @@
     "type": "Text",
     "day":1,
     "bigtext": "Pan on heat…"
-  },
-    {
-    "hashtag": "Birthday Breakfas",
-    "user": "Guy",
-    "id": 47,
-    "caption": "Pan on heat…",
-    "type": "Image",
-    "day": 1,
-    "image": "https://images.unsplash.com/photo-1592156328757-ae2941276b2c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80",
-    "creator credit": "https://unsplash.com/@cookerking"
   },
           {
     "user": "Guy",
@@ -491,16 +378,6 @@
     "type": "Text",
     "day":1,
     "bigtext": "This one is looking better"
-  },
-      {
-    "hashtag": "Birthday Breakfast",
-    "user": "Guy",
-    "id": 54,
-    "caption": "Birthday Breakfast",
-    "type": "Gif",
-    "day": 1,
-    "gif": "https://media.giphy.com/media/a3lZcbkBdySqY/giphy.gif",
-    "creator credit": "https://www.reddit.com/r/oddlysatisfying/comments/6j0qhd/flipping_a_pancake/"
   },
     {
     "user": "Guy",
@@ -570,14 +447,6 @@
     "day":1,
     "bigtext": "On the ceiling!"
   },
-  {
-  "id": 63,
-  "hashtag": "Mood",
-  "type": "Gif",
-  "day": 1,
-   "gif": "https://media.giphy.com/media/ff0dv4KMGxjna/giphy.gif",
-   "user": "Guy"
-},
  {
     "user": "Guy",
     "id": 64,
@@ -586,16 +455,6 @@
     "day":1,
     "bigtext": "You have to laugh!"
   },
- {
-    "user": "Guy",
-    "id": 64,
-    "hashtag": "Birthday Breakfast",
-    "type": "Gif",
-    "day":1,
-    "gif": "https://media.giphy.com/media/8lHo1afMq2tUO8N4YY/giphy.gif",
-    "creator credit": "https://www.reddit.com/r/HighQualityGifs/comments/7yvkj3/my_team_at_work_made_this_pancake_loop_last_week/"
-  }
-  ,
  {
     "user": "Guy",
     "id": 64,

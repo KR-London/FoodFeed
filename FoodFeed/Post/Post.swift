@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireImage
 import GiphyUISDK
 
-let humanAvatar = AvatarView()
+//let humanAvatar : AvatarView?
 
 @IBDesignable
 final class AvatarView: UIView {
@@ -103,7 +103,7 @@ class PostView: UIView {
     let stackView = UIStackView()
     let controlsStack = UIStackView()
     let pageTitleHashtag = UILabel.titleLabel()
-    let avatarView = AvatarView()
+    let avatarView =  AvatarView()
     let mediaView = MediaView()
     let interactionView = InteractionView()
     let settingsButton = UIButton()
@@ -170,7 +170,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
-               self.bringSubviewToFront(mediaView)
+                self.bringSubviewToFront(mediaView)
                 pageTitleHashtag.text = hashtag
             case .poll(let caption, let votea, let voteb, let votec, let hashtag, let who):
                 let profilePic = profilePicture(who: who)
@@ -189,6 +189,7 @@ class PostView: UIView {
                     interaction: InteractionView.State(caption: caption),
                     tag: hashtag
                 ))
+                interactionView.setUpCommentsView()
                 say = caption
             default: return
         }
@@ -199,6 +200,11 @@ class PostView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setup()
+    }
+    
+    deinit{
+        //self.mediaView
+        //self.avatarView = nil
     }
     
     func setup(feed: Feed) {
@@ -494,14 +500,15 @@ final class InteractionView: UIView, UITableViewDelegate{
     let backgroundImage = UIImageView()
     var thirdScreenHeight = CGFloat(100.0)
     var heightLayoutUnit = CGFloat(100.0)
-    var sayCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
+   // var sayCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
+    var sayCard : chatBubbleView?
     var descriptiveLabel = UILabel()
     var userAnswerCard = userAnswerView(frame:  CGRect(x: 20, y: 20, width: 100, height: 100), user: botUser.human)
     let descriptiveLabel2 = UILabel()
     let buttonStack = UIStackView()
     
     static let reuseID = "CELL"
-    weak var commentsView : chatBubbleView?
+    var commentsView : chatBubbleView?
 
     var scrollContainer = UIScrollView()
     
@@ -519,7 +526,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         let widthLayoutUnit = screenRect.size.width - 40
         heightLayoutUnit = 0.9*(screenRect.size.width / 3)
         thirdScreenHeight = screenRect.size.height / 3
-        commentsView =  chatBubbleView(frame:  CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 - 10 , width: widthLayoutUnit - 20, height: heightLayoutUnit), user: nil)
+     //   commentsView =  chatBubbleView(frame:  CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 - 10 , width: widthLayoutUnit - 20, height: heightLayoutUnit), user: nil)
 
         super.init(frame: frame)
 
@@ -527,8 +534,7 @@ final class InteractionView: UIView, UITableViewDelegate{
 }
     
     required init?(coder: NSCoder) {
-        commentsView = chatBubbleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
-        commentsView.doYouWantProfilePicture = true
+        
         super.init(coder: coder)
        
         setup()
@@ -618,7 +624,7 @@ final class InteractionView: UIView, UITableViewDelegate{
         self.addSubview(descriptiveLabel)
         
         sayCard = chatBubbleView(frame:  CGRect(x: 40, y: (thirdScreenHeight - heightLayoutUnit)/2 + 50, width: widthLayoutUnit - 20, height: heightLayoutUnit), user: botUser.guy)
-        self.addSubview(sayCard)
+        self.addSubview(sayCard!)
         
         userAnswerCard = userAnswerView(frame:  CGRect(x: 40, y: thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 + 25, width: widthLayoutUnit - 20, height: heightLayoutUnit), user: botUser.human)
         self.addSubview(userAnswerCard)
@@ -649,17 +655,14 @@ final class InteractionView: UIView, UITableViewDelegate{
 
         self.addSubview(scrollContainer)
         scrollContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(thirdScreenHeight - heightLayoutUnit)/2 ).isActive = true
-        scrollContainer.heightAnchor.constraint(equalTo: sayCard.heightAnchor).isActive = true
+        scrollContainer.heightAnchor.constraint(equalTo: sayCard!.heightAnchor).isActive = true
         scrollContainer.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         scrollContainer.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         scrollContainer.backgroundColor = .green
         scrollContainer.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2000)
         
-        setUpCommentsView()
-        commentsView.doYouWantProfilePicture = true
-        
-        commentsView.backgroundColor = .clear
-        
+        //setUpCommentsView()
+
         bringSubviewToFront(answerInput)
         bringSubviewToFront(buttonStack)
     }
@@ -668,14 +671,18 @@ final class InteractionView: UIView, UITableViewDelegate{
 //        synthesizer.pauseSpeaking(at: .immediate)
 //    }
 //
-    func reloadHumanAvatar(){
-        humanAvatar.imageView.image = botUser.human.profilePic
-    }
+//    func reloadHumanAvatar(){
+//        humanAvatar.imageView.image = botUser.human.profilePic
+//    }
     
     // MARK: Comments Work
     // Custom layout of a UITableView; connect up to the view controller that manages the timed release of the comments; set self as delegate for the table view
         func setUpCommentsView(){
-        self.addSubview(commentsView)
+            //commentsView = chatBubbleView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), user: nil)
+            commentsView =  chatBubbleView(frame:  CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 - 10 , width: widthLayoutUnit - 20, height: heightLayoutUnit), user: nil)
+            commentsView?.doYouWantProfilePicture = true
+            commentsView?.backgroundColor = .clear
+            self.addSubview(commentsView!)
     }
     
     func triggerCommentsView(){
@@ -686,7 +693,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             { [weak self]
                 comments in
                 self?.comments = comments
-                self?.commentsView.reloadData(comment: comments.last!)
+                self?.commentsView?.reloadData(comment: comments.last!)
             }
     }
     
@@ -727,14 +734,14 @@ final class InteractionView: UIView, UITableViewDelegate{
                 //commentsDriver.stop()
                 
                 answerInput.isHidden = true
-                sayCard.label.text = captionText
+                sayCard?.label.text = captionText
                 descriptiveLabel.isHidden = true
                 descriptiveLabel2.isHidden = true
                 userAnswerCard.isHidden = true
                 backgroundImage.isHidden = true
             case .question(let captionText):
                 caption.text = "Q:" + captionText
-                sayCard.label.text = captionText
+                sayCard?.label.text = captionText
                 voteAbutton.isHidden = true
                 voteBbutton.isHidden = true
                 voteCbutton.isHidden = true
@@ -746,7 +753,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteCbutton.isHidden = true
                 dunno.isHidden = true
                 answerInput.isHidden = true
-                sayCard.isHidden = true
+                sayCard?.isHidden = true
                 descriptiveLabel.isHidden = true
                 descriptiveLabel2.isHidden = true
                 userAnswerCard.isHidden = true
@@ -754,7 +761,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 //commentsDriver.stop()
         }
         
-        reloadHumanAvatar()
+       // reloadHumanAvatar()
     }
     
     @objc func voted(_ sender: OptionButton) {
@@ -766,14 +773,14 @@ final class InteractionView: UIView, UITableViewDelegate{
                     
                 }
                 else{
-                    sayCard.label.text = sender.answer
+                    sayCard?.label.text = sender.answer
                     
                   
                 }
             }
             else
             {
-            sayCard.label.text =  "Yes - exactly like that!"
+                sayCard?.label.text =  "Yes - exactly like that!"
             }
             
             voteAbutton.isPicked = true
@@ -788,12 +795,12 @@ final class InteractionView: UIView, UITableViewDelegate{
                     
                 }
                 else{
-                    sayCard.label.text = sender.answer
+                    sayCard?.label.text = sender.answer
                 }
             }
             else
             {
-            sayCard.label.text = "Yes - exactly like that!"
+            sayCard?.label.text = "Yes - exactly like that!"
             }
             //(String((voteBbutton.currentTitle ?? "Sunshine ").dropLast())  ) + " is the best!"
             voteAbutton.isPicked = false
@@ -808,12 +815,12 @@ final class InteractionView: UIView, UITableViewDelegate{
                     
                 }
                 else{
-                    sayCard.label.text = sender.answer
+                    sayCard?.label.text = sender.answer
                 }
             }
             else
             {
-                sayCard.label.text = "Yes - exactly like that!"
+                sayCard?.label.text = "Yes - exactly like that!"
             }
             
             voteAbutton.isPicked = false
@@ -822,7 +829,7 @@ final class InteractionView: UIView, UITableViewDelegate{
             dunno.isPicked = false
         }
         if sender.tag == 3 {
-            sayCard.label.text = "Mmm hmm"
+            sayCard?.label.text = "Mmm hmm"
 
             voteAbutton.isPicked = false
             voteBbutton.isPicked = false
@@ -933,7 +940,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     let label = UILabel()
     let caption = UILabel()
     var player : AVPlayer?
-    var labelCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: botUser.guy)
+    //var labelCard = chatBubbleView(frame:  CGRect(x: 0, y: 0, width: 100, height: 100), user: botUser.guy)
+    var labelCard : chatBubbleView?
     //SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
     let stack = UIStackView()
     
@@ -998,8 +1006,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         label.frame = CGRect(x: (1/6)*widthLayoutUnit, y: 0, width: (5/6)*widthLayoutUnit, height: 0.67*widthLayoutUnit)
         label.adjustsFontForContentSizeCategory = true
         
-        labelCard.addSubview(label)
-        self.addSubview(labelCard)
+        labelCard?.addSubview(label)
+        self.addSubview(labelCard!)
         
         yesButton.isHidden = true
         noButton.isHidden = true
@@ -1016,11 +1024,11 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         
         yesButton.translatesAutoresizingMaskIntoConstraints = false
         noButton.translatesAutoresizingMaskIntoConstraints = false
-        yesButton.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
-        noButton.trailingAnchor.constraint(equalTo: labelCard.trailingAnchor).isActive = true
+        yesButton.trailingAnchor.constraint(equalTo: labelCard!.trailingAnchor).isActive = true
+        noButton.trailingAnchor.constraint(equalTo: labelCard!.trailingAnchor).isActive = true
         noButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -50).isActive = true
-        yesButton.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
-        noButton.leadingAnchor.constraint(equalTo: labelCard.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
+        yesButton.leadingAnchor.constraint(equalTo: labelCard!.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
+        noButton.leadingAnchor.constraint(equalTo: labelCard!.leadingAnchor, constant: -widthLayoutUnit/24).isActive = true
         yesButton.bottomAnchor.constraint(equalTo: noButton.topAnchor, constant: -50).isActive = true
         
         yesButton.heightAnchor.constraint(equalToConstant: 0.2*widthLayoutUnit).isActive = true
@@ -1057,7 +1065,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 imageView.isHidden = false
                 label.isHidden = true
                 videoController.view.isHidden = true
-                labelCard.isHidden = true
+                labelCard?.isHidden = true
 
                 if captionText == "" {
                     caption.isHidden = true
@@ -1090,7 +1098,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 imageView.isHidden = false
                 label.isHidden = true
                 videoController.view.isHidden = true
-                labelCard.isHidden = true
+                labelCard?.isHidden = true
                 
                 if captionText == "" {
                     caption.isHidden = true
@@ -1104,7 +1112,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 imageView.image = image
                 backgroundColor = .clear
                 imageView.isHidden = false
-                labelCard.isHidden = true
+                labelCard?.isHidden = true
                 label.isHidden = true
                 
                 if captionText == "" {
@@ -1163,7 +1171,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 
             case .video(let video, let captionText):
 
-                labelCard.isHidden = false
+                labelCard?.isHidden = false
                 imageView.isHidden = true
                 label.isHidden = false
                 yesButton.isHidden = false
@@ -1197,7 +1205,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 label.isHidden = true
                 caption.isHidden = true
                 videoController.view.isHidden = true
-                labelCard.isHidden = true
+                labelCard?.isHidden = true
         }
     }
     
@@ -1227,7 +1235,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         }
         
         if sender.tag == 1 {
-            labelCard.isHidden = true
+            labelCard?.isHidden = true
             noButton.isEnabled = false
             videoController.view.isHidden =  false
             

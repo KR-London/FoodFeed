@@ -32,21 +32,21 @@ struct botUser{
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"), personalQualities: nil)
     static var human = User(name: "Buddy", profilePic: UIImage(named:"U.jpeg"), personalQualities: nil){
         didSet{
-            humanAvatar.imageView.image = human.profilePic
-            humanAvatar.reloadInputViews()
-            
-            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            if let data = human.profilePic?.jpegData(compressionQuality: 1){
-                let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
-                do {
-                    try data.write(to: url)
-                    // Store URL in User Defaults
-                    UserDefaults.standard.set(url, forKey: "userSetPic")
-                }
-                catch {
-                    print("Unable to Write Data to Disk (\(error))")
-                }
-            }
+//            humanAvatar.imageView.image = human.profilePic
+//            humanAvatar.reloadInputViews()
+//            
+//            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//            if let data = human.profilePic?.jpegData(compressionQuality: 1){
+//                let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
+//                do {
+//                    try data.write(to: url)
+//                    // Store URL in User Defaults
+//                    UserDefaults.standard.set(url, forKey: "userSetPic")
+//                }
+//                catch {
+//                    print("Unable to Write Data to Disk (\(error))")
+//                }
+//            }
             
             UserDefaults.standard.set(human.name, forKey: "userName")
             UserDefaults.standard.set(human.personalQualities?[0], forKey: "userPersonality0")
