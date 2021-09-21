@@ -21,7 +21,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     lazy var commentsDriver = TimedComments()
     var comments: [Comment] = []
     var commentButton = UIButton()
-    var feedView = PostView()
+    var feedView : PostView?
     
     
     // not currently implemented
@@ -43,19 +43,32 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
 
     
     override func viewWillDisappear(_ animated: Bool) {
-        feedView.mediaView.swipedAway = true
+        feedView?.mediaView.swipedAway = true
+        
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+       feedView = nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        if feedView == nil {
+//            feedView = PostView(frame: self.view.frame, feed: feed)
+//            feedView!.delegate = self
+//
+//            view = feedView
+//        }
+    }
 
     override func viewDidLoad() {
         feedView = PostView(frame: self.view.frame, feed: feed)
-        feedView.delegate = self
+        feedView?.delegate = self
       
         view = feedView
     }
 
     func pause(){
-        feedView.pause()
+        feedView?.pause()
     }
 
     // MARK: Comments Work
@@ -66,13 +79,13 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     }
     
     func voiceOver() -> (String, Personage){
-        return feedView.voiceOver()
+        return feedView!.voiceOver()
     }
     
     
     func triggerCommentsView(){
-        feedView.interactionView.commentsDriver = commentsDriver
-        feedView.interactionView.triggerCommentsView()
+        feedView!.interactionView.commentsDriver = commentsDriver
+        feedView!.interactionView.triggerCommentsView()
   }
     
     func setUpCommentsPipeline(){

@@ -146,7 +146,7 @@ class FeedPageViewController:
             }
 
             
-            if viewController.feedView.interactionView.descriptiveLabel.isHidden == false{
+            if viewController.feedView?.interactionView.descriptiveLabel.isHidden == false{
                 viewController.commentsDriver = commentsDriver
                 commentsDriverInitialised = true
                 viewController.triggerCommentsView()

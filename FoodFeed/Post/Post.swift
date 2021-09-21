@@ -112,7 +112,7 @@ class PostView: UIView {
     var say = ""
     var author = Personage.Unknown
     
-    var delegate : FeedViewInteractionDelegate?
+    weak var delegate : FeedViewInteractionDelegate?
   
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -501,7 +501,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     let buttonStack = UIStackView()
     
     static let reuseID = "CELL"
-    var commentsView : chatBubbleView
+    weak var commentsView : chatBubbleView?
 
     var scrollContainer = UIScrollView()
     
