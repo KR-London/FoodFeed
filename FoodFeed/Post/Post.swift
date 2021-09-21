@@ -505,10 +505,7 @@ final class InteractionView: UIView, UITableViewDelegate{
 
     var scrollContainer = UIScrollView()
     
-    lazy var commentsDriver : TimedComments = {
-        let comments = TimedComments()
-        return comments
-    }()
+    lazy var commentsDriver = TimedComments()
     
     var comments: [Comment] = []
     var commentButton = UIButton()
@@ -682,6 +679,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     }
     
     func triggerCommentsView(){
+        
         commentsDriver.currentCaption = caption.text ?? ""
         commentsDriver.start()
         commentsDriver.didUpdateComments =
@@ -726,7 +724,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 voteCbutton.setTitle(voteCQ, for: .normal)
                // voteAbutton.addTarget(self, action: #selector(voted), for: .touchUpInside)
                 answerInput.isHidden = true
-                commentsDriver.stop()
+                //commentsDriver.stop()
                 
                 answerInput.isHidden = true
                 sayCard.label.text = captionText
@@ -753,7 +751,7 @@ final class InteractionView: UIView, UITableViewDelegate{
                 descriptiveLabel2.isHidden = true
                 userAnswerCard.isHidden = true
                 backgroundImage.isHidden = true
-                commentsDriver.stop()
+                //commentsDriver.stop()
         }
         
         reloadHumanAvatar()

@@ -17,7 +17,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     static let reuseID = "CELL"
     
     let commentsView = UITableView()
-    var commentsDriver : TimedComments?
+    //var commentsDriver : TimedComments?
+    lazy var commentsDriver = TimedComments()
     var comments: [Comment] = []
     var commentButton = UIButton()
     var feedView = PostView()
@@ -70,7 +71,7 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
     
     
     func triggerCommentsView(){
-        feedView.interactionView.commentsDriver = commentsDriver!
+        feedView.interactionView.commentsDriver = commentsDriver
         feedView.interactionView.triggerCommentsView()
   }
     

@@ -82,8 +82,8 @@ var window: UIWindow?
         }
         
     
-//        if #available(iOS 13.0, *) {}
-//        else{
+        if #available(iOS 13.0, *) {}
+        else{
         if launchedBefore{
             self.window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -108,7 +108,7 @@ var window: UIWindow?
             self.window?.makeKeyAndVisible()
 
             }
-//        }
+        }
         
         return true
     }

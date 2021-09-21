@@ -15,7 +15,8 @@ class FeedPageViewController:
         UIPageViewController,
         FeedPageView, UIPageViewControllerDataSource, UIPageViewControllerDelegate
 {
-    var commentsDriver = TimedComments()
+    var commentsDriverInitialised = false
+   lazy var commentsDriver = TimedComments()
   //  let synthesizer = AVSpeechSynthesizer()
   //  var utterance = AVSpeechUtterance()
     
@@ -140,11 +141,14 @@ class FeedPageViewController:
         {
             previousViewController.pause()
             //viewController.play()
-            commentsDriver.stop()
+            if commentsDriverInitialised {
+              commentsDriver.stop()
+            }
 
             
             if viewController.feedView.interactionView.descriptiveLabel.isHidden == false{
                 viewController.commentsDriver = commentsDriver
+                commentsDriverInitialised = true
                 viewController.triggerCommentsView()
             }
             
