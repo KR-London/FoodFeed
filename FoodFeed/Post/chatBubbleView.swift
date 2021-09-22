@@ -93,6 +93,7 @@ class chatBubbleView: UIView {
             addSubview(label)
             label.textColor = .textTint
             label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
+            
             label.numberOfLines = 0
             label.lineBreakMode = .byWordWrapping
             
@@ -175,7 +176,8 @@ switch realUser {
                 addSubview(label)
                 label.backgroundColor = .clear
                 label.textColor = .textTint
-                label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
+               label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)
+               
                 label.numberOfLines = 0
                 label.lineBreakMode = .byWordWrapping
                 label.translatesAutoresizingMaskIntoConstraints = false

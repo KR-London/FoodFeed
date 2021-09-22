@@ -55,7 +55,7 @@ class FeedPageViewController:
                 var pic = UIImage()
                 
                if let data = try? Data(contentsOf: url){
-                pic = UIImage(data: data)!
+                   pic = UIImage(data: data)!
                 }
                
                 let personality0 = UserDefaults.standard.object(forKey: "userPersonality0") as? String ?? "Sweet"

@@ -20,8 +20,8 @@
 		440C3273268DBD27007D70C6 /* Day2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3272268DBD27007D70C6 /* Day2.txt */; };
 		440C3278268DBD33007D70C6 /* Day4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C3277268DBD33007D70C6 /* Day4.txt */; };
 		440C327D268DBD3B007D70C6 /* Day5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 440C327C268DBD3B007D70C6 /* Day5.txt */; };
-		44327DAE26AC8A98006156B6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DAD26AC8A98006156B6 /* SwiftPackageProductDependency */; };
-		44327DB126AC8C07006156B6 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DB026AC8C07006156B6 /* SwiftPackageProductDependency */; };
+		44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DAD26AC8A98006156B6 /* Alamofire */; };
+		44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 44327DB026AC8C07006156B6 /* AlamofireImage */; };
 		44327DB326AC99C2006156B6 /* imageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44327DB226AC99C2006156B6 /* imageCache.swift */; };
 		44539A1826B1BF0000642875 /* Day7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44539A1726B1BF0000642875 /* Day7.txt */; };
 		4465404C2603A7B9004B202B /* profileCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4465404B2603A7B9004B202B /* profileCardViewController.swift */; };
@@ -61,13 +61,12 @@
 		4493EB1D2672D70100D8258A /* Day1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4493EB1C2672D70100D8258A /* Day1.txt */; };
 		44A119F426ADE70F003961FB /* GifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A119F326ADE70F003961FB /* GifViewController.swift */; };
 		44A766DF2608A1BC00EBC9AD /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A766DE2608A1BC00EBC9AD /* testViewController.swift */; };
-		44A76757260A284900EBC9AD /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44A76756260A284900EBC9AD /* SwiftPackageProductDependency */; };
+		44A76757260A284900EBC9AD /* SoftUIView in Frameworks */ = {isa = PBXBuildFile; productRef = 44A76756260A284900EBC9AD /* SoftUIView */; };
 		44A813202583926D00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813242583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44A813252583926E00685A0E /* 07891284.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44A8131F2583926B00685A0E /* 07891284.ttf */; };
 		44B189F325F5333800A94028 /* commentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B189F125F5333800A94028 /* commentTableViewController.swift */; };
-		44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B189F225F5333800A94028 /* commentTableViewController.xib */; };
-		44B32EBD2610F0200030C88C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftPackageProductDependency */; };
+		44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = 44B32EBC2610F0200030C88C /* SwiftyGif */; };
 		44B32ED1261106AA0030C88C /* uiTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B32ED0261106AA0030C88C /* uiTestViewController.swift */; };
 		44C3DEAE2520B67B00D317DA /* FeedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */; };
 		44C3DEB42520B76000D317DA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3DEB32520B76000D317DA /* Feed.swift */; };
@@ -181,7 +180,6 @@
 		44A8131A25838E0700685A0E /* 07891284.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07891284.ttf; sourceTree = "<group>"; };
 		44A8131F2583926B00685A0E /* 07891284.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 07891284.ttf; sourceTree = "<group>"; };
 		44B189F125F5333800A94028 /* commentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentTableViewController.swift; sourceTree = "<group>"; };
-		44B189F225F5333800A94028 /* commentTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = commentTableViewController.xib; sourceTree = "<group>"; };
 		44B32ED0261106AA0030C88C /* uiTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiTestViewController.swift; sourceTree = "<group>"; };
 		44C3DEAD2520B67B00D317DA /* FeedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageViewController.swift; sourceTree = "<group>"; };
 		44C3DEB32520B76000D317DA /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
@@ -235,11 +233,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44327DAE26AC8A98006156B6 /* BuildFile in Frameworks */,
-				44A76757260A284900EBC9AD /* BuildFile in Frameworks */,
-				44B32EBD2610F0200030C88C /* BuildFile in Frameworks */,
+				44327DAE26AC8A98006156B6 /* Alamofire in Frameworks */,
+				44A76757260A284900EBC9AD /* SoftUIView in Frameworks */,
+				44B32EBD2610F0200030C88C /* SwiftyGif in Frameworks */,
 				1721F46DF48FAF123BB2AA8B /* Pods_FoodFeed.framework in Frameworks */,
-				44327DB126AC8C07006156B6 /* BuildFile in Frameworks */,
+				44327DB126AC8C07006156B6 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +447,6 @@
 			isa = PBXGroup;
 			children = (
 				44B189F125F5333800A94028 /* commentTableViewController.swift */,
-				44B189F225F5333800A94028 /* commentTableViewController.xib */,
 				6536A647256185B3006D7297 /* Post.swift */,
 				4465406E2605F0AC004B202B /* userAnswerView.swift */,
 				446B298325F0BF9400379390 /* commentTableViewCell.swift */,
@@ -569,10 +566,10 @@
 			);
 			name = FoodFeed;
 			packageProductDependencies = (
-				44A76756260A284900EBC9AD /* SwiftPackageProductDependency */,
-				44B32EBC2610F0200030C88C /* SwiftPackageProductDependency */,
-				44327DAD26AC8A98006156B6 /* SwiftPackageProductDependency */,
-				44327DB026AC8C07006156B6 /* SwiftPackageProductDependency */,
+				44A76756260A284900EBC9AD /* SoftUIView */,
+				44B32EBC2610F0200030C88C /* SwiftyGif */,
+				44327DAD26AC8A98006156B6 /* Alamofire */,
+				44327DB026AC8C07006156B6 /* AlamofireImage */,
 			);
 			productName = FoodFeed;
 			productReference = 65D07A1E24F816C2004CA3E9 /* FoodFeed.app */;
@@ -649,10 +646,10 @@
 			);
 			mainGroup = 65D07A1524F816C2004CA3E9;
 			packageReferences = (
-				44A76755260A284900EBC9AD /* RemoteSwiftPackageReference */,
-				44B32EBB2610F0200030C88C /* RemoteSwiftPackageReference */,
-				44327DAC26AC8A98006156B6 /* RemoteSwiftPackageReference */,
-				44327DAF26AC8C07006156B6 /* RemoteSwiftPackageReference */,
+				44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */,
+				44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */,
+				44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 65D07A1F24F816C2004CA3E9 /* Products */;
 			projectDirPath = "";
@@ -698,7 +695,6 @@
 				446540942606110A004B202B /* U.jpeg in Resources */,
 				446540932606110A004B202B /* bot1.jpeg in Resources */,
 				440C3273268DBD27007D70C6 /* Day2.txt in Resources */,
-				44B189F425F5333800A94028 /* commentTableViewController.xib in Resources */,
 				4473ED70260225CE00CFF919 /* heart_outline.png in Resources */,
 				446540972606110A004B202B /* bot3.jpeg in Resources */,
 				446540922606110A004B202B /* guy_profile_pic.jpeg in Resources */,
@@ -1217,7 +1213,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		44327DAC26AC8A98006156B6 /* RemoteSwiftPackageReference */ = {
+		44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -1225,7 +1221,7 @@
 				minimumVersion = 5.4.0;
 			};
 		};
-		44327DAF26AC8C07006156B6 /* RemoteSwiftPackageReference */ = {
+		44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
 			requirement = {
@@ -1233,7 +1229,7 @@
 				minimumVersion = 4.0.0;
 			};
 		};
-		44A76755260A284900EBC9AD /* RemoteSwiftPackageReference */ = {
+		44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmhv/SoftUIView.git";
 			requirement = {
@@ -1241,7 +1237,7 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		44B32EBB2610F0200030C88C /* RemoteSwiftPackageReference */ = {
+		44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kirualex/SwiftyGif.git";
 			requirement = {
@@ -1252,24 +1248,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		44327DAD26AC8A98006156B6 /* SwiftPackageProductDependency */ = {
+		44327DAD26AC8A98006156B6 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44327DAC26AC8A98006156B6 /* RemoteSwiftPackageReference */;
+			package = 44327DAC26AC8A98006156B6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		44327DB026AC8C07006156B6 /* SwiftPackageProductDependency */ = {
+		44327DB026AC8C07006156B6 /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44327DAF26AC8C07006156B6 /* RemoteSwiftPackageReference */;
+			package = 44327DAF26AC8C07006156B6 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
 		};
-		44A76756260A284900EBC9AD /* SwiftPackageProductDependency */ = {
+		44A76756260A284900EBC9AD /* SoftUIView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44A76755260A284900EBC9AD /* RemoteSwiftPackageReference */;
+			package = 44A76755260A284900EBC9AD /* XCRemoteSwiftPackageReference "SoftUIView" */;
 			productName = SoftUIView;
 		};
-		44B32EBC2610F0200030C88C /* SwiftPackageProductDependency */ = {
+		44B32EBC2610F0200030C88C /* SwiftyGif */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 44B32EBB2610F0200030C88C /* RemoteSwiftPackageReference */;
+			package = 44B32EBB2610F0200030C88C /* XCRemoteSwiftPackageReference "SwiftyGif" */;
 			productName = SwiftyGif;
 		};
 /* End XCSwiftPackageProductDependency section */

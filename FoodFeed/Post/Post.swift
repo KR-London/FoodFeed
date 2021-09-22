@@ -220,10 +220,14 @@ class PostView: UIView {
             label.center = CGPoint(x: 160, y: 285)
             label.textAlignment = .center
             label.numberOfLines = 0
-            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint, NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!, NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString ]
+//            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint, NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!, NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString ]
+//
+//            let bigTextStyled = NSAttributedString(string: "Thank you for testing FudFid. You are now on day \(day) on the storyline. Press the reset button below if you ever want to restart the testing.", attributes: attrs)
+//            label.attributedText = bigTextStyled
             
-            let bigTextStyled = NSAttributedString(string: "Thank you for testing FudFid. You are now on day \(day) on the storyline. Press the reset button below if you ever want to restart the testing.", attributes: attrs)
-            label.attributedText = bigTextStyled
+            label.font = UIFont(name: "Georgia-Bold", size: 24)
+            label.textColor = UIColor.textTint
+            label.text = "Thank you for testing FudFid. You are now on day \(day) on the storyline. Press the reset button below if you ever want to restart the testing."
             addSubview(label)
             
             setUpResetButtons()
@@ -445,7 +449,7 @@ extension UILabel {
         label.textColor = .textTint
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
-        
+      
         label.adjustsFontForContentSizeCategory = true
         label.minimumScaleFactor = 8
         return label
@@ -456,6 +460,7 @@ extension UILabel {
     static func captionLabel() -> UILabel {
         let label = UILabel()
         label.adjustsFontForContentSizeCategory = true
+        
         label.minimumScaleFactor = 8
         return label
     }
@@ -531,7 +536,7 @@ final class InteractionView: UIView, UITableViewDelegate{
     
     override init(frame: CGRect) {
         let screenRect = UIScreen.main.bounds
-        let widthLayoutUnit = screenRect.size.width - 40
+       // let widthLayoutUnit = screenRect.size.width - 40
         heightLayoutUnit = 0.9*(screenRect.size.width / 3)
         thirdScreenHeight = screenRect.size.height / 3
      //   commentsView =  chatBubbleView(frame:  CGRect(x: 40, y: 2*thirdScreenHeight + (thirdScreenHeight - heightLayoutUnit)/2 - 10 , width: widthLayoutUnit - 20, height: heightLayoutUnit), user: nil)
@@ -905,7 +910,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
               self = .stillImage(image: UIImage(named: filename.lowercased()) ?? UIImage(named: "two.jpeg")!, caption: captionText ?? "" )
 
           case let (str, _ ) where str.contains("unsplash"):
-              let imageURL = URL(string: filename)!
+              let imageURL = URL(string: filename + "&w=750")!
               var downloadedImage : UIImage?
               if let data = try? Data(contentsOf: imageURL) {
                   downloadedImage = UIImage(data: data)
@@ -1100,7 +1105,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                     id = giphy.components(separatedBy: "/").last!.components(separatedBy: "-").last!
                 }
 
-                GiphyCore.shared.gifByID(id ?? "") { (response, error) in
+                GiphyCore.shared.gifByID(id) { (response, error) in
                     if let media = response?.data {
                         DispatchQueue.main.sync { [weak self] in
                             self?.gifView.media = media
@@ -1143,14 +1148,22 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             case .text(let bigText, let captionText, let votea, let voteb):
                 imageView.isHidden = true
                 label.isHidden = false
-            
-                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
-                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-                ]
+                label.adjustsFontSizeToFitWidth = true
                 
-                let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
-                label.attributedText = bigTextStyled
+                label.font = UIFont(name: "Georgia-Bold", size: 24)
+                label.textColor = UIColor.textTint
+                label.text = bigText
+                
+//                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
+//                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 40)!,
+//                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
+//                ]
+//
+//                let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
+//                label.attributedText = bigTextStyled
+                
+                
+              
                 videoController.view.isHidden = true
                 if captionText == "" {
                     caption.isHidden = true
@@ -1338,15 +1351,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             
         }
         if sender.tag == 1 {
-            let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
-                         NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
-                         NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-            ]
-
-            //noButton.isEnabled = false
             yesButton.isPicked = true
-            
-        /// load next screen
+                /// load next screen
             NotificationCenter.default.post(name: .goForwardsNotification, object: nil)
         }
     }
@@ -1365,7 +1371,7 @@ class PostViewController: UIViewController {
 extension PostView.State {
     static let mock: Self = PostView.State(
         //tag: Model.Tag(rawValue: "#this is tag"),
-        avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!, name: "Gyu"),
+        avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!, name: "Guy"),
         media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" , votea: "", voteb: ""),
         interaction: InteractionView.State()
     )
