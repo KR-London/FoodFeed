@@ -13,6 +13,8 @@ import GiphyUISDK
 
 //let humanAvatar : AvatarView?
 
+var giphyConfigured = false
+
 @IBDesignable
 final class AvatarView: UIView {
     private let margin: CGFloat = 0.5
@@ -441,8 +443,11 @@ extension UILabel {
     static func titleLabel() -> UILabel {
         let label = UILabel()
         label.textColor = .textTint
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.bold)
+        
         label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 8
         return label
     }
 }
@@ -451,6 +456,7 @@ extension UILabel {
     static func captionLabel() -> UILabel {
         let label = UILabel()
         label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 8
         return label
     }
 }
@@ -459,6 +465,8 @@ extension UILabel {
     static func usernameLabel() -> UILabel {
         let label = UILabel()
         label.textColor = .white
+        label.numberOfLines = 0
+        label.minimumScaleFactor = 8
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -962,7 +970,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
 
     /// THINKS: Is setting up views I won;t use inefficient? Or is it in fact better to do it asap so that the user doe not get a hang?
     func setup() {
-        Giphy.configure(apiKey: giphyAPIKey)
+        //Giphy.configure(apiKey: giphyAPIKey)
         
         let screenRect = UIScreen.main.bounds
         let widthLayoutUnit = screenRect.size.width - 100
@@ -1076,7 +1084,13 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                     caption.text = captionText
                 }
             case .giphyImage(let giphy, let captionText):
-              
+                
+                if giphyConfigured == false{
+                    Giphy.configure(apiKey: giphyAPIKey)
+                    giphyConfigured = true
+                }
+                
+                
                 var id = ""
                 
                 if giphy.suffix(3) == "gif"{

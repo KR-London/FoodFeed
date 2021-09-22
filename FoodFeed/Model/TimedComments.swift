@@ -112,7 +112,7 @@ class TimedComments: CommentProvider {
 //            synthesizer.speak(utterance)
 //        }
 //        
-        timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [weak self] tim in
+        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true){ [weak self] tim in
             if self?.storedComments.count ?? 0  % 5 == 0  {
                 if self?.currentCaption.isEmpty ?? false {
                     print("")
