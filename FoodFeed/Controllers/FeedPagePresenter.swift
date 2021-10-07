@@ -36,11 +36,12 @@ class FeedPagePresenter: FeedPagePresenterProtocol{
     
     func viewDidLoad() {
         fetcher.delegate = self
+        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n <<<<<< ", caption: nil, hashtag: nil, votea: nil, voteb: nil, who: .Avery) )
+        view.presentInitialFeed(initialFeed)
 
         fetchFeeds()
 
-        let initialFeed = Feed(id: -1, state: .text(bigText: "<<<<<<<<\n Swipe! \n <<<<<< ", caption: nil, hashtag: nil, votea: nil, voteb: nil, who: .Avery) )
-        view.presentInitialFeed(initialFeed)
+      
     }
     
     fileprivate func fetchFeeds() {

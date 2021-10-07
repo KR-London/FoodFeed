@@ -93,6 +93,7 @@ class FeedPageViewController:
         
       //  let mock = MockFeedFetcher()
         let coreDataFetcher = CoreDataFeedFetcher(context: context)
+        
         presenter = FeedPagePresenter(view: self, context:context, fetcher: coreDataFetcher)
         presenter.viewDidLoad()
     }

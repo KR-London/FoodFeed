@@ -22,13 +22,13 @@ var window: UIWindow?
        // let launchedBefore = false
         
       
-       // day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
+       day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
         
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
       //  let day = 1
-        day = 1
+      //  day = 1
         UserDefaults.standard.set(day, forKey: "Day")
    
     if storyLoading == true{

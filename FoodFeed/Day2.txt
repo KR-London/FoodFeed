@@ -33,7 +33,7 @@
     "hashtag": "Catch Up",
     "type": "Text",
     "day": 2,
-    "bigtext": "But you guys helped me see the funny side "
+    "bigtext": "You folks helped me see the funny side "
   },
     {
     "user": "Guy",
@@ -89,9 +89,11 @@
     "type": "Image",
     "hashtag": "Look What I Made!",
     "day": 2,
-    "image": "Pho - to - sin - this - is",
+    "image": "📷 - sin - this - is",
        "creator_credit" : "",
     "source" : "unsplash"
+    "votea": "Fotosinthesis",
+    "voteb": "Photosynthesis"
   },
   {
     "user": "DG",
