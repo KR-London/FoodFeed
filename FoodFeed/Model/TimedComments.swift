@@ -35,36 +35,10 @@ struct botUser{
          
          guard let url = UserDefaults.standard.object(forKey: "userSetPic") as? String else { return }
          guard let image = UIImage(contentsOfFile: url) else { return }
-         
+        
          human.profilePic = image
-         //URL.init(fileURLWithPath: "/VWiOSProjects/CollageMakerDemo/Development/CollageMaker/CollageMaker/Goodies.xcassets/Goodies-1.imageset/Goodies-1.png")
          
-        // guard let imageData:NSData = NSData(contentsOf: url) else { return }
-         
-        // let image = UIImage(data: imageData as Data)
-//            humanAvatar.imageView.image = human.profilePic
-//            humanAvatar.reloadInputViews()
-//
-//            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//            if let data = human.profilePic?.jpegData(compressionQuality: 1){
-//                let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
-//                do {
-//                    try data.write(to: url)
-//                    // Store URL in User Defaults
-//                    UserDefaults.standard.set(url, forKey: "userSetPic")
-//                }
-//                catch {
-//                    print("Unable to Write Data to Disk (\(error))")
-//                }
-//            }
-//
-            
-            
-//            UserDefaults.standard.set(human.name, forKey: "userName")
-//            UserDefaults.standard.set(human.personalQualities?[0], forKey: "userPersonality0")
-//            UserDefaults.standard.set(human.personalQualities?[1], forKey: "userPersonality1")
-//            UserDefaults.standard.set(human.personalQualities?[2], forKey: "userPersonality2")
-//
+       //  if let name = UserDefaults.standard.object(forKey: "userSetPic") as? String
   }
     }
 }
@@ -123,7 +97,8 @@ class TimedComments: CommentProvider {
 //        if  #available(iOS 13.0, *){
 //            synthesizer.speak(utterance)
 //        }
-//        
+//
+      
         timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true){ [weak self] tim in
             if self?.storedComments.count ?? 0  % 5 == 0  {
                 if self?.currentCaption.isEmpty ?? false {
@@ -132,6 +107,7 @@ class TimedComments: CommentProvider {
                 else{
                     let newComment = Comment(user: botUser.guy, comment: self?.guyComments.randomElement() ?? "", liked: false)
                     //let newComment = Comment(avatar: botUser.guy.profilePic, comment: String(i), liked: false)
+                    print(newComment.comment)
                     self?.storedComments.append(newComment )
                     
 //                    let say =  newComment.comment
@@ -148,7 +124,7 @@ class TimedComments: CommentProvider {
                 let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
 
                 let newComment = Comment(user: bot, comment: botAnswers[String(self?.currentCaption.dropFirst().dropFirst() ?? "default answer")]?.randomElement()! ?? "", liked: false)
-
+                print(newComment.comment)
                 self?.storedComments.append(newComment )
 
 //                let say =  newComment.comment
@@ -182,6 +158,8 @@ class TimedComments: CommentProvider {
             i += 1
         }
         
+        timer?.fire()
+        
     }
     
     @objc func fireTimer() {
@@ -201,13 +179,14 @@ class TimedComments: CommentProvider {
         let newComment = Comment(user: botUser.human, comment: userComment, liked: false)
         self.storedComments.append(newComment)
         timer?.invalidate()
-        respondToUser(userComment: userComment)
+        var formattedComment = userComment.lowercased().replacingOccurrences(of: "my ", with: "their ").replacingOccurrences(of: "me ", with: "them ").replacingOccurrences(of: "i ", with: "you ")
+        respondToUser(userComment: formattedComment)
     }
     
     func respondToUser(userComment: String){
         var i = 0
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true){ [weak self] tim in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true){ [weak self] tim in
             let bot = [botUser.alexis, botUser.emery, botUser.fred, botUser.tony].randomElement()!
             let newComment = Comment(user: bot, comment: botAnswersToHuman(userComment: userComment, key: self?.currentCaption ?? "default value 2"), liked: false)
 

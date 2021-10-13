@@ -1,10 +1,4 @@
-[{
-    "id": 20,
-    "hashtag": "Support",
-    "day": 3,
-    "caption": "What are nice things to eat for breakfast?",
-    "type": "Question"
-  },
+[
   {
     "user": "Guy",
     "id": 0,

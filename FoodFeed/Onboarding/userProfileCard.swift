@@ -74,7 +74,7 @@ class UserProfileCard: UIView{
                      NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 24)!,
                      NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
         ]
-        let personality = NSAttributedString(string: (user?.personalQualities!.reduce(""){ $0 + " " + $1}) ?? "Three descriptive personality words go here", attributes: attrs)
+        let personality = NSAttributedString(string: "KIND, SMART, FUNNY", attributes: attrs)
        
         let personalityLabel = UILabel()
         personalityLabel.numberOfLines = 0
