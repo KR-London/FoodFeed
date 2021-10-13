@@ -5,14 +5,14 @@
 
 import UIKit
 import SoftUIView
-//import Speech
+import Speech
 
 class BotProfileViewController: UIViewController {
     
     
     
-  //  let synthesizer = AVSpeechSynthesizer()
- //   var utterance = AVSpeechUtterance()
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
 
 
         override func viewDidLoad() {
@@ -22,12 +22,12 @@ class BotProfileViewController: UIViewController {
             let say =  "Hi, I'm Guy. Follow me and help me figure out my life!"
             view.backgroundColor = .mainBackground
                             
-//            utterance = AVSpeechUtterance(string: say)
-//            utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-//            
-//            if  #available(iOS 13.0, *){
-//                synthesizer.speak(utterance)
-//            }
+            utterance = AVSpeechUtterance(string: say)
+            utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+            
+            if  #available(iOS 13.0, *){
+                synthesizer.speak(utterance)
+            }
         }
 
         func layoutSubviews(){

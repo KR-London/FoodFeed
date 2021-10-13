@@ -4,7 +4,7 @@
 //
 
 import UIKit
-//import Speech
+import Speech
 
 class newCharacterViewController: UIViewController {
 
@@ -17,20 +17,20 @@ class newCharacterViewController: UIViewController {
         self.present(initialViewController, animated: true, completion: nil)
     }
     
-  //  let synthesizer = AVSpeechSynthesizer()
-  //  var utterance = AVSpeechUtterance()
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let say =  "Hi, I'm Guy. Follow me and help me figure out my life!"
                         
-      //  utterance = AVSpeechUtterance(string: say)
-      //  utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+        utterance = AVSpeechUtterance(string: say)
+        utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
        
-//        if  #available(iOS 13.0, *){
-//        synthesizer.speak(utterance)
-//        }
+        if  #available(iOS 13.0, *){
+        synthesizer.speak(utterance)
+        }
     }
 
 }

@@ -17,8 +17,8 @@ class FeedPageViewController:
 {
     var commentsDriverInitialised = false
    lazy var commentsDriver = TimedComments()
-  //  let synthesizer = AVSpeechSynthesizer()
-  //  var utterance = AVSpeechUtterance()
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
     
     func presentInitialFeed(_ feed: Feed) {
         let viewController = FeedItemViewController.instantiate(feed: feed, andIndex: 0, isPlaying: true) as! FeedItemViewController
@@ -153,15 +153,16 @@ class FeedPageViewController:
                 viewController.triggerCommentsView()
             }
             
-//            let say = viewController.voiceOver().0
-//            
-//            utterance = AVSpeechUtterance(string: say)
-//
-//            utterance = voice(who: viewController.voiceOver().1, saying: utterance)
-//            
-//            if  #available(iOS 13.0, *){
-//                synthesizer.speak(utterance)
-//            }
+            if let voiceOver = viewController.voiceOver()
+            {
+                let say = voiceOver.0
+                utterance = AVSpeechUtterance(string: say)
+                utterance = voice(who: voiceOver.1, saying: utterance)
+            
+                if  #available(iOS 13.0, *){
+                    synthesizer.speak(utterance)
+                }
+            }
             
             presenter.updateFeedIndex(fromIndex: viewController.index)
            

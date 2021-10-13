@@ -78,8 +78,8 @@ class FeedItemViewController: UIViewController,StoryboardScene, UIPickerViewDele
         commentsView.setUpCommentsView(margins: view.layoutMarginsGuide)
     }
     
-    func voiceOver() -> (String, Personage){
-        return feedView!.voiceOver()
+    func voiceOver() -> (String, Personage)?{
+        return feedView?.voiceOver()
     }
     
     

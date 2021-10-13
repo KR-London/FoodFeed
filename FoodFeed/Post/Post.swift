@@ -133,7 +133,7 @@ class PostView: UIView {
                 let profilePic = profilePicture(who: character)
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: character.rawValue),
-                    media: MediaView.State(filename: bigText, captionText: caption, votea: votea , voteb: voteb),
+                    media: MediaView.State(filename: bigText, captionText: caption, votea: votea , voteb: voteb, author: character),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -148,7 +148,7 @@ class PostView: UIView {
                 let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: who.rawValue),
-                    media: MediaView.State(filename: gifName, captionText: caption, votea: "", voteb: ""),
+                    media: MediaView.State(filename: gifName, captionText: caption, votea: "", voteb: "", author: .Avery),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -158,7 +158,7 @@ class PostView: UIView {
                 let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: who.rawValue),
-                    media: MediaView.State(filename: imageName,captionText: caption, votea: "", voteb: ""),
+                    media: MediaView.State(filename: imageName,captionText: caption, votea: "", voteb: "", author: .Avery),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -168,7 +168,7 @@ class PostView: UIView {
                 let profilePic = profilePicture(who: who)
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
-                    media: MediaView.State(filename: videoName, captionText: nil, votea: "",voteb: ""),
+                    media: MediaView.State(filename: videoName, captionText: nil, votea: "",voteb: "", author: .Avery),
                     interaction: InteractionView.State(),
                     tag: hashtag
                 ))
@@ -179,7 +179,7 @@ class PostView: UIView {
                 self.update(state: PostView.State(
                     avatar: AvatarView.State( image: profilePic, name: who.rawValue ),
                     media: MediaView.State(),
-                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec),
+                    interaction: InteractionView.State(caption: caption, votea: votea, voteb: voteb, votec: votec, who: who),
                     tag: hashtag ?? "Getting to know " + botUser.human.name
                 ))
                 say = caption
@@ -483,15 +483,15 @@ extension UILabel {
 final class InteractionView: UIView, UITableViewDelegate{
     
     enum State {
-        case poll(captionText: String, votea: String, voteb: String, votec: String)
-        case question(captionText: String)
+        case poll(captionText: String, votea: String, voteb: String, votec: String, who: Personage)
+        case question(captionText: String, who: Personage)
         case hidden
-        init(caption: String, votea: String, voteb: String, votec: String) {
-            self = .poll(captionText: caption, votea: votea, voteb: voteb, votec: votec)
+        init(caption: String, votea: String, voteb: String, votec: String, who: Personage) {
+            self = .poll(captionText: caption, votea: votea, voteb: voteb, votec: votec, who: who)
         }
         
         init(caption: String) {
-            self = .question(captionText: caption)
+            self = .question(captionText: caption, who: .Unknown)
         }
 
         init() {
@@ -531,8 +531,10 @@ final class InteractionView: UIView, UITableViewDelegate{
     var commentButton = UIButton()
     var author = Personage.Unknown
     
-    //let synthesizer = AVSpeechSynthesizer()
-   // var utterance = AVSpeechUtterance()
+    let synthesizer = AVSpeechSynthesizer()
+    var utterance = AVSpeechUtterance()
+    
+    var character = Personage.Unknown
     
     override init(frame: CGRect) {
         let screenRect = UIScreen.main.bounds
@@ -680,10 +682,10 @@ final class InteractionView: UIView, UITableViewDelegate{
         bringSubviewToFront(buttonStack)
     }
     
-//    func pause(){
-//        synthesizer.pauseSpeaking(at: .immediate)
-//    }
-//
+    func pause(){
+        synthesizer.pauseSpeaking(at: .immediate)
+    }
+
 //    func reloadHumanAvatar(){
 //        humanAvatar.imageView.image = botUser.human.profilePic
 //    }
@@ -721,9 +723,10 @@ final class InteractionView: UIView, UITableViewDelegate{
     func update(state: State) {
         // FIXME: I am not picking up which character triggered the interaction?
         switch state {
-            case .poll(let captionText, let votea, let voteb, let votec):
+            case .poll(let captionText, let votea, let voteb, let votec, let character):
                 caption.text = captionText
                 
+                author = character
                 
                 let voteAQ = votea.components(separatedBy: "^answer^").first ?? ""
                 let voteBQ = voteb.components(separatedBy: "^answer^").first ?? ""
@@ -752,7 +755,9 @@ final class InteractionView: UIView, UITableViewDelegate{
                 descriptiveLabel2.isHidden = true
                 userAnswerCard.isHidden = true
                 backgroundImage.isHidden = true
-            case .question(let captionText):
+            case .question(let captionText, let character):
+                author = character
+                
                 caption.text = "Q:" + captionText
                 sayCard?.label.text = captionText
                 voteAbutton.isHidden = true
@@ -852,13 +857,11 @@ final class InteractionView: UIView, UITableViewDelegate{
         
         if  #available(iOS 13.0, *){
         ///FIXME: put author through to here
-//        if let say = sayCard.label.text
-//        {
-//            utterance = AVSpeechUtterance(string: say)
-//            utterance = voice(who: .Unknown, saying: utterance)
-//            
-//            synthesizer.speak(utterance)
-//        }
+        if let say = sayCard!.label.text
+        {
+            utterance = voice(who: author, saying: AVSpeechUtterance(string: say))
+            synthesizer.speak(utterance)
+        }
         }
     }
 }
@@ -892,12 +895,13 @@ final class MediaView: UIView, YTPlayerViewDelegate {
         case gifImage(gifImage: UIImage, caption: String)
         case video(video: String, caption: String)
         case stillImage(image: UIImage, caption: String)
-        case text(bigText: String, caption: String, votea: String?, voteb: String?)
+        case text(bigText: String, caption: String, votea: String?, voteb: String?, who: Personage)
        // case youTube(playlist: String, caption: String)
         case hidden
         
-        init(filename: String, captionText: String?, votea: String?, voteb: String?) {
+        init(filename: String, captionText: String?, votea: String?, voteb: String?, author: Personage) {
   
+       
       switch (filename, filename.suffix(4)){
               
           case let (_, suffix) where [".mp4", "MP4"].contains(suffix) :
@@ -925,8 +929,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                   self = .gifImage(gifImage: gif, caption: captionText ?? "")
               }
               else{
-                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain" )
-                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil)
+                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain", who: author )
+                  self = .text(bigText: "gif filename is wrong", caption: captionText ?? "", votea: nil, voteb: nil, who: author)
               }
           
           default:
@@ -936,7 +940,9 @@ final class MediaView: UIView, YTPlayerViewDelegate {
               else
               {
                       // self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: "Never mind", voteb: "Gosh, that's a pain")
-                  self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb)
+                  self = .text(bigText: filename.lowercased(), caption: captionText ?? "", votea: votea, voteb: voteb, who: author)
+                  
+                  
               }
       }
  }
@@ -957,6 +963,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
     var labelCard : chatBubbleView?
     //SoftUIView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
     let stack = UIStackView()
+    var character = Personage.Unknown
     
     var swipedAway = false
     
@@ -1145,7 +1152,7 @@ final class MediaView: UIView, YTPlayerViewDelegate {
 
                 videoController.view.isHidden = true
                 
-            case .text(let bigText, let captionText, let votea, let voteb):
+            case .text(let bigText, let captionText, let votea, let voteb, let author):
                 imageView.isHidden = true
                 label.isHidden = false
                 label.adjustsFontSizeToFitWidth = true
@@ -1154,16 +1161,8 @@ final class MediaView: UIView, YTPlayerViewDelegate {
                 label.textColor = UIColor.textTint
                 label.text = bigText
                 
-//                let attrs = [NSAttributedString.Key.foregroundColor: UIColor.textTint,
-//                             NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 40)!,
-//                             NSAttributedString.Key.textEffect: NSAttributedString.TextEffectStyle.letterpressStyle as NSString
-//                ]
-//
-//                let bigTextStyled = NSAttributedString(string: bigText, attributes: attrs)
-//                label.attributedText = bigTextStyled
-                
-                
-              
+                character = author
+        
                 videoController.view.isHidden = true
                 if captionText == "" {
                     caption.isHidden = true
@@ -1329,25 +1328,27 @@ final class MediaView: UIView, YTPlayerViewDelegate {
             let bigTextStyled = NSAttributedString(string: sender.answer, attributes: attrs)
             label.attributedText = bigTextStyled
             
-//            let synthesizer = AVSpeechSynthesizer()
-//            var utterance = AVSpeechUtterance()
-//            
-//            utterance = AVSpeechUtterance(string: sender.answer)
-//            
-//            if  #available(iOS 13.0, *){
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                synthesizer.speak(utterance)
-//            }
-//            }
-//           
-//            //FIXME: don't trigger if user changed
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//                
-//                if self.swipedAway == false {
-//                    NotificationCenter.default.post(name: .goForwardsNotification, object: nil)
-//                }
-//               
-//            }
+     
+            
+            //AVSpeechUtterance()
+            
+           // utterance = AVSpeechUtterance(string: sender.answer)
+            
+            if  #available(iOS 13.0, *){
+                let synthesizer = AVSpeechSynthesizer()
+                var utterance = voice(who: character, saying: AVSpeechUtterance(string: sender.answer) )
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    synthesizer.speak(utterance)
+                }
+            }
+           
+            //FIXME: don't trigger if user changed
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                if self.swipedAway == false {
+                    NotificationCenter.default.post(name: .goForwardsNotification, object: nil)
+                }
+               
+            }
             
         }
         if sender.tag == 1 {
@@ -1372,7 +1373,7 @@ extension PostView.State {
     static let mock: Self = PostView.State(
         //tag: Model.Tag(rawValue: "#this is tag"),
         avatar: AvatarView.State(image: UIImage(contentsOfFile: "guy_profile_pic.jpeg")!, name: "Guy"),
-        media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" , votea: "", voteb: ""),
+        media: MediaView.State(filename: "This is a block of text to work out how to format it.", captionText: "" , votea: "", voteb: "", author: .Avery),
         interaction: InteractionView.State()
     )
 }
