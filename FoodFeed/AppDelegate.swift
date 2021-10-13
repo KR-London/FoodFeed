@@ -19,15 +19,19 @@ var window: UIWindow?
       
             // MARK: Toggle here if you want to test the onboarding without manually resetting
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-       // let launchedBefore = false
+      //let launchedBefore = false
         
       
-       day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
+        day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
+        
+//        if day == 0 {
+//            day = 1
+//        }
         
         doIPlaceANewDatestamp()
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
-      //  let day = 1
+     // let day = 1
       //  day = 1
         UserDefaults.standard.set(day, forKey: "Day")
    
@@ -42,7 +46,8 @@ var window: UIWindow?
                                    encoding: String.Encoding.utf8).data(using: .utf8)
 
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+        do{
+            if let parsedData = try JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
                 var i = Int32(0)
                 for item in parsedData {
                     let newPost = PostData(context: context)
@@ -65,15 +70,19 @@ var window: UIWindow?
                         }
                         
                     }
-                    do{
+                   // do{
                         i = i + 1
                         try  context.save()
                         
-                    } catch {
-                        print("Error saving context \(error)")
-                    }
+//                    } catch {
+//                        print("Error saving context \(error)")
+//                    }
                 }
      }
+        }
+        catch{
+                print("Error saving context \(error)")
+        }
             
             UserDefaults.standard.set( ["Guy"],  forKey: "following")
             
@@ -107,6 +116,33 @@ var window: UIWindow?
             self.window?.isUserInteractionEnabled = true
             self.window?.makeKeyAndVisible()
 
+            }
+        }
+        
+        DispatchQueue.main.async {
+            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
+            
+            
+            if let name = UserDefaults.standard.object(forKey: "userName")
+            {
+                var pic = UIImage()
+                
+                if let data = try? Data(contentsOf: url){
+                    pic = UIImage(data: data)!
+                }
+                
+                let personality0 = UserDefaults.standard.object(forKey: "userPersonality0") as? String ?? "Sweet"
+                let personality1 = UserDefaults.standard.object(forKey: "userPersonality1") as? String ?? "Lovely"
+                let personality2 = UserDefaults.standard.object(forKey: "userPersonality2") as? String ?? "Adorable"
+                
+                
+                let human = User(name: name as! String ,
+                                 profilePic: pic, personalQualities: [
+                                    personality0 ,
+                                    personality1,
+                                    personality2])
+                botUser.human = human
             }
         }
         

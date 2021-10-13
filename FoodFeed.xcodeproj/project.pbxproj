@@ -83,6 +83,7 @@
 		44C3DF212521D99000D317DA /* three.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF202521D99000D317DA /* three.jpeg */; };
 		44C3DF2D2521F1F300D317DA /* giphy-13.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF2C2521F1F300D317DA /* giphy-13.gif */; };
 		44C3DF47252A274100D317DA /* fieri.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 44C3DF46252A274100D317DA /* fieri.jpeg */; };
+		44C87CB42716E50D008CB280 /* Day0.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C87CB32716E50C008CB280 /* Day0.txt */; };
 		44D6686826C5AA9D0060903D /* Snags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6686726C5AA9D0060903D /* Snags.swift */; };
 		44D66C68253316B300C81C41 /* TimedComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C67253316B300C81C41 /* TimedComments.swift */; };
 		44D66C7825336FF100C81C41 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66C7725336FF100C81C41 /* CommentsView.swift */; };
@@ -196,6 +197,7 @@
 		44C3DF202521D99000D317DA /* three.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = three.jpeg; sourceTree = "<group>"; };
 		44C3DF2C2521F1F300D317DA /* giphy-13.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy-13.gif"; sourceTree = "<group>"; };
 		44C3DF46252A274100D317DA /* fieri.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fieri.jpeg; sourceTree = "<group>"; };
+		44C87CB32716E50C008CB280 /* Day0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Day0.txt; sourceTree = "<group>"; };
 		44D6686726C5AA9D0060903D /* Snags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snags.swift; sourceTree = "<group>"; };
 		44D66C67253316B300C81C41 /* TimedComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedComments.swift; sourceTree = "<group>"; };
 		44D66C7725336FF100C81C41 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				2C48B5E9266D2FC00092D5E1 /* UI */,
 				44A8131A25838E0700685A0E /* 07891284.ttf */,
 				4471EC1A261A04AC00D23E01 /* storyline.txt */,
+				44C87CB32716E50C008CB280 /* Day0.txt */,
 				4493EB1C2672D70100D8258A /* Day1.txt */,
 				4402B09226E3BA6A005504A4 /* rejectedScript.swift */,
 				440C3272268DBD27007D70C6 /* Day2.txt */,
@@ -707,6 +710,7 @@
 				446CAEAF26517E3B00F9081D /* exploded_head.gif in Resources */,
 				448D702326B01D4100DE2046 /* frank6.gif in Resources */,
 				4473ED75260226B800CFF919 /* 341-3417063_herz-clipart.png in Resources */,
+				44C87CB42716E50D008CB280 /* Day0.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

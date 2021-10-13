@@ -283,21 +283,51 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
     @objc func segueToSummary(){
         
         let nextViewController = profileCardViewController()
+        botUser.human.name = nameEntry.text ?? "Frog"
+        
+        DispatchQueue.main.async{ [weak self] in
+            UserDefaults.standard.set(self!.nameEntry.text ?? "Bud", forKey: "userName")
+            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            if let data = self!.profilePictureImageView.image!.jpegData(compressionQuality: 1){
+                let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
+                do {
+                    try data.write(to: url)
+                    UserDefaults.standard.set(url, forKey: "userSetPic")
+                }
+                catch {
+                    print("Unable to Write Data to Disk (\(error))")
+                }
+            }
+        }
+        
         present(nextViewController, animated: true, completion: nil)      
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-       if segue.identifier == "summaryProfile"
-        {
-           if let destVC = segue.destination as? profileCardViewController {
-              
-            let human = User(name: nameEntry.text ?? "Buddy", profilePic: profilePictureImageView.image, personalQualities: personalQualities)
-        
-            destVC.human = human
-            botUser.human = human
-           }
-       }
+//
+//        botUser.human.name = nameEntry.text ?? "Frog"
+//       if segue.identifier == "summaryProfile"
+//        {
+//
+//
+//           if let _ = segue.destination as? profileCardViewController {
+//               botUser.human.name = nameEntry.text ?? ""
+//           }
+//       }
+//
+//
+//      let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        if let data = profilePictureImageView.image!.jpegData(compressionQuality: 1){
+//                            let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
+//                            do {
+//                                try data.write(to: url)
+//                                UserDefaults.standard.set(url, forKey: "userSetPic")
+//                            }
+//                            catch {
+//                                print("Unable to Write Data to Disk (\(error))")
+//                            }
+//                        }
+            
     }
     
     func saveProfile(){
@@ -374,7 +404,7 @@ class profileCreatorViewController: UIViewController, AVCapturePhotoCaptureDeleg
         image = UIImage(data: imageData) ?? UIImage(named: "onejpg")!
         profilePictureImageView.image = image
         profilePictureImageView.layer.masksToBounds = true
-        botUser.human = User(name: "Maxwell", profilePic: profilePictureImageView.image, personalQualities: nil )
+        botUser.human = User(name: nameEntry.text ?? "", profilePic: profilePictureImageView.image, personalQualities: ["Kind", "Smart", "Brave"] )
 
         let filename = getDocumentsDirectory().appendingPathComponent("U.jpeg")
         try! imageData.write(to: filename)
@@ -524,9 +554,9 @@ extension profileCreatorViewController{
         
         let filePath = Bundle.main.resourcePath!
         let sourceData = "/Day" + String(day) + ".txt"
-        let data = try! String(contentsOfFile: filePath + sourceData , encoding: String.Encoding.utf8).data(using: .utf8)
+        guard let data = try? String(contentsOfFile: filePath + sourceData , encoding: String.Encoding.utf8).data(using: .utf8) else {return}
 
-        if let parsedData = try! JSONSerialization.jsonObject(with: data!) as? [[String:Any]] {
+        if let parsedData = try? JSONSerialization.jsonObject(with: data) as? [[String:Any]] {
             var i = Int32(0)
             for item in parsedData {
                 let newPost = PostData(context: context)

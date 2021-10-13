@@ -7,7 +7,7 @@ import SoftUIView
 
 class profileCardViewController: UIViewController {
     
-    var human : User?
+   // var human : User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +38,17 @@ class profileCardViewController: UIViewController {
             pageTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
+//        if let url = UserDefaults.standard.object(forKey: "userSetPic") as? String
+//        {
+//            if let image = UIImage(contentsOfFile: url)
+//            {
+//                human?.profilePic = image
+//            }
+//        }
+        
+        ///human(
         /// Little pop-out summary card
-        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: human) 
+        let card = UserProfileCard( frame: CGRect(x: 20, y: 1.5*layoutUnit, width: view.frame.width - 40, height: 3*layoutUnit) , user: botUser.human)
         card.mainViewController = self
         view.addSubview(card)
         

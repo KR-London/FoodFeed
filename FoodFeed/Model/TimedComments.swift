@@ -9,9 +9,9 @@ import UIKit
 //import Speech
 
 struct User{
-    let name: String
-    let profilePic: UIImage?
-    let personalQualities : [ String]?
+    var name: String
+    var profilePic: UIImage?
+    var personalQualities : [ String]?
     
     static func ==(lhs: User, rhs: User) -> Bool {
         return lhs.name == rhs.name 
@@ -31,10 +31,20 @@ struct botUser{
     static let alexis = User(name: "You", profilePic: UIImage(named:"bot4.jpeg"), personalQualities: nil)
     static let guy = User(name: "You", profilePic: UIImage(named:"guy_profile_pic.jpeg"), personalQualities: nil)
     static var human = User(name: "Buddy", profilePic: UIImage(named:"U.jpeg"), personalQualities: nil){
-        didSet{
+     didSet{
+         
+         guard let url = UserDefaults.standard.object(forKey: "userSetPic") as? String else { return }
+         guard let image = UIImage(contentsOfFile: url) else { return }
+         
+         human.profilePic = image
+         //URL.init(fileURLWithPath: "/VWiOSProjects/CollageMakerDemo/Development/CollageMaker/CollageMaker/Goodies.xcassets/Goodies-1.imageset/Goodies-1.png")
+         
+        // guard let imageData:NSData = NSData(contentsOf: url) else { return }
+         
+        // let image = UIImage(data: imageData as Data)
 //            humanAvatar.imageView.image = human.profilePic
 //            humanAvatar.reloadInputViews()
-//            
+//
 //            let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
 //            if let data = human.profilePic?.jpegData(compressionQuality: 1){
 //                let url = documents.appendingPathComponent("userSetProfilePic.jpeg")
@@ -47,13 +57,15 @@ struct botUser{
 //                    print("Unable to Write Data to Disk (\(error))")
 //                }
 //            }
+//
             
-            UserDefaults.standard.set(human.name, forKey: "userName")
-            UserDefaults.standard.set(human.personalQualities?[0], forKey: "userPersonality0")
-            UserDefaults.standard.set(human.personalQualities?[1], forKey: "userPersonality1")
-            UserDefaults.standard.set(human.personalQualities?[2], forKey: "userPersonality2")
-     
-        }
+            
+//            UserDefaults.standard.set(human.name, forKey: "userName")
+//            UserDefaults.standard.set(human.personalQualities?[0], forKey: "userPersonality0")
+//            UserDefaults.standard.set(human.personalQualities?[1], forKey: "userPersonality1")
+//            UserDefaults.standard.set(human.personalQualities?[2], forKey: "userPersonality2")
+//
+  }
     }
 }
 

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
             // MARK: Toggle here if you want to test the onboarding without manually resetting
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        // let launchedBefore = false
+        //let launchedBefore = false
         
         if launchedBefore{
             guard let windowScene = (scene as? UIWindowScene) else { return }

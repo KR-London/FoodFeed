@@ -42,8 +42,9 @@ class commentTableViewCell: UITableViewCell {
            reaction.setImage( UIImage(systemName: "suit.heart"),for: UIControl.State.normal)
         } else {
              reaction.setImage( UIImage(named: "341-3417063_herz-clipart.png"),for: UIControl.State.normal)
-            speechBubble.image = UIImage(named: "speechBubble.png") 
+            speechBubble.image = UIImage(named: "speechBubble.png")
         }
+        
         
         addSubview(contentView)
         contentView.frame = self.bounds

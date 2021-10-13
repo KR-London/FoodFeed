@@ -1,4 +1,10 @@
-[
+[{
+    "id": 20,
+    "hashtag": "Support",
+    "day": 2,
+    "caption": "What are nice things to eat for breakfast?",
+    "type": "Question"
+  },
   {
     "user": "Guy",
     "id": 0,
@@ -83,15 +89,13 @@
     "day": 2,
     "bigtext": "Wait a minute - how do you spell…."
   },
-  {
+    {
     "user": "Guy",
-    "id": 5,
-    "type": "Image",
+    "id": 6,
     "hashtag": "Look What I Made!",
+    "type": "Text",
     "day": 2,
-    "image": "📷 - sin - this - is",
-       "creator_credit" : "",
-    "source" : "unsplash"
+    "bigtext": "photo sin the this",
     "votea": "Fotosinthesis",
     "voteb": "Photosynthesis"
   },
