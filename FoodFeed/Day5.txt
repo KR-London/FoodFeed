@@ -382,7 +382,7 @@
     "day" : 5,
     "hashtag" : "Sad",
     "type" : "Question",
-    "bigtext" : "What does a perfect meal look like for you?"},   
+    "caption" : "What does a perfect meal look like for you?"},
   {
     "user" : "Guy",
     "day" : 5,
@@ -406,7 +406,7 @@
     "day" : 5,
     "hashtag" : "Sad",
     "type" : "Question",
-    "bigtext" : "What makes a meal fun for you?"}, 
+    "caption" : "What makes a meal fun for you?"}, 
    {
     "user" : "Guy",
     "day" : 5,

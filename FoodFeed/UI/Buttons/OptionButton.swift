@@ -28,7 +28,7 @@ class OptionButton: UIButton {
     }
     
     private var shadowLayer: CAShapeLayer!
-//
+
     public override var isHighlighted: Bool {
         didSet {
             if isPicked == false{
@@ -40,7 +40,7 @@ class OptionButton: UIButton {
         }
     }
 
-        // Bool property
+    // Bool property
     var isPicked: Bool = false {
         didSet {
             if isPicked == true {

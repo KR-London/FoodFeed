@@ -4,6 +4,7 @@
 //
 
 import UIKit
+let launchedBefore = true
 
 @available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,12 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
             // MARK: Toggle here if you want to test the onboarding without manually resetting
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        //let launchedBefore = false
+     //   let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+    
+        
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: windowScene)
+        window!.overrideUserInterfaceStyle = .light
+     
         
         if launchedBefore{
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            self.window = UIWindow(windowScene: windowScene)
+          //  guard let windowScene = (scene as? UIWindowScene) else { return }
+          //  self.window = UIWindow(windowScene: windowScene)
             
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
@@ -35,8 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
   
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            self.window = UIWindow(windowScene: windowScene)
+  
             
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene

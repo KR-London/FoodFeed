@@ -412,13 +412,68 @@ class PostView: UIView {
     }
     
     @objc func resetUserDefaults(sender: UIButton!) {
-        UserDefaults.standard.removeObject(forKey: "loginRecord")
-        UserDefaults.standard.removeObject(forKey: "following")
         UserDefaults.standard.removeObject(forKey: "launchedBefore")
+        UserDefaults.standard.removeObject(forKey: "loginRecord")
+        
         
         /// delete database
        day = 1
-        clearAllCoreData()
+        //clearAllCoreData()
+        
+        
+//        let viewController = LaunchScreenViewController()
+//        let navCtrl = UINavigationController(rootViewController: viewController)
+//
+//        guard
+//            let window = UIApplication.shared.keyWindow,
+//            let rootViewController = window.rootViewController
+//        else {
+//            return
+//        }
+//
+//        navCtrl.view.frame = rootViewController.view.frame
+//        navCtrl.view.layoutIfNeeded()
+//
+//        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
+//            window.rootViewController = navCtrl
+//        })
+        
+        
+       //  guard let windowScene = (scene as? UIWindowScene) else { return }
+       //  self.window = UIWindow(windowScene: windowScene)
+        
+        guard
+            let window = UIApplication.shared.keyWindow else {return}
+        
+       let frame = self.frame
+        
+        if launchedBefore{
+               
+           // window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            //window?.windowScene = windowScene
+            loadJSON()
+            self.window?.rootViewController = FeedPageViewController(frame: frame)
+            self.window?.makeKeyAndVisible()
+            
+        }
+        else
+        {
+         
+            UserDefaults.standard.removeObject(forKey: "following")
+        
+            
+            
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            
+            
+            
+          //  window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+          //  window?.windowScene = windowScene
+            self.window?.rootViewController = profileCreatorViewController(frame: frame)
+            
+            
+            self.window?.makeKeyAndVisible()
+        }
 
     }
 }

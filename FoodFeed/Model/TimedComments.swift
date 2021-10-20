@@ -76,11 +76,11 @@ class TimedComments: CommentProvider {
     
     var ladyBookComments = ["Large portions", "Pressure", "People watching", "Music", "Noise", "Food touching", "Hidden stuff in my food", "Nagging", "Smells", "Different plates"]
     var guyComments = ["Oh yes?", "More ideas?", "Ha ha!", "I feel understood!", "That drives me mad too!"]
-    
+
+    var currentCaption = ""
     let synthesizer = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
     
-    var currentCaption = ""
 
     init(){
         start()
@@ -88,18 +88,21 @@ class TimedComments: CommentProvider {
     
     func start()
     {
-        stop()
-        var i = 0
+
         utterance = AVSpeechUtterance(string: String(currentCaption.dropFirst().dropFirst()))
         let language = [AVSpeechSynthesisVoice(language: "en-AU"),AVSpeechSynthesisVoice(language: "en-GB"),AVSpeechSynthesisVoice(language: "en-IE"),AVSpeechSynthesisVoice(language: "en-US"),AVSpeechSynthesisVoice(language: "en-IN"), AVSpeechSynthesisVoice(language: "en-ZA")]
-            utterance.voice =  language.first!!
+        utterance.voice =  language.first!!
+        
+        stop()
+        var i = 0
+
         
         if  #available(iOS 13.0, *){
             synthesizer.speak(utterance)
         }
 
       
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true){ [weak self] tim in
+        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true){ [weak self] tim in
             if self?.storedComments.count ?? 0  % 5 == 0  {
                 if self?.currentCaption.isEmpty ?? false {
                     print("")
@@ -112,11 +115,11 @@ class TimedComments: CommentProvider {
                     
                     let say =  newComment.comment
 
-                    self!.utterance = AVSpeechUtterance(string: say)
-                    self!.utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
-                    if  #available(iOS 13.0, *){
-                        self!.synthesizer.speak( self!.utterance)
-                    }
+//                    self!.utterance = AVSpeechUtterance(string: say)
+//                    self!.utterance.voice =  AVSpeechSynthesisVoice(language: "en-AU")
+//                    if  #available(iOS 13.0, *){
+//                        self!.synthesizer.speak( self!.utterance)
+//                    }
                 }
 
             }
@@ -129,32 +132,32 @@ class TimedComments: CommentProvider {
 
                 let say =  newComment.comment
 
-                self!.utterance = AVSpeechUtterance(string: say)
-                self!.utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
-                self!.utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
-
-                switch bot.name{
-                    case botUser.alexis.name:
-                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-                        self!.utterance.pitchMultiplier = Float(1)
-                        self!.utterance.rate = Float(0.5)
-                    case botUser.emery.name:
-                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-                        self!.utterance.pitchMultiplier = Float(1.1)
-                        self!.utterance.rate = Float(0.4)
-                    case botUser.fred.name:
-                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-                        self!.utterance.pitchMultiplier = Float(1.4)
-                        self!.utterance.rate = Float(0.6)
-                    case botUser.tony.name:
-                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
-                        self!.utterance.pitchMultiplier = Float(1.5)
-                        self!.utterance.rate = Float(0.7)
-                    default:  self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
-                }
-                if  #available(iOS 13.0, *){
-                    self!.synthesizer.speak( self!.utterance)
-                }
+//                self!.utterance = AVSpeechUtterance(string: say)
+//                self!.utterance.pitchMultiplier = [Float(1), Float(1.1), Float(1.4), Float(1.5) ].randomElement()!
+//                self!.utterance.rate = [Float(0.5), Float(0.4),Float(0.6),Float(0.7)].randomElement()!
+//
+//                switch bot.name{
+//                    case botUser.alexis.name:
+//                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+//                        self!.utterance.pitchMultiplier = Float(1)
+//                        self!.utterance.rate = Float(0.5)
+//                    case botUser.emery.name:
+//                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//                        self!.utterance.pitchMultiplier = Float(1.1)
+//                        self!.utterance.rate = Float(0.4)
+//                    case botUser.fred.name:
+//                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
+//                        self!.utterance.pitchMultiplier = Float(1.4)
+//                        self!.utterance.rate = Float(0.6)
+//                    case botUser.tony.name:
+//                        self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-IN")
+//                        self!.utterance.pitchMultiplier = Float(1.5)
+//                        self!.utterance.rate = Float(0.7)
+//                    default:  self!.utterance.voice = AVSpeechSynthesisVoice(language: "en-AU")
+//                }
+//                if  #available(iOS 13.0, *){
+//                    self!.synthesizer.speak( self!.utterance)
+//                }
             }
             i += 1
         }
@@ -169,6 +172,7 @@ class TimedComments: CommentProvider {
     
     func stop(){
         self.timer?.invalidate()
+      
     }
     
     deinit{

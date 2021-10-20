@@ -14,13 +14,15 @@ var day = Int()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 var window: UIWindow?
+    
+ 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       
             // MARK: Toggle here if you want to test the onboarding without manually resetting
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-      //let launchedBefore = false
-        
+        //let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+      //  let launchedBefore = true
+    
       
         day = (((UserDefaults.standard.object(forKey: "loginRecord") as? [ Date ] )?.count ?? 1)  % 7 )
         
@@ -32,7 +34,7 @@ var window: UIWindow?
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
         
      // let day = 1
-      //  day = 1
+      //    day = 5
         UserDefaults.standard.set(day, forKey: "Day")
    
     if storyLoading == true{
